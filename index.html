@@ -33,7 +33,7 @@
     ></script>
   </head>
   <body
-    class="bg-neutral-950 text-white antialiased selection:bg-emerald-400/30"
+    class="bg-neutral-950 text-white antialiased selection:bg-emerald-400/30 overflow-x-hidden"
   >
     <!-- Navbar -->
     <header x-data="{ open:false }" class="sticky top-0 z-50">
@@ -41,14 +41,14 @@
         <div class="container mx-auto px-4">
           <div class="flex items-center justify-between py-3">
             <!-- Logo -->
-            <a href="#" class="flex items-center gap-3">
-             <img src="images/banner-img.png" alt="Bike Land"
-     class="h-16 sm:h-14 lg:h-16 w-auto" />
-
-              <span class="hidden sm:block font-extrabold tracking-wide"
-                >BIKE <span class="text-emerald-400">LAND</span></span
-              >
-            </a>
+          <a href="#" class="flex items-center gap-3">
+  <img src="images/banner-img.png" alt="Bike Land"
+       class="h-14 sm:h-16 w-auto" />
+  <span class="inline-block whitespace-nowrap font-extrabold tracking-wide
+               text-white text-sm sm:text-base">
+    BIKE <span class="text-emerald-400">LAND</span>
+  </span>
+</a>
 
             <!-- Desktop menu -->
             <ul class="hidden lg:flex items-center gap-8 font-semibold">
@@ -483,10 +483,10 @@ Events      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-
               
               <!-- سلايد 1 -->
               <div class="embla__slide flex-none relative">
-               <div class="about-vid w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]
+              <div class="about-vid w-[78vw] sm:w-[320px] md:w-[360px] lg:w-[380px] xl:w-[420px] max-w-[420px]
             rounded-2xl overflow-hidden">
-                  <video data-about preload="metadata" muted loop playsinline class="block w-full h-[420px] object-cover">
-                    <source src="videos/about2.mp4" type="video/mp4" />
+ <video data-about preload="metadata" muted loop playsinline
+         class="block w-full h-full object-cover">                    <source src="videos/about2.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2">
@@ -498,10 +498,10 @@ Events      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-
 
               <!-- سلايد 2 -->
               <div class="embla__slide flex-none relative">
-                <div class="about-vid w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]
+                <div class="about-vid w-[78vw] sm:w-[320px] md:w-[360px] lg:w-[380px] xl:w-[420px] max-w-[420px]
             rounded-2xl overflow-hidden">
-                  <video data-about preload="metadata" muted loop playsinline class="block w-full h-[420px] object-cover">
-                    <source src="videos/about3.mp4" type="video/mp4" />
+ <video data-about preload="metadata" muted loop playsinline
+         class="block w-full h-full object-cover">                    <source src="videos/about3.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2">
@@ -513,10 +513,10 @@ Events      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-
 
               <!-- سلايد 3 -->
               <div class="embla__slide flex-none relative">
-                <div class="about-vid w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]
+                <div class="about-vid w-[78vw] sm:w-[320px] md:w-[360px] lg:w-[380px] xl:w-[420px] max-w-[420px]
             rounded-2xl overflow-hidden">
-                  <video data-about preload="metadata" muted loop playsinline class="block w-full h-[420px] object-cover">
-                    <source src="videos/about4.mp4" type="video/mp4" />
+ <video data-about preload="metadata" muted loop playsinline
+         class="block w-full h-full object-cover">                    <source src="videos/about4.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2">
@@ -528,10 +528,10 @@ Events      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-
 
               <!-- سلايد 4 -->
               <div class="embla__slide flex-none relative">
-                <div class="about-vid w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]
+               <div class="about-vid w-[78vw] sm:w-[320px] md:w-[360px] lg:w-[380px] xl:w-[420px] max-w-[420px]
             rounded-2xl overflow-hidden">
-                  <video data-about preload="metadata" muted loop playsinline class="block w-full h-[420px] object-cover">
-                    <source src="videos/about5.mp4" type="video/mp4" />
+ <video data-about preload="metadata" muted loop playsinline
+         class="block w-full h-full object-cover">                    <source src="videos/about5.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2">
@@ -543,10 +543,10 @@ Events      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-
 
               <!-- سلايد 5 -->
               <div class="embla__slide flex-none relative">
-                <div class="about-vid w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]
+               <div class="about-vid w-[78vw] sm:w-[320px] md:w-[360px] lg:w-[380px] xl:w-[420px] max-w-[420px]
             rounded-2xl overflow-hidden">
-                  <video data-about preload="metadata" muted loop playsinline class="block w-full h-[420px] object-cover">
-                    <source src="videos/about6.mp4" type="video/mp4" />
+ <video data-about preload="metadata" muted loop playsinline
+         class="block w-full h-full object-cover">                    <source src="videos/about6.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2">
@@ -561,7 +561,7 @@ Events      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-
         </div>
 
         <!-- أزرار -->
-        <div class="controls mt-8 flex items-center justify-center gap-4">
+<div class="controls mt-6 sm:mt-8 flex items-center justify-center gap-3 sm:gap-4">
           <button id="aboutPrev" type="button" class="inline-flex items-center justify-center h-10 w-10 rounded-full ring-1 ring-white/10 hover:bg-white/5">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
           </button>
@@ -1201,6 +1201,39 @@ Events      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-
         border-radius: inherit;
         clip-path: inset(0 round inherit);
       }
+
+      /* المسافات والتجاوب */
+.about-embla{ --slide-spacing:22px; --gutter:14px; }
+@media (min-width:640px){ .about-embla{ --slide-spacing:28px; --gutter:20px; } }
+@media (min-width:1024px){ .about-embla{ --slide-spacing:32px; --gutter:24px; } }
+
+.about-embla .embla__viewport{ padding-inline: var(--gutter); }
+.about-embla .embla__container{ display:flex; }
+.about-embla .embla__slide{ flex:0 0 80%; padding-left: var(--slide-spacing); }
+@media (min-width:640px){ .about-embla .embla__slide{ flex-basis:58%; } }
+@media (min-width:1024px){ .about-embla .embla__slide{ flex-basis:36%; } }
+
+/* غلاف الفيديو بدون أي كرت أو ظل */
+.about-embla .about-vid{
+  position:relative;
+  width:100%;
+  aspect-ratio:9/16;       /* يحافظ على نسبة ستوري بالموبايل */
+  background:transparent;
+  border-radius:1rem;      /* rounded-2xl */
+  overflow:hidden;
+  -webkit-mask-image:-webkit-radial-gradient(white, black);
+  mask-image:radial-gradient(white, black);
+}
+
+/* الفيديو نفسه */
+.about-embla .about-vid > video{
+  display:block; width:100%; height:100%; object-fit:cover; border-radius:inherit;
+}
+
+/* شارة Now فقط للمركزي (اختياري) */
+.about-embla .now-badge{ display:none; }
+.about-embla .embla__slide.is-center .now-badge{ display:inline-flex; }
+
     </style>
   </body>
 </html>
