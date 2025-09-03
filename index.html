@@ -5,6 +5,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bike Land</title>
+    <!-- ====== HEAD (CSS) ====== -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+    <script
+      src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"
+      defer
+    ></script>
 
     <!-- Tailwind build output -->
     <link href="./dist/output.css" rel="stylesheet" />
@@ -440,50 +453,397 @@
       </div>
     </section>
 
+    <section id="events" class="container mx-auto px-4 py-20 bg-neutral-900/40">
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Events</h2>
+      <p class="text-white/70" data-aos="fade-up" data-aos-delay="150">…</p>
+    </section>
+
+    <!-- =================== About (center video + side videos slider) =================== -->
+
+    <!-- =================== About (Embla + GLightbox) =================== -->
+    <section id="about" class="container mx-auto px-4 pt-24 pb-28">
+      <!-- العنوان -->
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2
+          class="relative inline-block text-4xl font-extrabold tracking-tight"
+        >
+          About Bike Land
+          <span
+            class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"
+          ></span>
+        </h2>
+        <p class="mt-4 text-white/70">
+          Interactive cycling that turns motion into a show—perfect for events,
+          malls, schools, and activations.
+        </p>
+      </div>
+
+      <!-- كارد كبيرة بنفس روح بقية الكروت -->
+      <div
+        class="group relative rounded-3xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30"
+      >
+        <div
+          class="rounded-3xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur"
+        >
+          <div class="relative px-3 sm:px-6 py-10">
+            <!-- Embla -->
+            <div class="embla about-embla select-none">
+              <div id="aboutViewport" class="embla__viewport overflow-hidden">
+                <div class="embla__container flex items-center gap-6 sm:gap-8">
+                  <!-- ==== شريحة: كرّر 11 مرة مع تعديل src/poster ==== -->
+                  <!-- 1 -->
+                  <div class="embla__slide flex-none relative">
+                    <div
+                      class="video-card rounded-2xl border border-white/10 bg-neutral-900/70 shadow-xl overflow-hidden w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]"
+                    >
+                      <div class="aspect-[9/16] relative">
+                        <video
+                          data-about
+                          preload="metadata"
+                          muted
+                          loop
+                          playsinline
+                          class="w-full h-full object-cover"
+                        >
+                          <source src="videos/about1.mp4" type="video/mp4" />
+                        </video>
+                        <!-- زر لايت بوكس اختياري -->
+                        <a
+                          href="videos/about1.mp4"
+                          class="about-lightbox absolute inset-0"
+                          data-type="video"
+                          data-source="local"
+                          aria-label="Open video in lightbox"
+                        ></a>
+                      </div>
+                    </div>
+                    <div
+                      class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2"
+                    >
+                      <span
+                        class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
+                      >
+                        <span
+                          class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
+                        ></span>
+                        Now
+                      </span>
+                    </div>
+                  </div>
+                  <!-- 2 -->
+                  <div class="embla__slide flex-none relative">
+                    <div
+                      class="video-card rounded-2xl border border-white/10 bg-neutral-900/70 shadow-xl overflow-hidden w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]"
+                    >
+                      <div class="aspect-[9/16] relative">
+                        <video
+                          data-about
+                          preload="metadata"
+                          muted
+                          loop
+                          playsinline
+                          class="w-full h-full object-cover"
+                        >
+                          <source
+                            src="videos/about2.mp4"
+                            type="video/mp4"
+                          /></video
+                        ><a
+                          href="videos/about2.mp4"
+                          class="about-lightbox absolute inset-0"
+                          data-type="video"
+                          data-source="local"
+                        ></a>
+                      </div>
+                    </div>
+                    <div
+                      class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2"
+                    >
+                      <span
+                        class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
+                        ><span
+                          class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
+                        ></span>
+                        Now</span
+                      >
+                    </div>
+                  </div>
+                  <!-- 3 -->
+                  <div class="embla__slide flex-none relative">
+                    <div
+                      class="video-card rounded-2xl border border-white/10 bg-neutral-900/70 shadow-xl overflow-hidden w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]"
+                    >
+                      <div class="aspect-[9/16] relative">
+                        <video
+                          data-about
+                          preload="metadata"
+                          muted
+                          loop
+                          playsinline
+                          class="w-full h-full object-cover"
+                        >
+                          <source
+                            src="videos/about3.mp4"
+                            type="video/mp4"
+                          /></video
+                        ><a
+                          href="videos/about3.mp4"
+                          class="about-lightbox absolute inset-0"
+                          data-type="video"
+                          data-source="local"
+                        ></a>
+                      </div>
+                    </div>
+                    <div
+                      class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2"
+                    >
+                      <span
+                        class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
+                        ><span
+                          class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
+                        ></span>
+                        Now</span
+                      >
+                    </div>
+                  </div>
+                  <!-- 4 -->
+                  <div class="embla__slide flex-none relative">
+                    <div
+                      class="video-card rounded-2xl border border-white/10 bg-neutral-900/70 shadow-xl overflow-hidden w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]"
+                    >
+                      <div class="aspect-[9/16] relative">
+                        <video
+                          data-about
+                          preload="metadata"
+                          muted
+                          loop
+                          playsinline
+                          class="w-full h-full object-cover"
+                        >
+                          <source
+                            src="videos/about4.mp4"
+                            type="video/mp4"
+                          /></video
+                        ><a
+                          href="videos/about4.mp4"
+                          class="about-lightbox absolute inset-0"
+                          data-type="video"
+                          data-source="local"
+                        ></a>
+                      </div>
+                    </div>
+                    <div
+                      class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2"
+                    >
+                      <span
+                        class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
+                        ><span
+                          class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
+                        ></span>
+                        Now</span
+                      >
+                    </div>
+                  </div>
+                  <!-- 5 -->
+                  <div class="embla__slide flex-none relative">
+                    <div
+                      class="video-card rounded-2xl border border-white/10 bg-neutral-900/70 shadow-xl overflow-hidden w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]"
+                    >
+                      <div class="aspect-[9/16] relative">
+                        <video
+                          data-about
+                          preload="metadata"
+                          muted
+                          loop
+                          playsinline
+                          class="w-full h-full object-cover"
+                        >
+                          <source
+                            src="videos/about5.mp4"
+                            type="video/mp4"
+                          /></video
+                        ><a
+                          href="videos/about5.mp4"
+                          class="about-lightbox absolute inset-0"
+                          data-type="video"
+                          data-source="local"
+                        ></a>
+                      </div>
+                    </div>
+                    <div
+                      class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2"
+                    >
+                      <span
+                        class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
+                        ><span
+                          class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
+                        ></span>
+                        Now</span
+                      >
+                    </div>
+                  </div>
+                  <!-- 6 -->
+                  <div class="embla__slide flex-none relative">
+                    <div
+                      class="video-card rounded-2xl border border-white/10 bg-neutral-900/70 shadow-xl overflow-hidden w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]"
+                    >
+                      <div class="aspect-[9/16] relative">
+                        <video
+                          data-about
+                          preload="metadata"
+                          muted
+                          loop
+                          playsinline
+                          class="w-full h-full object-cover"
+                        >
+                          <source
+                            src="videos/about6.mp4"
+                            type="video/mp4"
+                          /></video
+                        ><a
+                          href="videos/about6.mp4"
+                          class="about-lightbox absolute inset-0"
+                          data-type="video"
+                          data-source="local"
+                        ></a>
+                      </div>
+                    </div>
+                    <div
+                      class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2"
+                    >
+                      <span
+                        class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
+                        ><span
+                          class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
+                        ></span>
+                        Now</span
+                      >
+                    </div>
+                  </div>
+                  <!-- 7 -->
+                  <!-- 8 -->
+                  <!-- 9 -->
+                  <!-- 10 -->
+                  <!-- 11 -->
+                  <!-- ==== نهاية الشرائح ==== -->
+                </div>
+              </div>
+            </div>
+
+            <!-- أزرار -->
+       <div class="controls mt-8 flex items-center justify-center gap-4 relative">
+  <button id="aboutPrev" type="button"
+          class="inline-flex items-center justify-center h-10 w-10 rounded-full ring-1 ring-white/10 hover:bg-white/5">
+    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+    </svg>
+  </button>
+  <button id="aboutNext" type="button"
+          class="inline-flex items-center justify-center h-10 w-10 rounded-full ring-1 ring-white/10 hover:bg-white/5">
+    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+    </svg>
+  </button>
+</div>
+
+
+            <!-- وصف تحت -->
+            <div class="mt-8 text-center max-w-2xl mx-auto">
+              <p class="text-white/70">
+                Head-to-head races, energy-powered smoothies, LED visuals, and
+                live stats—built for crowds and quick setups.
+              </p>
+              <div class="mt-6 flex flex-wrap justify-center gap-4">
+                <a
+                  href="#products"
+                  class="inline-flex items-center rounded-md px-5 py-3 font-semibold bg-emerald-500 hover:bg-emerald-400 text-neutral-900 shadow ring-1 ring-emerald-500/20 transition"
+                  >Explore Products</a
+                >
+                <a
+                  href="#contact"
+                  class="inline-flex items-center rounded-md px-5 py-3 font-semibold border border-white/20 hover:border-white/40 hover:bg-white/5 transition"
+                  >Book an Activation</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Badge تُعرض فقط على السلايد النشط -->
   
-    
-<section id="contact" class="container mx-auto px-4 py-24">
-  <div class="max-w-3xl mx-auto">
-    <h2 class="text-3xl font-extrabold mb-2" data-aos="fade-up">Contact / Booking</h2>
-    <p class="text-white/70 mb-8" data-aos="fade-up" data-aos-delay="120">
-      Tell us what you need and we’ll contact you shortly.
-    </p>
 
-    <form id="bookingForm" class="grid grid-cols-1 sm:grid-cols-2 gap-5"
-          data-aos="fade-up" data-aos-delay="200">
-      <!-- Full Name -->
-      <div class="sm:col-span-1">
-        <label class="block text-sm text-white/70 mb-1">Full Name</label>
-        <input type="text" name="name" required
-               class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
-                      outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-               placeholder="Your name">
-      </div>
+    <!-- =================== customers  =================== -->
 
-      <!-- Email -->
-      <div class="sm:col-span-1">
-        <label class="block text-sm text-white/70 mb-1">Email</label>
-        <input type="email" name="email" required
-               class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
-                      outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-               placeholder="name@example.com">
-      </div>
+    <section
+      id="customers"
+      class="container mx-auto px-4 py-20 bg-neutral-900/40"
+    >
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Our Customers</h2>
+      <p class="text-white/70" data-aos="fade-up" data-aos-delay="150">…</p>
+    </section>
 
-      <!-- Phone -->
-      <div class="sm:col-span-1">
-        <label class="block text-sm text-white/70 mb-1">Phone</label>
-        <input type="tel" name="phone" required
-               class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
-                      outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-               placeholder="+962 7x xxx xxxx">
-      </div>
+    <!-- =================== contact  =================== -->
 
-      <!-- Product (AlpineJS Listbox + hidden input) -->
-     <!-- Product (AlpineJS Listbox + hidden input) -->
-<div class="sm:col-span-1">
-  <label class="block text-sm text-white/70 mb-1">Product</label>
+    <section id="contact" class="container mx-auto px-4 py-24">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-extrabold mb-2" data-aos="fade-up">
+          Contact / Booking
+        </h2>
+        <p class="text-white/70 mb-8" data-aos="fade-up" data-aos-delay="120">
+          Tell us what you need and we’ll contact you shortly.
+        </p>
 
-  <div x-data="{
+        <form
+          id="bookingForm"
+          class="grid grid-cols-1 sm:grid-cols-2 gap-5"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <!-- Full Name -->
+          <div class="sm:col-span-1">
+            <label class="block text-sm text-white/70 mb-1">Full Name</label>
+            <input
+              type="text"
+              name="name"
+              required
+              class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+              placeholder="Your name"
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="sm:col-span-1">
+            <label class="block text-sm text-white/70 mb-1">Email</label>
+            <input
+              type="email"
+              name="email"
+              required
+              class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+              placeholder="name@example.com"
+            />
+          </div>
+
+          <!-- Phone -->
+          <div class="sm:col-span-1">
+            <label class="block text-sm text-white/70 mb-1">Phone</label>
+            <input
+              type="tel"
+              name="phone"
+              required
+              class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+              placeholder="+962 7x xxx xxxx"
+            />
+          </div>
+
+          <!-- Product (AlpineJS Listbox + hidden input) -->
+          <!-- Product (AlpineJS Listbox + hidden input) -->
+          <div class="sm:col-span-1">
+            <label class="block text-sm text-white/70 mb-1">Product</label>
+
+            <div
+              x-data="{
         open:false,
         selected:null,
         items:['🚴 Bike Blender','💡 Bike Beam'],
@@ -492,74 +852,106 @@
         pick(v){ this.selected=v; this.$refs.hidden.value=v; this.open=false; },
         clear(){ this.selected=null; this.$refs.hidden.value=''; }
       }"
-      @keydown.escape.window="open=false"
-      @clear-product.window="clear()"
-      class="relative" x-cloak>
+              @keydown.escape.window="open=false"
+              @clear-product.window="clear()"
+              class="relative"
+              x-cloak
+            >
+              <!-- القيمة التي تُرسل مع الفورم -->
+              <input type="hidden" name="product" x-ref="hidden" />
 
-    <!-- القيمة التي تُرسل مع الفورم -->
-    <input type="hidden" name="product" x-ref="hidden">
+              <!-- الزر -->
+              <button
+                type="button"
+                @click="open=!open"
+                class="w-full h-12 bg-white/5 border border-white/10 rounded-lg px-4 pr-10 flex items-center justify-between text-white outline-none focus:ring-2 focus:ring-emerald-500"
+              >
+                <span
+                  x-text="selected ?? placeholder"
+                  :class="selected ? '' : 'text-white/50'"
+                ></span>
+                <svg
+                  class="h-5 w-5 text-white/60 absolute right-3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
 
-    <!-- الزر -->
-    <button type="button" @click="open=!open"
-            class="w-full h-12 bg-white/5 border border-white/10 rounded-lg px-4 pr-10
-                   flex items-center justify-between text-white outline-none
-                   focus:ring-2 focus:ring-emerald-500">
-      <span x-text="selected ?? placeholder"
-            :class="selected ? '' : 'text-white/50'"></span>
-      <svg class="h-5 w-5 text-white/60 absolute right-3" xmlns="http://www.w3.org/2000/svg" fill="none"
-           viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-      </svg>
-    </button>
+              <!-- القائمة -->
+              <ul
+                x-show="open"
+                x-transition.origin.top
+                @click.outside="open=false"
+                class="absolute z-10 mt-2 w-full bg-neutral-900 border border-white/10 rounded-lg shadow-lg overflow-hidden"
+              >
+                <template x-for="(item, i) in items" :key="i">
+                  <li
+                    @click="pick(item)"
+                    class="px-4 py-2 cursor-pointer text-white/90 hover:bg-emerald-500 hover:text-black"
+                    :class="{'bg-neutral-800': selected===item}"
+                    x-text="item"
+                  ></li>
+                </template>
+              </ul>
+            </div>
+          </div>
 
-    <!-- القائمة -->
-    <ul x-show="open" x-transition.origin.top @click.outside="open=false"
-        class="absolute z-10 mt-2 w-full bg-neutral-900 border border-white/10 rounded-lg shadow-lg overflow-hidden">
-      <template x-for="(item, i) in items" :key="i">
-        <li @click="pick(item)"
-            class="px-4 py-2 cursor-pointer text-white/90 hover:bg-emerald-500 hover:text-black"
-            :class="{'bg-neutral-800': selected===item}"
-            x-text="item"></li>
-      </template>
-    </ul>
-  </div>
-</div>
+          <!-- Message -->
+          <div class="sm:col-span-2">
+            <label class="block text-sm text-white/70 mb-1">Message</label>
+            <textarea
+              name="message"
+              class="w-full min-h-[140px] rounded-lg bg-white/5 border border-white/10 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500 text-white resize-none"
+              placeholder="Tell us about your event or question..."
+            ></textarea>
+          </div>
 
+          <!-- Actions -->
+          <div class="sm:col-span-2 flex flex-wrap items-center gap-4">
+            <button
+              id="sendBtn"
+              type="submit"
+              class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold bg-emerald-500 text-neutral-900 ring-1 ring-emerald-500/20 hover:bg-emerald-400 transition"
+            >
+              Send Request
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </button>
 
-      <!-- Message -->
-      <div class="sm:col-span-2">
-        <label class="block text-sm text-white/70 mb-1">Message</label>
-        <textarea name="message"
-                  class="w-full min-h-[140px] rounded-lg bg-white/5 border border-white/10 px-4 py-3
-                         outline-none focus:ring-2 focus:ring-emerald-500 text-white resize-none"
-                  placeholder="Tell us about your event or question..."></textarea>
+            <a
+              id="waLink"
+              target="_blank"
+              class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold border border-white/15 hover:bg-white/5 transition"
+            >
+              WhatsApp
+            </a>
+
+            <span id="formStatus" class="text-sm"></span>
+          </div>
+        </form>
       </div>
-
-      <!-- Actions -->
-      <div class="sm:col-span-2 flex flex-wrap items-center gap-4">
-        <button id="sendBtn" type="submit"
-                class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold
-                       bg-emerald-500 text-neutral-900 ring-1 ring-emerald-500/20
-                       hover:bg-emerald-400 transition">
-          Send Request
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-               viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round"
-               stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </button>
-
-        <a id="waLink" target="_blank"
-           class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold
-                  border border-white/15 hover:bg-white/5 transition">
-          WhatsApp
-        </a>
-
-        <span id="formStatus" class="text-sm"></span>
-      </div>
-    </form>
-  </div>
-</section>
-
-
+    </section>
 
     <footer id="contact" class="border-t border-white/10" data-aos="fade-up">
       <div class="container mx-auto px-4 py-10">
@@ -579,204 +971,336 @@
         document.getElementById("y").textContent = new Date().getFullYear();
       </script>
     </footer>
-  </body>
-  <script src="https://unpkg.com/glightbox/dist/js/glightbox.min.js"></script>
-  <script>
-    window.lightbox = GLightbox({
-      selector: ".glightbox",
-      loop: true,
-      touchNavigation: true,
-      slideEffect: "slide",
-      zoomable: true,
-    });
-  </script>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const gallery = document.getElementById("blender-gallery");
-      if (!gallery) return;
+  (function initWhenReady() {
+    function init() {
+      const viewport = document.querySelector("#aboutViewport");
+      const prevBtn  = document.getElementById("aboutPrev");
+      const nextBtn  = document.getElementById("aboutNext");
 
-      const base = "images/bikeblender";
-      const max = 100; // غيّرها حسب أكبر رقم عندك
+      if (!window.EmblaCarousel) { console.error("Embla لم يُحمّل"); return; }
+      if (!viewport)            { console.error("#aboutViewport غير موجود"); return; }
 
-      const tryAdd = (url) =>
-        new Promise((resolve) => {
-          const img = new Image();
-          img.onload = () => {
-            const a = document.createElement("a");
-            a.href = url;
-            a.className = "glightbox hidden";
-            a.setAttribute("data-gallery", "blender");
-            gallery.appendChild(a);
-            resolve(true);
-          };
-          img.onerror = () => resolve(false);
-          img.src = url;
-        });
+      const embla = EmblaCarousel(viewport, {
+        loop: true,
+        align: "center",
+        containScroll: "trimSnaps",
+        dragFree: false,
+        skipSnaps: false,
+      });
 
-      (async () => {
-        // من 2 لأن 1.png مربوط بزر Show More
-        for (let i = 2; i <= max; i++) {
-          if (await tryAdd(`${base}/${i}.png`)) continue;
-          await tryAdd(`${base}/${i}.jpg`);
-        }
-        // حدّث اللايتبوكس بعد إضافة العناصر
-        if (window.lightbox && window.lightbox.reload) window.lightbox.reload();
-      })();
-    });
-  </script>
+      const originals = embla.slideNodes(); // للأحداث (hover/click)
 
-  <script>
-    // يولّد بقية صور جاليري الـ Blender تلقائياً بامتداد .png
-    (async function buildBlenderGallery() {
-      const gallery = document.getElementById("blender-gallery");
-      if (!gallery) return;
+      // --------- مظهر: السلايد المركزي يكبر فقط ----------
+      const BASE_SCALE   = 0.92;
+      const ACTIVE_SCALE = 1.05;
+      let rafId = null;
 
-      const base = "images/bikeblender";
-      const maxNumber = 100;
+      function updateVisualAndPlayback() {
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+          const allSlides = Array.from(viewport.querySelectorAll(".embla__slide")); // مع الـclones
+          const vp = viewport.getBoundingClientRect();
+          const vpCenterX = vp.left + vp.width / 2;
 
-      // نبلّش من 2 لأن 1.png مربوط بزر Show More
-      for (let i = 100; i <= maxNumber; i++) {
-        const url = `${base}/${i}.png`;
-        try {
-          const res = await fetch(url, { method: "HEAD" });
-          if (res.ok) {
-            const a = document.createElement("a");
-            a.href = url;
-            a.className = "glightbox hidden";
-            a.setAttribute("data-gallery", "blender");
-            gallery.appendChild(a);
+          // ابحث عن أقرب سلايد لمركز الـviewport
+          let centerEl = null, minDist = Infinity;
+          for (const el of allSlides) {
+            const r  = el.getBoundingClientRect();
+            const cx = r.left + r.width / 2;
+            const d  = Math.abs(cx - vpCenterX);
+            if (d < minDist) { minDist = d; centerEl = el; }
           }
-        } catch (_) {
-          /* تجاهل غير الموجود */
-        }
+
+          // صغّر الجميع، كبّر المركزي فقط
+          allSlides.forEach((el) => {
+            const card = el.querySelector(".video-card");
+            if (card) {
+              card.style.transition = "transform .35s cubic-bezier(.2,.8,.2,1), opacity .35s";
+              card.style.transform  = `scale(${BASE_SCALE})`;
+              card.style.opacity    = "0.85";
+            }
+            el.classList.remove("is-center");
+          });
+
+          if (centerEl) {
+            const card = centerEl.querySelector(".video-card");
+            if (card) {
+              card.style.transform = `scale(${ACTIVE_SCALE})`;
+              card.style.opacity   = "1";
+            }
+            centerEl.classList.add("is-center");
+          }
+
+          // تشغيل الفيديو للمركزي فقط
+          viewport.querySelectorAll("video[data-about]").forEach(v => { try { v.pause(); } catch(_){} });
+          const activeVideo = centerEl?.querySelector("video[data-about]");
+          if (activeVideo) activeVideo.play().catch(()=>{});
+        });
       }
 
-      // أعِد تهيئة GLightbox بعد ما أضفنا روابط جديدة للدوم
-      if (window.GLightbox) GLightbox({ selector: ".glightbox" });
-    })();
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const beamBtn = document.getElementById("beam-show");
-      const beamWrap = document.getElementById("beam-gallery");
-      if (!beamBtn || !beamWrap) return;
+      // وقف الكل أثناء السحب (اختياري)
+      embla.on("pointerDown", () => {
+        viewport.querySelectorAll("video[data-about]").forEach(v => { try { v.pause(); } catch(_){} });
+      });
 
-      const base = "images/bikebeam"; // ← هنا التعديل المهم
-      const max = 100;
+      // حدّث المظهر والتشغيل عند التهيئة/إعادة التهيئة/الاختيار والتمرير
+      const refresh = () => updateVisualAndPlayback();
+      embla.on("init", refresh);
+      embla.on("reInit", refresh);
+      embla.on("select", refresh);
+      embla.on("scroll", () => updateVisualAndPlayback());
+      window.addEventListener("resize", refresh);
 
-      const exists = (url) =>
-        new Promise((res) => {
-          const img = new Image();
-          img.onload = () => res(true);
-          img.onerror = () => res(false);
-          img.src = url;
-        });
+      // الوقوف/النقر يسنتر
+      originals.forEach((slide, i) => {
+        const go = () => embla.scrollTo(i);
+        slide.addEventListener("mouseenter", go, { passive: true });
+        slide.addEventListener("click", go, { passive: true });
+      });
 
-      const addAnchor = (url) => {
-        const a = document.createElement("a");
-        a.href = url;
-        a.className = "glightbox hidden";
-        a.setAttribute("data-gallery", "beam");
-        beamWrap.appendChild(a);
-      };
+      // عجلة الماوس
+      viewport.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+        delta > 0 ? embla.scrollNext() : embla.scrollPrev();
+      }, { passive: false });
 
-      (async () => {
-        // اضبط أول صورة للزر: جرّب .jpg ثم .png
-        if (await exists(`${base}/1.jpg`)) {
-          beamBtn.href = `${base}/1.jpg`;
-        } else if (await exists(`${base}/1.png`)) {
-          beamBtn.href = `${base}/1.png`;
-        } else {
-          beamBtn.removeAttribute("href");
-          beamBtn.setAttribute("disabled", "disabled");
-          beamBtn.classList.add("opacity-60", "cursor-not-allowed");
-          return;
-        }
-
-        // بقية الصور من 2..max (جرّب .jpg ثم .png)
-        for (let i = 2; i <= max; i++) {
-          const jpg = `${base}/${i}.jpg`;
-          const png = `${base}/${i}.png`;
-          if (await exists(jpg)) {
-            addAnchor(jpg);
-            continue;
-          }
-          if (await exists(png)) {
-            addAnchor(png);
-            continue;
-          }
-        }
-
-        // حدّث اللايتبوكس
-        if (window.lightbox && window.lightbox.reload) window.lightbox.reload();
-      })();
-    });
-  </script>
-
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 900,
-      once: true,
-      easing: "ease-out-quart",
-      offset: 0,
-      anchorPlacement: "top-bottom",
-    });
-  </script>
-
-  <!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  // بدّل القيم الثلاثة حسب حسابك
-  const EMAILJS_PUBLIC_KEY = "_ecATDJabzum4O0qM";
-  const EMAILJS_SERVICE_ID = "service_mg6d3i9";
-  const EMAILJS_TEMPLATE_ID = "template_wcyodge";
-
-  (function(){ emailjs.init(EMAILJS_PUBLIC_KEY); })();
-
-  // واتساب لينك ديناميكي
-  const waLink = document.getElementById('waLink');
-  waLink.href = "https://wa.me/962786009370?text=" + encodeURIComponent("Hi, I'm interested in Bike Land.");
-
-  const form = document.getElementById('bookingForm');
-  const btn  = document.getElementById('sendBtn');
-  const status = document.getElementById('formStatus');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    status.textContent = "";
-    btn.disabled = true;
-    btn.classList.add('opacity-60','cursor-not-allowed');
-
-    const data = Object.fromEntries(new FormData(form).entries());
-    const params = {
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      product: data.product,
-      message: data.message || '',
-      // لو بدك تضيف وقت/صفحة
-      page: location.href,
-      time: new Date().toLocaleString()
-    };
-
-    try {
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
-      status.textContent = "Sent! We’ll contact you shortly.";
-      status.className = "text-emerald-400 text-sm";
-      form.reset();
-    } catch(err) {
-      console.error(err);
-      status.textContent = "Failed to send. Try WhatsApp or later.";
-      status.className = "text-red-400 text-sm";
-    } finally {
-      btn.disabled = false;
-      btn.classList.remove('opacity-60','cursor-not-allowed');
+      // الأزرار
+      prevBtn?.addEventListener("click", (e) => { e.preventDefault(); embla.scrollPrev(); });
+      nextBtn?.addEventListener("click", (e) => { e.preventDefault(); embla.scrollNext(); });
     }
-    window.dispatchEvent(new CustomEvent('clear-product'));
 
-  });
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
 </script>
 
+    <script>
+      window.lightbox = GLightbox({
+        selector: ".glightbox",
+        loop: true,
+        touchNavigation: true,
+        slideEffect: "slide",
+        zoomable: true,
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const gallery = document.getElementById("blender-gallery");
+        if (!gallery) return;
+
+        const base = "images/bikeblender";
+        const max = 100; // غيّرها حسب أكبر رقم عندك
+
+        const tryAdd = (url) =>
+          new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => {
+              const a = document.createElement("a");
+              a.href = url;
+              a.className = "glightbox hidden";
+              a.setAttribute("data-gallery", "blender");
+              gallery.appendChild(a);
+              resolve(true);
+            };
+            img.onerror = () => resolve(false);
+            img.src = url;
+          });
+
+        (async () => {
+          // من 2 لأن 1.png مربوط بزر Show More
+          for (let i = 2; i <= max; i++) {
+            if (await tryAdd(`${base}/${i}.png`)) continue;
+            await tryAdd(`${base}/${i}.jpg`);
+          }
+          // حدّث اللايتبوكس بعد إضافة العناصر
+          if (window.lightbox && window.lightbox.reload)
+            window.lightbox.reload();
+        })();
+      });
+    </script>
+
+    <script>
+      // يولّد بقية صور جاليري الـ Blender تلقائياً بامتداد .png
+      (async function buildBlenderGallery() {
+        const gallery = document.getElementById("blender-gallery");
+        if (!gallery) return;
+
+        const base = "images/bikeblender";
+        const maxNumber = 100;
+
+        // نبلّش من 2 لأن 1.png مربوط بزر Show More
+        for (let i = 100; i <= maxNumber; i++) {
+          const url = `${base}/${i}.png`;
+          try {
+            const res = await fetch(url, { method: "HEAD" });
+            if (res.ok) {
+              const a = document.createElement("a");
+              a.href = url;
+              a.className = "glightbox hidden";
+              a.setAttribute("data-gallery", "blender");
+              gallery.appendChild(a);
+            }
+          } catch (_) {
+            /* تجاهل غير الموجود */
+          }
+        }
+
+        // أعِد تهيئة GLightbox بعد ما أضفنا روابط جديدة للدوم
+        if (window.GLightbox) GLightbox({ selector: ".glightbox" });
+      })();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const beamBtn = document.getElementById("beam-show");
+        const beamWrap = document.getElementById("beam-gallery");
+        if (!beamBtn || !beamWrap) return;
+
+        const base = "images/bikebeam"; // ← هنا التعديل المهم
+        const max = 100;
+
+        const exists = (url) =>
+          new Promise((res) => {
+            const img = new Image();
+            img.onload = () => res(true);
+            img.onerror = () => res(false);
+            img.src = url;
+          });
+
+        const addAnchor = (url) => {
+          const a = document.createElement("a");
+          a.href = url;
+          a.className = "glightbox hidden";
+          a.setAttribute("data-gallery", "beam");
+          beamWrap.appendChild(a);
+        };
+
+        (async () => {
+          // اضبط أول صورة للزر: جرّب .jpg ثم .png
+          if (await exists(`${base}/1.jpg`)) {
+            beamBtn.href = `${base}/1.jpg`;
+          } else if (await exists(`${base}/1.png`)) {
+            beamBtn.href = `${base}/1.png`;
+          } else {
+            beamBtn.removeAttribute("href");
+            beamBtn.setAttribute("disabled", "disabled");
+            beamBtn.classList.add("opacity-60", "cursor-not-allowed");
+            return;
+          }
+
+          // بقية الصور من 2..max (جرّب .jpg ثم .png)
+          for (let i = 2; i <= max; i++) {
+            const jpg = `${base}/${i}.jpg`;
+            const png = `${base}/${i}.png`;
+            if (await exists(jpg)) {
+              addAnchor(jpg);
+              continue;
+            }
+            if (await exists(png)) {
+              addAnchor(png);
+              continue;
+            }
+          }
+
+          // حدّث اللايتبوكس
+          if (window.lightbox && window.lightbox.reload)
+            window.lightbox.reload();
+        })();
+      });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 900,
+        once: true,
+        easing: "ease-out-quart",
+        offset: 0,
+        anchorPlacement: "top-bottom",
+      });
+    </script>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      // بدّل القيم الثلاثة حسب حسابك
+      const EMAILJS_PUBLIC_KEY = "_ecATDJabzum4O0qM";
+      const EMAILJS_SERVICE_ID = "service_mg6d3i9";
+      const EMAILJS_TEMPLATE_ID = "template_wcyodge";
+
+      (function () {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+      })();
+
+      // واتساب لينك ديناميكي
+      const waLink = document.getElementById("waLink");
+      waLink.href =
+        "https://wa.me/962786009370?text=" +
+        encodeURIComponent("Hi, I'm interested in Bike Land.");
+
+      const form = document.getElementById("bookingForm");
+      const btn = document.getElementById("sendBtn");
+      const status = document.getElementById("formStatus");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        status.textContent = "";
+        btn.disabled = true;
+        btn.classList.add("opacity-60", "cursor-not-allowed");
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        const params = {
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          product: data.product,
+          message: data.message || "",
+          // لو بدك تضيف وقت/صفحة
+          page: location.href,
+          time: new Date().toLocaleString(),
+        };
+
+        try {
+          await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
+          status.textContent = "Sent! We’ll contact you shortly.";
+          status.className = "text-emerald-400 text-sm";
+          form.reset();
+        } catch (err) {
+          console.error(err);
+          status.textContent = "Failed to send. Try WhatsApp or later.";
+          status.className = "text-red-400 text-sm";
+        } finally {
+          btn.disabled = false;
+          btn.classList.remove("opacity-60", "cursor-not-allowed");
+        }
+        window.dispatchEvent(new CustomEvent("clear-product"));
+      });
+    </script>
+<style>
+  .about-embla .now-badge { display: none; }
+  .about-embla .embla__slide.is-center .now-badge { display: inline-flex; }
+
+  /* تأكيد طبقات/سلوك أساسي */
+  .embla__viewport { overflow: hidden; }
+  .embla__container { display: flex; }
+  .embla__slide { flex: 0 0 auto; }
+
+    .about-embla .video-card{
+    transform: scale(.92);
+    opacity: .85;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), opacity .35s;
+  }
+  .about-embla .embla__slide.is-center .video-card{
+    transform: scale(1.05);
+    opacity: 1;
+  }
+</style>
+
+  </body>
 </html>
