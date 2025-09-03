@@ -1,0 +1,801 @@
+<!-- File: index.html -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bike Land</title>
+
+    <!-- Tailwind build output -->
+    <link href="./dist/output.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/glightbox/dist/css/glightbox.min.css"
+    />
+    <!-- AlpineJS (للقائمة بالموبايل) -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body
+    class="bg-neutral-950 text-white antialiased selection:bg-emerald-400/30"
+  >
+    <!-- Navbar -->
+    <header x-data="{ open:false }" class="sticky top-0 z-50">
+      <nav class="backdrop-blur bg-neutral-900/70 border-b border-white/5">
+        <div class="container mx-auto px-4">
+          <div class="flex items-center justify-between py-3">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3">
+              <img
+                src="images/banner-img.png"
+                alt="Bike Land"
+                class="h-14 w-auto"
+              />
+              <span class="hidden sm:block font-extrabold tracking-wide"
+                >BIKE <span class="text-emerald-400">LAND</span></span
+              >
+            </a>
+
+            <!-- Desktop menu -->
+            <ul class="hidden lg:flex items-center gap-8 font-semibold">
+              <li>
+                <a class="text-white/90 hover:text-white transition" href="#"
+                  >HOME</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-white/70 hover:text-white transition"
+                  href="#products"
+                  >PRODUCTS</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-white/70 hover:text-white transition"
+                  href="#events"
+                  >EVENTS</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-white/70 hover:text-white transition"
+                  href="#about"
+                  >ABOUT</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-white/70 hover:text-white transition"
+                  href="#customers"
+                  >OUR CUSTOMERS</a
+                >
+              </li>
+            </ul>
+
+            <!-- Contact + burger -->
+            <div class="flex items-center gap-3">
+              <a
+                href="#contact"
+                class="hidden sm:inline-flex items-center rounded-full px-5 py-2.5 font-semibold shadow-sm ring-1 ring-emerald-500/20 bg-emerald-500 hover:bg-emerald-400 text-neutral-900 transition"
+              >
+                Contact Us
+              </a>
+
+              <!-- Burger -->
+              <button
+                @click="open=!open"
+                class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md ring-1 ring-white/10 hover:bg-white/5"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.7"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile menu -->
+          <div
+            x-show="open"
+            x-transition.origin.top.left
+            class="lg:hidden pb-3"
+          >
+            <ul class="space-y-1 font-semibold">
+              <li>
+                <a class="block rounded-md px-3 py-2 hover:bg-white/5" href="#"
+                  >HOME</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block rounded-md px-3 py-2 hover:bg-white/5"
+                  href="#products"
+                  >PRODUCTS</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block rounded-md px-3 py-2 hover:bg-white/5"
+                  href="#events"
+                  >EVENTS</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block rounded-md px-3 py-2 hover:bg-white/5"
+                  href="#about"
+                  >ABOUT</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block rounded-md px-3 py-2 hover:bg-white/5"
+                  href="#customers"
+                  >OUR CUSTOMERS</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block rounded-md px-3 py-2 hover:bg-white/5"
+                  href="#contact"
+                  >CONTACT</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section
+      class="relative min-h-screen grid place-items-center overflow-hidden"
+    >
+      <img
+        src="./images/banner-bg.png"
+        alt=""
+        class="absolute inset-0 h-full w-full object-cover"
+        data-aos="zoom-out"
+        data-aos-duration="1200"
+      />
+
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"
+        data-aos="fade"
+        data-aos-delay="150"
+      ></div>
+
+      <div class="relative container mx-auto px-4 py-24" id="heroAnchor">
+        <div class="max-w-2xl">
+          <h1
+            class="text-5xl sm:text-6xl font-extrabold leading-tight drop-shadow-lg"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-anchor="#heroAnchor"
+          >
+            When Fitness<br class="hidden sm:block" />
+            Meets Fun
+          </h1>
+
+          <p
+            class="mt-5 text-lg sm:text-xl text-white/80"
+            data-aos="fade-up"
+            data-aos-delay="250"
+            data-aos-anchor="#heroAnchor"
+          >
+            Ride, compete, and glow. Bike Land turns cycling into a show—LED
+            visuals, live stats, and pure adrenaline.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a
+              href="#products"
+              class="inline-flex items-center rounded-md px-5 py-3 font-semibold bg-emerald-500 hover:bg-emerald-400 text-neutral-900 shadow ring-1 ring-emerald-500/20 transition"
+              data-aos="zoom-in"
+              data-aos-delay="400"
+              data-aos-anchor="#heroAnchor"
+            >
+              Explore Products
+            </a>
+            <a
+              href="#events"
+              class="inline-flex items-center rounded-md px-5 py-3 font-semibold border border-white/20 hover:border-white/40 hover:bg-white/5 transition"
+              data-aos="zoom-in"
+              data-aos-delay="550"
+              data-aos-anchor="#heroAnchor"
+            >
+              Upcoming Events
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products (fixed) -->
+    <section id="products" class="container mx-auto px-4 py-24">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2
+          class="relative inline-block text-4xl font-extrabold tracking-tight"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
+          Our Products
+          <span
+            class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"
+          ></span>
+        </h2>
+      </div>
+
+      <div class="space-y-12 max-w-5xl mx-auto">
+        <!-- ===== Card 1 ===== -->
+        <article
+          data-aos="fade-right"
+          data-aos-anchor-placement="top-bottom"
+          class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2"
+        >
+          <div
+            class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur"
+          >
+            <div
+              class="absolute left-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"
+              data-aos="fade-down"
+              data-aos-delay="150"
+            ></div>
+
+            <div
+              class="flex flex-col md:flex-row items-stretch md:min-h-[260px]"
+            >
+              <div
+                class="md:w-1/2 flex items-center justify-center p-6"
+                data-aos="zoom-in"
+                data-aos-delay="200"
+              >
+                <div
+                  class="h-56 md:h-60 w-full max-w-[420px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-2 shadow-lg"
+                  data-aos="fade-up"
+                  data-aos-delay="280"
+                >
+                  <img
+                    src="./images/products/bikeblender.png"
+                    alt="Bike Blender"
+                    class="w-full h-full object-contain rounded-lg transition duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+              </div>
+
+              <div
+                class="md:w-1/2 p-6 sm:p-8 flex flex-col justify-center"
+                data-aos="fade-left"
+                data-aos-delay="280"
+              >
+                <div
+                  class="flex items-center gap-3"
+                  data-aos="fade-up"
+                  data-aos-delay="320"
+                >
+                  <span
+                    class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold"
+                    >01</span
+                  >
+                  <h3
+                    class="text-2xl font-extrabold group-hover:text-emerald-400 transition"
+                  >
+                    Bike Blender
+                  </h3>
+                </div>
+                <p
+                  class="mt-4 text-white/80 leading-relaxed"
+                  data-aos="fade-up"
+                  data-aos-delay="420"
+                >
+                  A fun, interactive ride where your pedaling powers a real
+                  blender—mix smoothies, juice, or mini-game actions right on
+                  the spot.
+                </p>
+                <div class="mt-6" data-aos="zoom-in" data-aos-delay="520">
+                  <!-- زر بعينه يفتح أول صورة ويحتفظ بشكل الزر -->
+                  <!-- زر Show More (يفتح أول صورة) -->
+                  <a
+                    href="images/bikeblender/1.png"
+                    class="glightbox inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all"
+                    data-gallery="blender"
+                    role="button"
+                  >
+                    Show More
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </a>
+
+                  <!-- مكان إضافة بقية الصور تلقائيًا -->
+                  <div id="blender-gallery"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- ===== Card 2 (معكوس) ===== -->
+        <article
+          data-aos="fade-left"
+          data-aos-anchor-placement="top-bottom"
+          class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2"
+        >
+          <!-- نفس المحتوى الداخلي -->
+          <div
+            class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur"
+          >
+            <div
+              class="absolute right-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"
+              data-aos="fade-down"
+              data-aos-delay="150"
+            ></div>
+
+            <div
+              class="flex flex-col md:flex-row-reverse items-stretch md:min-h-[260px]"
+            >
+              <div
+                class="md:w-1/2 flex items-center justify-center p-6"
+                data-aos="zoom-in"
+                data-aos-delay="200"
+              >
+                <div
+                  class="h-56 md:h-60 w-full max-w-[420px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-2 shadow-lg"
+                  data-aos="fade-up"
+                  data-aos-delay="280"
+                >
+                  <img
+                    src="./images/products/bikebeam.png"
+                    alt="Bike Beam"
+                    class="w-full h-full object-contain rounded-lg transition duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+              </div>
+
+              <div
+                class="md:w-1/2 p-6 sm:p-8 flex flex-col justify-center"
+                data-aos="fade-right"
+                data-aos-delay="280"
+              >
+                <div
+                  class="flex items-center gap-3"
+                  data-aos="fade-up"
+                  data-aos-delay="320"
+                >
+                  <span
+                    class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold"
+                    >02</span
+                  >
+                  <h3
+                    class="text-2xl font-extrabold group-hover:text-emerald-400 transition"
+                  >
+                    Bike Beam
+                  </h3>
+                </div>
+                <p
+                  class="mt-4 text-white/80 leading-relaxed"
+                  data-aos="fade-up"
+                  data-aos-delay="420"
+                >
+                  A two-player race with a rising LED beam in front of you—push
+                  faster, climb higher, and hit the top to win. Crowd-pleasing,
+                  fast, and bright.
+                </p>
+                <div class="mt-6" data-aos="zoom-in" data-aos-delay="520">
+                  <a
+                    id="beam-show"
+                    href="images/bikebeam/1.jpg"
+                    class="glightbox inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all"
+                    data-gallery="beam"
+                    role="button"
+                  >
+                    Show More
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </a>
+
+                  <div id="beam-gallery"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="events" class="container mx-auto px-4 py-20 bg-neutral-900/40">
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Events</h2>
+      <p class="text-white/70" data-aos="fade-up" data-aos-delay="150">…</p>
+    </section>
+
+    <section id="about" class="container mx-auto px-4 py-20">
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">About</h2>
+      <p class="text-white/70" data-aos="fade-up" data-aos-delay="150">…</p>
+    </section>
+
+    <section
+      id="customers"
+      class="container mx-auto px-4 py-20 bg-neutral-900/40"
+    >
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Our Customers</h2>
+      <p class="text-white/70" data-aos="fade-up" data-aos-delay="150">…</p>
+    </section>
+
+
+
+    
+<section id="contact" class="container mx-auto px-4 py-24">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-3xl font-extrabold mb-2" data-aos="fade-up">Contact / Booking</h2>
+    <p class="text-white/70 mb-8" data-aos="fade-up" data-aos-delay="120">
+      Tell us what you need and we’ll contact you shortly.
+    </p>
+
+    <form id="bookingForm" class="grid grid-cols-1 sm:grid-cols-2 gap-5"
+          data-aos="fade-up" data-aos-delay="200">
+      <!-- Full Name -->
+      <div class="sm:col-span-1">
+        <label class="block text-sm text-white/70 mb-1">Full Name</label>
+        <input type="text" name="name" required
+               class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
+                      outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+               placeholder="Your name">
+      </div>
+
+      <!-- Email -->
+      <div class="sm:col-span-1">
+        <label class="block text-sm text-white/70 mb-1">Email</label>
+        <input type="email" name="email" required
+               class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
+                      outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+               placeholder="name@example.com">
+      </div>
+
+      <!-- Phone -->
+      <div class="sm:col-span-1">
+        <label class="block text-sm text-white/70 mb-1">Phone</label>
+        <input type="tel" name="phone" required
+               class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
+                      outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+               placeholder="+962 7x xxx xxxx">
+      </div>
+
+      <!-- Product (AlpineJS Listbox + hidden input) -->
+     <!-- Product (AlpineJS Listbox + hidden input) -->
+<div class="sm:col-span-1">
+  <label class="block text-sm text-white/70 mb-1">Product</label>
+
+  <div x-data="{
+        open:false,
+        selected:null,
+        items:['🚴 Bike Blender','💡 Bike Beam'],
+
+        placeholder:'Select a product',
+        pick(v){ this.selected=v; this.$refs.hidden.value=v; this.open=false; },
+        clear(){ this.selected=null; this.$refs.hidden.value=''; }
+      }"
+      @keydown.escape.window="open=false"
+      @clear-product.window="clear()"
+      class="relative" x-cloak>
+
+    <!-- القيمة التي تُرسل مع الفورم -->
+    <input type="hidden" name="product" x-ref="hidden">
+
+    <!-- الزر -->
+    <button type="button" @click="open=!open"
+            class="w-full h-12 bg-white/5 border border-white/10 rounded-lg px-4 pr-10
+                   flex items-center justify-between text-white outline-none
+                   focus:ring-2 focus:ring-emerald-500">
+      <span x-text="selected ?? placeholder"
+            :class="selected ? '' : 'text-white/50'"></span>
+      <svg class="h-5 w-5 text-white/60 absolute right-3" xmlns="http://www.w3.org/2000/svg" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </button>
+
+    <!-- القائمة -->
+    <ul x-show="open" x-transition.origin.top @click.outside="open=false"
+        class="absolute z-10 mt-2 w-full bg-neutral-900 border border-white/10 rounded-lg shadow-lg overflow-hidden">
+      <template x-for="(item, i) in items" :key="i">
+        <li @click="pick(item)"
+            class="px-4 py-2 cursor-pointer text-white/90 hover:bg-emerald-500 hover:text-black"
+            :class="{'bg-neutral-800': selected===item}"
+            x-text="item"></li>
+      </template>
+    </ul>
+  </div>
+</div>
+
+
+      <!-- Message -->
+      <div class="sm:col-span-2">
+        <label class="block text-sm text-white/70 mb-1">Message</label>
+        <textarea name="message"
+                  class="w-full min-h-[140px] rounded-lg bg-white/5 border border-white/10 px-4 py-3
+                         outline-none focus:ring-2 focus:ring-emerald-500 text-white resize-none"
+                  placeholder="Tell us about your event or question..."></textarea>
+      </div>
+
+      <!-- Actions -->
+      <div class="sm:col-span-2 flex flex-wrap items-center gap-4">
+        <button id="sendBtn" type="submit"
+                class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold
+                       bg-emerald-500 text-neutral-900 ring-1 ring-emerald-500/20
+                       hover:bg-emerald-400 transition">
+          Send Request
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round"
+               stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+
+        <a id="waLink" target="_blank"
+           class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold
+                  border border-white/15 hover:bg-white/5 transition">
+          WhatsApp
+        </a>
+
+        <span id="formStatus" class="text-sm"></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+
+    <footer id="contact" class="border-t border-white/10" data-aos="fade-up">
+      <div class="container mx-auto px-4 py-10">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
+          <p class="text-white/60">© <span id="y"></span> Bike Land</p>
+          <a
+            href="mailto:info@bikeland.example"
+            class="text-emerald-400 hover:text-emerald-300 font-semibold"
+            >info@bikeland.example</a
+          >
+        </div>
+      </div>
+
+      <script>
+        document.getElementById("y").textContent = new Date().getFullYear();
+      </script>
+    </footer>
+  </body>
+  <script src="https://unpkg.com/glightbox/dist/js/glightbox.min.js"></script>
+  <script>
+    window.lightbox = GLightbox({
+      selector: ".glightbox",
+      loop: true,
+      touchNavigation: true,
+      slideEffect: "slide",
+      zoomable: true,
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const gallery = document.getElementById("blender-gallery");
+      if (!gallery) return;
+
+      const base = "images/bikeblender";
+      const max = 100; // غيّرها حسب أكبر رقم عندك
+
+      const tryAdd = (url) =>
+        new Promise((resolve) => {
+          const img = new Image();
+          img.onload = () => {
+            const a = document.createElement("a");
+            a.href = url;
+            a.className = "glightbox hidden";
+            a.setAttribute("data-gallery", "blender");
+            gallery.appendChild(a);
+            resolve(true);
+          };
+          img.onerror = () => resolve(false);
+          img.src = url;
+        });
+
+      (async () => {
+        // من 2 لأن 1.png مربوط بزر Show More
+        for (let i = 2; i <= max; i++) {
+          if (await tryAdd(`${base}/${i}.png`)) continue;
+          await tryAdd(`${base}/${i}.jpg`);
+        }
+        // حدّث اللايتبوكس بعد إضافة العناصر
+        if (window.lightbox && window.lightbox.reload) window.lightbox.reload();
+      })();
+    });
+  </script>
+
+  <script>
+    // يولّد بقية صور جاليري الـ Blender تلقائياً بامتداد .png
+    (async function buildBlenderGallery() {
+      const gallery = document.getElementById("blender-gallery");
+      if (!gallery) return;
+
+      const base = "images/bikeblender";
+      const maxNumber = 100;
+
+      // نبلّش من 2 لأن 1.png مربوط بزر Show More
+      for (let i = 100; i <= maxNumber; i++) {
+        const url = `${base}/${i}.png`;
+        try {
+          const res = await fetch(url, { method: "HEAD" });
+          if (res.ok) {
+            const a = document.createElement("a");
+            a.href = url;
+            a.className = "glightbox hidden";
+            a.setAttribute("data-gallery", "blender");
+            gallery.appendChild(a);
+          }
+        } catch (_) {
+          /* تجاهل غير الموجود */
+        }
+      }
+
+      // أعِد تهيئة GLightbox بعد ما أضفنا روابط جديدة للدوم
+      if (window.GLightbox) GLightbox({ selector: ".glightbox" });
+    })();
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const beamBtn = document.getElementById("beam-show");
+      const beamWrap = document.getElementById("beam-gallery");
+      if (!beamBtn || !beamWrap) return;
+
+      const base = "images/bikebeam"; // ← هنا التعديل المهم
+      const max = 100;
+
+      const exists = (url) =>
+        new Promise((res) => {
+          const img = new Image();
+          img.onload = () => res(true);
+          img.onerror = () => res(false);
+          img.src = url;
+        });
+
+      const addAnchor = (url) => {
+        const a = document.createElement("a");
+        a.href = url;
+        a.className = "glightbox hidden";
+        a.setAttribute("data-gallery", "beam");
+        beamWrap.appendChild(a);
+      };
+
+      (async () => {
+        // اضبط أول صورة للزر: جرّب .jpg ثم .png
+        if (await exists(`${base}/1.jpg`)) {
+          beamBtn.href = `${base}/1.jpg`;
+        } else if (await exists(`${base}/1.png`)) {
+          beamBtn.href = `${base}/1.png`;
+        } else {
+          beamBtn.removeAttribute("href");
+          beamBtn.setAttribute("disabled", "disabled");
+          beamBtn.classList.add("opacity-60", "cursor-not-allowed");
+          return;
+        }
+
+        // بقية الصور من 2..max (جرّب .jpg ثم .png)
+        for (let i = 2; i <= max; i++) {
+          const jpg = `${base}/${i}.jpg`;
+          const png = `${base}/${i}.png`;
+          if (await exists(jpg)) {
+            addAnchor(jpg);
+            continue;
+          }
+          if (await exists(png)) {
+            addAnchor(png);
+            continue;
+          }
+        }
+
+        // حدّث اللايتبوكس
+        if (window.lightbox && window.lightbox.reload) window.lightbox.reload();
+      })();
+    });
+  </script>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      once: true,
+      easing: "ease-out-quart",
+      offset: 0,
+      anchorPlacement: "top-bottom",
+    });
+  </script>
+
+  <!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // بدّل القيم الثلاثة حسب حسابك
+  const EMAILJS_PUBLIC_KEY = "_ecATDJabzum4O0qM";
+  const EMAILJS_SERVICE_ID = "service_mg6d3i9";
+  const EMAILJS_TEMPLATE_ID = "template_wcyodge";
+
+  (function(){ emailjs.init(EMAILJS_PUBLIC_KEY); })();
+
+  // واتساب لينك ديناميكي
+  const waLink = document.getElementById('waLink');
+  waLink.href = "https://wa.me/962786009370?text=" + encodeURIComponent("Hi, I'm interested in Bike Land.");
+
+  const form = document.getElementById('bookingForm');
+  const btn  = document.getElementById('sendBtn');
+  const status = document.getElementById('formStatus');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.textContent = "";
+    btn.disabled = true;
+    btn.classList.add('opacity-60','cursor-not-allowed');
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    const params = {
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      product: data.product,
+      message: data.message || '',
+      // لو بدك تضيف وقت/صفحة
+      page: location.href,
+      time: new Date().toLocaleString()
+    };
+
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
+      status.textContent = "Sent! We’ll contact you shortly.";
+      status.className = "text-emerald-400 text-sm";
+      form.reset();
+    } catch(err) {
+      console.error(err);
+      status.textContent = "Failed to send. Try WhatsApp or later.";
+      status.className = "text-red-400 text-sm";
+    } finally {
+      btn.disabled = false;
+      btn.classList.remove('opacity-60','cursor-not-allowed');
+    }
+    window.dispatchEvent(new CustomEvent('clear-product'));
+
+  });
+</script>
+
+</html>
