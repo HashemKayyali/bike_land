@@ -42,11 +42,9 @@
           <div class="flex items-center justify-between py-3">
             <!-- Logo -->
             <a href="#" class="flex items-center gap-3">
-              <img
-                src="images/banner-img.png"
-                alt="Bike Land"
-                class="h-14 w-auto"
-              />
+             <img src="images/banner-img.png" alt="Bike Land"
+     class="h-16 sm:h-14 lg:h-16 w-auto" />
+
               <span class="hidden sm:block font-extrabold tracking-wide"
                 >BIKE <span class="text-emerald-400">LAND</span></span
               >
@@ -453,326 +451,141 @@
       </div>
     </section>
 
-    <section id="events" class="container mx-auto px-4 py-20 bg-neutral-900/40">
+    <!-- <section id="events" class="container mx-auto px-4 py-20 bg-neutral-900/40">
       <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Events</h2>
       <p class="text-white/70" data-aos="fade-up" data-aos-delay="150">…</p>
-    </section>
+    </section> -->
 
     <!-- =================== About (center video + side videos slider) =================== -->
 
-    <!-- =================== About (Embla + GLightbox) =================== -->
-    <section id="about" class="container mx-auto px-4 pt-24 pb-28">
-      <!-- العنوان -->
-      <div class="text-center max-w-2xl mx-auto mb-14">
-        <h2
-          class="relative inline-block text-4xl font-extrabold tracking-tight"
-        >
-          About Bike Land
-          <span
-            class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"
-          ></span>
-        </h2>
-        <p class="mt-4 text-white/70">
-          Interactive cycling that turns motion into a show—perfect for events,
-          malls, schools, and activations.
-        </p>
-      </div>
+ <section data-aos="fade-in" id="about" class="container mx-auto px-4 pt-24 pb-28">
+  <!-- العنوان -->
+  <div class="text-center max-w-2xl mx-auto mb-14">
+    <h2 class="relative inline-block text-4xl font-extrabold tracking-tight">
+Events      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
+    </h2>
+    <p class="mt-4 text-white/70">
+      Interactive cycling that turns motion into a show—perfect for events, malls, schools, and activations.
+    </p>
+  </div>
 
-      <!-- كارد كبيرة بنفس روح بقية الكروت -->
-      <div
-        class="group relative rounded-3xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30"
-      >
-        <div
-          class="rounded-3xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur"
-        >
-          <div class="relative px-3 sm:px-6 py-10">
-            <!-- Embla -->
-            <div class="embla about-embla select-none">
-              <div id="aboutViewport" class="embla__viewport overflow-hidden">
-                <div class="embla__container flex items-center gap-6 sm:gap-8">
-                  <!-- ==== شريحة: كرّر 11 مرة مع تعديل src/poster ==== -->
-                  <!-- 1 -->
-                  <div class="embla__slide flex-none relative">
-                    <div
-                      class="video-card rounded-2xl border border-white/10 bg-neutral-900/70 shadow-xl overflow-hidden w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]"
-                    >
-                      <div class="aspect-[9/16] relative">
-                        <video
-                          data-about
-                          preload="metadata"
-                          muted
-                          loop
-                          playsinline
-                          class="w-full h-full object-cover"
-                        >
-                          <source src="videos/about1.mp4" type="video/mp4" />
-                        </video>
-                        <!-- زر لايت بوكس اختياري -->
-                        <a
-                          href="videos/about1.mp4"
-                          class="about-lightbox absolute inset-0"
-                          data-type="video"
-                          data-source="local"
-                          aria-label="Open video in lightbox"
-                        ></a>
-                      </div>
-                    </div>
-                    <div
-                      class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2"
-                    >
-                      <span
-                        class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
-                      >
-                        <span
-                          class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
-                        ></span>
-                        Now
-                      </span>
-                    </div>
-                  </div>
-                  <!-- 2 -->
-                  <div class="embla__slide flex-none relative">
-                    <div
-                      class="video-card rounded-2xl border border-white/10 bg-neutral-900/70 shadow-xl overflow-hidden w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]"
-                    >
-                      <div class="aspect-[9/16] relative">
-                        <video
-                          data-about
-                          preload="metadata"
-                          muted
-                          loop
-                          playsinline
-                          class="w-full h-full object-cover"
-                        >
-                          <source
-                            src="videos/about2.mp4"
-                            type="video/mp4"
-                          /></video
-                        ><a
-                          href="videos/about2.mp4"
-                          class="about-lightbox absolute inset-0"
-                          data-type="video"
-                          data-source="local"
-                        ></a>
-                      </div>
-                    </div>
-                    <div
-                      class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2"
-                    >
-                      <span
-                        class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
-                        ><span
-                          class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
-                        ></span>
-                        Now</span
-                      >
-                    </div>
-                  </div>
-                  <!-- 3 -->
-                  <div class="embla__slide flex-none relative">
-                    <div
-                      class="video-card rounded-2xl border border-white/10 bg-neutral-900/70 shadow-xl overflow-hidden w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]"
-                    >
-                      <div class="aspect-[9/16] relative">
-                        <video
-                          data-about
-                          preload="metadata"
-                          muted
-                          loop
-                          playsinline
-                          class="w-full h-full object-cover"
-                        >
-                          <source
-                            src="videos/about3.mp4"
-                            type="video/mp4"
-                          /></video
-                        ><a
-                          href="videos/about3.mp4"
-                          class="about-lightbox absolute inset-0"
-                          data-type="video"
-                          data-source="local"
-                        ></a>
-                      </div>
-                    </div>
-                    <div
-                      class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2"
-                    >
-                      <span
-                        class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
-                        ><span
-                          class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
-                        ></span>
-                        Now</span
-                      >
-                    </div>
-                  </div>
-                  <!-- 4 -->
-                  <div class="embla__slide flex-none relative">
-                    <div
-                      class="video-card rounded-2xl border border-white/10 bg-neutral-900/70 shadow-xl overflow-hidden w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]"
-                    >
-                      <div class="aspect-[9/16] relative">
-                        <video
-                          data-about
-                          preload="metadata"
-                          muted
-                          loop
-                          playsinline
-                          class="w-full h-full object-cover"
-                        >
-                          <source
-                            src="videos/about4.mp4"
-                            type="video/mp4"
-                          /></video
-                        ><a
-                          href="videos/about4.mp4"
-                          class="about-lightbox absolute inset-0"
-                          data-type="video"
-                          data-source="local"
-                        ></a>
-                      </div>
-                    </div>
-                    <div
-                      class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2"
-                    >
-                      <span
-                        class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
-                        ><span
-                          class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
-                        ></span>
-                        Now</span
-                      >
-                    </div>
-                  </div>
-                  <!-- 5 -->
-                  <div class="embla__slide flex-none relative">
-                    <div
-                      class="video-card rounded-2xl border border-white/10 bg-neutral-900/70 shadow-xl overflow-hidden w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]"
-                    >
-                      <div class="aspect-[9/16] relative">
-                        <video
-                          data-about
-                          preload="metadata"
-                          muted
-                          loop
-                          playsinline
-                          class="w-full h-full object-cover"
-                        >
-                          <source
-                            src="videos/about5.mp4"
-                            type="video/mp4"
-                          /></video
-                        ><a
-                          href="videos/about5.mp4"
-                          class="about-lightbox absolute inset-0"
-                          data-type="video"
-                          data-source="local"
-                        ></a>
-                      </div>
-                    </div>
-                    <div
-                      class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2"
-                    >
-                      <span
-                        class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
-                        ><span
-                          class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
-                        ></span>
-                        Now</span
-                      >
-                    </div>
-                  </div>
-                  <!-- 6 -->
-                  <div class="embla__slide flex-none relative">
-                    <div
-                      class="video-card rounded-2xl border border-white/10 bg-neutral-900/70 shadow-xl overflow-hidden w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]"
-                    >
-                      <div class="aspect-[9/16] relative">
-                        <video
-                          data-about
-                          preload="metadata"
-                          muted
-                          loop
-                          playsinline
-                          class="w-full h-full object-cover"
-                        >
-                          <source
-                            src="videos/about6.mp4"
-                            type="video/mp4"
-                          /></video
-                        ><a
-                          href="videos/about6.mp4"
-                          class="about-lightbox absolute inset-0"
-                          data-type="video"
-                          data-source="local"
-                        ></a>
-                      </div>
-                    </div>
-                    <div
-                      class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2"
-                    >
-                      <span
-                        class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
-                        ><span
-                          class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
-                        ></span>
-                        Now</span
-                      >
-                    </div>
-                  </div>
-                  <!-- 7 -->
-                  <!-- 8 -->
-                  <!-- 9 -->
-                  <!-- 10 -->
-                  <!-- 11 -->
-                  <!-- ==== نهاية الشرائح ==== -->
+  <!-- نفس ستايل كروت Our Products بالضبط -->
+  <article class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2">
+    <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur">
+      <!-- شريط جانبي رفيع مثل الكروت -->
+      <div class="absolute left-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"></div>
+
+      <div class="relative px-3 sm:px-6 py-10">
+        <!-- Embla -->
+        <div class="embla about-embla select-none">
+          <div id="aboutViewport" class="embla__viewport overflow-hidden">
+            <div class="embla__container">
+              
+              <!-- سلايد 1 -->
+              <div class="embla__slide flex-none relative">
+               <div class="about-vid w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]
+            rounded-2xl overflow-hidden">
+                  <video data-about preload="metadata" muted loop playsinline class="block w-full h-[420px] object-cover">
+                    <source src="videos/about2.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <div class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2">
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30">
+                    <span class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"></span> Now
+                  </span>
                 </div>
               </div>
-            </div>
 
-            <!-- أزرار -->
-       <div class="controls mt-8 flex items-center justify-center gap-4 relative">
-  <button id="aboutPrev" type="button"
-          class="inline-flex items-center justify-center h-10 w-10 rounded-full ring-1 ring-white/10 hover:bg-white/5">
-    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-    </svg>
-  </button>
-  <button id="aboutNext" type="button"
-          class="inline-flex items-center justify-center h-10 w-10 rounded-full ring-1 ring-white/10 hover:bg-white/5">
-    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-    </svg>
-  </button>
-</div>
-
-
-            <!-- وصف تحت -->
-            <div class="mt-8 text-center max-w-2xl mx-auto">
-              <p class="text-white/70">
-                Head-to-head races, energy-powered smoothies, LED visuals, and
-                live stats—built for crowds and quick setups.
-              </p>
-              <div class="mt-6 flex flex-wrap justify-center gap-4">
-                <a
-                  href="#products"
-                  class="inline-flex items-center rounded-md px-5 py-3 font-semibold bg-emerald-500 hover:bg-emerald-400 text-neutral-900 shadow ring-1 ring-emerald-500/20 transition"
-                  >Explore Products</a
-                >
-                <a
-                  href="#contact"
-                  class="inline-flex items-center rounded-md px-5 py-3 font-semibold border border-white/20 hover:border-white/40 hover:bg-white/5 transition"
-                  >Book an Activation</a
-                >
+              <!-- سلايد 2 -->
+              <div class="embla__slide flex-none relative">
+                <div class="about-vid w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]
+            rounded-2xl overflow-hidden">
+                  <video data-about preload="metadata" muted loop playsinline class="block w-full h-[420px] object-cover">
+                    <source src="videos/about3.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <div class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2">
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30">
+                    <span class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"></span> Now
+                  </span>
+                </div>
               </div>
+
+              <!-- سلايد 3 -->
+              <div class="embla__slide flex-none relative">
+                <div class="about-vid w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]
+            rounded-2xl overflow-hidden">
+                  <video data-about preload="metadata" muted loop playsinline class="block w-full h-[420px] object-cover">
+                    <source src="videos/about4.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <div class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2">
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30">
+                    <span class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"></span> Now
+                  </span>
+                </div>
+              </div>
+
+              <!-- سلايد 4 -->
+              <div class="embla__slide flex-none relative">
+                <div class="about-vid w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]
+            rounded-2xl overflow-hidden">
+                  <video data-about preload="metadata" muted loop playsinline class="block w-full h-[420px] object-cover">
+                    <source src="videos/about5.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <div class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2">
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30">
+                    <span class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"></span> Now
+                  </span>
+                </div>
+              </div>
+
+              <!-- سلايد 5 -->
+              <div class="embla__slide flex-none relative">
+                <div class="about-vid w-[70vw] sm:w-[300px] md:w-[340px] lg:w-[380px] xl:w-[420px] max-w-[420px]
+            rounded-2xl overflow-hidden">
+                  <video data-about preload="metadata" muted loop playsinline class="block w-full h-[420px] object-cover">
+                    <source src="videos/about6.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <div class="now-badge absolute -bottom-6 left-1/2 -translate-x-1/2">
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30">
+                    <span class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"></span> Now
+                  </span>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Badge تُعرض فقط على السلايد النشط -->
-  
+        <!-- أزرار -->
+        <div class="controls mt-8 flex items-center justify-center gap-4">
+          <button id="aboutPrev" type="button" class="inline-flex items-center justify-center h-10 w-10 rounded-full ring-1 ring-white/10 hover:bg-white/5">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button id="aboutNext" type="button" class="inline-flex items-center justify-center h-10 w-10 rounded-full ring-1 ring-white/10 hover:bg-white/5">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <!-- وصف تحت -->
+        <div class="mt-8 text-center max-w-2xl mx-auto">
+          <p class="text-white/70">
+            Head-to-head races, energy-powered smoothies, LED visuals, and live stats—built for crowds and quick setups.
+          </p>
+          <div class="mt-6 flex flex-wrap justify-center gap-4">
+            <a href="#products" class="inline-flex items-center rounded-md px-5 py-3 font-semibold bg-emerald-500 hover:bg-emerald-400 text-neutral-900 shadow ring-1 ring-emerald-500/20 transition">Explore Products</a>
+            <a href="#contact" class="inline-flex items-center rounded-md px-5 py-3 font-semibold border border-white/20 hover:border-white/40 hover:bg-white/5 transition">Book an Activation</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </article>
+</section>
+
 
     <!-- =================== customers  =================== -->
 
@@ -972,113 +785,135 @@
       </script>
     </footer>
 
-  <script>
-  (function initWhenReady() {
-    function init() {
-      const viewport = document.querySelector("#aboutViewport");
-      const prevBtn  = document.getElementById("aboutPrev");
-      const nextBtn  = document.getElementById("aboutNext");
+    <script>
+      (function initWhenReady() {
+        function init() {
+          const viewport = document.querySelector("#aboutViewport");
+          const prevBtn = document.getElementById("aboutPrev");
+          const nextBtn = document.getElementById("aboutNext");
 
-      if (!window.EmblaCarousel) { console.error("Embla لم يُحمّل"); return; }
-      if (!viewport)            { console.error("#aboutViewport غير موجود"); return; }
-
-      const embla = EmblaCarousel(viewport, {
-        loop: true,
-        align: "center",
-        containScroll: "trimSnaps",
-        dragFree: false,
-        skipSnaps: false,
-      });
-
-      const originals = embla.slideNodes(); // للأحداث (hover/click)
-
-      // --------- مظهر: السلايد المركزي يكبر فقط ----------
-      const BASE_SCALE   = 0.92;
-      const ACTIVE_SCALE = 1.05;
-      let rafId = null;
-
-      function updateVisualAndPlayback() {
-        cancelAnimationFrame(rafId);
-        rafId = requestAnimationFrame(() => {
-          const allSlides = Array.from(viewport.querySelectorAll(".embla__slide")); // مع الـclones
-          const vp = viewport.getBoundingClientRect();
-          const vpCenterX = vp.left + vp.width / 2;
-
-          // ابحث عن أقرب سلايد لمركز الـviewport
-          let centerEl = null, minDist = Infinity;
-          for (const el of allSlides) {
-            const r  = el.getBoundingClientRect();
-            const cx = r.left + r.width / 2;
-            const d  = Math.abs(cx - vpCenterX);
-            if (d < minDist) { minDist = d; centerEl = el; }
+          if (!window.EmblaCarousel) {
+            console.error("Embla لم يُحمّل");
+            return;
+          }
+          if (!viewport) {
+            console.error("#aboutViewport غير موجود");
+            return;
           }
 
-          // صغّر الجميع، كبّر المركزي فقط
-          allSlides.forEach((el) => {
-            const card = el.querySelector(".video-card");
-            if (card) {
-              card.style.transition = "transform .35s cubic-bezier(.2,.8,.2,1), opacity .35s";
-              card.style.transform  = `scale(${BASE_SCALE})`;
-              card.style.opacity    = "0.85";
-            }
-            el.classList.remove("is-center");
+          const embla = EmblaCarousel(viewport, {
+            loop: true,
+            align: "center",
+            containScroll: "trimSnaps",
+            dragFree: false,
+            skipSnaps: false,
           });
 
-          if (centerEl) {
-            const card = centerEl.querySelector(".video-card");
-            if (card) {
-              card.style.transform = `scale(${ACTIVE_SCALE})`;
-              card.style.opacity   = "1";
-            }
-            centerEl.classList.add("is-center");
+          const originals = embla.slideNodes();
+
+          // إعدادات التدرّج
+          const ACTIVE_SCALE = 1.08; // أكبر حجم في المركز
+          const MIN_SCALE = 0.86; // أصغر حجم بالبعد
+          const FALLOFF_PX = 520; // مدى التأثير بالبيكسل
+          const OPACITY_MIN = 0.65; // أقل شفافية بعيدًا (عدّلها أو احذف تطبيقها)
+
+          let rafId = null;
+
+          function updateByDistance() {
+            cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(() => {
+              const slides = Array.from(
+                viewport.querySelectorAll(".embla__slide")
+              ); // مع clones
+              const vpRect = viewport.getBoundingClientRect();
+              const vpCx = vpRect.left + vpRect.width / 2;
+
+              let centerEl = null,
+                minDist = Infinity;
+              slides.forEach((el) => {
+                const r = el.getBoundingClientRect();
+                const cx = r.left + r.width / 2;
+                const d = Math.abs(cx - vpCx);
+                if (d < minDist) {
+                  minDist = d;
+                  centerEl = el;
+                }
+              });
+
+              slides.forEach((el) => {
+                const r = el.getBoundingClientRect();
+                const cx = r.left + r.width / 2;
+                const dist = Math.abs(cx - vpCx);
+
+                const t = Math.min(1, dist / FALLOFF_PX);
+                const ease = t * t;
+
+                const scale = ACTIVE_SCALE - (ACTIVE_SCALE - MIN_SCALE) * ease;
+                const opacity = 1 - (1 - OPACITY_MIN) * ease;
+
+                const vid = el.querySelector("video[data-about]");
+                if (vid) {
+                  vid.style.transform = `scale(${scale.toFixed(3)})`;
+                  vid.style.opacity = opacity.toFixed(3);
+                }
+              });
+
+              slides.forEach((el) => el.classList.remove("is-center"));
+              if (centerEl) centerEl.classList.add("is-center");
+
+              // شغّل فيديو المركزي فقط
+              viewport.querySelectorAll("video[data-about]").forEach((v) => {
+                try {
+                  v.pause();
+                } catch (_) {}
+              });
+              const active = centerEl?.querySelector("video[data-about]");
+              if (active) active.play().catch(() => {});
+            });
           }
 
-          // تشغيل الفيديو للمركزي فقط
-          viewport.querySelectorAll("video[data-about]").forEach(v => { try { v.pause(); } catch(_){} });
-          const activeVideo = centerEl?.querySelector("video[data-about]");
-          if (activeVideo) activeVideo.play().catch(()=>{});
-        });
-      }
+          embla.on("pointerDown", () => {
+            viewport.querySelectorAll("video[data-about]").forEach((v) => {
+              try {
+                v.pause();
+              } catch (_) {}
+            });
+          });
 
-      // وقف الكل أثناء السحب (اختياري)
-      embla.on("pointerDown", () => {
-        viewport.querySelectorAll("video[data-about]").forEach(v => { try { v.pause(); } catch(_){} });
-      });
+          const refresh = () => updateByDistance();
+          embla.on("init", refresh);
+          embla.on("reInit", refresh);
+          embla.on("select", refresh);
+          embla.on("scroll", updateByDistance);
+          embla.on("settle", refresh);
+          window.addEventListener("resize", refresh);
 
-      // حدّث المظهر والتشغيل عند التهيئة/إعادة التهيئة/الاختيار والتمرير
-      const refresh = () => updateVisualAndPlayback();
-      embla.on("init", refresh);
-      embla.on("reInit", refresh);
-      embla.on("select", refresh);
-      embla.on("scroll", () => updateVisualAndPlayback());
-      window.addEventListener("resize", refresh);
+          // النقر/الوقوف يسنتر
+          originals.forEach((slide, i) => {
+            const go = () => embla.scrollTo(i);
+            slide.addEventListener("mouseenter", go, { passive: true });
+            slide.addEventListener("click", go, { passive: true });
+          });
 
-      // الوقوف/النقر يسنتر
-      originals.forEach((slide, i) => {
-        const go = () => embla.scrollTo(i);
-        slide.addEventListener("mouseenter", go, { passive: true });
-        slide.addEventListener("click", go, { passive: true });
-      });
+          // عجلة الماوس
+          
 
-      // عجلة الماوس
-      viewport.addEventListener("wheel", (e) => {
-        e.preventDefault();
-        const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-        delta > 0 ? embla.scrollNext() : embla.scrollPrev();
-      }, { passive: false });
+          // أزرار
+          prevBtn?.addEventListener("click", (e) => {
+            e.preventDefault();
+            embla.scrollPrev();
+          });
+          nextBtn?.addEventListener("click", (e) => {
+            e.preventDefault();
+            embla.scrollNext();
+          });
+        }
 
-      // الأزرار
-      prevBtn?.addEventListener("click", (e) => { e.preventDefault(); embla.scrollPrev(); });
-      nextBtn?.addEventListener("click", (e) => { e.preventDefault(); embla.scrollNext(); });
-    }
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", init);
-    } else {
-      init();
-    }
-  })();
-</script>
+        if (document.readyState === "loading")
+          document.addEventListener("DOMContentLoaded", init);
+        else init();
+      })();
+    </script>
 
     <script>
       window.lightbox = GLightbox({
@@ -1282,25 +1117,90 @@
         window.dispatchEvent(new CustomEvent("clear-product"));
       });
     </script>
-<style>
-  .about-embla .now-badge { display: none; }
-  .about-embla .embla__slide.is-center .now-badge { display: inline-flex; }
+    <style>
+      /* Badge للمركزي */
+      .about-embla .now-badge {
+        display: none;
+      }
+      .about-embla .embla__slide.is-center .now-badge {
+        display: inline-flex;
+      }
 
-  /* تأكيد طبقات/سلوك أساسي */
-  .embla__viewport { overflow: hidden; }
-  .embla__container { display: flex; }
-  .embla__slide { flex: 0 0 auto; }
+      /* أساسيات Embla */
+      .embla__viewport {
+        overflow: hidden;
+      }
+      .embla__container {
+        display: flex;
+      }
+      .embla__slide {
+        flex: 0 0 auto;
+      }
 
-    .about-embla .video-card{
-    transform: scale(.92);
-    opacity: .85;
-    transition: transform .35s cubic-bezier(.2,.8,.2,1), opacity .35s;
-  }
-  .about-embla .embla__slide.is-center .video-card{
-    transform: scale(1.05);
-    opacity: 1;
-  }
-</style>
+      /* مسافات + متغيرات نصف القطر */
+      .about-embla {
+        --slide-spacing: 50px;
+        --gutter: 12px;
+        --vid-radius: 16px; /* زوايا كل الفيديوهات */
+        --vid-radius-active: 20px; /* زوايا المركزي */
+      }
+      @media (min-width: 640px) {
+        .about-embla {
+          --slide-spacing: 32px;
+          --gutter: 16px;
+        }
+      }
+      .about-embla .embla__viewport {
+        padding-inline: var(--gutter);
+      }
+      .about-embla .embla__container {
+        margin-left: calc(var(--slide-spacing) * -1);
+      }
+      .about-embla .embla__slide {
+        padding-left: var(--slide-spacing);
+      }
 
+      /* الغلاف الذي نكبّره/نقصّه – يُستخدم مع كل الشرائح */
+      .about-embla .about-vid {
+        position: relative;
+        display: block;
+        width: 80%;
+        aspect-ratio: 9/16;
+        transform-origin: center;
+        transform: scale(1);
+        opacity: 1;
+        transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+          box-shadow 0.35s, border-radius 0.35s, opacity 0.35s;
+        will-change: transform;
+        backface-visibility: hidden;
+
+        /* الزوايا الناعمة لكل الشرائح */
+        border-radius: var(--vid-radius);
+        overflow: hidden; /* أهم سطر */
+        /* قناع لضمان نعومة الزوايا حتى مع التحويلات وبالأخص Safari */
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+        mask-image: radial-gradient(white, black);
+
+        /* ظل عام */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+
+      /* تعزيز المركزي فقط (زوايا أكبر + ظل أقوى) */
+      .about-embla .embla__slide.is-center .about-vid {
+        border-radius: var(--vid-radius-active);
+        box-shadow: 0 22px 60px rgba(16, 185, 129, 0.22),
+          0 12px 34px rgba(0, 0, 0, 0.55);
+      }
+
+      /* الفيديو يملأ الغلاف ويَرِث الزوايا والقص */
+      .about-embla .about-vid > video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+        clip-path: inset(0 round inherit);
+      }
+    </style>
   </body>
 </html>
