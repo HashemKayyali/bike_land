@@ -18,14 +18,54 @@
       src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"
       defer
     ></script>
+<style>
+  [x-cloak]{display:none!important}
+
+  /* شكل سكرول أنيق للدروبداؤن */
+  .country-scroll{
+    --sb-size: 10px;
+    --sb-track: rgba(255,255,255,.06);
+    --sb-thumb: rgba(16,185,129,.42);        /* emerald */
+    --sb-thumb-hover: rgba(16,185,129,.60);
+    --sb-thumb-active: rgba(16,185,129,.75);
+
+    max-height:16rem;                         /* 256px */
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--sb-thumb) transparent;
+  }
+  .country-scroll:focus,
+  .country-scroll:focus-visible{
+    outline: none !important;                 /* شيل الإطار الأبيض */
+    box-shadow: none !important;
+  }
+
+  /* WebKit (Chrome/Edge/Safari) */
+  .country-scroll::-webkit-scrollbar{ width: var(--sb-size); }
+  .country-scroll::-webkit-scrollbar-track{
+    background: var(--sb-track);
+    border-radius: 999px;
+  }
+  .country-scroll::-webkit-scrollbar-thumb{
+    background: var(--sb-thumb);
+    border-radius: 999px;
+    border: 2px solid rgba(17,17,17,.9);      /* يترك فراغ حول الإبهام ليتماشى مع الخلفية الداكنة */
+  }
+  .country-scroll::-webkit-scrollbar-thumb:hover{ background: var(--sb-thumb-hover); }
+  .country-scroll::-webkit-scrollbar-thumb:active{ background: var(--sb-thumb-active); }
+
+  /* خيار لطيف لتثبيت مكان السّكرول ومنع سحب الصفحة أثناء التمرير */
+  .country-scroll{ overscroll-behavior: contain; scrollbar-gutter: stable both-edges; }
+</style>
+
 
     <!-- Tailwind build output -->
     <link href="./dist/output.css" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/glightbox/dist/css/glightbox.min.css"
-    />
+    
     <!-- AlpineJS (للقائمة بالموبايل) -->
     <script
       defer
@@ -41,15 +81,18 @@
         <div class="container mx-auto px-4">
           <div class="flex items-center justify-between py-3">
             <!-- Logo -->
-    <a href="#" class="flex items-center gap-3">
-  <img src="images/banner-img.png" alt="Bike Land"
-       class="h-14 sm:h-16 w-auto" />
-  <span class="inline-block whitespace-nowrap font-extrabold tracking-wide leading-none
-               text-white text-xl sm:text-2xl md:text-3xl">
-    BIKE <span class="text-emerald-400">LAND</span>
-  </span>
-</a>
-
+            <a href="#" class="flex items-center gap-3">
+              <img
+                src="images/banner-img.png"
+                alt="Bike Land"
+                class="h-14 sm:h-16 w-auto"
+              />
+              <span
+                class="inline-block whitespace-nowrap font-extrabold tracking-wide leading-none text-white text-xl sm:text-2xl md:text-3xl"
+              >
+                BIKE <span class="text-emerald-400">LAND</span>
+              </span>
+            </a>
 
             <!-- Desktop menu -->
             <ul class="hidden lg:flex items-center gap-8 font-semibold">
@@ -345,7 +388,6 @@
                   </a>
 
                   <!-- مكان إضافة بقية الصور تلقائيًا -->
-                  <div id="blender-gallery"></div>
                 </div>
               </div>
             </div>
@@ -450,9 +492,7 @@
           </div>
         </article>
 
-
-
-         <article
+        <article
           data-aos="fade-right"
           data-aos-anchor-placement="top-bottom"
           class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2"
@@ -543,237 +583,356 @@
                   </a>
 
                   <!-- مكان إضافة بقية الصور تلقائيًا -->
-                  <div id="blender-gallery"></div>
                 </div>
               </div>
             </div>
           </div>
         </article>
-
-
-
       </div>
     </section>
 
-
-
-
-
-
-
-
-
-
-
-
     <!-- =================== Events (center video + side videos slider) =================== -->
 
+    <section
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+      id="events"
+      class="container mx-auto px-4 py-12 sm:py-14 lg:py-16 mt-24 mb-28 sm:mt-28 sm:mb-32 lg:mt-32 lg:mb-36"
+    >
+      <!-- العنوان -->
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2
+          class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight"
+        >
+          Events
+          <span
+            class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"
+          ></span>
+        </h2>
+        <p class="mt-3 text-white/70">
+          Interactive cycling that turns motion into a show—perfect for events,
+          malls, schools, and activations.
+        </p>
+      </div>
 
+      <!-- حدّ أقصى للعرض لتصغير البلوك بالكامل -->
+      <div class="mx-auto w-full max-w-4xl">
+        <article
+          class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2"
+        >
+          <!-- الحاوية الأساسية: isolate + relative لإنشاء Stacking Context واضح -->
+          <div
+            class="relative isolate overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur p-6 sm:p-8"
+          >
+            <!-- المحتوى -->
+            <div class="relative z-10 px-2 sm:px-4 pt-6 sm:pt-8 pb-20 sm:pb-24">
+              <!-- Embla -->
+              <div class="embla about-embla select-none">
+                <div id="aboutViewport" class="embla__viewport overflow-hidden">
+                  <div class="embla__container">
+                    <!-- سلايد 1 -->
+                    <div class="embla__slide flex-none relative">
+                      <div
+                        class="about-vid w-[72vw] sm:w-[260px] md:w-[300px] lg:w-[320px] xl:w-[340px] max-w-[340px] h-[320px] md:h-[360px] lg:h-[380px] rounded-2xl overflow-hidden"
+                      >
+                        <video
+                          data-about
+                          preload="metadata"
+                          muted
+                          loop
+                          playsinline
+                          class="block w-full h-full object-cover"
+                        >
+                          <source src="videos/about2.mp4" type="video/mp4" />
+                        </video>
+                      </div>
+                      <div
+                        class="now-badge absolute -bottom-5 left-1/2 -translate-x-1/2"
+                      >
+                        <span
+                          class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
+                        >
+                          <span
+                            class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
+                          ></span>
+                          Now
+                        </span>
+                      </div>
+                    </div>
 
-<section data-aos="fade-up"
-         data-aos-anchor-placement="top-bottom" id="events"
-         class="container mx-auto px-4 py-12 sm:py-14 lg:py-16
-                mt-24 mb-28 sm:mt-28 sm:mb-32 lg:mt-32 lg:mb-36">
+                    <!-- سلايد 2 -->
+                    <div class="embla__slide flex-none relative">
+                      <div
+                        class="about-vid w-[72vw] sm:w-[260px] md:w-[300px] lg:w-[320px] xl:w-[340px] max-w-[340px] h-[320px] md:h-[360px] lg:h-[380px] rounded-2xl overflow-hidden"
+                      >
+                        <video
+                          data-about
+                          preload="metadata"
+                          muted
+                          loop
+                          playsinline
+                          class="block w-full h-full object-cover"
+                        >
+                          <source src="videos/about3.mp4" type="video/mp4" />
+                        </video>
+                      </div>
+                      <div
+                        class="now-badge absolute -bottom-5 left-1/2 -translate-x-1/2"
+                      >
+                        <span
+                          class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
+                        >
+                          <span
+                            class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
+                          ></span>
+                          Now
+                        </span>
+                      </div>
+                    </div>
 
-  <!-- العنوان -->
-  <div class="text-center max-w-2xl mx-auto mb-10">
-    <h2 class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight">
-      Events
-      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
-    </h2>
-    <p class="mt-3 text-white/70">
-      Interactive cycling that turns motion into a show—perfect for events, malls, schools, and activations.
-    </p>
-  </div>
+                    <!-- سلايد 3 -->
+                    <div class="embla__slide flex-none relative">
+                      <div
+                        class="about-vid w-[72vw] sm:w-[260px] md:w-[300px] lg:w-[320px] xl:w-[340px] max-w-[340px] h-[320px] md:h-[360px] lg:h-[380px] rounded-2xl overflow-hidden"
+                      >
+                        <video
+                          data-about
+                          preload="metadata"
+                          muted
+                          loop
+                          playsinline
+                          class="block w-full h-full object-cover"
+                        >
+                          <source src="videos/about4.mp4" type="video/mp4" />
+                        </video>
+                      </div>
+                      <div
+                        class="now-badge absolute -bottom-5 left-1/2 -translate-x-1/2"
+                      >
+                        <span
+                          class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
+                        >
+                          <span
+                            class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
+                          ></span>
+                          Now
+                        </span>
+                      </div>
+                    </div>
 
-  <!-- حدّ أقصى للعرض لتصغير البلوك بالكامل -->
-  <div class="mx-auto w-full max-w-4xl">
-    <article class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2">
-      <!-- الحاوية الأساسية: isolate + relative لإنشاء Stacking Context واضح -->
-      <div class="relative isolate overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur p-6 sm:p-8">
+                    <!-- سلايد 4 -->
+                    <div class="embla__slide flex-none relative">
+                      <div
+                        class="about-vid w-[72vw] sm:w-[260px] md:w-[300px] lg:w-[320px] xl:w-[340px] max-w-[340px] h-[320px] md:h-[360px] lg:h-[380px] rounded-2xl overflow-hidden"
+                      >
+                        <video
+                          data-about
+                          preload="metadata"
+                          muted
+                          loop
+                          playsinline
+                          class="block w-full h-full object-cover"
+                        >
+                          <source src="videos/about5.mp4" type="video/mp4" />
+                        </video>
+                      </div>
+                      <div
+                        class="now-badge absolute -bottom-5 left-1/2 -translate-x-1/2"
+                      >
+                        <span
+                          class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
+                        >
+                          <span
+                            class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
+                          ></span>
+                          Now
+                        </span>
+                      </div>
+                    </div>
 
-        <!-- المحتوى -->
-        <div class="relative z-10 px-2 sm:px-4 pt-6 sm:pt-8 pb-20 sm:pb-24">
-          <!-- Embla -->
-          <div class="embla about-embla select-none">
-            <div id="aboutViewport" class="embla__viewport overflow-hidden">
-              <div class="embla__container">
-
-                <!-- سلايد 1 -->
-                <div class="embla__slide flex-none relative">
-                  <div class="about-vid w-[72vw] sm:w-[260px] md:w-[300px] lg:w-[320px] xl:w-[340px] max-w-[340px] h-[320px] md:h-[360px] lg:h-[380px] rounded-2xl overflow-hidden">
-                    <video data-about preload="metadata" muted loop playsinline class="block w-full h-full object-cover">
-                      <source src="videos/about2.mp4" type="video/mp4" />
-                    </video>
-                  </div>
-                  <div class="now-badge absolute -bottom-5 left-1/2 -translate-x-1/2">
-                    <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30">
-                      <span class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"></span> Now
-                    </span>
+                    <!-- سلايد 5 -->
+                    <div class="embla__slide flex-none relative">
+                      <div
+                        class="about-vid w-[72vw] sm:w-[260px] md:w-[300px] lg:w-[320px] xl:w-[340px] max-w-[340px] h-[320px] md:h-[360px] lg:h-[380px] rounded-2xl overflow-hidden"
+                      >
+                        <video
+                          data-about
+                          preload="metadata"
+                          muted
+                          loop
+                          playsinline
+                          class="block w-full h-full object-cover"
+                        >
+                          <source src="videos/about6.mp4" type="video/mp4" />
+                        </video>
+                      </div>
+                      <div
+                        class="now-badge absolute -bottom-5 left-1/2 -translate-x-1/2"
+                      >
+                        <span
+                          class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30"
+                        >
+                          <span
+                            class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"
+                          ></span>
+                          Now
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                <!-- سلايد 2 -->
-                <div class="embla__slide flex-none relative">
-                  <div class="about-vid w-[72vw] sm:w-[260px] md:w-[300px] lg:w-[320px] xl:w-[340px] max-w-[340px] h-[320px] md:h-[360px] lg:h-[380px] rounded-2xl overflow-hidden">
-                    <video data-about preload="metadata" muted loop playsinline class="block w-full h-full object-cover">
-                      <source src="videos/about3.mp4" type="video/mp4" />
-                    </video>
-                  </div>
-                  <div class="now-badge absolute -bottom-5 left-1/2 -translate-x-1/2">
-                    <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30">
-                      <span class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"></span> Now
-                    </span>
-                  </div>
+              <!-- أزرار -->
+              <div
+                class="controls mt-5 sm:mt-6 flex items-center justify-center gap-3 sm:gap-4"
+              >
+                <button
+                  id="aboutPrev"
+                  type="button"
+                  class="inline-flex items-center justify-center h-9 w-9 rounded-full ring-1 ring-white/10 hover:bg-white/5"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </button>
+                <button
+                  id="aboutNext"
+                  type="button"
+                  class="inline-flex items-center justify-center h-9 w-9 rounded-full ring-1 ring-white/10 hover:bg-white/5"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- وصف تحت -->
+              <div class="mt-6 text-center max-w-xl mx-auto">
+                <p class="text-white/70">
+                  Head-to-head races, energy-powered smoothies, LED visuals, and
+                  live stats—built for crowds and quick setups.
+                </p>
+                <div class="mt-5 flex flex-wrap justify-center gap-3">
+                  <a
+                    href="#products"
+                    class="inline-flex items-center rounded-md px-4 py-2.5 text-sm font-semibold bg-emerald-500 hover:bg-emerald-400 text-neutral-900 shadow ring-1 ring-emerald-500/20 transition"
+                    >Explore Products</a
+                  >
+                  <a
+                    href="#contact"
+                    class="inline-flex items-center rounded-md px-4 py-2.5 text-sm font-semibold border border-white/20 hover:border-white/40 hover:bg-white/5 transition"
+                    >Book an Activation</a
+                  >
                 </div>
-
-                <!-- سلايد 3 -->
-                <div class="embla__slide flex-none relative">
-                  <div class="about-vid w-[72vw] sm:w-[260px] md:w-[300px] lg:w-[320px] xl:w-[340px] max-w-[340px] h-[320px] md:h-[360px] lg:h-[380px] rounded-2xl overflow-hidden">
-                    <video data-about preload="metadata" muted loop playsinline class="block w-full h-full object-cover">
-                      <source src="videos/about4.mp4" type="video/mp4" />
-                    </video>
-                  </div>
-                  <div class="now-badge absolute -bottom-5 left-1/2 -translate-x-1/2">
-                    <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30">
-                      <span class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"></span> Now
-                    </span>
-                  </div>
-                </div>
-
-                <!-- سلايد 4 -->
-                <div class="embla__slide flex-none relative">
-                  <div class="about-vid w-[72vw] sm:w-[260px] md:w-[300px] lg:w-[320px] xl:w-[340px] max-w-[340px] h-[320px] md:h-[360px] lg:h-[380px] rounded-2xl overflow-hidden">
-                    <video data-about preload="metadata" muted loop playsinline class="block w-full h-full object-cover">
-                      <source src="videos/about5.mp4" type="video/mp4" />
-                    </video>
-                  </div>
-                  <div class="now-badge absolute -bottom-5 left-1/2 -translate-x-1/2">
-                    <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30">
-                      <span class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"></span> Now
-                    </span>
-                  </div>
-                </div>
-
-                <!-- سلايد 5 -->
-                <div class="embla__slide flex-none relative">
-                  <div class="about-vid w-[72vw] sm:w-[260px] md:w-[300px] lg:w-[320px] xl:w-[340px] max-w-[340px] h-[320px] md:h-[360px] lg:h-[380px] rounded-2xl overflow-hidden">
-                    <video data-about preload="metadata" muted loop playsinline class="block w-full h-full object-cover">
-                      <source src="videos/about6.mp4" type="video/mp4" />
-                    </video>
-                  </div>
-                  <div class="now-badge absolute -bottom-5 left-1/2 -translate-x-1/2">
-                    <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-emerald-500/90 text-neutral-900 font-semibold ring-1 ring-emerald-500/30">
-                      <span class="h-2 w-2 rounded-full bg-neutral-900 animate-pulse"></span> Now
-                    </span>
-                  </div>
-                </div>
-
               </div>
             </div>
+
+            <!-- الخط السفلي (طبقة أعلى من كل شيء بفضل isolate + z-20) -->
+            <div
+              class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[6px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 z-20 pointer-events-none"
+            ></div>
+            <!-- توهّج خفيف -->
+            <div
+              class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[16px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 blur-md opacity-25 z-10 pointer-events-none"
+            ></div>
           </div>
-
-          <!-- أزرار -->
-          <div class="controls mt-5 sm:mt-6 flex items-center justify-center gap-3 sm:gap-4">
-            <button id="aboutPrev" type="button" class="inline-flex items-center justify-center h-9 w-9 rounded-full ring-1 ring-white/10 hover:bg-white/5">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-            </button>
-            <button id="aboutNext" type="button" class="inline-flex items-center justify-center h-9 w-9 rounded-full ring-1 ring-white/10 hover:bg-white/5">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-
-          <!-- وصف تحت -->
-          <div class="mt-6 text-center max-w-xl mx-auto">
-            <p class="text-white/70">
-              Head-to-head races, energy-powered smoothies, LED visuals, and live stats—built for crowds and quick setups.
-            </p>
-            <div class="mt-5 flex flex-wrap justify-center gap-3">
-              <a href="#products" class="inline-flex items-center rounded-md px-4 py-2.5 text-sm font-semibold bg-emerald-500 hover:bg-emerald-400 text-neutral-900 shadow ring-1 ring-emerald-500/20 transition">Explore Products</a>
-              <a href="#contact" class="inline-flex items-center rounded-md px-4 py-2.5 text-sm font-semibold border border-white/20 hover:border-white/40 hover:bg-white/5 transition">Book an Activation</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- الخط السفلي (طبقة أعلى من كل شيء بفضل isolate + z-20) -->
-        <div class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[6px] rounded-full
-                    bg-gradient-to-r from-emerald-500 to-cyan-400 z-20 pointer-events-none"></div>
-        <!-- توهّج خفيف -->
-        <div class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[16px] rounded-full
-                    bg-gradient-to-r from-emerald-500 to-cyan-400 blur-md opacity-25 z-10 pointer-events-none"></div>
-
+        </article>
       </div>
-    </article>
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
+    </section>
 
     <!-- =================== Customers (card style) =================== -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-<section data-aos="fade-right"
-          data-aos-anchor-placement="top-bottom" id="customers" class="container mx-auto px-4 py-24">
-  <div class="text-center max-w-2xl mx-auto mb-10">
-    <h2 class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight">
-      Our Customers
-      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
-    </h2>
-  </div>
-
-  <div class="mx-auto w-full max-w-5xl">
-    <article class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30">
-      <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur p-6 sm:p-8">
-        <!-- الشريط الجانبي -->
-        <div class="absolute left-0 inset-y-6 sm:inset-y-8 w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400 rounded-full"></div>
-        <!-- محتوى فاضي: مساحة نظيفة فقط -->
-        <div class="min-h-[220px] md:min-h-[260px]"></div>
+    <section
+      data-aos="fade-right"
+      data-aos-anchor-placement="top-bottom"
+      id="customers"
+      class="container mx-auto px-4 py-24"
+    >
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2
+          class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight"
+        >
+          Our Customers
+          <span
+            class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"
+          ></span>
+        </h2>
       </div>
-    </article>
-  </div>
-</section>
 
-<!-- =================== About Us (card style) =================== -->
-<section id="about-us" data-aos="fade-left"
-          data-aos-anchor-placement="top-bottom" class="container mx-auto px-4 py-24">
-  <div class="text-center max-w-2xl mx-auto mb-10">
-    <h2 class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight">
-      About Us
-      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
-    </h2>
-  </div>
-
-  <div class="mx-auto w-full max-w-5xl">
-    <article class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30">
-      <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur p-6 sm:p-8">
-        <!-- الشريط الجانبي -->
-        <div class="absolute left-0 inset-y-6 sm:inset-y-8 w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400 rounded-full"></div>
-        <!-- محتوى فاضي: مساحة نظيفة فقط -->
-        <div class="min-h-[220px] md:min-h-[260px]"></div>
+      <div class="mx-auto w-full max-w-5xl">
+        <article
+          class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30"
+        >
+          <div
+            class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur p-6 sm:p-8"
+          >
+            <!-- الشريط الجانبي -->
+            <div
+              class="absolute left-0 inset-y-6 sm:inset-y-8 w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400 rounded-full"
+            ></div>
+            <!-- محتوى فاضي: مساحة نظيفة فقط -->
+            <div class="min-h-[220px] md:min-h-[260px]"></div>
+          </div>
+        </article>
       </div>
-    </article>
-  </div>
-</section>
+    </section>
 
+    <!-- =================== About Us (card style) =================== -->
+    <section
+      id="about-us"
+      data-aos="fade-left"
+      data-aos-anchor-placement="top-bottom"
+      class="container mx-auto px-4 py-24"
+    >
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2
+          class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight"
+        >
+          About Us
+          <span
+            class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"
+          ></span>
+        </h2>
+      </div>
 
+      <div class="mx-auto w-full max-w-5xl">
+        <article
+          class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30"
+        >
+          <div
+            class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur p-6 sm:p-8"
+          >
+            <!-- الشريط الجانبي -->
+            <div
+              class="absolute left-0 inset-y-6 sm:inset-y-8 w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400 rounded-full"
+            ></div>
+            <!-- محتوى فاضي: مساحة نظيفة فقط -->
+            <div class="min-h-[220px] md:min-h-[260px]"></div>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <section id="contact" class="container mx-auto px-4 py-24">
       <div class="max-w-3xl mx-auto">
@@ -784,165 +943,288 @@
           Tell us what you need and we’ll contact you shortly.
         </p>
 
-        <form
-          id="bookingForm"
-          class="grid grid-cols-1 sm:grid-cols-2 gap-5"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          <!-- Full Name -->
-          <div class="sm:col-span-1">
-            <label class="block text-sm text-white/70 mb-1">Full Name</label>
-            <input
-              type="text"
-              name="name"
-              required
-              class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-              placeholder="Your name"
-            />
+      <form id="bookingForm"
+      class="grid grid-cols-1 sm:grid-cols-2 gap-5"
+      autocomplete="on"
+      data-aos="fade-up"
+      data-aos-delay="200">
+
+  <!-- Full Name -->
+  <div class="sm:col-span-1">
+    <label class="block text-sm text-white/70 mb-1" for="fullName">Full Name</label>
+    <input id="fullName" type="text" name="name" required
+           autocomplete="section-booking name"
+           autocapitalize="words"
+           class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
+                  outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+           placeholder="Your name" />
+  </div>
+
+  <!-- Email -->
+  <div class="sm:col-span-1">
+    <label class="block text-sm text-white/70 mb-1" for="email">Email</label>
+    <input id="email" type="email" name="email" required
+           autocomplete="section-booking email"
+           inputmode="email"
+           class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
+                  outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+           placeholder="name@example.com" />
+  </div>
+
+  <!-- Phone -->
+  <div class="sm:col-span-1">
+    <label class="block text-sm text-white/70 mb-1" for="phone">Phone</label>
+    <input id="phone" type="tel" name="phone" required
+           autocomplete="section-booking tel"
+           inputmode="tel"
+           class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
+                  outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+           placeholder="+962 7x xxx xxxx" />
+  </div>
+
+  <!-- Product (AlpineJS Listbox + hidden input) -->
+  <div class="sm:col-span-1">
+    <label class="block text-sm text-white/70 mb-1">Product</label>
+
+    <div id="productListbox"
+         x-data="{
+           open:false,
+           selected:null,
+           items:['🚴 Bike Blender','💡 Bike Beam'],
+           placeholder:'Select a product',
+           pick(v){
+             this.selected=v;
+             this.$refs.hidden.value=v;
+             // حفّز أي لوجيك مرتبط بـinput (localStorage, ..)
+             this.$refs.hidden.dispatchEvent(new Event('input', {bubbles:true}));
+             this.open=false;
+           },
+           clear(){
+             this.selected=null;
+             this.$refs.hidden.value='';
+             this.$refs.hidden.dispatchEvent(new Event('input', {bubbles:true}));
+           }
+         }"
+         @keydown.escape.window="open=false"
+         @clear-product.window="clear()"
+         class="relative"
+         x-cloak>
+      <!-- القيمة التي تُرسل مع الفورم -->
+      <input type="hidden" name="product" x-ref="hidden" />
+
+      <!-- الزر -->
+      <button type="button" @click="open=!open"
+              class="w-full h-12 bg-white/5 border border-white/10 rounded-lg px-4 pr-10
+                     flex items-center justify-between text-white outline-none
+                     focus:ring-2 focus:ring-emerald-500">
+        <span x-text="selected ?? placeholder"
+              :class="selected ? '' : 'text-white/50'"></span>
+        <svg class="h-5 w-5 text-white/60 absolute right-3" xmlns="http://www.w3.org/2000/svg"
+             fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 9l-7 7-7-7"/>
+        </svg>
+      </button>
+
+      <!-- القائمة -->
+      <ul x-show="open" x-transition.origin.top @click.outside="open=false"
+          class="absolute z-10 mt-2 w-full bg-neutral-900 border border-white/10 rounded-lg
+                 shadow-lg overflow-hidden">
+        <template x-for="(item, i) in items" :key="i">
+          <li @click="pick(item)"
+              class="px-4 py-2 cursor-pointer text-white/90 hover:bg-emerald-500 hover:text-black"
+              :class="{'bg-neutral-800': selected===item}"
+              x-text="item"></li>
+        </template>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Address -->
+  <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <!-- Country (AlpineJS Listbox + hidden input) -->
+    <div class="sm:col-span-1">
+      <label class="block text-sm text-white/70 mb-1">Country</label>
+
+      <div id="countryListboxWrap"
+           x-data="countryListbox()"
+           x-cloak
+           class="relative"
+           @keydown.escape.window="open=false">
+        <!-- القيمة التي تُرسل مع الفورم -->
+        <input type="hidden" name="country" x-ref="hidden" />
+
+        <!-- الزر -->
+        <button type="button" @click="open=!open"
+                class="w-full h-12 bg-white/5 border border-white/10 rounded-lg px-4 pr-10
+                       flex items-center justify-between text-white outline-none
+                       focus:ring-2 focus:ring-emerald-500">
+          <span x-text="selected ?? 'Select a country'"
+                :class="selected ? '' : 'text-white/50'"></span>
+          <svg class="h-5 w-5 text-white/60 absolute right-3" xmlns="http://www.w3.org/2000/svg"
+               fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+
+        <!-- القائمة -->
+        <div x-show="open" x-transition.origin.top @click.outside="open=false"
+             class="absolute z-30 mt-2 w-full rounded-lg border border-white/10 bg-neutral-900 shadow-lg"
+             style="overscroll-behavior:contain;">
+          <div class="p-2 border-b border-white/10">
+            <input type="text" x-model="q" placeholder="Search country..."
+                   class="w-full h-10 rounded-md bg-white/5 border border-white/10 px-3 text-sm
+                          outline-none focus:ring-2 focus:ring-emerald-500 text-white">
           </div>
 
-          <!-- Email -->
-          <div class="sm:col-span-1">
-            <label class="block text-sm text-white/70 mb-1">Email</label>
-            <input
-              type="email"
-              name="email"
-              required
-              class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-              placeholder="name@example.com"
-            />
-          </div>
-
-          <!-- Phone -->
-          <div class="sm:col-span-1">
-            <label class="block text-sm text-white/70 mb-1">Phone</label>
-            <input
-              type="tel"
-              name="phone"
-              required
-              class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-              placeholder="+962 7x xxx xxxx"
-            />
-          </div>
-
-          <!-- Product (AlpineJS Listbox + hidden input) -->
-          <!-- Product (AlpineJS Listbox + hidden input) -->
-          <div class="sm:col-span-1">
-            <label class="block text-sm text-white/70 mb-1">Product</label>
-
-            <div
-              x-data="{
-        open:false,
-        selected:null,
-        items:['🚴 Bike Blender','💡 Bike Beam'],
-
-        placeholder:'Select a product',
-        pick(v){ this.selected=v; this.$refs.hidden.value=v; this.open=false; },
-        clear(){ this.selected=null; this.$refs.hidden.value=''; }
-      }"
-              @keydown.escape.window="open=false"
-              @clear-product.window="clear()"
-              class="relative"
-              x-cloak
-            >
-              <!-- القيمة التي تُرسل مع الفورم -->
-              <input type="hidden" name="product" x-ref="hidden" />
-
-              <!-- الزر -->
-              <button
-                type="button"
-                @click="open=!open"
-                class="w-full h-12 bg-white/5 border border-white/10 rounded-lg px-4 pr-10 flex items-center justify-between text-white outline-none focus:ring-2 focus:ring-emerald-500"
-              >
-                <span
-                  x-text="selected ?? placeholder"
-                  :class="selected ? '' : 'text-white/50'"
-                ></span>
-                <svg
-                  class="h-5 w-5 text-white/60 absolute right-3"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
-              <!-- القائمة -->
-              <ul
-                x-show="open"
-                x-transition.origin.top
-                @click.outside="open=false"
-                class="absolute z-10 mt-2 w-full bg-neutral-900 border border-white/10 rounded-lg shadow-lg overflow-hidden"
-              >
-                <template x-for="(item, i) in items" :key="i">
-                  <li
-                    @click="pick(item)"
+          <!-- لفافة بسكرول حقيقي -->
+          <div class="country-scroll" tabindex="0">
+            <ul class="py-1">
+              <template x-for="(item, i) in filtered" :key="i">
+                <li @click="pick(item)"
                     class="px-4 py-2 cursor-pointer text-white/90 hover:bg-emerald-500 hover:text-black"
                     :class="{'bg-neutral-800': selected===item}"
-                    x-text="item"
-                  ></li>
-                </template>
-              </ul>
-            </div>
+                    x-text="item"></li>
+              </template>
+              <li x-show="filtered.length===0" class="px-4 py-3 text-white/50 text-sm">No results</li>
+            </ul>
           </div>
+        </div>
+      </div>
+      <!-- لو بدك Autofill للبلد من المتصفح استبدل هذا المكوّن بـ<select autocomplete="country-name"> -->
+    </div>
 
-          <!-- Message -->
-          <div class="sm:col-span-2">
-            <label class="block text-sm text-white/70 mb-1">Message</label>
-            <textarea
-              name="message"
-              class="w-full min-h-[140px] rounded-lg bg-white/5 border border-white/10 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500 text-white resize-none"
+    <div class="sm:col-span-1">
+      <label class="block text-sm text-white/70 mb-1" for="city">City</label>
+      <input id="city" type="text" name="city" required
+             autocomplete="section-booking address-level2"
+             class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
+                    outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+             placeholder="Amman" />
+    </div>
+
+    <div class="sm:col-span-1">
+      <label class="block text-sm text-white/70 mb-1" for="state">State / Province</label>
+      <input id="state" type="text" name="state"
+             autocomplete="section-booking address-level1"
+             class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
+                    outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+             placeholder="(optional)" />
+    </div>
+
+    <div class="sm:col-span-1">
+      <label class="block text-sm text-white/70 mb-1" for="postal">ZIP / Postal Code</label>
+      <input id="postal" type="text" name="postal"
+             autocomplete="section-booking postal-code"
+             class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
+                    outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+             placeholder="11118" />
+    </div>
+
+    <div class="sm:col-span-2">
+      <label class="block text-sm text-white/70 mb-1" for="address1">Address Line 1</label>
+      <input id="address1" type="text" name="address1" required
+             autocomplete="section-booking address-line1"
+             class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
+                    outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+             placeholder="Street, building, number" />
+    </div>
+
+    <div class="sm:col-span-2">
+      <label class="block text-sm text-white/70 mb-1" for="address2">Address Line 2</label>
+      <input id="address2" type="text" name="address2"
+             autocomplete="section-booking address-line2"
+             class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
+                    outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+             placeholder="Apartment, floor, landmark (optional)" />
+    </div>
+  </div>
+
+  <!-- Message -->
+  <div class="sm:col-span-2">
+    <label class="block text-sm text-white/70 mb-1" for="message">Message</label>
+    <textarea id="message" name="message"
+              class="w-full min-h-[140px] rounded-lg bg-white/5 border border-white/10 px-4 py-3
+                     outline-none focus:ring-2 focus:ring-emerald-500 text-white resize-none"
               placeholder="Tell us about your event or question..."
-            ></textarea>
-          </div>
+              autocomplete="off"></textarea>
+  </div>
 
-          <!-- Actions -->
-          <div class="sm:col-span-2 flex flex-wrap items-center gap-4">
-            <button
-              id="sendBtn"
-              type="submit"
-              class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold bg-emerald-500 text-neutral-900 ring-1 ring-emerald-500/20 hover:bg-emerald-400 transition"
-            >
-              Send Request
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </button>
+  <!-- Actions -->
+  <div class="sm:col-span-2 flex flex-wrap items-center gap-4">
+    <button id="sendBtn" type="submit"
+            class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold
+                   bg-emerald-500 text-neutral-900 ring-1 ring-emerald-500/20 hover:bg-emerald-400 transition">
+      Send Request
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+      </svg>
+    </button>
 
-            <a
-              id="waLink"
-              target="_blank"
-              class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold border border-white/15 hover:bg-white/5 transition"
-            >
-              WhatsApp
-            </a>
+    <a id="waLink" target="_blank"
+       class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold
+              border border-white/15 hover:bg-white/5 transition">
+      WhatsApp
+    </a>
 
-            <span id="formStatus" class="text-sm"></span>
-          </div>
-        </form>
+    <span id="formStatus" class="text-sm"></span>
+  </div>
+</form>
+
       </div>
     </section>
 
-    <footer id="contact" class="border-t border-white/10" data-aos="fade-up">
+
+    
+<!-- Fallback: خزّن/املأ القيم تلقائيًا عبر localStorage -->
+<script>
+(function(){
+  const form = document.getElementById('bookingForm');
+  if (!form) return;
+
+  const keys = ['name','email','phone','product','country','city','state','postal','address1','address2','message'];
+
+  // تحميل مُسبق
+  window.addEventListener('DOMContentLoaded', () => {
+    keys.forEach(k => {
+      const el = form.querySelector(`[name="${k}"]`);
+      const v = localStorage.getItem(`bl_${k}`);
+      if (v && el && !el.value) el.value = v;
+    });
+
+    // عكس قيمة المنتج/البلد على الـAlpine listboxes
+    const prodVal = localStorage.getItem('bl_product');
+    const prodRoot = document.getElementById('productListbox');
+    if (prodVal && prodRoot && prodRoot.__x) {
+      prodRoot.__x.$data.selected = prodVal;
+      const h = prodRoot.querySelector('input[name="product"]');
+      if (h) h.value = prodVal;
+    }
+
+    const countryVal = localStorage.getItem('bl_country');
+    const countryRoot = document.getElementById('countryListboxWrap');
+    if (countryVal && countryRoot && countryRoot.__x) {
+      countryRoot.__x.$data.selected = countryVal;
+      const h2 = countryRoot.querySelector('input[name="country"]');
+      if (h2) h2.value = countryVal;
+    }
+  });
+
+  // حفظ تلقائي عند أي إدخال
+  form.addEventListener('input', (e) => {
+    const t = e.target;
+    if (!t.name) return;
+    if (keys.includes(t.name)) {
+      localStorage.setItem(`bl_${t.name}`, t.value);
+    }
+  });
+})();
+</script>
+
+    <footer id="site-footer" class="border-t border-white/10" data-aos="fade-up">
       <div class="container mx-auto px-4 py-10">
         <div
           class="flex flex-col sm:flex-row items-center justify-between gap-4"
@@ -1072,7 +1354,6 @@
           });
 
           // عجلة الماوس
-          
 
           // أزرار
           prevBtn?.addEventListener("click", (e) => {
@@ -1137,36 +1418,7 @@
       });
     </script>
 
-    <script>
-      // يولّد بقية صور جاليري الـ Blender تلقائياً بامتداد .png
-      (async function buildBlenderGallery() {
-        const gallery = document.getElementById("blender-gallery");
-        if (!gallery) return;
 
-        const base = "images/bikeblender";
-        const maxNumber = 100;
-
-        // نبلّش من 2 لأن 1.png مربوط بزر Show More
-        for (let i = 100; i <= maxNumber; i++) {
-          const url = `${base}/${i}.png`;
-          try {
-            const res = await fetch(url, { method: "HEAD" });
-            if (res.ok) {
-              const a = document.createElement("a");
-              a.href = url;
-              a.className = "glightbox hidden";
-              a.setAttribute("data-gallery", "blender");
-              gallery.appendChild(a);
-            }
-          } catch (_) {
-            /* تجاهل غير الموجود */
-          }
-        }
-
-        // أعِد تهيئة GLightbox بعد ما أضفنا روابط جديدة للدوم
-        if (window.GLightbox) GLightbox({ selector: ".glightbox" });
-      })();
-    </script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const beamBtn = document.getElementById("beam-show");
@@ -1239,49 +1491,96 @@
 
     <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+ 
+
     <script>
-      // بدّل القيم الثلاثة حسب حسابك
-      const EMAILJS_PUBLIC_KEY = "_ecATDJabzum4O0qM";
-      const EMAILJS_SERVICE_ID = "service_mg6d3i9";
-      const EMAILJS_TEMPLATE_ID = "template_wcyodge";
+  // EmailJS keys (كما هي)
+  const EMAILJS_PUBLIC_KEY = "_ecATDJabzum4O0qM";
+  const EMAILJS_SERVICE_ID = "service_mg6d3i9";
+  const EMAILJS_TEMPLATE_ID = "template_wcyodge";
 
-      (function () {
-        emailjs.init(EMAILJS_PUBLIC_KEY);
-      })();
+  (function () {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
 
-      // واتساب لينك ديناميكي
-      const waLink = document.getElementById("waLink");
-      waLink.href =
-        "https://wa.me/962786009370?text=" +
-        encodeURIComponent("Hi, I'm interested in Bike Land.");
+    // ==================== (أزلنا تعبئة الدول القديمة هنا) ====================
 
-      const form = document.getElementById("bookingForm");
-      const btn = document.getElementById("sendBtn");
-      const status = document.getElementById("formStatus");
+    // ==================== 2) إرسال EmailJS + واتساب ديناميكي ====================
+    const form   = document.getElementById("bookingForm");
+    const btn    = document.getElementById("sendBtn");
+    const status = document.getElementById("formStatus");
+    const waLink = document.getElementById("waLink");
 
+    function val(name) {
+      const el = form ? form.querySelector(`[name="${name}"]`) : null;
+      return el ? (el.value || "").trim() : "";
+    }
+
+    function buildSummary() {
+      return [
+        `Name: ${val("name")}`,
+        `Email: ${val("email")}`,
+        `Phone: ${val("phone")}`,
+        `Product: ${val("product") || "(not selected)"}`,
+
+        `Country: ${val("country")}`,
+        `City: ${val("city")}`,
+        `State/Province: ${val("state")}`,
+        `ZIP/Postal: ${val("postal")}`,
+        `Address 1: ${val("address1")}`,
+        `Address 2: ${val("address2")}`,
+
+        `Message:\n${val("message") || "-"}`,
+        `Page: ${location.href}`,
+        `Time: ${new Date().toLocaleString()}`
+      ].join("\n");
+    }
+
+    function updateWhatsAppLink() {
+      const phoneForWA = "962786009370"; // بدون +
+      const text = `New Bike Land request:\n\n${buildSummary()}`;
+      const url  = `https://wa.me/${phoneForWA}?text=${encodeURIComponent(text)}`;
+      if (waLink) waLink.href = url;
+    }
+
+    // أول تحميل + أي تغيير
+    updateWhatsAppLink();
+    if (form) form.addEventListener("input", updateWhatsAppLink);
+
+    if (form) {
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
         status.textContent = "";
         btn.disabled = true;
         btn.classList.add("opacity-60", "cursor-not-allowed");
 
-        const data = Object.fromEntries(new FormData(form).entries());
         const params = {
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          product: data.product,
-          message: data.message || "",
-          // لو بدك تضيف وقت/صفحة
+          name: val("name"),
+          email: val("email"),
+          phone: val("phone"),
+          product: val("product") || "",
+          message: val("message") || "",
+
+          country: val("country"),
+          city: val("city"),
+          state: val("state"),
+          postal: val("postal"),
+          address1: val("address1"),
+          address2: val("address2"),
+
           page: location.href,
           time: new Date().toLocaleString(),
+          subject: `Bike Land Request — ${val("name")} (${val("product") || "No product"})`,
+          summary: buildSummary()
         };
 
         try {
           await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
           status.textContent = "Sent! We’ll contact you shortly.";
           status.className = "text-emerald-400 text-sm";
+
           form.reset();
+          window.dispatchEvent(new CustomEvent("clear-product"));
+          updateWhatsAppLink();
         } catch (err) {
           console.error(err);
           status.textContent = "Failed to send. Try WhatsApp or later.";
@@ -1290,71 +1589,394 @@
           btn.disabled = false;
           btn.classList.remove("opacity-60", "cursor-not-allowed");
         }
-        window.dispatchEvent(new CustomEvent("clear-product"));
+      });
+    }
+  })();
+</script>
+
+
+    <style>
+      /* ===== About slider — clean, centered, rounded ===== */
+
+      /* Badge للمركزي */
+      .about-embla .now-badge {
+        display: none;
+      }
+      .about-embla .embla__slide.is-center .now-badge {
+        display: inline-flex;
+      }
+
+      /* Embla basics */
+      .embla__viewport {
+        overflow: hidden;
+      }
+      .embla__container {
+        display: flex;
+      }
+      .embla__slide {
+        flex: 0 0 auto;
+      }
+
+      /* Variables + spacing (symmetric) */
+      .about-embla {
+        --slide-spacing: 24px; /* المسافة بين السلايدات */
+        --vid-radius: 16px; /* حواف كل الفيديوهات */
+        --vid-radius-active: 26px; /* حواف الفيديو المركزي (أنعم) */
+      }
+      @media (min-width: 640px) {
+        .about-embla {
+          --slide-spacing: 28px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .about-embla {
+          --slide-spacing: 32px;
+        }
+      }
+
+      .about-embla .embla__viewport {
+        padding-inline: 0;
+      } /* بدون padding */
+      .about-embla .embla__container {
+        margin-inline: calc(var(--slide-spacing) * -1); /* سالب يمين/يسار */
+      }
+      .about-embla .embla__slide {
+        padding-inline: var(--slide-spacing); /* يمين/يسار متساوي */
+        flex-basis: 80%; /* موبايل */
+      }
+      @media (min-width: 640px) {
+        .about-embla .embla__slide {
+          flex-basis: 58%;
+        }
+      }
+      @media (min-width: 1024px) {
+        .about-embla .embla__slide {
+          flex-basis: 36%;
+        }
+      }
+
+      /* Video wrapper — no card, no ring, no bg */
+      .about-embla .about-vid {
+        width: 100%;
+        max-width: 420px;
+        margin-inline: auto;
+        aspect-ratio: 9/16;
+        border-radius: var(--vid-radius);
+        overflow: hidden;
+        /* لضمان قصّ ناعم أثناء التحريك */
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+        mask-image: radial-gradient(white, black);
+        transition: border-radius 0.35s ease; /* ما بنستخدم transform هون */
+      }
+
+      /* تنعيم إضافي للمركزي */
+      .about-embla .embla__slide.is-center .about-vid {
+        border-radius: var(--vid-radius-active);
+      }
+
+      /* الفيديو يملأ الحاوية، والـJS مسؤول عن أي scale */
+      .about-embla .about-vid > video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+        will-change: transform; /* سلاسة مع سكربت الـscale */
+      }
+    </style>
+
+    <script>
+      // يرجّع مصفوفة أسماء الدول بالإنجليزية مرتبة
+      function getCountries() {
+        const codes = [
+          "AF",
+          "AX",
+          "AL",
+          "DZ",
+          "AS",
+          "AD",
+          "AO",
+          "AI",
+          "AQ",
+          "AG",
+          "AR",
+          "AM",
+          "AW",
+          "AU",
+          "AT",
+          "AZ",
+          "BS",
+          "BH",
+          "BD",
+          "BB",
+          "BY",
+          "BE",
+          "BZ",
+          "BJ",
+          "BM",
+          "BT",
+          "BO",
+          "BQ",
+          "BA",
+          "BW",
+          "BV",
+          "BR",
+          "IO",
+          "BN",
+          "BG",
+          "BF",
+          "BI",
+          "KH",
+          "CM",
+          "CA",
+          "CV",
+          "KY",
+          "CF",
+          "TD",
+          "CL",
+          "CN",
+          "CX",
+          "CC",
+          "CO",
+          "KM",
+          "CG",
+          "CD",
+          "CK",
+          "CR",
+          "CI",
+          "HR",
+          "CU",
+          "CW",
+          "CY",
+          "CZ",
+          "DK",
+          "DJ",
+          "DM",
+          "DO",
+          "EC",
+          "EG",
+          "SV",
+          "GQ",
+          "ER",
+          "EE",
+          "SZ",
+          "ET",
+          "FK",
+          "FO",
+          "FJ",
+          "FI",
+          "FR",
+          "GF",
+          "PF",
+          "TF",
+          "GA",
+          "GM",
+          "GE",
+          "DE",
+          "GH",
+          "GI",
+          "GR",
+          "GL",
+          "GD",
+          "GP",
+          "GU",
+          "GT",
+          "GG",
+          "GN",
+          "GW",
+          "GY",
+          "HT",
+          "HM",
+          "VA",
+          "HN",
+          "HK",
+          "HU",
+          "IS",
+          "IN",
+          "ID",
+          "IR",
+          "IQ",
+          "IE",
+          "IM",
+          "IL",
+          "IT",
+          "JM",
+          "JP",
+          "JE",
+          "JO",
+          "KZ",
+          "KE",
+          "KI",
+          "KP",
+          "KR",
+          "KW",
+          "KG",
+          "LA",
+          "LV",
+          "LB",
+          "LS",
+          "LR",
+          "LY",
+          "LI",
+          "LT",
+          "LU",
+          "MO",
+          "MG",
+          "MW",
+          "MY",
+          "MV",
+          "ML",
+          "MT",
+          "MH",
+          "MQ",
+          "MR",
+          "MU",
+          "YT",
+          "MX",
+          "FM",
+          "MD",
+          "MC",
+          "MN",
+          "ME",
+          "MS",
+          "MA",
+          "MZ",
+          "MM",
+          "NA",
+          "NR",
+          "NP",
+          "NL",
+          "NC",
+          "NZ",
+          "NI",
+          "NE",
+          "NG",
+          "NU",
+          "NF",
+          "MK",
+          "MP",
+          "NO",
+          "OM",
+          "PK",
+          "PW",
+          "PS",
+          "PA",
+          "PG",
+          "PY",
+          "PE",
+          "PH",
+          "PN",
+          "PL",
+          "PT",
+          "PR",
+          "QA",
+          "RE",
+          "RO",
+          "RU",
+          "RW",
+          "BL",
+          "SH",
+          "KN",
+          "LC",
+          "MF",
+          "PM",
+          "VC",
+          "WS",
+          "SM",
+          "ST",
+          "SA",
+          "SN",
+          "RS",
+          "SC",
+          "SL",
+          "SG",
+          "SX",
+          "SK",
+          "SI",
+          "SB",
+          "SO",
+          "ZA",
+          "GS",
+          "SS",
+          "ES",
+          "LK",
+          "SD",
+          "SR",
+          "SJ",
+          "SE",
+          "CH",
+          "SY",
+          "TW",
+          "TJ",
+          "TZ",
+          "TH",
+          "TL",
+          "TG",
+          "TK",
+          "TO",
+          "TT",
+          "TN",
+          "TR",
+          "TM",
+          "TC",
+          "TV",
+          "UG",
+          "UA",
+          "AE",
+          "GB",
+          "US",
+          "UM",
+          "UY",
+          "UZ",
+          "VU",
+          "VE",
+          "VN",
+          "VG",
+          "VI",
+          "WF",
+          "EH",
+          "YE",
+          "ZM",
+          "ZW",
+        ];
+        const dn =
+          window.Intl && Intl.DisplayNames
+            ? new Intl.DisplayNames(["en"], { type: "region" })
+            : null;
+        return codes
+          .map((c) => (dn ? dn.of(c) : c))
+          .filter(Boolean)
+          .sort((a, b) => a.localeCompare(b));
+      }
+
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("countryListbox", () => ({
+          open: false,
+          q: "",
+          items: getCountries(),
+          selected: "Jordan", // الافتراضي
+          init() {
+            // اربط hidden input من البداية
+            if (this.$refs.hidden)
+              this.$refs.hidden.value = this.selected || "";
+          },
+          get filtered() {
+            const s = this.q.toLowerCase();
+            return !s
+              ? this.items
+              : this.items.filter((n) => n.toLowerCase().includes(s));
+          },
+          pick(v) {
+            this.selected = v;
+            if (this.$refs.hidden) this.$refs.hidden.value = v;
+            this.open = false;
+          },
+          clear() {
+            this.selected = null;
+            if (this.$refs.hidden) this.$refs.hidden.value = "";
+          },
+        }));
       });
     </script>
-    <style>
-  /* ===== About slider — clean, centered, rounded ===== */
-
-/* Badge للمركزي */
-.about-embla .now-badge{ display:none; }
-.about-embla .embla__slide.is-center .now-badge{ display:inline-flex; }
-
-/* Embla basics */
-.embla__viewport{ overflow:hidden; }
-.embla__container{ display:flex; }
-.embla__slide{ flex:0 0 auto; }
-
-/* Variables + spacing (symmetric) */
-.about-embla{
-  --slide-spacing:24px;        /* المسافة بين السلايدات */
-  --vid-radius:16px;           /* حواف كل الفيديوهات */
-  --vid-radius-active:26px;    /* حواف الفيديو المركزي (أنعم) */
-}
-@media (min-width:640px){ .about-embla{ --slide-spacing:28px; } }
-@media (min-width:1024px){ .about-embla{ --slide-spacing:32px; } }
-
-.about-embla .embla__viewport{ padding-inline:0; } /* بدون padding */
-.about-embla .embla__container{
-  margin-inline: calc(var(--slide-spacing) * -1);  /* سالب يمين/يسار */
-}
-.about-embla .embla__slide{
-  padding-inline: var(--slide-spacing);            /* يمين/يسار متساوي */
-  flex-basis: 80%;                                 /* موبايل */
-}
-@media (min-width:640px){ .about-embla .embla__slide{ flex-basis:58%; } }
-@media (min-width:1024px){ .about-embla .embla__slide{ flex-basis:36%; } }
-
-/* Video wrapper — no card, no ring, no bg */
-.about-embla .about-vid{
-  width:100%;
-  max-width:420px;
-  margin-inline:auto;
-  aspect-ratio:9/16;
-  border-radius:var(--vid-radius);
-  overflow:hidden;
-  /* لضمان قصّ ناعم أثناء التحريك */
-  -webkit-mask-image:-webkit-radial-gradient(white, black);
-  mask-image:radial-gradient(white, black);
-  transition: border-radius .35s ease;   /* ما بنستخدم transform هون */
-}
-
-/* تنعيم إضافي للمركزي */
-.about-embla .embla__slide.is-center .about-vid{
-  border-radius:var(--vid-radius-active);
-}
-
-/* الفيديو يملأ الحاوية، والـJS مسؤول عن أي scale */
-.about-embla .about-vid > video{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:inherit;
-  will-change: transform;      /* سلاسة مع سكربت الـscale */
-}
-
-
-    </style>
   </body>
 </html>
