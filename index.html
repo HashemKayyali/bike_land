@@ -934,296 +934,240 @@
       </div>
     </section>
 
-    <section id="contact" class="container mx-auto px-4 py-24">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-extrabold mb-2" data-aos="fade-up">
-          Contact / Booking
-        </h2>
-        <p class="text-white/70 mb-8" data-aos="fade-up" data-aos-delay="120">
-          Tell us what you need and we’ll contact you shortly.
-        </p>
+ <section id="contact" class="container mx-auto px-4 py-24">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-3xl font-extrabold mb-2" data-aos="fade-up">
+      Contact / Booking
+    </h2>
+    <p class="text-white/70 mb-8" data-aos="fade-up" data-aos-delay="120">
+      Tell us what you need and we’ll contact you shortly.
+    </p>
 
-      <form id="bookingForm"
-      class="grid grid-cols-1 sm:grid-cols-2 gap-5"
+    <form
+      id="bookingForm"
       autocomplete="on"
+      class="grid grid-cols-1 sm:grid-cols-2 gap-5"
       data-aos="fade-up"
-      data-aos-delay="200">
+      data-aos-delay="200"
+    >
+      <!-- Full Name -->
+      <div class="sm:col-span-1">
+        <label for="fullName" class="block text-sm text-white/70 mb-1">Full Name</label>
+        <input
+          id="fullName"
+          type="text"
+          name="name"
+          autocomplete="name"
+          required
+          class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+          placeholder="Your name"
+          spellcheck="false"
+          autocapitalize="words"
+        />
+      </div>
 
-  <!-- Full Name -->
-  <div class="sm:col-span-1">
-    <label class="block text-sm text-white/70 mb-1" for="fullName">Full Name</label>
-    <input id="fullName" type="text" name="name" required
-           autocomplete="section-booking name"
-           autocapitalize="words"
-           class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
-                  outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-           placeholder="Your name" />
-  </div>
+      <!-- Email -->
+      <div class="sm:col-span-1">
+        <label for="email" class="block text-sm text-white/70 mb-1">Email</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          autocomplete="email"
+          inputmode="email"
+          required
+          class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+          placeholder="name@example.com"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+        />
+      </div>
 
-  <!-- Email -->
-  <div class="sm:col-span-1">
-    <label class="block text-sm text-white/70 mb-1" for="email">Email</label>
-    <input id="email" type="email" name="email" required
-           autocomplete="section-booking email"
-           inputmode="email"
-           class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
-                  outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-           placeholder="name@example.com" />
-  </div>
+      <!-- Phone -->
+      <div class="sm:col-span-1">
+        <label for="phone" class="block text-sm text-white/70 mb-1">Phone</label>
+        <input
+          id="phone"
+          type="tel"
+          name="phone"
+          autocomplete="tel"
+          inputmode="tel"
+          required
+          class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+          placeholder="+962 7x xxx xxxx"
+        />
+      </div>
 
-  <!-- Phone -->
-  <div class="sm:col-span-1">
-    <label class="block text-sm text-white/70 mb-1" for="phone">Phone</label>
-    <input id="phone" type="tel" name="phone" required
-           autocomplete="section-booking tel"
-           inputmode="tel"
-           class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
-                  outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-           placeholder="+962 7x xxx xxxx" />
-  </div>
+      <!-- Product (AlpineJS Listbox + hidden input) -->
+      <div class="sm:col-span-1">
+        <label class="block text-sm text-white/70 mb-1">Product</label>
 
-  <!-- Product (AlpineJS Listbox + hidden input) -->
-  <div class="sm:col-span-1">
-    <label class="block text-sm text-white/70 mb-1">Product</label>
+        <div id="productListbox"
+             x-data="{
+               open:false,
+               selected:null,
+               items:['🚴 Bike Blender','💡 Bike Beam'],
+               placeholder:'Select a product',
+               pick(v){
+                 this.selected=v;
+                 this.$refs.hidden.value=v;
+                 this.$refs.hidden.dispatchEvent(new Event('input',{bubbles:true}));
+                 this.open=false;
+               },
+               clear(){
+                 this.selected=null;
+                 this.$refs.hidden.value='';
+                 this.$refs.hidden.dispatchEvent(new Event('input',{bubbles:true}));
+               }
+             }"
+             @keydown.escape.window="open=false"
+             @clear-product.window="clear()"
+             class="relative"
+             x-cloak>
+          <input type="hidden" name="product" x-ref="hidden" />
 
-    <div id="productListbox"
-         x-data="{
-           open:false,
-           selected:null,
-           items:['🚴 Bike Blender','💡 Bike Beam'],
-           placeholder:'Select a product',
-           pick(v){
-             this.selected=v;
-             this.$refs.hidden.value=v;
-             // حفّز أي لوجيك مرتبط بـinput (localStorage, ..)
-             this.$refs.hidden.dispatchEvent(new Event('input', {bubbles:true}));
-             this.open=false;
-           },
-           clear(){
-             this.selected=null;
-             this.$refs.hidden.value='';
-             this.$refs.hidden.dispatchEvent(new Event('input', {bubbles:true}));
-           }
-         }"
-         @keydown.escape.window="open=false"
-         @clear-product.window="clear()"
-         class="relative"
-         x-cloak>
-      <!-- القيمة التي تُرسل مع الفورم -->
-      <input type="hidden" name="product" x-ref="hidden" />
+          <button type="button" @click="open=!open"
+                  class="w-full h-12 bg-white/5 border border-white/10 rounded-lg px-4 pr-10
+                         flex items-center justify-between text-white outline-none
+                         focus:ring-2 focus:ring-emerald-500">
+            <span x-text="selected ?? placeholder" :class="selected ? '' : 'text-white/50'"></span>
+            <svg class="h-5 w-5 text-white/60 absolute right-3" xmlns="http://www.w3.org/2000/svg"
+                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
 
-      <!-- الزر -->
-      <button type="button" @click="open=!open"
-              class="w-full h-12 bg-white/5 border border-white/10 rounded-lg px-4 pr-10
-                     flex items-center justify-between text-white outline-none
-                     focus:ring-2 focus:ring-emerald-500">
-        <span x-text="selected ?? placeholder"
-              :class="selected ? '' : 'text-white/50'"></span>
-        <svg class="h-5 w-5 text-white/60 absolute right-3" xmlns="http://www.w3.org/2000/svg"
-             fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 9l-7 7-7-7"/>
-        </svg>
-      </button>
+          <ul x-show="open" x-transition.origin.top @click.outside="open=false"
+              class="absolute z-10 mt-2 w-full bg-neutral-900 border border-white/10 rounded-lg shadow-lg overflow-hidden">
+            <template x-for="(item, i) in items" :key="i">
+              <li @click="pick(item)"
+                  class="px-4 py-2 cursor-pointer text-white/90 hover:bg-emerald-500 hover:text-black"
+                  :class="{'bg-neutral-800': selected===item}"
+                  x-text="item"></li>
+            </template>
+          </ul>
+        </div>
+      </div>
 
-      <!-- القائمة -->
-      <ul x-show="open" x-transition.origin.top @click.outside="open=false"
-          class="absolute z-10 mt-2 w-full bg-neutral-900 border border-white/10 rounded-lg
-                 shadow-lg overflow-hidden">
-        <template x-for="(item, i) in items" :key="i">
-          <li @click="pick(item)"
-              class="px-4 py-2 cursor-pointer text-white/90 hover:bg-emerald-500 hover:text-black"
-              :class="{'bg-neutral-800': selected===item}"
-              x-text="item"></li>
-        </template>
-      </ul>
-    </div>
-  </div>
+      <!-- Address -->
+      <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <!-- Country -->
+        <div class="sm:col-span-1">
+          <label for="country" class="block text-sm text-white/70 mb-1">Country</label>
+          <select id="country" name="country"
+                  autocomplete="country-name"
+                  class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white">
+            <option value="" disabled selected>Select a country</option>
+            <!-- populated by your JS -->
+          </select>
+        </div>
 
-  <!-- Address -->
-  <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5">
-    <!-- Country (AlpineJS Listbox + hidden input) -->
-    <div class="sm:col-span-1">
-      <label class="block text-sm text-white/70 mb-1">Country</label>
+        <div class="sm:col-span-1">
+          <label for="city" class="block text-sm text-white/70 mb-1">City</label>
+          <input
+            id="city"
+            type="text"
+            name="city"
+            autocomplete="address-level2"
+            required
+            class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+            placeholder="Amman"
+          />
+        </div>
 
-      <div id="countryListboxWrap"
-           x-data="countryListbox()"
-           x-cloak
-           class="relative"
-           @keydown.escape.window="open=false">
-        <!-- القيمة التي تُرسل مع الفورم -->
-        <input type="hidden" name="country" x-ref="hidden" />
+        <div class="sm:col-span-1">
+          <label for="state" class="block text-sm text-white/70 mb-1">State / Province</label>
+          <input
+            id="state"
+            type="text"
+            name="state"
+            autocomplete="address-level1"
+            class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+            placeholder="(optional)"
+          />
+        </div>
 
-        <!-- الزر -->
-        <button type="button" @click="open=!open"
-                class="w-full h-12 bg-white/5 border border-white/10 rounded-lg px-4 pr-10
-                       flex items-center justify-between text-white outline-none
-                       focus:ring-2 focus:ring-emerald-500">
-          <span x-text="selected ?? 'Select a country'"
-                :class="selected ? '' : 'text-white/50'"></span>
-          <svg class="h-5 w-5 text-white/60 absolute right-3" xmlns="http://www.w3.org/2000/svg"
-               fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M19 9l-7 7-7-7"/>
+        <div class="sm:col-span-1">
+          <label for="postal" class="block text-sm text-white/70 mb-1">ZIP / Postal Code</label>
+          <input
+            id="postal"
+            type="text"
+            name="postal"
+            autocomplete="postal-code"
+            inputmode="numeric"
+            class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+            placeholder="11118"
+          />
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="address1" class="block text-sm text-white/70 mb-1">Address Line 1</label>
+          <input
+            id="address1"
+            type="text"
+            name="address1"
+            autocomplete="address-line1"
+            required
+            class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+            placeholder="Street, building, number"
+          />
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="address2" class="block text-sm text-white/70 mb-1">Address Line 2</label>
+          <input
+            id="address2"
+            type="text"
+            name="address2"
+            autocomplete="address-line2"
+            class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
+            placeholder="Apartment, floor, landmark (optional)"
+          />
+        </div>
+      </div>
+
+      <!-- Message -->
+      <div class="sm:col-span-2">
+        <label for="message" class="block text-sm text-white/70 mb-1">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          class="w-full min-h-[140px] rounded-lg bg-white/5 border border-white/10 px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500 text-white resize-none"
+          placeholder="Tell us about your event or question..."
+        ></textarea>
+      </div>
+
+      <!-- Actions -->
+      <div class="sm:col-span-2 flex flex-wrap items-center gap-4">
+        <button
+          id="sendBtn"
+          type="submit"
+          class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold bg-emerald-500 text-neutral-900 ring-1 ring-emerald-500/20 hover:bg-emerald-400 transition"
+        >
+          Send Request
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
           </svg>
         </button>
 
-        <!-- القائمة -->
-        <div x-show="open" x-transition.origin.top @click.outside="open=false"
-             class="absolute z-30 mt-2 w-full rounded-lg border border-white/10 bg-neutral-900 shadow-lg"
-             style="overscroll-behavior:contain;">
-          <div class="p-2 border-b border-white/10">
-            <input type="text" x-model="q" placeholder="Search country..."
-                   class="w-full h-10 rounded-md bg-white/5 border border-white/10 px-3 text-sm
-                          outline-none focus:ring-2 focus:ring-emerald-500 text-white">
-          </div>
+        <a
+          id="waLink"
+          target="_blank"
+          class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold border border-white/15 hover:bg-white/5 transition"
+        >
+          WhatsApp
+        </a>
 
-          <!-- لفافة بسكرول حقيقي -->
-          <div class="country-scroll" tabindex="0">
-            <ul class="py-1">
-              <template x-for="(item, i) in filtered" :key="i">
-                <li @click="pick(item)"
-                    class="px-4 py-2 cursor-pointer text-white/90 hover:bg-emerald-500 hover:text-black"
-                    :class="{'bg-neutral-800': selected===item}"
-                    x-text="item"></li>
-              </template>
-              <li x-show="filtered.length===0" class="px-4 py-3 text-white/50 text-sm">No results</li>
-            </ul>
-          </div>
-        </div>
+        <span id="formStatus" class="text-sm"></span>
       </div>
-      <!-- لو بدك Autofill للبلد من المتصفح استبدل هذا المكوّن بـ<select autocomplete="country-name"> -->
-    </div>
-
-    <div class="sm:col-span-1">
-      <label class="block text-sm text-white/70 mb-1" for="city">City</label>
-      <input id="city" type="text" name="city" required
-             autocomplete="section-booking address-level2"
-             class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
-                    outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-             placeholder="Amman" />
-    </div>
-
-    <div class="sm:col-span-1">
-      <label class="block text-sm text-white/70 mb-1" for="state">State / Province</label>
-      <input id="state" type="text" name="state"
-             autocomplete="section-booking address-level1"
-             class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
-                    outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-             placeholder="(optional)" />
-    </div>
-
-    <div class="sm:col-span-1">
-      <label class="block text-sm text-white/70 mb-1" for="postal">ZIP / Postal Code</label>
-      <input id="postal" type="text" name="postal"
-             autocomplete="section-booking postal-code"
-             class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
-                    outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-             placeholder="11118" />
-    </div>
-
-    <div class="sm:col-span-2">
-      <label class="block text-sm text-white/70 mb-1" for="address1">Address Line 1</label>
-      <input id="address1" type="text" name="address1" required
-             autocomplete="section-booking address-line1"
-             class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
-                    outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-             placeholder="Street, building, number" />
-    </div>
-
-    <div class="sm:col-span-2">
-      <label class="block text-sm text-white/70 mb-1" for="address2">Address Line 2</label>
-      <input id="address2" type="text" name="address2"
-             autocomplete="section-booking address-line2"
-             class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px]
-                    outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-             placeholder="Apartment, floor, landmark (optional)" />
-    </div>
+    </form>
   </div>
-
-  <!-- Message -->
-  <div class="sm:col-span-2">
-    <label class="block text-sm text-white/70 mb-1" for="message">Message</label>
-    <textarea id="message" name="message"
-              class="w-full min-h-[140px] rounded-lg bg-white/5 border border-white/10 px-4 py-3
-                     outline-none focus:ring-2 focus:ring-emerald-500 text-white resize-none"
-              placeholder="Tell us about your event or question..."
-              autocomplete="off"></textarea>
-  </div>
-
-  <!-- Actions -->
-  <div class="sm:col-span-2 flex flex-wrap items-center gap-4">
-    <button id="sendBtn" type="submit"
-            class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold
-                   bg-emerald-500 text-neutral-900 ring-1 ring-emerald-500/20 hover:bg-emerald-400 transition">
-      Send Request
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-           viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-      </svg>
-    </button>
-
-    <a id="waLink" target="_blank"
-       class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold
-              border border-white/15 hover:bg-white/5 transition">
-      WhatsApp
-    </a>
-
-    <span id="formStatus" class="text-sm"></span>
-  </div>
-</form>
-
-      </div>
-    </section>
+</section>
 
 
     
-<!-- Fallback: خزّن/املأ القيم تلقائيًا عبر localStorage -->
-<script>
-(function(){
-  const form = document.getElementById('bookingForm');
-  if (!form) return;
-
-  const keys = ['name','email','phone','product','country','city','state','postal','address1','address2','message'];
-
-  // تحميل مُسبق
-  window.addEventListener('DOMContentLoaded', () => {
-    keys.forEach(k => {
-      const el = form.querySelector(`[name="${k}"]`);
-      const v = localStorage.getItem(`bl_${k}`);
-      if (v && el && !el.value) el.value = v;
-    });
-
-    // عكس قيمة المنتج/البلد على الـAlpine listboxes
-    const prodVal = localStorage.getItem('bl_product');
-    const prodRoot = document.getElementById('productListbox');
-    if (prodVal && prodRoot && prodRoot.__x) {
-      prodRoot.__x.$data.selected = prodVal;
-      const h = prodRoot.querySelector('input[name="product"]');
-      if (h) h.value = prodVal;
-    }
-
-    const countryVal = localStorage.getItem('bl_country');
-    const countryRoot = document.getElementById('countryListboxWrap');
-    if (countryVal && countryRoot && countryRoot.__x) {
-      countryRoot.__x.$data.selected = countryVal;
-      const h2 = countryRoot.querySelector('input[name="country"]');
-      if (h2) h2.value = countryVal;
-    }
-  });
-
-  // حفظ تلقائي عند أي إدخال
-  form.addEventListener('input', (e) => {
-    const t = e.target;
-    if (!t.name) return;
-    if (keys.includes(t.name)) {
-      localStorage.setItem(`bl_${t.name}`, t.value);
-    }
-  });
-})();
-</script>
-
     <footer id="site-footer" class="border-t border-white/10" data-aos="fade-up">
       <div class="container mx-auto px-4 py-10">
         <div
