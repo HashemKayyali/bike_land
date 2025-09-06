@@ -15,6 +15,7 @@
     "imagemin-cli": "^8.0.0",
     "imagemin-webp": "^8.0.0",
     "postcss": "^8.5.6",
+    "preline": "^3.2.3",
     "tailwindcss": "^3.4.13"
   }
 }

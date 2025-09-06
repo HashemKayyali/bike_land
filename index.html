@@ -85,51 +85,10 @@
         background: var(--sb-thumb-active);
       }
 
-      .nav-link {
-        position: relative;
-        transition: color 0.3s;
-      }
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        height: 2px;
-        width: 0%;
-        background: linear-gradient(to right, #34d399, #22d3ee);
-        transition: width 0.3s ease-in-out;
-      }
-      .nav-link:hover::after {
-        width: 100%;
-      }
-      .nav-link:hover {
-        color: #fff;
-      }
 
-      .mobile-link {
-        display: block;
-        padding: 10px 12px;
-        border-radius: 6px;
-        transition: background 0.3s;
-      }
-      .mobile-link:hover {
-        background-color: rgba(255, 255, 255, 0.05);
-      }
-
-
-.mobile-link {
-  display: block;
-  padding: 10px 12px;
-  border-radius: 6px;
-  transition: background 0.3s ease;
-}
-.mobile-link:hover {
-  background-color: rgba(255, 255, 255, 0.06);
-}
-
-}
 
     </style>
+
 
     <!-- JS (كلها defer حتى لا تعيق الرسم) -->
     <script
@@ -184,6 +143,33 @@
       src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/carousel/carousel.thumbs.umd.js"
       defer
     ></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  html { font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+  /* إخفاء سكرول الشريط بالموبايل */
+  .no-scrollbar::-webkit-scrollbar{display:none} .no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+</style>
+<style>
+  /* مقاسات موحّدة للسكشنز + أوفست الروابط */
+  :root{
+    --sec-gap: 4rem;      /* المسافة فوق/تحت (margin) للموبايل */
+    --sec-py:  2.75rem;   /* حشوة داخلية (padding) للموبايل */
+    --nav-offset: 7rem;   /* ارتفاع الهيدر المثبت تقريبًا */
+  }
+  @media (min-width:640px){ :root{ --sec-gap: 5rem; --sec-py: 3.5rem;  --nav-offset: 7.5rem; } }
+  @media (min-width:1024px){:root{ --sec-gap: 6rem; --sec-py: 4rem;    --nav-offset: 8.5rem; } }
+
+  .bl-section{
+    margin-block: var(--sec-gap);
+    padding-block: var(--sec-py);
+    scroll-margin-top: var(--nav-offset);
+  }
+  /* أول سكشن لو مش حاب مسافة فوق */
+  .bl-section:first-of-type{ margin-top: 0; }
+</style>
+
   </head>
 
   <!-- =================== body =================== -->
@@ -193,110 +179,188 @@
   >
     <!-- =================== Navbar =================== -->
 
-    <header x-data="{ open: false }" class="sticky top-0 z-50">
-      <nav
-        class="backdrop-blur bg-neutral-900/70 border-b border-white/5 shadow-sm"
-      >
-        <div class="container mx-auto px-4">
-          <div class="flex justify-between items-center py-3">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-3">
-              <img
-                src="images/banner-img.png"
-                alt="Bike Land"
-                class="h-12 sm:h-14 w-auto"
-              />
-              <span class="text-white text-2xl font-extrabold tracking-wide">
-                BIKE <span class="text-emerald-400">LAND</span>
-              </span>
-            </a>
 
-            <!-- Desktop menu -->
-            <ul
-              class="hidden lg:flex items-center gap-8 font-semibold text-white text-sm"
-            >
-              <li><a href="#" class="nav-link">HOME</a></li>
-              <li><a href="#products" class="nav-link">PRODUCTS</a></li>
-              <li><a href="#events" class="nav-link">EVENTS</a></li>
-              <li><a href="#about" class="nav-link">ABOUT</a></li>
-              <li><a href="#customers" class="nav-link">OUR CUSTOMERS</a></li>
-            </ul>
+<!-- ===== Header (logo + center nav + CTA on the same row) ===== -->
+<header class="fixed inset-x-0 top-0 z-50">
+  <nav id="BLnav"
+       class="relative isolate rounded-b-3xl transition-all duration-300
+              bg-gradient-to-b from-neutral-950/95 via-neutral-950/90 to-neutral-900/95
+              backdrop-blur-2xl backdrop-saturate-150
+              border-b border-white/10 ring-1 ring-white/10
+              shadow-[0_18px_48px_-12px_rgba(0,0,0,.92),0_8px_28px_-10px_rgba(0,0,0,.78)]">
 
-            <!-- Contact + burger -->
-            <div class="flex items-center gap-3">
-              <a
-                href="#contact"
-                class="hidden sm:inline-flex items-center rounded-full px-5 py-2.5 font-semibold bg-emerald-500 hover:bg-emerald-400 text-neutral-900 transition"
-              >
-                Contact Us
-              </a>
-              <!-- Burger -->
-              <button
-                @click="open = !open"
-                class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md ring-1 ring-white/10 hover:bg-white/5 transition"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.7"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+    <!-- لمعة أعلى -->
+    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-emerald-400 to-cyan-400"></div>
+    <!-- هالة طفو -->
+    <div aria-hidden="true" class="pointer-events-none absolute inset-x-4 -bottom-8 h-12 rounded-full bg-black/75 blur-2xl opacity-90"></div>
+
+    <div id="BLinner" class="max-w-screen-xl mx-auto px-4 py-3 text-white transition-all duration-300">
+      <!-- صف واحد: شعار | روابط | CTA + برغر -->
+      <div class="flex items-center gap-4">
+        <!-- الشعار -->
+<a href="#home" class="flex items-center gap-3 shrink-0">
+          <img src="images/banner-img.png" class="h-10" alt="Bike Land Logo" />
+          <span class="text-2xl font-extrabold tracking-wide drop-shadow">
+            BIKE <span class="text-emerald-300">LAND</span>
+          </span>
+        </a>
+
+        <!-- الروابط (ديسكتوب) -->
+        <div class="hidden md:flex flex-1 justify-center">
+          <ul class="flex items-center gap-x-8 font-semibold text-[0.95rem]">
+            <li><a href="#home" data-section="home"
+                   class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
+                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60 rounded
+                          after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
+                          after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
+                          after:transition-all after:duration-300 hover:after:w-full
+                          data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">HOME</a></li>
+
+            <!-- Mega Menu (ديسكتوب) -->
+            <li class="hs-dropdown [--strategy:absolute] [--adaptive:none]">
+              <button type="button"
+                      class="hs-dropdown-toggle navLnk relative inline-flex items-center gap-1 py-2 px-3 transition-colors duration-200 hover:text-emerald-300
+                             after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
+                             after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
+                             after:transition-all after:duration-300 hover:after:w-full" data-section="products" >
+                PRODUCTS
+                <svg class="size-4 hs-dropdown-open:-rotate-180 duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
-            </div>
-          </div>
+              <div class="hs-dropdown-menu hidden z-10 top-full start-1/2 -translate-x-1/2 sm:min-w-[42rem]
+                          bg-neutral-900/95 backdrop-blur-2xl ring-1 ring-white/10 rounded-2xl p-6 shadow-xl">
+                <div class="grid sm:grid-cols-3 gap-6">
+                  <div>
+                    <p class="text-white/70 text-xs mb-2">Bike Blender</p>
+                    <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
+                    <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Specs</a>
+                    <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Branding</a>
+                  </div>
+                  <div>
+                    <p class="text-white/70 text-xs mb-2">LED Race</p>
+                    <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Event Mode</a>
+                    <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Setup</a>
+                    <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Packages</a>
+                  </div>
+                  <div class="rounded-xl ring-1 ring-white/10 p-4 bg-white/5">
+                    <p class="text-sm font-semibold mb-1">Need custom?</p>
+                    <p class="text-white/70 text-xs mb-3">Custom branding & sizes</p>
+                    <a href="#contact"
+                       class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold
+                              bg-gradient-to-r from-emerald-400 to-cyan-400 text-neutral-900">
+                      Contact / Booking
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
 
-         <!-- Mobile menu -->
-<!-- Mobile menu -->
-<div
-  x-show="open"
-  x-transition:enter="transition ease-out duration-300"
-  x-transition:enter-start="opacity-0 -translate-y-3"
-  x-transition:enter-end="opacity-100 translate-y-0"
-  x-transition:leave="transition ease-in duration-200"
-  x-transition:leave-start="opacity-100 translate-y-0"
-  x-transition:leave-end="opacity-0 -translate-y-3"
-  x-cloak
-  class="lg:hidden mt-2 rounded-xl bg-neutral-900/80 backdrop-blur-md ring-1 ring-white/10 shadow-lg"
->
-  <ul class="space-y-1 p-4 text-white font-semibold text-sm">
-    <li><a href="#" @click="open=false" class="mobile-link">HOME</a></li>
-    <li><a href="#products" @click="open=false" class="mobile-link">PRODUCTS</a></li>
-    <li><a href="#events" @click="open=false" class="mobile-link">EVENTS</a></li>
-    <li><a href="#about" @click="open=false" class="mobile-link">ABOUT</a></li>
-    <li><a href="#customers" @click="open=false" class="mobile-link">OUR CUSTOMERS</a></li>
-    <li>
-      <a href="#contact" @click="open=false" class="block mt-2 text-center bg-emerald-500 text-neutral-900 py-2 px-4 rounded-full hover:bg-emerald-400 transition">
-        Contact / Booking
-      </a>
-    </li>
-  </ul>
-</div>
+            <li><a href="#events"    data-section="events"
+                   class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
+                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60 rounded
+                          after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
+                          after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
+                          after:transition-all after:duration-300 hover:after:w-full
+                          data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">EVENTS</a></li>
 
+            <li><a href="#customers" data-section="customers"
+                   class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
+                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60 rounded
+                          after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
+                          after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
+                          after:transition-all after:duration-300 hover:after:w-full
+                          data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">OUR CUSTOMERS</a></li>
 
+            <li><a href="#about"     data-section="about"
+                   class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
+                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60 rounded
+                          after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
+                          after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
+                          after:transition-all after:duration-300 hover:after:w-full
+                          data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">ABOUT</a></li>
+          </ul>
         </div>
-      </nav>
-    </header>
 
-    <div id="navSpacer" aria-hidden="true"></div>
+        <!-- CTA + برغر -->
+        <div class="ml-auto flex items-center gap-2">
+          <a href="#contact"
+             class="hidden sm:inline-flex items-center rounded-full px-5 py-2.5 font-semibold
+                    bg-gradient-to-r from-emerald-400 to-cyan-400 text-neutral-900
+                    hover:brightness-110 active:brightness-95 transition">
+            Contact / Booking
+          </a>
+
+          <!-- زر الموبايل (قائمة منفصلة للموبايل فقط) -->
+          <button type="button"
+                  class="hs-collapse-toggle navLnk relative inline-flex items-center justify-center size-10 rounded-lg
+                         text-white hover:bg-white/10 focus:outline-none md:hidden"
+                  aria-controls="bl-nav-mobile" data-hs-collapse="#bl-nav-mobile">
+            <svg class="hs-collapse-open:hidden size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg class="hs-collapse-open:block hidden size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- قائمة الموبايل (عمودية) -->
+      <div id="bl-nav-mobile"
+           class="hs-collapse md:!hidden hidden overflow-hidden transition-all duration-300 mt-3">
+        <ul class="flex flex-col font-semibold text-[0.95rem]">
+          <li><a href="#home" data-section="home"
+                 class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
+                        after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
+                        after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
+                        after:transition-all after:duration-300 hover:after:w-full
+                        data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">HOME</a></li>
+          <li class="hs-dropdown [--strategy:static] [--adaptive:none] [--is-collapse:true]">
+            <button type="button"
+                    class="hs-dropdown-toggle relative inline-flex items-center gap-1 py-2 px-3 hover:text-emerald-300
+                           after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
+                           after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
+                           after:transition-all after:duration-300 hover:after:w-full"   data-section="products">
+              PRODUCTS
+              <svg class="size-4 hs-dropdown-open:-rotate-180 duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="hs-dropdown-menu hidden z-10 w-full bg-neutral-900/95 backdrop-blur-2xl ring-1 ring-white/10 rounded-2xl p-4 mt-2">
+              <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
+              <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Specs</a>
+              <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Branding</a>
+            </div>
+          </li>
+          <li><a href="#events"    data-section="events"    class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">EVENTS</a></li>
+          <li><a href="#customers" data-section="customers" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">OUR CUSTOMERS</a></li>
+          <li><a href="#about"     data-section="about"     class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">ABOUT</a></li>
+          <li class="mt-2">
+            <a href="#contact" class="block text-center bg-white text-neutral-900 py-2 px-4 rounded-full hover:bg-white/90 transition">Contact / Booking</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Spacer -->
+<div class="h-20" aria-hidden="true"></div>
+
+<script src="https://unpkg.com/preline/dist/preline.js" defer></script>
+
 
     <!-- =================== Hero =================== -->
 
-    <section
-      id="hero"
-      class="relative min-h-[70svh] md:min-h-[78svh] grid place-items-center overflow-hidden"
+   <section id="home"
+  class="relative min-h-[70svh] md:min-h-[78svh] grid place-items-center overflow-hidden
+         scroll-mt-24 lg:scroll-mt-28"
     >
       <!-- الخلفية: نحاول WebP، وإن فشل نجرب اسم بديل .png.webp، وإن فشل نرجع لـ PNG -->
       <img
         id="heroImg"
-        src="./images/webp/banner-bg.webp"
+        src="./images/webp/banner-bg.png"
         alt=""
         fetchpriority="high"
         loading="eager"
@@ -374,7 +438,7 @@
     <section
       id="products"
       style="content-visibility: auto; contain-intrinsic-size: 800px 1000px"
-      class="container mx-auto px-4 py-10 sm:py-12 lg:py-14 mt-10 mb-14 sm:mt-14 sm:mb-16 lg:mt-16 lg:mb-16"
+      class="scroll-mt-24 lg:scroll-mt-28 container mx-auto px-4 py-10 sm:py-12 lg:py-14 mt-10 mb-14 sm:mt-14 sm:mb-16 lg:mt-16 lg:mb-16"
     >
       <div class="text-center max-w-2xl mx-auto mb-8">
         <h2
@@ -1124,7 +1188,7 @@
 
     <section
       id="events"
-      class="container mx-auto px-4 pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14 mt-0 mb-12 sm:mb-14 lg:mb-16"
+      class="scroll-mt-24 lg:scroll-mt-28 container mx-auto px-4 pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14 mt-0 mb-12 sm:mb-14 lg:mb-16"
     >
       <!-- العنوان -->
       <div class="text-center max-w-2xl mx-auto mb-6">
@@ -1337,7 +1401,12 @@
 
     <!-- =================== Customers ( =================== -->
 
-    <section id="customers" class="container mx-auto px-4 pt-16 pb-8">
+
+
+
+
+
+    <section id="customers" class="scroll-mt-24 lg:scroll-mt-28 container mx-auto px-4 pt-16 pb-8">
       <div class="text-center max-w-2xl mx-auto mb-8">
         <h2
           class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight"
@@ -2025,14 +2094,19 @@
       });
     </script>
 
+
+
+
+
+
     <!-- =================== About Us =================== -->
 
-    <sectionZ
+    <section
       style="content-visibility: auto; contain-intrinsic-size: 800px 1000px"
       id="about"
       data-aos="fade-left"
       data-aos-anchor-placement="top-bottom"
-      class="container mx-auto px-4 py-12"
+      class="scroll-mt-24 lg:scroll-mt-28 container mx-auto px-4 py-12"
     >
       <div class="text-center max-w-2xl mx-auto mb-10">
         <h2
@@ -2061,11 +2135,11 @@
           </div>
         </article>
       </div>
-    </sectionZ>
+    </section>
 
     <!-- =================== Contact Us  =================== -->
 
-    <section id="contact" class="container mx-auto px-4 py-12">
+    <section id="contact" class="scroll-mt-24 lg:scroll-mt-28 container mx-auto px-4 py-12">
       <div class="max-w-3xl mx-auto">
         <h2 class="text-3xl font-extrabold mb-2" data-aos="fade-up">
           Contact / Booking
@@ -3105,5 +3179,8 @@
         }
       }
     </style>
+
+
+
   </body>
 </html>
