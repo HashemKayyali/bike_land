@@ -24,10 +24,8 @@
 
     <!-- Helpers & resets خفيفة -->
     <style>
-      html,
-      body {
-        overflow-x: hidden;
-      }
+      html 
+     body { overflow-x: visible; }
       * {
         box-sizing: border-box;
       }
@@ -39,6 +37,7 @@
       [x-cloak] {
         display: none !important;
       }
+
 
       /* شكل سكرول أنيق للدروبداؤن */
       .country-scroll {
@@ -153,21 +152,22 @@
 </style>
 <style>
   /* مقاسات موحّدة للسكشنز + أوفست الروابط */
-  :root{
-    --sec-gap: 4rem;      /* المسافة فوق/تحت (margin) للموبايل */
-    --sec-py:  2.75rem;   /* حشوة داخلية (padding) للموبايل */
-    --nav-offset: 7rem;   /* ارتفاع الهيدر المثبت تقريبًا */
-  }
-  @media (min-width:640px){ :root{ --sec-gap: 5rem; --sec-py: 3.5rem;  --nav-offset: 7.5rem; } }
-  @media (min-width:1024px){:root{ --sec-gap: 6rem; --sec-py: 4rem;    --nav-offset: 8.5rem; } }
+ :root{
+  --sec-gap: 2.5rem;   /* كانت 4–6rem: هلأ أصغر */
+  --sec-py:  2rem;     /* حشوة داخلية أخف */
+  --nav-offset: 7rem;  /* خليه كما هو للأنكور */
+}
+@media (min-width:640px){ :root{ --sec-gap: 3rem;   --sec-py: 3.25rem; --nav-offset: 7.25rem; } }
+@media (min-width:1024px){:root{ --sec-gap: 1.5rem; --sec-py: 3.5rem;  --nav-offset: 8rem;    } }
 
-  .bl-section{
-    margin-block: var(--sec-gap);
-    padding-block: var(--sec-py);
-    scroll-margin-top: var(--nav-offset);
-  }
-  /* أول سكشن لو مش حاب مسافة فوق */
-  .bl-section:first-of-type{ margin-top: 0; }
+/* كما هي */
+.bl-section{
+  margin-block: var(--sec-gap);
+  padding-block: var(--sec-py);
+  scroll-margin-top: var(--nav-offset);
+}
+.bl-section:first-of-type{ margin-top:0; }
+
 </style>
 
   </head>
@@ -435,11 +435,11 @@
 
     <!-- =================== Products =================== -->
 
-    <section
-      id="products"
-      style="content-visibility: auto; contain-intrinsic-size: 800px 1000px"
-      class="scroll-mt-24 lg:scroll-mt-28 container mx-auto px-4 py-10 sm:py-12 lg:py-14 mt-10 mb-14 sm:mt-14 sm:mb-16 lg:mt-16 lg:mb-16"
-    >
+ <section
+  id="products"
+  style="content-visibility:auto; contain-intrinsic-size:800px 1000px"
+  class="bl-section container mx-auto px-4">
+
       <div class="text-center max-w-2xl mx-auto mb-8">
         <h2
           class="relative inline-block text-4xl font-extrabold tracking-tight"
@@ -1186,10 +1186,8 @@
 
     <!-- =================== Events =================== -->
 
-    <section
-      id="events"
-      class="scroll-mt-24 lg:scroll-mt-28 container mx-auto px-4 pt-6 pb-10 sm:pt-8 sm:pb-12 lg:pt-10 lg:pb-14 mt-0 mb-12 sm:mb-14 lg:mb-16"
-    >
+<section id="events" class="bl-section container mx-auto px-4">
+
       <!-- العنوان -->
       <div class="text-center max-w-2xl mx-auto mb-6">
         <h2
@@ -1406,7 +1404,7 @@
 
 
 
-    <section id="customers" class="scroll-mt-24 lg:scroll-mt-28 container mx-auto px-4 pt-16 pb-8">
+<section id="customers" class="bl-section container mx-auto px-4">
       <div class="text-center max-w-2xl mx-auto mb-8">
         <h2
           class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight"
@@ -2101,13 +2099,13 @@
 
     <!-- =================== About Us =================== -->
 
-    <section
-      style="content-visibility: auto; contain-intrinsic-size: 800px 1000px"
-      id="about"
-      data-aos="fade-left"
-      data-aos-anchor-placement="top-bottom"
-      class="scroll-mt-24 lg:scroll-mt-28 container mx-auto px-4 py-12"
-    >
+   <section
+  id="about"
+  data-aos="fade-left"
+  data-aos-anchor-placement="top-bottom"
+  style="content-visibility:auto; contain-intrinsic-size:800px 1000px"
+  class="bl-section container mx-auto px-4">
+
       <div class="text-center max-w-2xl mx-auto mb-10">
         <h2
           class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight"
@@ -2139,7 +2137,7 @@
 
     <!-- =================== Contact Us  =================== -->
 
-    <section id="contact" class="scroll-mt-24 lg:scroll-mt-28 container mx-auto px-4 py-12">
+<section id="contact" class="bl-section container mx-auto px-4">
       <div class="max-w-3xl mx-auto">
         <h2 class="text-3xl font-extrabold mb-2" data-aos="fade-up">
           Contact / Booking
