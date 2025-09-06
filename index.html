@@ -21,7 +21,6 @@
     <!-- CSS: Tailwind build + AOS  -->
     <link href="./dist/output.css" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  
 
     <!-- Helpers & resets خفيفة -->
     <style>
@@ -85,6 +84,51 @@
       .country-scroll::-webkit-scrollbar-thumb:active {
         background: var(--sb-thumb-active);
       }
+
+      .nav-link {
+        position: relative;
+        transition: color 0.3s;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        height: 2px;
+        width: 0%;
+        background: linear-gradient(to right, #34d399, #22d3ee);
+        transition: width 0.3s ease-in-out;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .nav-link:hover {
+        color: #fff;
+      }
+
+      .mobile-link {
+        display: block;
+        padding: 10px 12px;
+        border-radius: 6px;
+        transition: background 0.3s;
+      }
+      .mobile-link:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+
+
+.mobile-link {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+.mobile-link:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+}
+
     </style>
 
     <!-- JS (كلها defer حتى لا تعيق الرسم) -->
@@ -92,7 +136,7 @@
       defer
       src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"
     ></script>
-    
+
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
@@ -149,78 +193,51 @@
   >
     <!-- =================== Navbar =================== -->
 
-    <header x-data="{ open:false }" class="sticky top-0 z-50">
-      <nav class="backdrop-blur bg-neutral-900/70 border-b border-white/5">
+    <header x-data="{ open: false }" class="sticky top-0 z-50">
+      <nav
+        class="backdrop-blur bg-neutral-900/70 border-b border-white/5 shadow-sm"
+      >
         <div class="container mx-auto px-4">
-          <div class="flex items-center justify-between py-3">
+          <div class="flex justify-between items-center py-3">
             <!-- Logo -->
             <a href="#" class="flex items-center gap-3">
               <img
                 src="images/banner-img.png"
                 alt="Bike Land"
-                class="h-14 sm:h-16 w-auto"
+                class="h-12 sm:h-14 w-auto"
               />
-              <span
-                class="inline-block whitespace-nowrap font-extrabold tracking-wide leading-none text-white text-xl sm:text-2xl md:text-3xl"
-              >
+              <span class="text-white text-2xl font-extrabold tracking-wide">
                 BIKE <span class="text-emerald-400">LAND</span>
               </span>
             </a>
 
             <!-- Desktop menu -->
-            <ul class="hidden lg:flex items-center gap-8 font-semibold">
-              <li>
-                <a class="text-white/90 hover:text-white transition" href="#"
-                  >HOME</a
-                >
-              </li>
-              <li>
-                <a
-                  class="text-white/70 hover:text-white transition"
-                  href="#products"
-                  >PRODUCTS</a
-                >
-              </li>
-              <li>
-                <a
-                  class="text-white/70 hover:text-white transition"
-                  href="#events"
-                  >EVENTS</a
-                >
-              </li>
-              <li>
-                <a
-                  class="text-white/70 hover:text-white transition"
-                  href="#about"
-                  >ABOUT</a
-                >
-              </li>
-              <li>
-                <a
-                  class="text-white/70 hover:text-white transition"
-                  href="#customers"
-                  >OUR CUSTOMERS</a
-                >
-              </li>
+            <ul
+              class="hidden lg:flex items-center gap-8 font-semibold text-white text-sm"
+            >
+              <li><a href="#" class="nav-link">HOME</a></li>
+              <li><a href="#products" class="nav-link">PRODUCTS</a></li>
+              <li><a href="#events" class="nav-link">EVENTS</a></li>
+              <li><a href="#about" class="nav-link">ABOUT</a></li>
+              <li><a href="#customers" class="nav-link">OUR CUSTOMERS</a></li>
             </ul>
 
             <!-- Contact + burger -->
             <div class="flex items-center gap-3">
               <a
                 href="#contact"
-                class="hidden sm:inline-flex items-center rounded-full px-5 py-2.5 font-semibold shadow-sm ring-1 ring-emerald-500/20 bg-emerald-500 hover:bg-emerald-400 text-neutral-900 transition"
+                class="hidden sm:inline-flex items-center rounded-full px-5 py-2.5 font-semibold bg-emerald-500 hover:bg-emerald-400 text-neutral-900 transition"
               >
                 Contact Us
               </a>
-
               <!-- Burger -->
               <button
-                @click="open=!open"
-                class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md ring-1 ring-white/10 hover:bg-white/5"
+                @click="open = !open"
+                class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md ring-1 ring-white/10 hover:bg-white/5 transition"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
+                  class="h-6 w-6 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -236,58 +253,39 @@
             </div>
           </div>
 
-          <!-- Mobile menu -->
-          <div
-            x-show="open"
-            x-transition.origin.top.left
-            class="lg:hidden pb-3"
-          >
-            <ul class="space-y-1 font-semibold">
-              <li>
-                <a class="block rounded-md px-3 py-2 hover:bg-white/5" href="#"
-                  >HOME</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block rounded-md px-3 py-2 hover:bg-white/5"
-                  href="#products"
-                  >PRODUCTS</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block rounded-md px-3 py-2 hover:bg-white/5"
-                  href="#events"
-                  >EVENTS</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block rounded-md px-3 py-2 hover:bg-white/5"
-                  href="#about"
-                  >ABOUT</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block rounded-md px-3 py-2 hover:bg-white/5"
-                  href="#customers"
-                  >OUR CUSTOMERS</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block rounded-md px-3 py-2 hover:bg-white/5"
-                  href="#contact"
-                  >CONTACT</a
-                >
-              </li>
-            </ul>
-          </div>
+         <!-- Mobile menu -->
+<!-- Mobile menu -->
+<div
+  x-show="open"
+  x-transition:enter="transition ease-out duration-300"
+  x-transition:enter-start="opacity-0 -translate-y-3"
+  x-transition:enter-end="opacity-100 translate-y-0"
+  x-transition:leave="transition ease-in duration-200"
+  x-transition:leave-start="opacity-100 translate-y-0"
+  x-transition:leave-end="opacity-0 -translate-y-3"
+  x-cloak
+  class="lg:hidden mt-2 rounded-xl bg-neutral-900/80 backdrop-blur-md ring-1 ring-white/10 shadow-lg"
+>
+  <ul class="space-y-1 p-4 text-white font-semibold text-sm">
+    <li><a href="#" @click="open=false" class="mobile-link">HOME</a></li>
+    <li><a href="#products" @click="open=false" class="mobile-link">PRODUCTS</a></li>
+    <li><a href="#events" @click="open=false" class="mobile-link">EVENTS</a></li>
+    <li><a href="#about" @click="open=false" class="mobile-link">ABOUT</a></li>
+    <li><a href="#customers" @click="open=false" class="mobile-link">OUR CUSTOMERS</a></li>
+    <li>
+      <a href="#contact" @click="open=false" class="block mt-2 text-center bg-emerald-500 text-neutral-900 py-2 px-4 rounded-full hover:bg-emerald-400 transition">
+        Contact / Booking
+      </a>
+    </li>
+  </ul>
+</div>
+
+
         </div>
       </nav>
     </header>
+
+    <div id="navSpacer" aria-hidden="true"></div>
 
     <!-- =================== Hero =================== -->
 
@@ -410,19 +408,23 @@
               class="flex flex-col md:flex-row items-stretch md:min-h-[280px]"
             >
               <!-- صورة رئيسية -->
- 
-              <div class="md:w-7/12 lg:w-3/5 flex items-center justify-center p-6">
-  <div class="h-56 md:h-64 lg:h-72 w-full max-w-[620px] lg:max-w-[720px]
-              rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg">
-    <img
-      id="blenderMain"
-      src="./images/products/bikeblender.png"
-      alt="Bike Blender" loading="lazy" decoding="async"
-      class="w-full h-full object-contain rounded-lg transition duration-300"
-    />
-  </div>
-</div>
 
+              <div
+                class="md:w-7/12 lg:w-3/5 flex items-center justify-center p-6"
+              >
+                <div
+                  class="h-56 md:h-64 lg:h-72 w-full max-w-[620px] lg:max-w-[720px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg"
+                >
+                  <img
+                    id="blenderMain"
+                    src="./images/products/bikeblender.png"
+                    alt="Bike Blender"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-contain rounded-lg transition duration-300"
+                  />
+                </div>
+              </div>
 
               <!-- نص + إضافات -->
               <div class="md:w-1/2 p-6 sm:p-8 flex flex-col justify-center">
@@ -552,51 +554,81 @@
                 </ul>
 
                 <!-- معرض صور مصغّر -->
-<div class="mt-6">
-<div id="blenderThumbs" class="flex flex-wrap items-center justify-center gap-2">
-  <!-- الصورة الأصلية كبداية -->
-  <a href="images/products/bikeblender.png" data-large="images/products/bikeblender.png"
-     class="thumb block rounded-md border border-white/10 overflow-hidden">
-    <img src="images/products/bikeblender.png" loading="lazy" decoding="async"
-         class="h-16 w-24 object-cover"
-         alt="Main Blender">
-  </a>
+                <div class="mt-6">
+                  <div
+                    id="blenderThumbs"
+                    class="flex flex-wrap items-center justify-center gap-2"
+                  >
+                    <!-- الصورة الأصلية كبداية -->
+                    <a
+                      href="images/products/bikeblender.png"
+                      data-large="images/products/bikeblender.png"
+                      class="thumb block rounded-md border border-white/10 overflow-hidden"
+                    >
+                      <img
+                        src="images/products/bikeblender.png"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-16 w-24 object-cover"
+                        alt="Main Blender"
+                      />
+                    </a>
 
-  <!-- بقية الصور -->
-  <a href="images/bikeblender/1.png" data-large="images/bikeblender/1.png"
-     class="thumb block rounded-md border border-white/10 overflow-hidden">
-    <img src="images/bikeblender/1.png" loading="lazy" decoding="async"
-         class="h-16 w-24 object-cover"
-         alt="Blender 1">
-  </a>
-  <a href="images/bikeblender/2.png" data-large="images/bikeblender/2.png"
-     class="thumb block rounded-md border border-white/10 overflow-hidden">
-    <img src="images/bikeblender/2.png" loading="lazy" decoding="async"
-         class="h-16 w-24 object-cover"
-         alt="Blender 2">
-  </a>
-  <a href="images/bikeblender/3.png" data-large="images/bikeblender/3.png"
-     class="thumb block rounded-md border border-white/10 overflow-hidden">
-    <img src="images/bikeblender/3.png"
-         class="h-16 w-24 object-cover" loading="lazy" decoding="async"
-         alt="Blender 3">
-  </a>
-</div>
-
-</div>
-
+                    <!-- بقية الصور -->
+                    <a
+                      href="images/bikeblender/1.png"
+                      data-large="images/bikeblender/1.png"
+                      class="thumb block rounded-md border border-white/10 overflow-hidden"
+                    >
+                      <img
+                        src="images/bikeblender/1.png"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-16 w-24 object-cover"
+                        alt="Blender 1"
+                      />
+                    </a>
+                    <a
+                      href="images/bikeblender/2.png"
+                      data-large="images/bikeblender/2.png"
+                      class="thumb block rounded-md border border-white/10 overflow-hidden"
+                    >
+                      <img
+                        src="images/bikeblender/2.png"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-16 w-24 object-cover"
+                        alt="Blender 2"
+                      />
+                    </a>
+                    <a
+                      href="images/bikeblender/3.png"
+                      data-large="images/bikeblender/3.png"
+                      class="thumb block rounded-md border border-white/10 overflow-hidden"
+                    >
+                      <img
+                        src="images/bikeblender/3.png"
+                        class="h-16 w-24 object-cover"
+                        loading="lazy"
+                        decoding="async"
+                        alt="Blender 3"
+                      />
+                    </a>
+                  </div>
+                </div>
 
                 <!-- أزرار -->
-             <!-- أزرار -->
-<div class="mt-6 flex flex-wrap items-center gap-3">
- 
-  <a href="#contact"
-     class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book Now</a>
-</div>
+                <!-- أزرار -->
+                <div class="mt-6 flex flex-wrap items-center gap-3">
+                  <a
+                    href="#contact"
+                    class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all"
+                    >Book Now</a
+                  >
+                </div>
 
-<!-- عناصر مخفية للمعرض (سيتم تعبئتها بالـJS) -->
-<div id="blenderHiddenGallery" class="hidden"></div>
-
+                <!-- عناصر مخفية للمعرض (سيتم تعبئتها بالـJS) -->
+                <div id="blenderHiddenGallery" class="hidden"></div>
               </div>
             </div>
           </div>
@@ -617,18 +649,23 @@
             <div
               class="flex flex-col md:flex-row-reverse items-stretch md:min-h-[280px]"
             >
-          <!-- صورة رئيسية -->
-<div class="md:w-7/12 lg:w-3/5 flex items-center justify-center p-6">
-  <div class="h-56 md:h-64 lg:h-72 w-full max-w-[620px] lg:max-w-[680px]
-              rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg">
-    <img
-      id="beamMain"
-      src="./images/products/bikebeam.png"
-      alt="Bike Beam" loading="lazy" decoding="async"
-      class="w-full h-full object-contain rounded-lg transition duration-300"
-    />
-  </div>
-</div>
+              <!-- صورة رئيسية -->
+              <div
+                class="md:w-7/12 lg:w-3/5 flex items-center justify-center p-6"
+              >
+                <div
+                  class="h-56 md:h-64 lg:h-72 w-full max-w-[620px] lg:max-w-[680px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg"
+                >
+                  <img
+                    id="beamMain"
+                    src="./images/products/bikebeam.png"
+                    alt="Bike Beam"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-contain rounded-lg transition duration-300"
+                  />
+                </div>
+              </div>
 
               <div class="md:w-1/2 p-6 sm:p-8 flex flex-col justify-center">
                 <div class="flex items-center gap-3">
@@ -741,33 +778,75 @@
 
                 <!-- معرض صور مصغّر -->
                 <div class="mt-6">
-  <div id="beamThumbs" class="flex flex-wrap items-center justify-center gap-2">
-    <!-- الأصلية أولاً -->
-    <a href="images/products/bikebeam.png" data-large="images/products/bikebeam.png"
-       class="thumb block rounded-md border border-white/10 overflow-hidden">
-      <img src="images/products/bikebeam.png" loading="lazy" decoding="async" class="h-16 w-24 object-cover" alt="Beam Main">
-    </a>
-    <!-- بقية الصور -->
-    <a href="images/bikebeam/1.png" data-large="images/bikebeam/1.png"
-       class="thumb block rounded-md border border-white/10 overflow-hidden">
-      <img src="images/bikebeam/1.png" loading="lazy" decoding="async" class="h-16 w-24 object-cover" alt="Beam 1">
-    </a>
-    <a href="images/bikebeam/2.png" data-large="images/bikebeam/2.png"
-       class="thumb block rounded-md border border-white/10 overflow-hidden">
-      <img src="images/bikebeam/2.png" loading="lazy" decoding="async" class="h-16 w-24 object-cover" alt="Beam 2">
-    </a>
-    <a href="images/bikebeam/3.png" data-large="images/bikebeam/3.png"
-       class="thumb block rounded-md border border-white/10 overflow-hidden">
-      <img src="images/bikebeam/3.png" loading="lazy" decoding="async" class="h-16 w-24 object-cover" alt="Beam 3">
-    </a>
-  </div>
-</div>
+                  <div
+                    id="beamThumbs"
+                    class="flex flex-wrap items-center justify-center gap-2"
+                  >
+                    <!-- الأصلية أولاً -->
+                    <a
+                      href="images/products/bikebeam.png"
+                      data-large="images/products/bikebeam.png"
+                      class="thumb block rounded-md border border-white/10 overflow-hidden"
+                    >
+                      <img
+                        src="images/products/bikebeam.png"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-16 w-24 object-cover"
+                        alt="Beam Main"
+                      />
+                    </a>
+                    <!-- بقية الصور -->
+                    <a
+                      href="images/bikebeam/1.png"
+                      data-large="images/bikebeam/1.png"
+                      class="thumb block rounded-md border border-white/10 overflow-hidden"
+                    >
+                      <img
+                        src="images/bikebeam/1.png"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-16 w-24 object-cover"
+                        alt="Beam 1"
+                      />
+                    </a>
+                    <a
+                      href="images/bikebeam/2.png"
+                      data-large="images/bikebeam/2.png"
+                      class="thumb block rounded-md border border-white/10 overflow-hidden"
+                    >
+                      <img
+                        src="images/bikebeam/2.png"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-16 w-24 object-cover"
+                        alt="Beam 2"
+                      />
+                    </a>
+                    <a
+                      href="images/bikebeam/3.png"
+                      data-large="images/bikebeam/3.png"
+                      class="thumb block rounded-md border border-white/10 overflow-hidden"
+                    >
+                      <img
+                        src="images/bikebeam/3.png"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-16 w-24 object-cover"
+                        alt="Beam 3"
+                      />
+                    </a>
+                  </div>
+                </div>
 
-               <!-- الأزرار (بدون Show More لتطابق Card 1) -->
-<div class="mt-6 flex flex-wrap items-center gap-3">
-  <a href="#contact"
-     class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book Now</a>
-</div>
+                <!-- الأزرار (بدون Show More لتطابق Card 1) -->
+                <div class="mt-6 flex flex-wrap items-center gap-3">
+                  <a
+                    href="#contact"
+                    class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all"
+                    >Book Now</a
+                  >
+                </div>
               </div>
             </div>
           </div>
@@ -788,17 +867,22 @@
             <div
               class="flex flex-col md:flex-row items-stretch md:min-h-[280px]"
             >
-             <div class="md:w-7/12 lg:w-3/5 flex items-center justify-center p-6">
-  <div class="h-56 md:h-64 lg:h-72 w-full max-w-[620px] lg:max-w-[680px]
-              rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg">
-    <img
-      id="brandingMain"
-      src="./images/products/bikebranding.png"
-      alt="Bike Branding" loading="lazy" decoding="async"
-      class="w-full h-full object-contain rounded-lg transition duration-300"
-    />
-  </div>
-</div>
+              <div
+                class="md:w-7/12 lg:w-3/5 flex items-center justify-center p-6"
+              >
+                <div
+                  class="h-56 md:h-64 lg:h-72 w-full max-w-[620px] lg:max-w-[680px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg"
+                >
+                  <img
+                    id="brandingMain"
+                    src="./images/products/bikebranding.png"
+                    alt="Bike Branding"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-contain rounded-lg transition duration-300"
+                  />
+                </div>
+              </div>
 
               <div class="md:w-1/2 p-6 sm:p-8 flex flex-col justify-center">
                 <div class="flex items-center gap-3">
@@ -878,32 +962,74 @@
                 </ul>
 
                 <!-- معرض صور مصغّر -->
-<div class="mt-6">
-  <div id="brandingThumbs" class="flex flex-wrap items-center justify-center gap-2">
-    <a href="images/products/bikebranding.png" data-large="images/products/bikebranding.png"
-       class="thumb block rounded-md border border-white/10 overflow-hidden">
-      <img src="images/products/bikebranding.png" loading="lazy" decoding="async" class="h-16 w-24 object-cover" alt="Branding Main">
-    </a>
-    <a href="images/bikebranding/1.png" data-large="images/bikebranding/1.png"
-       class="thumb block rounded-md border border-white/10 overflow-hidden">
-      <img src="images/bikebranding/1.png" loading="lazy" decoding="async" class="h-16 w-24 object-cover" alt="bikebranding 1">
-    </a>
-    <a href="images/bikebranding/2.png" data-large="images/bikebranding/2.png"
-       class="thumb block rounded-md border border-white/10 overflow-hidden">
-      <img src="images/bikebranding/2.png" loading="lazy" decoding="async" class="h-16 w-24 object-cover" alt="bikebranding 2">
-    </a>
-    <a href="images/bikebranding/3.png" data-large="images/bikebranding/3.png"
-       class="thumb block rounded-md border border-white/10 overflow-hidden">
-      <img src="images/bikebranding/3.png" loading="lazy" decoding="async" class="h-16 w-24 object-cover" alt="bikebranding 3">
-    </a>
-  </div>
-</div>
+                <div class="mt-6">
+                  <div
+                    id="brandingThumbs"
+                    class="flex flex-wrap items-center justify-center gap-2"
+                  >
+                    <a
+                      href="images/products/bikebranding.png"
+                      data-large="images/products/bikebranding.png"
+                      class="thumb block rounded-md border border-white/10 overflow-hidden"
+                    >
+                      <img
+                        src="images/products/bikebranding.png"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-16 w-24 object-cover"
+                        alt="Branding Main"
+                      />
+                    </a>
+                    <a
+                      href="images/bikebranding/1.png"
+                      data-large="images/bikebranding/1.png"
+                      class="thumb block rounded-md border border-white/10 overflow-hidden"
+                    >
+                      <img
+                        src="images/bikebranding/1.png"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-16 w-24 object-cover"
+                        alt="bikebranding 1"
+                      />
+                    </a>
+                    <a
+                      href="images/bikebranding/2.png"
+                      data-large="images/bikebranding/2.png"
+                      class="thumb block rounded-md border border-white/10 overflow-hidden"
+                    >
+                      <img
+                        src="images/bikebranding/2.png"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-16 w-24 object-cover"
+                        alt="bikebranding 2"
+                      />
+                    </a>
+                    <a
+                      href="images/bikebranding/3.png"
+                      data-large="images/bikebranding/3.png"
+                      class="thumb block rounded-md border border-white/10 overflow-hidden"
+                    >
+                      <img
+                        src="images/bikebranding/3.png"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-16 w-24 object-cover"
+                        alt="bikebranding 3"
+                      />
+                    </a>
+                  </div>
+                </div>
 
                 <!-- أزرار -->
-               <div class="mt-6 flex flex-wrap items-center gap-3">
-  <a href="#contact"
-     class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book Now</a>
-</div>
+                <div class="mt-6 flex flex-wrap items-center gap-3">
+                  <a
+                    href="#contact"
+                    class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all"
+                    >Book Now</a
+                  >
+                </div>
               </div>
             </div>
           </div>
@@ -911,77 +1037,88 @@
       </div>
     </section>
 
+    <style>
+      .product-thumbs,
+      #blenderThumbs,
+      #beamThumbs,
+      #brandingThumbs {
+        /* للحفاظ على التوسيط */
+        justify-content: center;
+      }
+      /* تمييز الثمبنيل النشط */
+      #blenderThumbs .thumb,
+      #beamThumbs .thumb,
+      #brandingThumbs .thumb {
+        transition: transform 0.2s ease, box-shadow 0.2s ease,
+          border-color 0.2s ease;
+      }
+      #blenderThumbs .thumb.is-active,
+      #beamThumbs .thumb.is-active,
+      #brandingThumbs .thumb.is-active {
+        box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5),
+          0 10px 20px rgba(0, 0, 0, 0.35);
+        border-color: rgba(16, 185, 129, 0.45);
+        transform: translateY(-2px);
+      }
+      #blenderThumbs .thumb:hover,
+      #beamThumbs .thumb:hover,
+      #brandingThumbs .thumb:hover {
+        transform: translateY(-1px);
+      }
+    </style>
 
-     
-<style>
-  .product-thumbs, #blenderThumbs, #beamThumbs, #brandingThumbs { /* للحفاظ على التوسيط */
-    justify-content: center;
-  }
-  /* تمييز الثمبنيل النشط */
-  #blenderThumbs .thumb,
-  #beamThumbs .thumb,
-  #brandingThumbs .thumb {
-    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-  }
-  #blenderThumbs .thumb.is-active,
-  #beamThumbs .thumb.is-active,
-  #brandingThumbs .thumb.is-active {
-    box-shadow: 0 0 0 2px rgba(16,185,129,.5), 0 10px 20px rgba(0,0,0,.35);
-    border-color: rgba(16,185,129,.45);
-    transform: translateY(-2px);
-  }
-  #blenderThumbs .thumb:hover,
-  #beamThumbs .thumb:hover,
-  #brandingThumbs .thumb:hover { transform: translateY(-1px); }
-</style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        function initSwitcher(mainSel, thumbsSel) {
+          const main = document.querySelector(mainSel);
+          const holder = document.querySelector(thumbsSel);
+          if (!main || !holder) return;
+          const thumbs = holder.querySelectorAll("a.thumb");
+          if (!thumbs.length) return;
 
+          const activate = (a) => {
+            thumbs.forEach((t) => {
+              t.classList.remove("is-active");
+              t.setAttribute("aria-selected", "false");
+            });
+            a.classList.add("is-active");
+            a.setAttribute("aria-selected", "true");
+          };
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  function initSwitcher(mainSel, thumbsSel) {
-    const main   = document.querySelector(mainSel);
-    const holder = document.querySelector(thumbsSel);
-    if (!main || !holder) return;
-    const thumbs = holder.querySelectorAll('a.thumb');
-    if (!thumbs.length) return;
+          const swap = (url, a) => {
+            if (!url) return;
+            if (main.getAttribute("src") === url) {
+              activate(a);
+              return;
+            }
+            main.style.opacity = "0";
+            const onload = () => {
+              main.style.opacity = "1";
+              main.removeEventListener("load", onload);
+            };
+            main.addEventListener("load", onload);
+            main.src = url;
+            activate(a);
+          };
 
-  const activate = (a) => {
-  thumbs.forEach(t => {
-    t.classList.remove('is-active');
-    t.setAttribute('aria-selected','false');
-  });
-  a.classList.add('is-active');
-  a.setAttribute('aria-selected','true');
-};
+          // فعّل أول ثُمبنيل
+          activate(thumbs[0]);
 
-    const swap = (url, a) => {
-      if (!url) return;
-      if (main.getAttribute('src') === url) { activate(a); return; }
-      main.style.opacity = '0';
-      const onload = () => { main.style.opacity = '1'; main.removeEventListener('load', onload); };
-      main.addEventListener('load', onload);
-      main.src = url;
-      activate(a);
-    };
+          holder.addEventListener("click", (e) => {
+            const a = e.target.closest("a.thumb");
+            if (!a) return;
+            e.preventDefault();
+            const big = a.getAttribute("data-large") || a.getAttribute("href");
+            swap(big, a);
+          });
+        }
 
-    // فعّل أول ثُمبنيل
-    activate(thumbs[0]);
-
-    holder.addEventListener('click', (e) => {
-      const a = e.target.closest('a.thumb'); if (!a) return;
-      e.preventDefault();
-      const big = a.getAttribute('data-large') || a.getAttribute('href');
-      swap(big, a);
-    });
-  }
-
-  // فعّل للثلاث كروت
-  initSwitcher('#blenderMain',  '#blenderThumbs');
-  initSwitcher('#beamMain',     '#beamThumbs');
-  initSwitcher('#brandingMain', '#brandingThumbs');
-});
-</script>
-
+        // فعّل للثلاث كروت
+        initSwitcher("#blenderMain", "#blenderThumbs");
+        initSwitcher("#beamMain", "#beamThumbs");
+        initSwitcher("#brandingMain", "#brandingThumbs");
+      });
+    </script>
 
     <!-- =================== Events =================== -->
 
@@ -2230,7 +2367,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <a
             href="mailto:info@bikeland.example"
             class="text-emerald-400 hover:text-emerald-300 font-semibold"
-            >Bikeland909@gmail.com</a
+            >Bikeblender@hotmail.com</a
           >
         </div>
       </div>
@@ -2380,8 +2517,6 @@ document.addEventListener('DOMContentLoaded', () => {
           };
         }
 
-      
-
         // عنصر مخفي لاستضافة المعرض الديناميكي
         let lgInstance = null;
         const host = document.createElement("div");
@@ -2455,7 +2590,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
     </script>
-
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
