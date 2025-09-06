@@ -25,7 +25,7 @@
     <!-- Helpers & resets خفيفة -->
     <style>
       html 
-     body { overflow-x: visible; }
+     body { overflow-x: hidden; }
       * {
         box-sizing: border-box;
       }
@@ -84,6 +84,7 @@
         background: var(--sb-thumb-active);
       }
 
+:root{ scrollbar-gutter: stable; }
 
 
     </style>
@@ -175,8 +176,7 @@
   <!-- =================== body =================== -->
 
   <body
-    class="bg-neutral-950 text-white antialiased selection:bg-emerald-400/30 overflow-x-hidden"
-  >
+    class="bg-neutral-950 text-white antialiased selection:bg-emerald-400/30 ">
     <!-- =================== Navbar =================== -->
 
 
@@ -319,26 +319,49 @@
                         after:transition-all after:duration-300 hover:after:w-full
                         data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">HOME</a></li>
           <li class="hs-dropdown [--strategy:static] [--adaptive:none] [--is-collapse:true]">
-            <button type="button"
-                    class="hs-dropdown-toggle relative inline-flex items-center gap-1 py-2 px-3 hover:text-emerald-300
-                           after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
-                           after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
-                           after:transition-all after:duration-300 hover:after:w-full"   data-section="products">
-              PRODUCTS
-              <svg class="size-4 hs-dropdown-open:-rotate-180 duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="hs-dropdown-menu hidden z-10 w-full bg-neutral-900/95 backdrop-blur-2xl ring-1 ring-white/10 rounded-2xl p-4 mt-2">
-              <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
-              <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Specs</a>
-              <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Branding</a>
-            </div>
-          </li>
+  <button type="button"
+          class="hs-dropdown-toggle relative inline-flex items-center gap-1 py-2 px-3 hover:text-emerald-300
+                 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
+                 after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
+                 after:transition-all after:duration-300 hover:after:w-full"
+          data-section="products">
+    PRODUCTS
+    <svg class="size-4 hs-dropdown-open:-rotate-180 duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </button>
+
+  <!-- نفس العناصر تبعت الديسكتوب لكن بشكل عمودي -->
+  <div class="hs-dropdown-menu hidden z-10 w-full bg-neutral-900/95 backdrop-blur-2xl
+              ring-1 ring-white/10 rounded-2xl p-4 mt-2">
+    <div class="grid grid-cols-1 gap-4">
+      <div>
+        <p class="text-white/70 text-xs mb-2">Bike Blender</p>
+        <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
+      </div>
+
+      <div>
+        <p class="text-white/70 text-xs mb-2">LED Race</p>
+        <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
+      </div>
+
+      <div class="rounded-xl ring-1 ring-white/10 p-4 bg-white/5">
+        <p class="text-sm font-semibold mb-1">Need custom?</p>
+        <p class="text-white/70 text-xs mb-3">Custom branding & sizes</p>
+        <a href="#contact"
+           class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold
+                  bg-gradient-to-r from-emerald-400 to-cyan-400 text-neutral-900">
+          Contact / Booking
+        </a>
+      </div>
+    </div>
+  </div>
+</li>
+
           <li><a href="#events"    data-section="events"    class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">EVENTS</a></li>
           <li><a href="#customers" data-section="customers" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">OUR CUSTOMERS</a></li>
           <li><a href="#about"     data-section="about"     class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">ABOUT</a></li>
-          <li class="mt-2">
-            <a href="#contact" class="block text-center bg-white text-neutral-900 py-2 px-4 rounded-full hover:bg-white/90 transition">Contact / Booking</a>
-          </li>
+          
         </ul>
       </div>
     </div>
@@ -358,26 +381,12 @@
          scroll-mt-24 lg:scroll-mt-28"
     >
       <!-- الخلفية: نحاول WebP، وإن فشل نجرب اسم بديل .png.webp، وإن فشل نرجع لـ PNG -->
-      <img
-        id="heroImg"
-        src="./images/webp/banner-bg.png"
-        alt=""
-        fetchpriority="high"
-        loading="eager"
-        decoding="async"
-        width="1920"
-        height="1080"
-        class="absolute inset-0 h-full w-full object-cover"
-        data-aos="zoom-out"
-        data-aos-duration="1200"
-        onerror="
-      this.onerror=function(){
-        this.onerror=null;
-        this.src='./images/banner-bg.png';
-      };
-      this.src='./images/webp/banner-bg.png.webp';
-    "
-      />
+      <img id="heroImg"
+                 src="./images/webp/banner-bg.webp"
+                 alt="Bike Land banner"
+                 class="absolute inset-0 w-full h-full object-cover"
+                 onerror="this.onerror=null; this.src='./images/banner-bg.png';">
+
 
       <!-- تدرّج فوق الخلفية -->
       <div
@@ -446,7 +455,7 @@
           data-aos="fade-up"
           data-aos-duration="800"
         >
-          Our Products
+         Products
           <span
             class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"
           ></span>
@@ -681,7 +690,6 @@
                   </div>
                 </div>
 
-                <!-- أزرار -->
                 <!-- أزرار -->
                 <div class="mt-6 flex flex-wrap items-center gap-3">
                   <a
@@ -1205,7 +1213,7 @@
       </div>
 
       <!-- حدّ أقصى للعرض لتصغير البلوك بالكامل -->
-      <div class="mx-auto w-full max-w-4xl">
+      <div class="mx-auto w-full max-w-6x1">
         <article
           class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2"
         >
@@ -1416,7 +1424,7 @@
         </h2>
       </div>
 
-      <div class="mx-auto w-full max-w-5xl">
+      <div class="mx-auto w-full max-w-6xl">
         <article
           class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30"
         >
@@ -2099,14 +2107,20 @@
 
     <!-- =================== About Us =================== -->
 
-   <section
-  id="about"
-  data-aos="fade-left"
-  data-aos-anchor-placement="top-bottom"
-  style="content-visibility:auto; contain-intrinsic-size:800px 1000px"
-  class="bl-section container mx-auto px-4">
 
-      <div class="text-center max-w-2xl mx-auto mb-10">
+
+
+
+
+
+
+
+  <section id="about" data-aos="fade-left" data-aos-anchor-placement="top-bottom"
+         style="content-visibility:auto; contain-intrinsic-size:800px 1000px"
+         class="bl-section container mx-auto px-4 py-14 sm:py-18">
+
+
+<div class="text-center max-w-4x1 mx-auto mb-6">
         <h2
           class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight"
         >
@@ -2117,7 +2131,7 @@
         </h2>
       </div>
 
-      <div class="mx-auto w-full max-w-5xl">
+<div class="mx-auto w-full max-w-6xl">
         <article
           class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30"
         >
@@ -2126,14 +2140,384 @@
           >
             <!-- الشريط الجانبي -->
             <div
-              class="absolute left-0 inset-y-6 sm:inset-y-8 w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400 rounded-full"
+              class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[6px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 z-20 pointer-events-none"
             ></div>
-            <!-- محتوى فاضي: مساحة نظيفة فقط -->
-            <div class="min-h-[220px] md:min-h-[260px]"></div>
+            <div
+              class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[16px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 blur-md opacity-25 z-10 pointer-events-none"
+            ></div>
+
+
+
+
+
+
+
+
+
+            
+            <!-- محتوى منظم بعرض أكبر من الطول -->
+<div class="grid md:grid-cols-12 gap-y-10 gap-x-12 items-start" data-aos="fade-up" data-aos-delay="60">
+  <!-- يسار محتوى مُحسّن -->
+  <div class="md:col-span-7 lg:col-span-8 space-y-8">
+
+    <!-- تعريف قوي -->
+    <header class="space-y-3">
+      <h3 class="text-xl sm:text-2xl font-bold">Who we are</h3>
+      <p class="about-lead text-white/70">
+        We design <span class="text-white font-semibold">pedal-powered experiences</span> that stop crowds, spark smiles,
+        and get people moving. Our two hero attractions —
+        <span class="text-white font-semibold">Bike Blender</span> and
+        <span class="text-white font-semibold">LED Race</span> — are built to be <span class="text-white">safe</span>,
+        <span class="text-white">portable</span>, and <span class="text-white">brandable</span> for malls, schools, corporate activations,
+        and community events.
+      </p>
+      <div class="flex flex-wrap gap-2.5">
+        <span class="about-chip">Malls</span>
+        <span class="about-chip">Schools</span>
+        <span class="about-chip">Corporate</span>
+        <span class="about-chip">Community</span>
+      </div>
+    </header>
+
+    <!-- تجاربنا (بطاقات بأيقونات مناسبة) -->
+    <section class="about-group">
+      <h4 class="font-semibold mb-3">Our experiences</h4>
+      <ul class="grid sm:grid-cols-2 gap-4">
+        <!-- Bike Blender -->
+        <li class="about-item">
+          <span class="about-icn" aria-hidden="true">
+            <!-- Blender / cup -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="size-4">
+              <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 4h10l-1 7a5 5 0 0 1-5 4h0a5 5 0 0 1-5-4L7 4Z"/>
+              <path stroke-width="2" stroke-linecap="round" d="M12 15v3m-3 2h6"/>
+            </svg>
+          </span>
+          <div>
+            <p class="font-medium">Bike Blender</p>
+            <p class="text-sm text-white/60">Fresh smoothies blended by the audience — zero boredom, max hype.</p>
           </div>
+        </li>
+
+        <!-- LED Race -->
+        <li class="about-item">
+          <span class="about-icn" aria-hidden="true">
+            <!-- Speed / gauge -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="size-4">
+              <path d="M12 20a8 8 0 1 0-8-8" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 12l5-3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div>
+            <p class="font-medium">LED Race</p>
+            <p class="text-sm text-white/60">Head-to-head sprints with towering LEDs, countdowns, and big-screen energy.</p>
+          </div>
+        </li>
+
+        <!-- Safety & ops -->
+        <li class="about-item">
+          <span class="about-icn" aria-hidden="true">
+            <!-- Shield check -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="size-4">
+              <path d="M12 3 5 6v5c0 5 3.5 9 7 10 3.5-1 7-5 7-10V6l-7-3Z" stroke-width="2" stroke-linejoin="round"/>
+              <path d="m9 12 2 2 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div>
+            <p class="font-medium">On-site operation & safety</p>
+            <p class="text-sm text-white/60">Trained crew, queue flow, and clear safety briefings — we run it end-to-end.</p>
+          </div>
+        </li>
+
+        <!-- Custom branding -->
+        <li class="about-item">
+          <span class="about-icn" aria-hidden="true">
+            <!-- Palette / brush -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="size-4">
+              <path d="M12 3a9 9 0 1 0 6.3 15.3c.9-1 .3-2.3-1.1-2.3H16a2 2 0 0 1-2-2v-.5a2 2 0 0 1 .6-1.4l1.5-1.5" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="7.5" cy="10" r="1" fill="currentColor"/><circle cx="9.5" cy="6.5" r="1" fill="currentColor"/><circle cx="12.5" cy="5" r="1" fill="currentColor"/>
+            </svg>
+          </span>
+          <div>
+            <p class="font-medium">Custom branding</p>
+            <p class="text-sm text-white/60">Wraps, leaderboards, cups, and signage tailored to your brand.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- كيف نشتغل (3 خطوات مختصرة) -->
+    <section class="about-group">
+      <h4 class="font-semibold mb-3">How it works</h4>
+      <div class="grid sm:grid-cols-3 gap-3">
+        <div class="step">
+          <span class="step-icn" aria-hidden="true">
+            <!-- calendar check -->
+            <svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor">
+              <path d="M7 3v3m10-3v3M3 9h18M5 7h14a2 2 0 0 1 2 2v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V9" stroke-width="2" stroke-linecap="round"/>
+              <path d="m9 14 2 2 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <p class="step-t">Plan & branding</p>
+        </div>
+        <div class="step">
+          <span class="step-icn" aria-hidden="true">
+            <!-- play bolt -->
+            <svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor">
+              <path d="M8 5v14l11-7Z" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M5 12h2" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <p class="step-t">Live show & racing</p>
+        </div>
+        <div class="step">
+          <span class="step-icn" aria-hidden="true">
+            <!-- clipboard check -->
+            <svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor">
+              <path d="M9 3h6l1 2h2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2l1-2Z" stroke-width="2"/>
+              <path d="m9 14 2 2 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <p class="step-t">Wrap-up & recap</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- بادجات ثقة واضحة -->
+    <section class="about-group">
+      <div class="flex flex-wrap gap-2.5">
+        <span class="badge">
+          <svg viewBox="0 0 24 24" class="size-4"><path fill="currentColor" d="m9 16.17-3.88-3.88-1.41 1.41L9 19 20.29 7.71 18.88 6.3z"/></svg>
+          Insured & supervised
+        </span>
+        <span class="badge">
+          <svg viewBox="0 0 24 24" class="size-4"><path fill="currentColor" d="M12 3 4 7v10l8 4 8-4V7Z"/></svg>
+          Arabic & English MC
+        </span>
+        <span class="badge">
+          <svg viewBox="0 0 24 24" class="size-4"><path fill="currentColor" d="M3 11h18v2H3zM5 7h14v2H5zM7 15h10v2H7z"/></svg>
+          Setup in 45–60 min
+        </span>
+        <span class="badge">
+          <svg viewBox="0 0 24 24" class="size-4"><path fill="currentColor" d="M5 16c0 1.1.9 2 2 2h10a2 2 0 0 0 2-2v-1H5v1Zm0-3h14l-1.5-8h-11L5 13Z"/></svg>
+          Hygiene-first stations
+        </span>
+      </div>
+    </section>
+
+    <!-- CTA + سوشيال ملوّنة (مع WhatsApp & Email) -->
+    <section class="about-group">
+      <div class="flex flex-wrap items-center gap-3">
+      
+
+        <a href="#" class="social-btn btn-ig" aria-label="Instagram">
+          <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4" stroke-width="2"/>
+            <circle cx="17" cy="7" r="1.2" fill="currentColor"/>
+          </svg> Instagram
+        </a>
+   
+      
+        <a href="#" class="social-btn btn-fb" aria-label="Facebook">
+          <svg class="size-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M13 3h4v3h-3v3h3v3h-3v9h-3v-9H8v-3h3V6a3 3 0 0 1 3-3Z"/>
+          </svg> Facebook
+        </a>
+        <a href="https://wa.me/962786009370" target="_blank" rel="noopener" class="social-btn btn-wa" aria-label="WhatsApp">
+          <svg class="size-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 3.5A10 10 0 0 0 4.9 17.4L4 21l3.7-1a10 10 0 1 0 12.3-16.5Z"/>
+            <path d="M16.5 13.8c-.3.8-1.6 1.4-2.2 1.4-.6 0-1.4-.2-2.4-.8a8.1 8.1 0 0 1-2.8-2.7c-.4-.6-.8-1.6-.8-2.1s.4-1 .6-1.2c.3-.3.6-.3.7-.3h.5c.2 0 .4 0 .5.4.2.5.6 1.6.6 1.7 0 .1 0 .3-.1.4l-.3.4c-.1.1-.2.3-.1.5.1.2.5.8 1.1 1.3.8.7 1.5.9 1.7 1 .2 0 .4 0 .5-.2l.6-.7c.2-.2.3-.2.5-.1.2.1 1.3.6 1.5.7.2.1.3.1.3.2Z" fill="#fff"/>
+          </svg> WhatsApp
+        </a>
+        <a href="bikeblender@hotmail.com" class="social-btn btn-mail" aria-label="Email">
+          <svg class="size-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 4H4a2 2 0 0 0-2 2v.7l10 6.3 10-6.3V6a2 2 0 0 0-2-2Zm0 4.3-8 5-8-5V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.3Z"/>
+          </svg> Email
+        </a>
+      </div>
+    </section>
+
+    <!-- مقاييس مختصرة بأيقونات مناسبة -->
+    <section class="about-group">
+      <div class="grid grid-cols-3 gap-3">
+        <div class="metric">
+          <span class="metric-icn" aria-hidden="true">
+            <!-- Handshake -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="size-4">
+              <path d="M3 8l6 6a4 4 0 0 0 6 0l6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 13l-2 2m12-2 2 2" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <div class="metric-num">20+</div>
+          <div class="metric-cap">Partners</div>
+        </div>
+        <div class="metric">
+          <span class="metric-icn" aria-hidden="true">
+            <!-- Layers / modules -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="size-4">
+              <path d="M12 2 3 7l9 5 9-5-9-5Zm0 10L3 7m9 5 9-5M3 12l9 5 9-5" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div class="metric-num">2</div>
+          <div class="metric-cap">Core products</div>
+        </div>
+        <div class="metric">
+          <span class="metric-icn" aria-hidden="true">
+            <!-- Sparkles -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="size-4">
+              <path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5Z" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div class="metric-num">100%</div>
+          <div class="metric-cap">Customizable</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- يمينك (الصورة/الكولاج) يبقى كما هو -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
         </article>
       </div>
     </section>
+
+
+    <style>/* ---- About (micro styles) ---- */
+/* ================== About Us – micro styles ================== */
+/* تقسيمات ناعمة ومسافات مريحة */
+.about-group{
+  margin-top:.95rem; padding-top:1.05rem;
+  border-top:1px solid rgba(255,255,255,.09);
+}
+.about-lead{ line-height:1.7; letter-spacing:.1px; }
+
+/* كبسولات الجمهور */
+.about-chip{
+  padding:.4rem .75rem; border-radius:999px; font-size:.75rem;
+  border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06);
+  backdrop-filter:saturate(130%);
+}
+
+/* بطاقات الميزات */
+.about-item{
+  display:flex; gap:.7rem; align-items:flex-start;
+  padding:.65rem .75rem; border-radius:1rem;
+  border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.05);
+}
+.about-icn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:30px; height:30px; border-radius:999px; color:#0a0a0a;
+  background:linear-gradient(135deg,#34d399,#22d3ee);
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.18);
+}
+
+/* خطوات العمل */
+.step{
+  display:flex; align-items:center; gap:.6rem;
+  padding:.6rem .75rem; border-radius:1rem;
+  border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.05);
+}
+.step-icn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:30px; height:30px; border-radius:999px; font-weight:800; font-size:.82rem; color:#0a0a0a;
+  background:linear-gradient(135deg,#34d399,#22d3ee);
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.18);
+}
+.step-t{ font-size:.9rem; color:#eaeaea; }
+
+/* بادجات الثقة */
+.badge{
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:.45rem .65rem; border-radius:999px; font-size:.8rem;
+  border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.05);
+  color:#eaeaea;
+}
+.badge svg{ color:#34d399; }
+
+/* شريط المقاييس */
+.metric{
+  display:flex; flex-direction:column; align-items:center; gap:.3rem;
+  padding:.85rem .8rem; border-radius:1rem;
+  border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.05);
+}
+.metric-icn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:30px; height:30px; border-radius:999px; color:#0a0a0a;
+  background:linear-gradient(135deg,#34d399,#22d3ee);
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.18);
+}
+.metric-num{ font-weight:800; font-size:1.08rem; }
+.metric-cap{ font-size:.72rem; color:rgba(255,255,255,.66); }
+
+/* أزرار السوشيال العامة */
+.social-btn{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.52rem .95rem; border-radius:999px; font-size:.85rem; color:#fff;
+  border:1px solid rgba(255,255,255,.12);
+  transition:transform .18s ease, filter .18s ease, box-shadow .18s ease;
+  box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+.social-btn:hover{ transform:translateY(-1px); filter:brightness(1.08); }
+
+/* Instagram */
+.btn-ig{ background:linear-gradient(135deg,#833AB4 0%,#E1306C 55%,#FCAF45 100%); }
+/* TikTok */
+.btn-tt{ background:linear-gradient(135deg,#25F4EE 0%,#FE2C55 100%); }
+/* YouTube */
+.btn-yt{ background:#FF0033; }
+/* Facebook */
+.btn-fb{ background:#1877F2; }
+/* WhatsApp */
+.btn-wa{ background:#25D366; }
+/* Email */
+.btn-mail{ background:linear-gradient(135deg,#60a5fa 0%,#38bdf8 100%); }
+
+/* إطار الصورة (لو استخدمته): */
+.team-card::after{
+  content:""; position:absolute; inset:-1px; border-radius:inherit; padding:1px;
+  background:linear-gradient(135deg, rgba(52,211,153,.45), rgba(34,211,238,.45));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;
+}
+/* شارة الصورة */
+.about-badge{
+  position:absolute; left:.75rem; bottom:.75rem;
+  padding:.35rem .7rem; font-size:.7rem; font-weight:700; color:#0a0a0a;
+  background:linear-gradient(90deg,#34d399,#22d3ee); border-radius:999px;
+}
+/* مصغرات إن وجدت */
+.thumb{
+  display:block; object-fit:cover; border-radius:.6rem;
+  border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06);
+}
+
+/* استرخاء أكبر على الواسع */
+@media (min-width:1024px){
+  .about-group{ margin-top:1.1rem; padding-top:1.15rem; }
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
 
     <!-- =================== Contact Us  =================== -->
 
@@ -2412,7 +2796,7 @@
 
             <a
               id="waLink"
-              target="_blank"
+              rel="noopener noreferrer" target="_blank"
               class="inline-flex items-center gap-2 rounded-md px-6 py-3 font-semibold border border-white/15 hover:bg-white/5 transition"
             >
               WhatsApp
@@ -2437,7 +2821,7 @@
         >
           <p class="text-white/60">© <span id="y"></span> Bike Land</p>
           <a
-            href="mailto:info@bikeland.example"
+            href="mailto:bikeblender@hotmail.com"
             class="text-emerald-400 hover:text-emerald-300 font-semibold"
             >Bikeblender@hotmail.com</a
           >
@@ -2578,91 +2962,7 @@
       })();
     </script>
 
-    <script>
-      /* بديل GLightbox  (يشغّل على <a class="glightbox" data-gallery="...">) */
-      document.addEventListener("DOMContentLoaded", () => {
-        // Polyfill بسيط لِـ CSS.escape (احتياط)
-        if (!window.CSS || !CSS.escape) {
-          window.CSS = window.CSS || {};
-          CSS.escape = function (v) {
-            return String(v).replace(/[^a-zA-Z0-9_\-]/g, "\\$&");
-          };
-        }
-
-        // عنصر مخفي لاستضافة المعرض الديناميكي
-        let lgInstance = null;
-        const host = document.createElement("div");
-        host.id = "lg-dynamic-host";
-        host.style.display = "none";
-        document.body.appendChild(host);
-
-        document.addEventListener("click", (e) => {
-          const a = e.target.closest("a.glightbox");
-          if (!a) return;
-          e.preventDefault();
-
-          const group = a.getAttribute("data-gallery");
-          const anchors = group
-            ? Array.from(
-                document.querySelectorAll(
-                  `a.glightbox[data-gallery="${CSS.escape(group)}"]`
-                )
-              )
-            : [a];
-
-          const items = anchors.map((el) => {
-            const href = el.getAttribute("href");
-            const img = el.querySelector("img");
-            return {
-              src: href,
-              thumb: img?.getAttribute("src") || href,
-              subHtml:
-                el.getAttribute("data-title") ||
-                el.getAttribute("title") ||
-                img?.getAttribute("alt") ||
-                "",
-            };
-          });
-
-          const startIndex = Math.max(anchors.indexOf(a), 0);
-
-          // دمّر أي instance سابق
-          try {
-            if (lgInstance) {
-              lgInstance.destroy(true);
-              lgInstance = null;
-            }
-          } catch (_) {}
-
-          // جهّز الـplugins بأمان
-          const plugins = [];
-          if (window.lgThumbnail) plugins.push(lgThumbnail);
-          if (window.lgZoom) plugins.push(lgZoom);
-
-          lgInstance = lightGallery(host, {
-            dynamic: true,
-            dynamicEl: items,
-            plugins,
-            mode: "lg-slide",
-            loop: true,
-            zoom: false,
-            thumbnail: true,
-            download: false,
-            enableDrag: true,
-            enableSwipe: true,
-            speed: 400,
-            mobileSettings: {
-              controls: true,
-              showCloseIcon: true,
-              download: false,
-            },
-          });
-
-          lgInstance.openGallery(startIndex);
-        });
-      });
-    </script>
-
+  
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
       AOS.init({
@@ -2687,6 +2987,20 @@
         emailjs.init(EMAILJS_PUBLIC_KEY);
 
         // ==================== (أزلنا تعبئة الدول القديمة هنا) ====================
+        // ==================== 1) Populate countries ====================
+        const COUNTRY_LIST = [
+          "Jordan","Saudi Arabia","United Arab Emirates","Qatar","Kuwait","Bahrain","Oman",
+          "Iraq","Egypt","Lebanon","Palestine","Turkey","United Kingdom","United States"
+        ];
+        const countrySelect = document.getElementById("country");
+        if (countrySelect && countrySelect.options.length <= 1) {
+          COUNTRY_LIST.forEach(c => {
+            const opt = document.createElement("option");
+            opt.value = c; opt.textContent = c;
+            countrySelect.appendChild(opt);
+          });
+        }
+
 
         // ==================== 2) إرسال EmailJS + واتساب ديناميكي ====================
         const form = document.getElementById("bookingForm");
@@ -3171,8 +3485,7 @@
     </script>
 
     <style>
-      @media (max-width: 768px) {
-        .backdrop-blur {
+      @media (max-width: 768px) { [class*="backdrop-blur"] {
           backdrop-filter: none !important;
         }
       }
