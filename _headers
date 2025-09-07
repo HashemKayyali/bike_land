@@ -3,11 +3,8 @@
 /
   Cache-Control: no-cache, must-revalidate
 
-# CSS (باقي يوم مؤقتًا)
-# احذف السطرين اللي فوق قبل النسخ — لا تضع تعليقات هنا
-
 /dist/output.css
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=31536000, immutable
 
 /images/*
   Cache-Control: public, max-age=31536000, immutable
