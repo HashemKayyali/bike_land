@@ -8,13 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bike Land</title>
 
-    <!-- Preconnects & Preloads -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+   
     <link
       rel="preload"
       as="image"
-      href="./images/webp/banner-bg.webp"
+      href="./images/banner-bg.png"
       fetchpriority="high"
     />
 
@@ -24,8 +22,12 @@
 
     <!-- Helpers & resets خفيفة -->
     <style>
-      html 
-     body { overflow-x: hidden; }
+      /* خلّي التمرير على عنصر واحد فقط */
+body { overflow-x: hidden; }
+
+/* اختياري: إن بدك تحافظ على عرض الغاتر للسكرول */
+html { scrollbar-gutter: stable; }
+
       * {
         box-sizing: border-box;
       }
@@ -84,7 +86,6 @@
         background: var(--sb-thumb-active);
       }
 
-:root{ scrollbar-gutter: stable; }
 
 
     </style>
@@ -93,58 +94,29 @@
     <!-- JS (كلها defer حتى لا تعيق الرسم) -->
     <script
       defer
-      src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"
+      src="https://unpkg.com/embla-carousel@8.0.0/embla-carousel.umd.js"
     ></script>
 
     <script
       defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"
     ></script>
 
-    <!-- Fancybox v6 + Carousel v6 -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/carousel/carousel.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/carousel/carousel.lazyload.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/carousel/carousel.arrows.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/carousel/carousel.thumbs.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.31/dist/fancybox/fancybox.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.31/dist/carousel/carousel.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.31/dist/carousel/carousel.lazyload.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.31/dist/carousel/carousel.arrows.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.31/dist/carousel/carousel.thumbs.css">
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/fancybox/fancybox.umd.js"
-      defer
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/carousel/carousel.umd.js"
-      defer
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/carousel/carousel.lazyload.umd.js"
-      defer
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/carousel/carousel.arrows.umd.js"
-      defer
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0/dist/carousel/carousel.thumbs.umd.js"
-      defer
-    ></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.31/dist/fancybox/fancybox.umd.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.31/dist/carousel/carousel.umd.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.31/dist/carousel/carousel.lazyload.umd.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.31/dist/carousel/carousel.arrows.umd.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.0.31/dist/carousel/carousel.thumbs.umd.js"></script>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <!-- Preconnects & Preloads -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
   html { font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
@@ -228,23 +200,23 @@
                   <path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
-              <div class="hs-dropdown-menu hidden z-10 top-full start-1/2 -translate-x-1/2 sm:min-w-[42rem]
-                          bg-neutral-900/95 backdrop-blur-2xl ring-1 ring-white/10 rounded-2xl p-6 shadow-xl">
-                <div class="grid sm:grid-cols-3 gap-6">
+             <div class="hs-dropdown-menu hidden z-10 top-full start-1/2 -translate-x-1/2 min-w-[56rem] max-w-[95vw]
+                    bg-neutral-900/95 backdrop-blur-2xl ring-1 ring-white/10 rounded-2xl p-6 shadow-xl">
+
+                <div class="mega-grid">
                   <div>
-                    <p class="text-white/70 text-xs mb-2">Bike Blender</p>
-                    <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
-                    <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Specs</a>
-                    <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Branding</a>
+                    <p class="text-white text-xs mb-2">Bike Blender</p>
+                    <a href="#product1" class="text-white/70 block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
                   </div>
                   <div>
-                    <p class="text-white/70 text-xs mb-2">LED Race</p>
-                    <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Event Mode</a>
-                    <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Setup</a>
-                    <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Packages</a>
+                    <p class="text-white text-xs mb-2">Bike Beam</p>
+                    <a href="#product2" class="text-white/70 block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
                   </div>
-                  <div class="rounded-xl ring-1 ring-white/10 p-4 bg-white/5">
-                    <p class="text-sm font-semibold mb-1">Need custom?</p>
+                  <div>
+                    <p class="text-white text-xs mb-2">Bike Branding</p>
+                    <a href="#product3" class="text-white/70 block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
+                  </div>
+<div class="rounded-xl ring-1 ring-white/10 p-4 bg-white/5 h-full flex flex-col">                    <p class="text-sm font-semibold mb-1">Need custom?</p>
                     <p class="text-white/70 text-xs mb-3">Custom branding & sizes</p>
                     <a href="#contact"
                        class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold
@@ -337,15 +309,18 @@
     <div class="grid grid-cols-1 gap-4">
       <div>
         <p class="text-white/70 text-xs mb-2">Bike Blender</p>
-        <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
+        <a href="#products" class="text-white block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
       </div>
 
       <div>
-        <p class="text-white/70 text-xs mb-2">LED Race</p>
-        <a href="#products" class="block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
+        <p class="text-white/70 text-xs mb-2">Bike Beam</p>
+        <a href="#products" class="text-white block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
       </div>
-
-      <div class="rounded-xl ring-1 ring-white/10 p-4 bg-white/5">
+<div>
+                    <p class="text-white text-xs mb-2">Bike Branding</p>
+                    <a href="#product1" class="text-white/70 block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
+                  </div>
+     <div class="rounded-xl ring-1 ring-white/10 p-4 bg-white/5 h-full flex flex-col">
         <p class="text-sm font-semibold mb-1">Need custom?</p>
         <p class="text-white/70 text-xs mb-3">Custom branding & sizes</p>
         <a href="#contact"
@@ -367,11 +342,24 @@
     </div>
   </nav>
 </header>
+<style>
+  /* ميجا منيو الديسكتوب: دايمًا 4 أعمدة */
+  #BLnav .mega-grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:1.5rem;          /* = gap-6 */
+    align-items:start;
+  }
+  /* نخلي موبايل قوائم عمودية عادي */
+  @media (max-width: 767.98px){
+    #BLnav .mega-grid{ display:block; }
+  }
+</style>
 
 <!-- Spacer -->
 <div class="h-20" aria-hidden="true"></div>
 
-<script src="https://unpkg.com/preline/dist/preline.js" defer></script>
+<script src="https://unpkg.com/preline@2.5.0/dist/preline.js" defer></script>
 
 
     <!-- =================== Hero =================== -->
@@ -382,7 +370,7 @@
     >
       <!-- الخلفية: نحاول WebP، وإن فشل نجرب اسم بديل .png.webp، وإن فشل نرجع لـ PNG -->
       <img id="heroImg"
-                 src="./images/webp/banner-bg.webp"
+                 src="./images/banner-bg.png"
                  alt="Bike Land banner"
                  class="absolute inset-0 w-full h-full object-cover"
                  onerror="this.onerror=null; this.src='./images/banner-bg.png';">
@@ -2309,7 +2297,7 @@
       <div class="flex flex-wrap items-center gap-3">
       
 
-        <a href="#" class="social-btn btn-ig" aria-label="Instagram">
+        <a href="https://www.instagram.com/bike_blender/?hl=ar" target="_blank" rel="noopener noreferrer" class="social-btn btn-ig" aria-label="Instagram">
           <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <rect x="3" y="3" width="18" height="18" rx="5" stroke-width="2"/>
             <circle cx="12" cy="12" r="4" stroke-width="2"/>
@@ -2318,18 +2306,18 @@
         </a>
    
       
-        <a href="#" class="social-btn btn-fb" aria-label="Facebook">
+        <a href="https://www.facebook.com/people/BikeBlender/100083147321182/#"  target="_blank" rel="noopener noreferrer" class="social-btn btn-fb" aria-label="Facebook">
           <svg class="size-4" viewBox="0 0 24 24" fill="currentColor">
             <path d="M13 3h4v3h-3v3h3v3h-3v9h-3v-9H8v-3h3V6a3 3 0 0 1 3-3Z"/>
           </svg> Facebook
         </a>
-        <a href="https://wa.me/962786009370" target="_blank" rel="noopener" class="social-btn btn-wa" aria-label="WhatsApp">
+        <a href="https://wa.me/962786009370" target="_blank" rel="noopener noreferrer" class="social-btn btn-wa" aria-label="WhatsApp">
           <svg class="size-4" viewBox="0 0 24 24" fill="currentColor">
             <path d="M20 3.5A10 10 0 0 0 4.9 17.4L4 21l3.7-1a10 10 0 1 0 12.3-16.5Z"/>
             <path d="M16.5 13.8c-.3.8-1.6 1.4-2.2 1.4-.6 0-1.4-.2-2.4-.8a8.1 8.1 0 0 1-2.8-2.7c-.4-.6-.8-1.6-.8-2.1s.4-1 .6-1.2c.3-.3.6-.3.7-.3h.5c.2 0 .4 0 .5.4.2.5.6 1.6.6 1.7 0 .1 0 .3-.1.4l-.3.4c-.1.1-.2.3-.1.5.1.2.5.8 1.1 1.3.8.7 1.5.9 1.7 1 .2 0 .4 0 .5-.2l.6-.7c.2-.2.3-.2.5-.1.2.1 1.3.6 1.5.7.2.1.3.1.3.2Z" fill="#fff"/>
           </svg> WhatsApp
         </a>
-        <a href="bikeblender@hotmail.com" class="social-btn btn-mail" aria-label="Email">
+<a href="mailto:bikeblender@hotmail.com" class="social-btn btn-mail">Email</a>
           <svg class="size-4" viewBox="0 0 24 24" fill="currentColor">
             <path d="M20 4H4a2 2 0 0 0-2 2v.7l10 6.3 10-6.3V6a2 2 0 0 0-2-2Zm0 4.3-8 5-8-5V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.3Z"/>
           </svg> Email
@@ -2601,7 +2589,7 @@
               x-data="{
                open:false,
                selected:null,
-               items:['🚴 Bike Blender','💡 Bike Beam'],
+               items:['🚴 Bike Blender','💡 Bike Beam','🎨 Bike Branding','🎨 Custom Bike'],
                placeholder:'Select a product',
                pick(v){
                  this.selected=v;
@@ -2668,20 +2656,65 @@
           <!-- Address -->
           <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5">
             <!-- Country -->
-            <div class="sm:col-span-1">
-              <label for="country" class="block text-sm text-white/70 mb-1"
-                >Country</label
-              >
-              <select
-                id="country"
-                name="country"
-                autocomplete="country-name"
-                class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-              >
-                <option value="" disabled selected>Select a country</option>
-                <!-- populated by your JS -->
-              </select>
-            </div>
+           <!-- Country (Listbox مثل Product) -->
+<div class="sm:col-span-1">
+  <label class="block text-sm text-white/70 mb-1">Country</label>
+
+  <div
+    x-data="{
+      open:false,
+      selected:null,
+      items:[
+        'Jordan','Saudi Arabia','United Arab Emirates','Qatar','Kuwait','Bahrain','Oman',
+        'Iraq','Egypt','Lebanon','Palestine','Turkey','United Kingdom','United States'
+      ],
+      placeholder:'Select a country',
+      pick(v){
+        this.selected=v;
+        this.$refs.hidden.value=v;
+        this.$refs.hidden.dispatchEvent(new Event('input',{bubbles:true}));
+        this.open=false;
+      },
+      clear(){
+        this.selected=null;
+        this.$refs.hidden.value='';
+        this.$refs.hidden.dispatchEvent(new Event('input',{bubbles:true}));
+      }
+    }"
+    @keydown.escape.window="open=false"
+    class="relative"
+    x-cloak
+  >
+    <input type="hidden" name="country" x-ref="hidden" />
+
+    <button
+      type="button"
+      @click="open=!open"
+      class="w-full h-12 bg-white/5 border border-white/10 rounded-lg px-4 pr-10 flex items-center justify-between text-white outline-none focus:ring-2 focus:ring-emerald-500"
+    >
+      <span x-text="selected ?? placeholder" :class="selected ? '' : 'text-white/50'"></span>
+      <svg class="h-5 w-5 text-white/60 absolute right-3" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </button>
+
+    <ul
+      x-show="open"
+      x-transition.origin.top
+      @click.outside="open=false"
+      class="absolute z-10 mt-2 w-full bg-neutral-900 border border-white/10 rounded-lg shadow-lg overflow-auto max-h-64"
+    >
+      <template x-for="(item, i) in items" :key="i">
+        <li
+          @click="pick(item)"
+          class="px-4 py-2 cursor-pointer text-white/90 hover:bg-emerald-500 hover:text-black"
+          :class="{'bg-neutral-800': selected===item}"
+          x-text="item"
+        ></li>
+      </template>
+    </ul>
+  </div>
+</div>
 
             <div class="sm:col-span-1">
               <label for="city" class="block text-sm text-white/70 mb-1"
@@ -2698,35 +2731,8 @@
               />
             </div>
 
-            <div class="sm:col-span-1">
-              <label for="state" class="block text-sm text-white/70 mb-1"
-                >State / Province</label
-              >
-              <input
-                id="state"
-                type="text"
-                name="state"
-                autocomplete="address-level1"
-                class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-                placeholder="(optional)"
-              />
-            </div>
-
-            <div class="sm:col-span-1">
-              <label for="postal" class="block text-sm text-white/70 mb-1"
-                >ZIP / Postal Code</label
-              >
-              <input
-                id="postal"
-                type="text"
-                name="postal"
-                autocomplete="postal-code"
-                inputmode="numeric"
-                class="w-full h-12 rounded-lg bg-white/5 border border-white/10 px-4 text-[15px] outline-none focus:ring-2 focus:ring-emerald-500 text-white"
-                placeholder="11118"
-              />
-            </div>
-
+        
+          
             <div class="sm:col-span-2">
               <label for="address1" class="block text-sm text-white/70 mb-1"
                 >Address Line 1</label
@@ -2986,20 +2992,7 @@
       (function () {
         emailjs.init(EMAILJS_PUBLIC_KEY);
 
-        // ==================== (أزلنا تعبئة الدول القديمة هنا) ====================
-        // ==================== 1) Populate countries ====================
-        const COUNTRY_LIST = [
-          "Jordan","Saudi Arabia","United Arab Emirates","Qatar","Kuwait","Bahrain","Oman",
-          "Iraq","Egypt","Lebanon","Palestine","Turkey","United Kingdom","United States"
-        ];
-        const countrySelect = document.getElementById("country");
-        if (countrySelect && countrySelect.options.length <= 1) {
-          COUNTRY_LIST.forEach(c => {
-            const opt = document.createElement("option");
-            opt.value = c; opt.textContent = c;
-            countrySelect.appendChild(opt);
-          });
-        }
+
 
 
         // ==================== 2) إرسال EmailJS + واتساب ديناميكي ====================
@@ -3022,8 +3015,6 @@
 
             `Country: ${val("country")}`,
             `City: ${val("city")}`,
-            `State/Province: ${val("state")}`,
-            `ZIP/Postal: ${val("postal")}`,
             `Address 1: ${val("address1")}`,
             `Address 2: ${val("address2")}`,
 
@@ -3062,8 +3053,6 @@
 
               country: val("country"),
               city: val("city"),
-              state: val("state"),
-              postal: val("postal"),
               address1: val("address1"),
               address2: val("address2"),
 
@@ -3190,300 +3179,7 @@
       }
     </style>
 
-    <script>
-      // يرجّع مصفوفة أسماء الدول بالإنجليزية مرتبة
-      function getCountries() {
-        const codes = [
-          "AF",
-          "AX",
-          "AL",
-          "DZ",
-          "AS",
-          "AD",
-          "AO",
-          "AI",
-          "AQ",
-          "AG",
-          "AR",
-          "AM",
-          "AW",
-          "AU",
-          "AT",
-          "AZ",
-          "BS",
-          "BH",
-          "BD",
-          "BB",
-          "BY",
-          "BE",
-          "BZ",
-          "BJ",
-          "BM",
-          "BT",
-          "BO",
-          "BQ",
-          "BA",
-          "BW",
-          "BV",
-          "BR",
-          "IO",
-          "BN",
-          "BG",
-          "BF",
-          "BI",
-          "KH",
-          "CM",
-          "CA",
-          "CV",
-          "KY",
-          "CF",
-          "TD",
-          "CL",
-          "CN",
-          "CX",
-          "CC",
-          "CO",
-          "KM",
-          "CG",
-          "CD",
-          "CK",
-          "CR",
-          "CI",
-          "HR",
-          "CU",
-          "CW",
-          "CY",
-          "CZ",
-          "DK",
-          "DJ",
-          "DM",
-          "DO",
-          "EC",
-          "EG",
-          "SV",
-          "GQ",
-          "ER",
-          "EE",
-          "SZ",
-          "ET",
-          "FK",
-          "FO",
-          "FJ",
-          "FI",
-          "FR",
-          "GF",
-          "PF",
-          "TF",
-          "GA",
-          "GM",
-          "GE",
-          "DE",
-          "GH",
-          "GI",
-          "GR",
-          "GL",
-          "GD",
-          "GP",
-          "GU",
-          "GT",
-          "GG",
-          "GN",
-          "GW",
-          "GY",
-          "HT",
-          "HM",
-          "VA",
-          "HN",
-          "HK",
-          "HU",
-          "IS",
-          "IN",
-          "ID",
-          "IR",
-          "IQ",
-          "IE",
-          "IM",
-          "IL",
-          "IT",
-          "JM",
-          "JP",
-          "JE",
-          "JO",
-          "KZ",
-          "KE",
-          "KI",
-          "KP",
-          "KR",
-          "KW",
-          "KG",
-          "LA",
-          "LV",
-          "LB",
-          "LS",
-          "LR",
-          "LY",
-          "LI",
-          "LT",
-          "LU",
-          "MO",
-          "MG",
-          "MW",
-          "MY",
-          "MV",
-          "ML",
-          "MT",
-          "MH",
-          "MQ",
-          "MR",
-          "MU",
-          "YT",
-          "MX",
-          "FM",
-          "MD",
-          "MC",
-          "MN",
-          "ME",
-          "MS",
-          "MA",
-          "MZ",
-          "MM",
-          "NA",
-          "NR",
-          "NP",
-          "NL",
-          "NC",
-          "NZ",
-          "NI",
-          "NE",
-          "NG",
-          "NU",
-          "NF",
-          "MK",
-          "MP",
-          "NO",
-          "OM",
-          "PK",
-          "PW",
-          "PS",
-          "PA",
-          "PG",
-          "PY",
-          "PE",
-          "PH",
-          "PN",
-          "PL",
-          "PT",
-          "PR",
-          "QA",
-          "RE",
-          "RO",
-          "RU",
-          "RW",
-          "BL",
-          "SH",
-          "KN",
-          "LC",
-          "MF",
-          "PM",
-          "VC",
-          "WS",
-          "SM",
-          "ST",
-          "SA",
-          "SN",
-          "RS",
-          "SC",
-          "SL",
-          "SG",
-          "SX",
-          "SK",
-          "SI",
-          "SB",
-          "SO",
-          "ZA",
-          "GS",
-          "SS",
-          "ES",
-          "LK",
-          "SD",
-          "SR",
-          "SJ",
-          "SE",
-          "CH",
-          "SY",
-          "TW",
-          "TJ",
-          "TZ",
-          "TH",
-          "TL",
-          "TG",
-          "TK",
-          "TO",
-          "TT",
-          "TN",
-          "TR",
-          "TM",
-          "TC",
-          "TV",
-          "UG",
-          "UA",
-          "AE",
-          "GB",
-          "US",
-          "UM",
-          "UY",
-          "UZ",
-          "VU",
-          "VE",
-          "VN",
-          "VG",
-          "VI",
-          "WF",
-          "EH",
-          "YE",
-          "ZM",
-          "ZW",
-        ];
-        const dn =
-          window.Intl && Intl.DisplayNames
-            ? new Intl.DisplayNames(["en"], { type: "region" })
-            : null;
-        return codes
-          .map((c) => (dn ? dn.of(c) : c))
-          .filter(Boolean)
-          .sort((a, b) => a.localeCompare(b));
-      }
-
-      document.addEventListener("alpine:init", () => {
-        Alpine.data("countryListbox", () => ({
-          open: false,
-          q: "",
-          items: getCountries(),
-          selected: "Jordan", // الافتراضي
-          init() {
-            // اربط hidden input من البداية
-            if (this.$refs.hidden)
-              this.$refs.hidden.value = this.selected || "";
-          },
-          get filtered() {
-            const s = this.q.toLowerCase();
-            return !s
-              ? this.items
-              : this.items.filter((n) => n.toLowerCase().includes(s));
-          },
-          pick(v) {
-            this.selected = v;
-            if (this.$refs.hidden) this.$refs.hidden.value = v;
-            this.open = false;
-          },
-          clear() {
-            this.selected = null;
-            if (this.$refs.hidden) this.$refs.hidden.value = "";
-          },
-        }));
-      });
-    </script>
-
+  
     <style>
       @media (max-width: 768px) { [class*="backdrop-blur"] {
           backdrop-filter: none !important;
