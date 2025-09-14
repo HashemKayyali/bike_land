@@ -1175,10 +1175,9 @@
 @keyframes bl-shine{ to{ transform:translateX(160%); } }
 #customers .stack-card:hover .stack-logo .inner::after{ animation:bl-shine 1s linear both; }
 </style>
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  /* 1) أسماء المجلدات */
+  /* ================== 0) بيانات العملاء ================== */
   const FOLDERS = [
     "AMAZON","AstraZeneca","ZAIN","Arab Bank","Rotana Hotel","Delmonte","PROTEINAK",
     "PSUT","JU","Abdali Hospital","Umniah","Saray aqaba","RIA","SNA","TAJ MALL",
@@ -1188,46 +1187,91 @@ document.addEventListener("DOMContentLoaded", () => {
     name: folder.replace(/[-_]/g," ").replace(/\b\w/g,c=>c.toUpperCase()),
     slug: folder
   }));
-
-  /* 2) فاحص صورة */
-  function probe(url, timeout = 450){
-    return new Promise(resolve=>{
-      const img = new Image(); let done=false;
-      const t = setTimeout(()=>{ if(!done){ done=true; resolve(false);} }, timeout);
-      img.onload = ()=>{ if(!done){ done=true; clearTimeout(t); resolve(true);} };
-      img.onerror= ()=>{ if(!done){ done=true; clearTimeout(t); resolve(false);} };
-      img.decoding="async"; img.loading="eager"; img.src=url;
-    });
-  }
-
-  /* 3) جمع الصور المرقّمة */
-  async function collectPng(folderName, {max=60, batch=8, gapLimit=10, timeout=450}={}){
-    const enc = encodeURIComponent(folderName);
-    const items = [];
-    let i=1, miss=0, seen=false;
-    while(i<=max && (miss<gapLimit || !seen)){
-      const idxs = Array.from({length:batch},(_,k)=>i+k);
-      const hits = await Promise.all(idxs.map(async n=>{
-        const url = `images/customers/${enc}/${n}.png`;
-        return (await probe(url, timeout)) ? url : null;
-      }));
-      const found = hits.filter(Boolean);
-      if(!found.length) miss += batch; else { miss=0; seen=true; items.push(...found); }
-      i+=batch;
-    }
-    return items;
-  }
-
-  /* 4) بناء الكروت */
   const stack = document.getElementById("customersStack");
+
+  /* ================== 1) Queue لتحديد التوازي ================== */
+  const MAX_PARALLEL = 1; // أهدى على الشبكة
+  let active = 0;
+  const pending = [];
+  function enqueue(taskFn){
+    return new Promise(resolve => { pending.push({taskFn, resolve}); pump(); });
+  }
+  function pump(){
+    while (active < MAX_PARALLEL && pending.length){
+      const {taskFn, resolve} = pending.shift();
+      active++;
+      taskFn().then(resolve).finally(() => { active--; pump(); });
+    }
+  }
+
+  /* ================== 2) أدوات مساعدة ================== */
+  async function headOk(url, timeout = 180){
+    const ctrl = new AbortController();
+    const id = setTimeout(() => ctrl.abort(), timeout);
+    try{
+      const res = await fetch(url, { method: "HEAD", signal: ctrl.signal, cache: "force-cache" });
+      return res.ok;
+    }catch{ return false; }
+    finally{ clearTimeout(id); }
+  }
+
+  async function readManifest(folder){
+    const enc = encodeURIComponent(folder);
+    try{
+      const res = await fetch(`images/customers/${enc}/index.json`, { cache:"force-cache" });
+      if (!res.ok) throw 0;
+      const data = await res.json();
+      // نتوقع شكل: { "shots": [1,2,3,...] }
+      if (Array.isArray(data.shots) && data.shots.length){
+        return data.shots.map(n => ({
+          thumb: `images/customers/${enc}/thumbs/${n}.webp`,
+          full:  `images/customers/${enc}/${n}.webp`
+        }));
+      }
+    }catch{}
+    return null;
+  }
+
+  /* ================== 3) جامع صور (WebP thumbs) ================== */
+  // يفضّل manifest، وإلا يفحص وجود thumbs/1.webp .. إلى أن يحصل 12
+  async function collectThumbs(folderName, {
+    need = 12,
+    max = 50,
+    batch = 5,
+    timeout = 160
+  } = {}){
+    const enc = encodeURIComponent(folderName);
+
+    // 3.1 جرّب manifest أولًا
+    const fromManifest = await readManifest(folderName);
+    if (fromManifest){
+      return fromManifest.slice(0, need).map(it => it.thumb);
+    }
+
+    // 3.2 fallback سريع: فحص thumbs بتسلسل
+    const out = [];
+    let i = 1;
+    while (out.length < need && i <= max){
+      const idxs = Array.from({length: batch}, (_,k)=> i+k).filter(n => n <= max);
+      const hits = await Promise.all(idxs.map(async n => {
+        const t = `images/customers/${enc}/thumbs/${n}.webp`;
+        return (await headOk(t, timeout)) ? t : null;
+      }));
+      for (const h of hits) if (h) out.push(h);
+      i += batch;
+    }
+    return out.slice(0, need);
+  }
+
+  /* ================== 4) بناء الكروت ================== */
   stack.innerHTML = CUSTOMERS.map(c => `
     <div class="stack-card" data-company="${c.slug}">
       <div class="stack-row">
         <div class="stack-logo">
           <div class="inner">
             <img alt="${c.name}" loading="lazy" decoding="async"
-                 src="images/customers/${encodeURIComponent(c.slug)}/logo.png"
-                 onerror="this.style.opacity=.35">
+                 src="images/customers/${encodeURIComponent(c.slug)}/logo.webp"
+                 onerror="this.onerror=null; this.src=this.src.replace('.webp','.png');">
           </div>
         </div>
         <div class="stack-info">
@@ -1238,39 +1282,60 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `).join("");
 
-  /* 5) Lazy-load للثَمبنيلز + أنيميشن Pop */
-  const io = new IntersectionObserver(async (entries) => {
-    for (const entry of entries){
-      if(!entry.isIntersecting) continue;
-      const card = entry.target;
-      io.unobserve(card);
+  /* ================== 5) Lazy-load للثَمبنيلز ================== */
+  async function loadCard(card){
+    const folder   = card.getAttribute("data-company");
+    const thumbsEl = card.querySelector("[data-thumbs]");
 
-      const folder   = card.getAttribute("data-company");
-      const thumbsEl = card.querySelector("[data-thumbs]");
-
+    return enqueue(async () => {
       try{
-        const imgs = await collectPng(folder, {max:50});
-        if(!imgs.length) continue;
+        const imgs = await collectThumbs(folder, { need: 12, max: 36, batch: 6, timeout: 160 });
+        if (!imgs.length) return;
 
-        thumbsEl.innerHTML = imgs.slice(0,12).map(u => `
-          <div class="thumb"><img src="${u}" alt="${folder}"></div>
+        thumbsEl.innerHTML = imgs.map(u => `
+          <div class="thumb">
+            <img src="${u}" alt="${folder}" loading="lazy" decoding="async" fetchpriority="low"
+                 width="320" height="240" style="aspect-ratio:4/3; object-fit:cover">
+          </div>
         `).join("");
 
-        // ستاجر للثَمبنيلز
         const thumbs = thumbsEl.querySelectorAll(".thumb");
         thumbs.forEach((el, idx) => {
           el.style.transitionDelay = `${idx * 25}ms`;
           requestAnimationFrame(()=> el.classList.add("in"));
         });
-
         thumbsEl.hidden = false;
-      } catch { /* تجاهل */ }
+      }catch{}
+    });
+  }
+
+  // نحمّل كرتين كحد أقصى بالدفعة الواحدة (إضافة لخفض القفزات)
+  const pendingCards = [];
+  let pumping = false;
+
+  const io = new IntersectionObserver((entries) => {
+    for (const entry of entries){
+      if (!entry.isIntersecting) continue;
+      io.unobserve(entry.target);
+      pendingCards.push(entry.target);
     }
-  }, { rootMargin:"0px 0px -8% 0px", threshold:.12 });
+    pumpCards();
+  }, { rootMargin:"0px 0px -12% 0px", threshold:.15 });
+
+  function pumpCards(){
+    if (pumping) return;
+    pumping = true;
+    (async function loop(){
+      const chunk = pendingCards.splice(0, 2); // كرتين فقط
+      await Promise.all(chunk.map(card => loadCard(card)));
+      pumping = false;
+      if (pendingCards.length) pumpCards();
+    })();
+  }
 
   document.querySelectorAll("#customers .stack-card").forEach(el => io.observe(el));
 
-  /* 6) Reveal للبطاقات بستاجر حسب موقعها بالشبكة */
+  /* ================== 6) Reveal للبطاقات ================== */
   (function revealCards(){
     const cards = Array.from(document.querySelectorAll("#customers .stack-card"));
     const ioReveal = new IntersectionObserver((entries)=>{
@@ -1278,7 +1343,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(!e.isIntersecting) return;
         const i = cards.indexOf(e.target);
         const row = Math.floor(i / 3), col = i % 3;
-        const delay = row * 90 + col * 70; // ms
+        const delay = row * 90 + col * 70;
         e.target.style.transitionDelay = `${delay}ms`;
         requestAnimationFrame(()=> e.target.classList.add("in"));
         ioReveal.unobserve(e.target);
