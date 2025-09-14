@@ -2660,7 +2660,7 @@
       <div>
         <label class="lbl">Cups</label>
 <input type="number" name="cups" x-model="cups" min="50" step="10"
-       :required="type()==='blender'" class="inp" placeholder="e.g., 100" />
+       :required="type()==='blender'" class="inp" placeholder="Minimum Cups  : 50" />
                <p class="help">We provide cups, lids, and straws.</p>
       </div>
       <div>
@@ -2730,8 +2730,8 @@
           <!-- 4) Cups quantity (only if Cups chosen) -->
           <div x-show="mt-6 sm:mt-8 brandingTargets.includes('Cups')" x-transition.opacity>
             <label class="lbl mt-5 sm:mt-6">Cups quantity</label>
-            <input type="number" class="inp" name="cupsQty" x-model="cupsQty" min="100" step="50" placeholder="e.g., 200">
-            <p class="help">Minimum 100 cups for printing.</p>
+            <input type="number" class="inp" name="cupsQty" x-model="cupsQty" min="50" step="50" placeholder="Minimum Cups  : 50">
+            <p class="help">Note: We provide cups, lids, and straws.</p>
           </div>
         </div>
       </template>
