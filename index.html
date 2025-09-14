@@ -92,10 +92,11 @@
 
   <link rel="preload" as="image" href="./images/banner-bg.png" fetchpriority="high" />
   <!-- CSS: Tailwind build + AOS  -->
-  <link href="./dist/output.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 <link rel="stylesheet" href="/css/about.css?v=2">
-<link rel="stylesheet" href="/css/navbar.css?v=3"> 
+  <link rel="stylesheet" href="/css/contact.css?v=1.0">
+<link href="./dist/output.css?v=5" rel="stylesheet">
+
 
   <!-- Helpers & resets خفيفة -->
   <style>
@@ -216,7 +217,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
   <!-- ستايل السكشن (لازم يجي بعد Flatpickr عشان يتغلّب على ثيماته) -->
-  <link rel="stylesheet" href="/css/contact.css?v=1.0">
 
 
   <!-- Preconnects & Preloads -->
@@ -299,14 +299,14 @@
 
   <!-- =================== Navbar =================== -->
 
-<header class="fixed top-0 left-0 right-0 z-50 w-full">
-  <nav id="BLnav"
-       class="relative isolate w-full rounded-b-3xl transition-all duration-300
-              bg-gradient-to-b from-neutral-950/95 via-neutral-950/90 to-neutral-900/95
-              backdrop-blur-2xl backdrop-saturate-150
-              border-b border-white/10 ring-1 ring-white/10
-              shadow-[0_18px_48px_-12px_rgba(0,0,0,.92),0_8px_28px_-10px_rgba(0,0,0,.78)]">
-      <!-- لمعة أعلى -->
+<header class="fixed inset-x-0 top-0 z-50 w-full pt-safe">
+<nav id="BLnav"
+     class="relative isolate w-full overflow-visible rounded-b-3xl transition-all duration-300
+            bg-gradient-to-b from-neutral-950/95 via-neutral-950/90 to-neutral-900/95
+            backdrop-blur-2xl backdrop-saturate-150
+            border-b border-white/10 ring-1 ring-white/10
+            shadow-[0_18px_48px_-12px_rgba(0,0,0,.92),0_8px_28px_-10px_rgba(0,0,0,.78)]">
+
       <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-emerald-400 to-cyan-400"></div>
       <!-- هالة طفو -->
       <div aria-hidden="true"
@@ -325,7 +325,7 @@
           </a>
 
           <!-- الروابط (ديسكتوب) -->
-          <div class="hidden md:flex flex-1 justify-center">
+          <div class="hidden lg:flex flex-1 justify-center">
             <ul class="flex items-center gap-x-8 font-semibold text-[0.95rem]">
               <li><a href="#home" data-section="home" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60 rounded
@@ -410,7 +410,7 @@
 
             <!-- زر الموبايل (قائمة منفصلة للموبايل فقط) -->
             <button type="button" class="hs-collapse-toggle navLnk relative inline-flex items-center justify-center size-10 rounded-lg
-                         text-white hover:bg-white/10 focus:outline-none md:hidden" aria-controls="bl-nav-mobile"
+                         text-white hover:bg-white/10 focus:outline-none lg:hidden" aria-controls="bl-nav-mobile"
               data-hs-collapse="#bl-nav-mobile">
               <svg class="hs-collapse-open:hidden size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -423,7 +423,7 @@
         </div>
 
         <!-- قائمة الموبايل (عمودية) -->
-        <div id="bl-nav-mobile" class="hs-collapse md:!hidden hidden overflow-hidden transition-all duration-300 mt-3">
+        <div id="bl-nav-mobile" class="hs-collapse lg:hidden hidden overflow-hidden transition-all duration-300 mt-3">
           <ul class="flex flex-col font-semibold text-[0.95rem]">
             <li><a href="#home" data-section="home" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
                         after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
@@ -497,11 +497,7 @@
     }
 
     /* نخلي موبايل قوائم عمودية عادي */
-    @media (max-width: 767.98px) {
-      #BLnav .mega-grid {
-        display: block;
-      }
-    }
+@media (max-width: 1023.98px){ #BLnav .mega-grid{ display:block; } }
   </style>
 
   <!-- Spacer -->
@@ -511,6 +507,11 @@
 
 
   <!-- =================== Hero =================== -->
+
+
+
+
+
 
   <section id="home" class="relative min-h-[70svh] md:min-h-[78svh] grid place-items-center overflow-hidden
          scroll-mt-24 lg:scroll-mt-28">
@@ -3192,6 +3193,12 @@
       will-change: transform;
       /* سلاسة مع سكربت الـscale */
     }
+
+    @media (min-width:1024px){
+  #BLnav .lg\:flex   { display:flex !important; }
+  #BLnav .lg\:hidden { display:none !important; }
+}
+
   </style>
 
 
@@ -3221,12 +3228,9 @@
 
 
 
-  <style>
-    @media (max-width: 768px) {
-      [class*="backdrop-blur"] {
-        backdrop-filter: none !important;
-      }
-    }
+ @media (max-width: 1024px){
+    [class*="backdrop-blur"]{ backdrop-filter: none !important; }
+}
   </style>
 
 
