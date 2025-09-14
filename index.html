@@ -94,7 +94,7 @@
   <!-- CSS: Tailwind build + AOS  -->
   <link href="./dist/output.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
+<link rel="stylesheet" href="/css/about.css?v=2">
   <!-- Helpers & resets خفيفة -->
   <style>
     /* خلّي التمرير على عنصر واحد فقط */
@@ -1887,14 +1887,7 @@
 
 
 
-
-
-
   <!-- =================== About Us =================== -->
-
-
-
-
 
 
 
@@ -2207,241 +2200,6 @@
   </section>
 
 
-  <style>
-    /* ================== About Us – micro styles ================== */
-
-    .about-group {
-      margin-top: .95rem;
-      padding-top: 1.05rem;
-      border-top: 1px solid rgba(255, 255, 255, .09);
-    }
-
-    .about-lead {
-      line-height: 1.7;
-      letter-spacing: .1px;
-    }
-
-    /* كبسولات الجمهور */
-    .about-chip {
-      padding: .4rem .75rem;
-      border-radius: 999px;
-      font-size: .75rem;
-      border: 1px solid rgba(255, 255, 255, .12);
-      background: rgba(255, 255, 255, .06);
-      backdrop-filter: saturate(130%);
-    }
-
-    /* بطاقات الميزات */
-    .about-item {
-      display: flex;
-      gap: .7rem;
-      align-items: flex-start;
-      padding: .65rem .75rem;
-      border-radius: 1rem;
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(255, 255, 255, .05);
-    }
-
-    .about-icn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      color: #0a0a0a;
-      background: linear-gradient(135deg, #34d399, #22d3ee);
-      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .18);
-    }
-
-    /* خطوات العمل */
-    .step {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      padding: .6rem .75rem;
-      border-radius: 1rem;
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(255, 255, 255, .05);
-    }
-
-    .step-icn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: .82rem;
-      color: #0a0a0a;
-      background: linear-gradient(135deg, #34d399, #22d3ee);
-      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .18);
-    }
-
-    .step-t {
-      font-size: .9rem;
-      color: #eaeaea;
-    }
-
-    /* بادجات الثقة */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      padding: .45rem .65rem;
-      border-radius: 999px;
-      font-size: .8rem;
-      border: 1px solid rgba(255, 255, 255, .12);
-      background: rgba(255, 255, 255, .05);
-      color: #eaeaea;
-    }
-
-    .badge svg {
-      color: #34d399;
-    }
-
-    /* شريط المقاييس */
-    .metric {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .3rem;
-      padding: .85rem .8rem;
-      border-radius: 1rem;
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(255, 255, 255, .05);
-    }
-
-    .metric-icn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      color: #0a0a0a;
-      background: linear-gradient(135deg, #34d399, #22d3ee);
-      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .18);
-    }
-
-    .metric-num {
-      font-weight: 800;
-      font-size: 1.08rem;
-    }
-
-    .metric-cap {
-      font-size: .72rem;
-      color: rgba(255, 255, 255, .66);
-    }
-
-    /* أزرار السوشيال العامة */
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .52rem .95rem;
-      border-radius: 999px;
-      font-size: .85rem;
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, .12);
-      transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
-    }
-
-    .social-btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.08);
-    }
-
-    /* Instagram */
-    .btn-ig {
-      background: linear-gradient(135deg, #833AB4 0%, #E1306C 55%, #FCAF45 100%);
-    }
-
-    /* TikTok */
-    .btn-tt {
-      background: linear-gradient(135deg, #25F4EE 0%, #FE2C55 100%);
-    }
-
-    /* YouTube */
-    .btn-yt {
-      background: #FF0033;
-    }
-
-    /* Facebook */
-    .btn-fb {
-      background: #1877F2;
-    }
-
-    /* WhatsApp */
-    .btn-wa {
-      background: #25D366;
-    }
-
-    /* Email */
-    .btn-mail {
-      background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
-    }
-
-    /* إطار الصورة (لو استخدمته): */
-    .team-card::after {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(52, 211, 153, .45), rgba(34, 211, 238, .45));
-
-      /* WebKit قديم */
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor;
-
-      /* القياسي (يكتب بعد المسبوق) */
-      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      mask-composite: exclude;
-
-      pointer-events: none;
-    }
-
-    /* شارة الصورة */
-    .about-badge {
-      position: absolute;
-      left: .75rem;
-      bottom: .75rem;
-      padding: .35rem .7rem;
-      font-size: .7rem;
-      font-weight: 700;
-      color: #0a0a0a;
-      background: linear-gradient(90deg, #34d399, #22d3ee);
-      border-radius: 999px;
-    }
-
-    /* مصغرات إن وجدت */
-    .thumb {
-      display: block;
-      object-fit: cover;
-      border-radius: .6rem;
-      border: 1px solid rgba(255, 255, 255, .15);
-      background: rgba(255, 255, 255, .06);
-    }
-
-    /* استرخاء أكبر على الواسع */
-    @media (min-width:1024px) {
-      .about-group {
-        margin-top: 1.1rem;
-        padding-top: 1.15rem;
-      }
-    }
-  </style>
-
-
-
-
-
-
-
-
 
 
 
@@ -2468,16 +2226,16 @@
 
     <!-- Card + Form -->
     <div class="max-w-3xl mx-auto contact-card p-6 sm:p-8 relative" data-aos="fade-up" data-aos-delay="120">
-<form id="bookingForm" autocomplete="on" class="stack space-y-8 sm:space-y-10">
+      <form id="bookingForm" autocomplete="on" class="stack space-y-8 sm:space-y-10">
 
         <!-- ============= 1) Personal Information ============= -->
         <fieldset class="fs">
-<legend class="fs-legend mb-3 sm:mb-4">
+          <legend class="fs-legend mb-3 sm:mb-4">
             <span class="step-badge" data-step="01"></span>
             <h3 class="text-lg font-semibold">Personal Information</h3>
           </legend>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
             <div>
               <label for="fullName" class="lbl">Full Name</label>
               <input id="fullName" name="name" type="text" autocomplete="name" required class="inp"
@@ -2499,22 +2257,33 @@
         </fieldset>
 
 
-<style>
-  /* Vertical rhythm لفورم الحجز */
-  #bookingForm .lbl{display:block; margin-bottom:.5rem;}
-  #bookingForm .seg{margin-top:.4rem;}
-  #bookingForm .help{margin-top:.35rem;}
-  #bookingForm .textarea{min-height:9rem;}
-</style>
+        <style>
+          /* Vertical rhythm لفورم الحجز */
+          #bookingForm .lbl {
+            display: block;
+            margin-bottom: .5rem;
+          }
+
+          #bookingForm .seg {
+            margin-top: .4rem;
+          }
+
+          #bookingForm .help {
+            margin-top: .35rem;
+          }
+
+          #bookingForm .textarea {
+            min-height: 9rem;
+          }
+        </style>
 
 
 
 
 
 
- <!-- ============= 2) Product & Customization ============= -->
-<fieldset class="fs" x-cloak
-  x-data="{
+        <!-- ============= 2) Product & Customization ============= -->
+        <fieldset class="fs" x-cloak x-data="{
     open:false,
     selected:null,
     items:['🚴 Bike Blender','💡 Bike Beam','🎨 Bike Branding','🛠️ Custom Bike'],
@@ -2609,8 +2378,7 @@
 
       return `Booking: ${this.selected}${detail ? ' — '+detail : ''} on ${dateStr}${timeStr}.`;
     }
-  }"
-  x-init="(()=>{
+  }" x-init="(()=>{
     const d=new Date(); d.setMinutes(d.getMinutes()-d.getTimezoneOffset());
     minDate=d.toISOString().split('T')[0];
 
@@ -2632,163 +2400,177 @@
     });
   })()">
 
-  <legend class="fs-legend">
-    <span class="step-badge" data-step="02"></span>
-    <h3 class="text-lg font-semibold">Product &amp; Customization</h3>
-  </legend>
+          <legend class="fs-legend">
+            <span class="step-badge" data-step="02"></span>
+            <h3 class="text-lg font-semibold">Product &amp; Customization</h3>
+          </legend>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
-    <!-- Product -->
-    <div>
-      <label class="lbl">Product</label>
-      <div class="relative" @keydown.escape.window="open=false">
-        <input type="hidden" name="product" x-ref="hidden" />
-        <button type="button" @click="open=!open" :aria-expanded="open" class="listbox-trigger">
-          <span x-text="selected ?? placeholder" :class="selected ? '' : 'text-white/50'"></span>
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <ul x-show="open" x-transition.origin.top @click.outside="open=false" class="listbox-panel">
-          <template x-for="(item,i) in items" :key="i">
-            <li @click="pick(item)" class="listbox-item" :class="{'bg-neutral-800': selected===item}" x-text="item"></li>
-          </template>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Blender options (unchanged) -->
-    <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6" x-show="type()==='blender'" x-transition.opacity>
-      <div>
-        <label class="lbl">Cups</label>
-<input type="number" name="cups" x-model="cups" min="50" step="10"
-       :required="type()==='blender'" class="inp" placeholder="Minimum Cups  : 50" />
-               <p class="help">We provide cups, lids, and straws.</p>
-      </div>
-      <div>
-        <label class="lbl">Bikes</label>
-        <div class="seg">
-          <template x-for="n in [1,2,3,4]" :key="n">
-            <button type="button" @click="bikes=n" :class="bikes===n ? 'seg-active' : 'seg-idle'"><span x-text="n"></span></button>
-          </template>
-        </div>
-        <input type="hidden" name="bikes" :value="bikes">
-      </div>
-    </div>
-
-    <!-- Beam options (unchanged) -->
-    <div class="sm:col-span-2" x-show="type()==='beam'" x-transition.opacity>
-      <label class="lbl">Beam Size</label>
-      <div class="seg">
-        <button type="button" @click="beamSize='Medium'" :class="beamSize==='Medium' ? 'seg-active' : 'seg-idle'">Medium</button>
-        <button type="button" @click="beamSize='Large'"  :class="beamSize==='Large'  ? 'seg-active' : 'seg-idle'">Large</button>
-      </div>
-      <input type="hidden" name="beamSize" :value="beamSize" :required="type()==='beam'">
-    </div>
-
-    <!-- ===================== BRANDING (ONLY) ===================== -->
-    <div class="sm:col-span-2 space-y-7 sm:space-y-8" x-show="type()==='branding'" x-transition.opacity>
-      <!-- 1) Branding for -->
-      <div>
-        <label class="lbl">Branding for</label>
-        <div class="seg flex flex-wrap gap-2">
-          <button type="button"
-                  @click="brandingProject='blender'; brandingTargets=[]; cupsQty=''; brandingBeamSize=''; beamColor1=''; beamColor2='';"
-                  :class="brandingProject==='blender' ? 'seg-active' : 'seg-idle'">Bike Blender</button>
-          <button type="button"
-                  @click="brandingProject='beam'; brandingTargets=[]; cupsQty='';"
-                  :class="brandingProject==='beam' ? 'seg-active' : 'seg-idle'">Bike Beam</button>
-        </div>
-        <input type="hidden" name="brandingProject" :value="brandingProject">
-      </div>
-
-      <!-- ===== Branding → Blender ===== -->
-      <template x-if="brandingProject==='blender'">
-        <div class="space-y-6">
-          <!-- 2) How many bikes -->
-    <div class="mt-5 sm:mt-6">
-            <label class="lbl">How many bikes?</label>
-            <div class="seg">
-              <template x-for="n in [1,2,3,4]" :key="n">
-                <button type="button" @click="brandingBikes=n" :class="brandingBikes===n ? 'seg-active' : 'seg-idle'"><span x-text="n"></span></button>
-              </template>
-            </div>
-            <input type="hidden" name="brandingBikes" :value="brandingBikes">
-          </div>
-
-          <!-- 3) Where do you want branding? -->
-    <div class="mt-5 sm:mt-6">
-            <label class="lbl">Where do you want branding?</label>
-            <div class="seg flex flex-wrap gap-2">
-              <template x-for="t in ['Wheels','Cups','Roll-up banners']" :key="t">
-                <button type="button" @click="toggleBrandingTarget(t)" :class="brandingTargets.includes(t) ? 'seg-active' : 'seg-idle'">
-                  <span x-text="t"></span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
+            <!-- Product -->
+            <div>
+              <label class="lbl">Product</label>
+              <div class="relative" @keydown.escape.window="open=false">
+                <input type="hidden" name="product" x-ref="hidden" />
+                <button type="button" @click="open=!open" :aria-expanded="open" class="listbox-trigger">
+                  <span x-text="selected ?? placeholder" :class="selected ? '' : 'text-white/50'"></span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
                 </button>
-              </template>
+                <ul x-show="open" x-transition.origin.top @click.outside="open=false" class="listbox-panel">
+                  <template x-for="(item,i) in items" :key="i">
+                    <li @click="pick(item)" class="listbox-item" :class="{'bg-neutral-800': selected===item}"
+                      x-text="item"></li>
+                  </template>
+                </ul>
+              </div>
             </div>
-            <input type="hidden" name="brandingTargets" :value="brandingTargets.join(', ')">
+
+            <!-- Blender options (unchanged) -->
+            <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6" x-show="type()==='blender'"
+              x-transition.opacity>
+              <div>
+                <label class="lbl">Cups</label>
+                <input type="number" name="cups" x-model="cups" min="50" step="10" :required="type()==='blender'"
+                  class="inp" placeholder="Minimum Cups  : 50" />
+                <p class="help">We provide cups, lids, and straws.</p>
+              </div>
+              <div>
+                <label class="lbl">Bikes</label>
+                <div class="seg">
+                  <template x-for="n in [1,2,3,4]" :key="n">
+                    <button type="button" @click="bikes=n" :class="bikes===n ? 'seg-active' : 'seg-idle'"><span
+                        x-text="n"></span></button>
+                  </template>
+                </div>
+                <input type="hidden" name="bikes" :value="bikes">
+              </div>
+            </div>
+
+            <!-- Beam options (unchanged) -->
+            <div class="sm:col-span-2" x-show="type()==='beam'" x-transition.opacity>
+              <label class="lbl">Beam Size</label>
+              <div class="seg">
+                <button type="button" @click="beamSize='Medium'"
+                  :class="beamSize==='Medium' ? 'seg-active' : 'seg-idle'">Medium</button>
+                <button type="button" @click="beamSize='Large'"
+                  :class="beamSize==='Large'  ? 'seg-active' : 'seg-idle'">Large</button>
+              </div>
+              <input type="hidden" name="beamSize" :value="beamSize" :required="type()==='beam'">
+            </div>
+
+            <!-- ===================== BRANDING (ONLY) ===================== -->
+            <div class="sm:col-span-2 space-y-7 sm:space-y-8" x-show="type()==='branding'" x-transition.opacity>
+              <!-- 1) Branding for -->
+              <div>
+                <label class="lbl">Branding for</label>
+                <div class="seg flex flex-wrap gap-2">
+                  <button type="button"
+                    @click="brandingProject='blender'; brandingTargets=[]; cupsQty=''; brandingBeamSize=''; beamColor1=''; beamColor2='';"
+                    :class="brandingProject==='blender' ? 'seg-active' : 'seg-idle'">Bike Blender</button>
+                  <button type="button" @click="brandingProject='beam'; brandingTargets=[]; cupsQty='';"
+                    :class="brandingProject==='beam' ? 'seg-active' : 'seg-idle'">Bike Beam</button>
+                </div>
+                <input type="hidden" name="brandingProject" :value="brandingProject">
+              </div>
+
+              <!-- ===== Branding → Blender ===== -->
+              <template x-if="brandingProject==='blender'">
+                <div class="space-y-6">
+                  <!-- 2) How many bikes -->
+                  <div class="mt-5 sm:mt-6">
+                    <label class="lbl">How many bikes?</label>
+                    <div class="seg">
+                      <template x-for="n in [1,2,3,4]" :key="n">
+                        <button type="button" @click="brandingBikes=n"
+                          :class="brandingBikes===n ? 'seg-active' : 'seg-idle'"><span x-text="n"></span></button>
+                      </template>
+                    </div>
+                    <input type="hidden" name="brandingBikes" :value="brandingBikes">
+                  </div>
+
+                  <!-- 3) Where do you want branding? -->
+                  <div class="mt-5 sm:mt-6">
+                    <label class="lbl">Where do you want branding?</label>
+                    <div class="seg flex flex-wrap gap-2">
+                      <template x-for="t in ['Wheels','Cups','Roll-up banners']" :key="t">
+                        <button type="button" @click="toggleBrandingTarget(t)"
+                          :class="brandingTargets.includes(t) ? 'seg-active' : 'seg-idle'">
+                          <span x-text="t"></span>
+                        </button>
+                      </template>
+                    </div>
+                    <input type="hidden" name="brandingTargets" :value="brandingTargets.join(', ')">
+                  </div>
+
+                  <!-- 4) Cups quantity (only if Cups chosen) -->
+                  <div x-show="mt-6 sm:mt-8 brandingTargets.includes('Cups')" x-transition.opacity>
+                    <label class="lbl mt-5 sm:mt-6">Cups quantity</label>
+                    <input type="number" class="inp" name="cupsQty" x-model="cupsQty" min="50" step="50"
+                      placeholder="Minimum Cups  : 50">
+                    <p class="help">Note: We provide cups, lids, and straws.</p>
+                  </div>
+                </div>
+              </template>
+
+              <!-- ===== Branding → Beam ===== -->
+              <!-- ===== Branding → Beam ===== -->
+              <template x-if="brandingProject==='beam'">
+                <div class="space-y-6">
+                  <!-- 2) Beam Size -->
+                  <div class="mt-5 sm:mt-6">
+                    <label class="lbl">Beam Size</label>
+                    <div class="seg">
+                      <button type="button" @click="brandingBeamSize='Medium'"
+                        :class="brandingBeamSize==='Medium' ? 'seg-active' : 'seg-idle'">Medium</button>
+                      <button type="button" @click="brandingBeamSize='Large'"
+                        :class="brandingBeamSize==='Large'  ? 'seg-active' : 'seg-idle'">Large</button>
+                    </div>
+                    <input type="hidden" name="brandingBeamSize" :value="brandingBeamSize">
+                  </div>
+
+                  <!-- 3) Pick two colors -->
+                  <div class="mt-6 sm:mt-8">
+                    <label class="lbl">Pick two colors</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-6 sm:gap-y-7">
+                      <div class="flex items-center gap-3">
+                        <input type="color" class="inp !p-0 !h-10 !w-14" x-model="beamColor1">
+                        <input type="text" class="inp w-28 text-center" x-model="beamColor1" readonly>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <input type="color" class="inp !p-0 !h-10 !w-14" x-model="beamColor2">
+                        <input type="text" class="inp w-28 text-center" x-model="beamColor2" readonly>
+                      </div>
+                    </div>
+                    <input type="hidden" name="beamColor1" :value="beamColor1">
+                    <input type="hidden" name="beamColor2" :value="beamColor2">
+                  </div>
+                </div>
+              </template>
+
+            </div>
           </div>
 
-          <!-- 4) Cups quantity (only if Cups chosen) -->
-          <div x-show="mt-6 sm:mt-8 brandingTargets.includes('Cups')" x-transition.opacity>
-            <label class="lbl mt-5 sm:mt-6">Cups quantity</label>
-            <input type="number" class="inp" name="cupsQty" x-model="cupsQty" min="50" step="50" placeholder="Minimum Cups  : 50">
-            <p class="help">Note: We provide cups, lids, and straws.</p>
+          <!-- Schedule -->
+          <div class="sm:col-span-2 mt-8 sm:mt-10 pt-6 sm:pt-7 border-t border-white/10 space-y-4"
+            x-show="isConfigured()" x-transition.opacity>
+            <h4 class="text-base font-semibold mb-3">Schedule</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
+              <div>
+                <label class="lbl">Event Date</label>
+                <input type="text" name="eventDate" class="inp" x-ref="dateInput" placeholder="Select date"
+                  autocomplete="off">
+              </div>
+              <div>
+                <label class="lbl">Preferred Time (optional)</label>
+                <input type="text" name="eventTime" class="inp" x-ref="timeInput" placeholder="Select time"
+                  autocomplete="off">
+                <p class="help">Timezone: Asia/Amman (UTC+03:00)</p>
+              </div>
+            </div>
+            <p class="help mt-3" x-text="scheduleSummary()"></p>
           </div>
-        </div>
-      </template>
-
-      <!-- ===== Branding → Beam ===== -->
-  <!-- ===== Branding → Beam ===== -->
-<template x-if="brandingProject==='beam'">
-  <div class="space-y-6">
-    <!-- 2) Beam Size -->
-    <div class="mt-5 sm:mt-6">
-      <label class="lbl">Beam Size</label>
-      <div class="seg">
-        <button type="button" @click="brandingBeamSize='Medium'" :class="brandingBeamSize==='Medium' ? 'seg-active' : 'seg-idle'">Medium</button>
-        <button type="button" @click="brandingBeamSize='Large'"  :class="brandingBeamSize==='Large'  ? 'seg-active' : 'seg-idle'">Large</button>
-      </div>
-      <input type="hidden" name="brandingBeamSize" :value="brandingBeamSize">
-    </div>
-
-    <!-- 3) Pick two colors -->
-    <div class="mt-6 sm:mt-8">
-      <label class="lbl">Pick two colors</label>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-6 sm:gap-y-7">
-        <div class="flex items-center gap-3">
-          <input type="color" class="inp !p-0 !h-10 !w-14" x-model="beamColor1">
-          <input type="text" class="inp w-28 text-center" x-model="beamColor1" readonly>
-        </div>
-        <div class="flex items-center gap-3">
-          <input type="color" class="inp !p-0 !h-10 !w-14" x-model="beamColor2">
-          <input type="text" class="inp w-28 text-center" x-model="beamColor2" readonly>
-        </div>
-      </div>
-      <input type="hidden" name="beamColor1" :value="beamColor1">
-      <input type="hidden" name="beamColor2" :value="beamColor2">
-    </div>
-  </div>
-</template>
-
-    </div>
-  </div>
-
-  <!-- Schedule -->
-  <div class="sm:col-span-2 mt-8 sm:mt-10 pt-6 sm:pt-7 border-t border-white/10 space-y-4" x-show="isConfigured()" x-transition.opacity>
-    <h4 class="text-base font-semibold mb-3">Schedule</h4>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
-      <div>
-        <label class="lbl">Event Date</label>
-        <input type="text" name="eventDate" class="inp" x-ref="dateInput" placeholder="Select date" autocomplete="off">
-      </div>
-      <div>
-        <label class="lbl">Preferred Time (optional)</label>
-        <input type="text" name="eventTime" class="inp" x-ref="timeInput" placeholder="Select time" autocomplete="off">
-        <p class="help">Timezone: Asia/Amman (UTC+03:00)</p>
-      </div>
-    </div>
-    <p class="help mt-3" x-text="scheduleSummary()"></p>
-  </div>
-</fieldset>
+        </fieldset>
 
 
 
@@ -2803,7 +2585,7 @@
             <h3 class="text-lg font-semibold">Address Details</h3>
           </legend>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
             <div>
               <label class="lbl">Country</label>
               <div x-data="{
@@ -2879,276 +2661,276 @@
     </div>
   </section>
 
-<script>
-  (function () {
-    // ===== مفاتيح EmailJS + إعدادات عامة =====
-    const EMAILJS_PUBLIC_KEY = "_ecATDJabzum4O0qM";
-    const EMAILJS_SERVICE_ID = "service_mg6d3i9";
-    const EMAILJS_TEMPLATE_ID = "template_wcyodge";
-    const WA_PHONE = "962786009370"; // بدون +
-    const TZ = "Asia/Amman";
-    const TZ_LABEL = "(UTC+03:00)";
+  <script>
+    (function () {
+      // ===== مفاتيح EmailJS + إعدادات عامة =====
+      const EMAILJS_PUBLIC_KEY = "_ecATDJabzum4O0qM";
+      const EMAILJS_SERVICE_ID = "service_mg6d3i9";
+      const EMAILJS_TEMPLATE_ID = "template_wcyodge";
+      const WA_PHONE = "962786009370"; // بدون +
+      const TZ = "Asia/Amman";
+      const TZ_LABEL = "(UTC+03:00)";
 
-    // ===== عناصر الصفحة =====
-    const form = document.getElementById("bookingForm");
-    const waLink = document.getElementById("waLink");
-    const sendBtn = document.getElementById("sendBtn");
-    const statusEl = document.getElementById("formStatus");
-    if (!form || !waLink) return;
+      // ===== عناصر الصفحة =====
+      const form = document.getElementById("bookingForm");
+      const waLink = document.getElementById("waLink");
+      const sendBtn = document.getElementById("sendBtn");
+      const statusEl = document.getElementById("formStatus");
+      if (!form || !waLink) return;
 
-    // ===== Helper لقراءة قيم الحقول =====
-    const val = (name) => {
-      const el = form.querySelector(`[name="${name}"]`);
-      return el ? (el.value || "").trim() : "";
-    };
+      // ===== Helper لقراءة قيم الحقول =====
+      const val = (name) => {
+        const el = form.querySelector(`[name="${name}"]`);
+        return el ? (el.value || "").trim() : "";
+      };
 
-    // ===== NEW: تتبّع الوقت النشط على الصفحة =====
-    // يعتبر المستخدم "نشِط" إذا حصل تفاعل خلال آخر 30 ثانية وكان التبويب مرئي
-    const ACTIVE_WINDOW = 30_000; // غيّرها إذا بدك حساسية مختلفة
-    let lastActivity = Date.now();
-    let activeMs = 0;
+      // ===== NEW: تتبّع الوقت النشط على الصفحة =====
+      // يعتبر المستخدم "نشِط" إذا حصل تفاعل خلال آخر 30 ثانية وكان التبويب مرئي
+      const ACTIVE_WINDOW = 30_000; // غيّرها إذا بدك حساسية مختلفة
+      let lastActivity = Date.now();
+      let activeMs = 0;
 
-    const bump = () => { lastActivity = Date.now(); };
-    ["pointermove","mousemove","keydown","wheel","click","touchstart","scroll"].forEach(ev =>
-      window.addEventListener(ev, bump, { passive: true })
-    );
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "visible") bump();
-    });
+      const bump = () => { lastActivity = Date.now(); };
+      ["pointermove", "mousemove", "keydown", "wheel", "click", "touchstart", "scroll"].forEach(ev =>
+        window.addEventListener(ev, bump, { passive: true })
+      );
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") bump();
+      });
 
-    // نضيف ثانية واحدة فقط عندما يكون نشِط والتبويب ظاهر
-    setInterval(() => {
-      const recent = Date.now() - lastActivity < ACTIVE_WINDOW;
-      if (document.visibilityState === "visible" && recent) {
-        activeMs += 1000;
+      // نضيف ثانية واحدة فقط عندما يكون نشِط والتبويب ظاهر
+      setInterval(() => {
+        const recent = Date.now() - lastActivity < ACTIVE_WINDOW;
+        if (document.visibilityState === "visible" && recent) {
+          activeMs += 1000;
+        }
+      }, 1000);
+
+      function formatDuration(ms) {
+        let s = Math.floor(ms / 1000);
+        const h = Math.floor(s / 3600);
+        s %= 3600;
+        const m = Math.floor(s / 60);
+        s %= 60;
+        const pad = (n) => String(n).padStart(2, "0");
+        return h > 0 ? `${h}:${pad(m)}:${pad(s)}` : `${m}:${pad(s)}`;
       }
-    }, 1000);
-
-    function formatDuration(ms) {
-      let s = Math.floor(ms / 1000);
-      const h = Math.floor(s / 3600);
-      s %= 3600;
-      const m = Math.floor(s / 60);
-      s %= 60;
-      const pad = (n) => String(n).padStart(2, "0");
-      return h > 0 ? `${h}:${pad(m)}:${pad(s)}` : `${m}:${pad(s)}`;
-    }
 
 
-// صف HTML: يظهر فقط إذا فيه قيمة
-function row(label, value) {
-  if (!value) return "";
-  const kStyle = "padding:10px 12px;font-weight:600;color:#111827;background:#F9FAFB;border:1px solid #E5E7EB;width:38%;";
-  const vStyle = "padding:10px 12px;color:#111827;border:1px solid #E5E7EB;";
-  return `<tr>
+      // صف HTML: يظهر فقط إذا فيه قيمة
+      function row(label, value) {
+        if (!value) return "";
+        const kStyle = "padding:10px 12px;font-weight:600;color:#111827;background:#F9FAFB;border:1px solid #E5E7EB;width:38%;";
+        const vStyle = "padding:10px 12px;color:#111827;border:1px solid #E5E7EB;";
+        return `<tr>
     <td style="${kStyle}">${label}</td>
     <td style="${vStyle}">${String(value).replace(/\n/g, "<br>")}</td>
   </tr>`;
-}
-
-function buildDetailsHTML() {
-  const prod = (val("product") || "").toLowerCase();
-  const rows = [];
-
-  if (!prod) return ""; // ما في منتج مختار
-
-  // === Bike Blender (عادي) ===
-  if (prod.includes("blender") && !prod.includes("branding")) {
-    rows.push(row("Cups",  val("cups")));
-    rows.push(row("Bikes", val("bikes")));
-  }
-
-  // === Bike Beam (عادي) ===
-  if (prod.includes("beam") && !prod.includes("branding")) {
-    rows.push(row("Beam Size", val("beamSize")));
-  }
-
-  // === Bike Branding ===
-  if (prod.includes("branding")) {
-    const proj = val("brandingProject"); // 'blender' | 'beam'
-    rows.push(row("Branding for", proj === "blender" ? "Bike Blender" : proj === "beam" ? "Bike Beam" : proj));
-
-    if (proj === "blender") {
-      rows.push(row("Branded Bikes", val("brandingBikes")));
-      const targets = val("brandingTargets");
-      rows.push(row("Targets", targets));
-      if (targets?.includes("Cups")) rows.push(row("Cups", val("cupsQty")));
-    } else if (proj === "beam") {
-      rows.push(row("Beam Size", val("brandingBeamSize")));
-      const c1 = val("beamColor1"), c2 = val("beamColor2");
-      if (c1 || c2) rows.push(row("Theme", [c1, c2].filter(Boolean).join(" → ")));
-    }
-  }
-
-
-  return rows.filter(Boolean).join("");
-}
-
-
-
-    // ===== ملخّص الرسالة (محدّث ليشمل Active Time) =====
-    function buildSummary() {
-      const parts = [
-        `Name: ${val("name")}`,
-        `Email: ${val("email")}`,
-        `Phone: ${val("phone")}`,
-        `Product: ${val("product") || "(not selected)"}`,
-      ];
-
-      const prod = (val("product") || "").toLowerCase();
-
-      // Bike Blender (العادي)
-      if (prod.includes("blender") && !prod.includes("branding")) {
-        if (val("cups"))  parts.push(`Cups: ${val("cups")}`);
-        if (val("bikes")) parts.push(`Bikes: ${val("bikes")}`);
       }
 
-      // Bike Beam (العادي)
-      if (prod.includes("beam") && !prod.includes("branding")) {
-        if (val("beamSize")) parts.push(`Beam Size: ${val("beamSize")}`);
-      }
+      function buildDetailsHTML() {
+        const prod = (val("product") || "").toLowerCase();
+        const rows = [];
 
-      // Bike Branding
-      if (prod.includes("branding")) {
-        const proj = val("brandingProject"); // 'blender' | 'beam'
-        if (proj) {
-          parts.push(`Branding for: ${proj === "blender" ? "Bike Blender" : "Bike Beam"}`);
+        if (!prod) return ""; // ما في منتج مختار
+
+        // === Bike Blender (عادي) ===
+        if (prod.includes("blender") && !prod.includes("branding")) {
+          rows.push(row("Cups", val("cups")));
+          rows.push(row("Bikes", val("bikes")));
         }
-        if (proj === "blender") {
-          if (val("brandingBikes")) parts.push(`Branded Bikes: ${val("brandingBikes")}`);
-          const targets = val("brandingTargets");
-          if (targets) parts.push(`Targets: ${targets}`);
-          const q = val("cupsQty");
-          if (targets?.includes("Cups") && q) parts.push(`Cups: ${q}`);
-        } else if (proj === "beam") {
-          if (val("brandingBeamSize")) parts.push(`Beam Size: ${val("brandingBeamSize")}`);
-          const c1 = val("beamColor1"), c2 = val("beamColor2");
-          if (c1 || c2) parts.push(`Theme: ${[c1, c2].filter(Boolean).join(" → ")}`);
+
+        // === Bike Beam (عادي) ===
+        if (prod.includes("beam") && !prod.includes("branding")) {
+          rows.push(row("Beam Size", val("beamSize")));
         }
+
+        // === Bike Branding ===
+        if (prod.includes("branding")) {
+          const proj = val("brandingProject"); // 'blender' | 'beam'
+          rows.push(row("Branding for", proj === "blender" ? "Bike Blender" : proj === "beam" ? "Bike Beam" : proj));
+
+          if (proj === "blender") {
+            rows.push(row("Branded Bikes", val("brandingBikes")));
+            const targets = val("brandingTargets");
+            rows.push(row("Targets", targets));
+            if (targets?.includes("Cups")) rows.push(row("Cups", val("cupsQty")));
+          } else if (proj === "beam") {
+            rows.push(row("Beam Size", val("brandingBeamSize")));
+            const c1 = val("beamColor1"), c2 = val("beamColor2");
+            if (c1 || c2) rows.push(row("Theme", [c1, c2].filter(Boolean).join(" → ")));
+          }
+        }
+
+
+        return rows.filter(Boolean).join("");
       }
 
-      // التاريخ والوقت
-      if (val("eventDate")) parts.push(`Date: ${val("eventDate")}`);
-      if (val("eventTime")) parts.push(`Time: ${val("eventTime")} ${TZ_LABEL}`);
 
-      // الموقع والرسالة
-      const loc = [val("city"), val("country")].filter(Boolean).join(", ");
-      if (loc) parts.push(`Location: ${loc}`);
-      if (val("address1")) parts.push(`Address: ${val("address1")}`);
 
-      const msg = val("message");
-      parts.push(`Message:\n${msg || "-"}`);
+      // ===== ملخّص الرسالة (محدّث ليشمل Active Time) =====
+      function buildSummary() {
+        const parts = [
+          `Name: ${val("name")}`,
+          `Email: ${val("email")}`,
+          `Phone: ${val("phone")}`,
+          `Product: ${val("product") || "(not selected)"}`,
+        ];
 
-      // NEW: وقت التفاعل النشط
-      parts.push(`Active on site: ${formatDuration(activeMs)} (${Math.round(activeMs/1000)}s)`);
+        const prod = (val("product") || "").toLowerCase();
 
-      const now = new Date().toLocaleString(undefined, { timeZone: TZ });
-      parts.push(`Page: ${location.href}`);
-      parts.push(`Time: ${now}`);
+        // Bike Blender (العادي)
+        if (prod.includes("blender") && !prod.includes("branding")) {
+          if (val("cups")) parts.push(`Cups: ${val("cups")}`);
+          if (val("bikes")) parts.push(`Bikes: ${val("bikes")}`);
+        }
 
-      return parts.filter(Boolean).join("\n");
-    }
+        // Bike Beam (العادي)
+        if (prod.includes("beam") && !prod.includes("branding")) {
+          if (val("beamSize")) parts.push(`Beam Size: ${val("beamSize")}`);
+        }
 
-    // ===== توحيد بناء رابط واتساب (برقم واحد دائم) =====
-    function updateWhatsAppLink() {
-      const text = `New Bike Land request:\n\n${buildSummary()}`;
-      waLink.href = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`;
-    }
-    form.addEventListener("input", updateWhatsAppLink);
-    form.addEventListener("click", (e) => {
-      if (
-        e.target.closest(".seg button") ||
-        e.target.closest(".listbox-item") ||
-        e.target.closest(".listbox-trigger")
-      ) {
-        setTimeout(updateWhatsAppLink, 0);
-      }
-    });
-    // NEW: نحدّث الرابط كل 15 ثانية ليعكس الوقت النشط المتزايد حتى بدون إدخال جديد
-    setInterval(updateWhatsAppLink, 15_000);
-    updateWhatsAppLink();
+        // Bike Branding
+        if (prod.includes("branding")) {
+          const proj = val("brandingProject"); // 'blender' | 'beam'
+          if (proj) {
+            parts.push(`Branding for: ${proj === "blender" ? "Bike Blender" : "Bike Beam"}`);
+          }
+          if (proj === "blender") {
+            if (val("brandingBikes")) parts.push(`Branded Bikes: ${val("brandingBikes")}`);
+            const targets = val("brandingTargets");
+            if (targets) parts.push(`Targets: ${targets}`);
+            const q = val("cupsQty");
+            if (targets?.includes("Cups") && q) parts.push(`Cups: ${q}`);
+          } else if (proj === "beam") {
+            if (val("brandingBeamSize")) parts.push(`Beam Size: ${val("brandingBeamSize")}`);
+            const c1 = val("beamColor1"), c2 = val("beamColor2");
+            if (c1 || c2) parts.push(`Theme: ${[c1, c2].filter(Boolean).join(" → ")}`);
+          }
+        }
 
-    // ===== تحميل EmailJS بأمان (لو مش موجود) ثم init =====
-    async function ensureEmailJS() {
-      if (window.emailjs?.send) return emailjs;
-      await new Promise((resolve, reject) => {
-        const s = document.createElement("script");
-        s.src = "https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js";
-        s.defer = true;
-        s.onload = resolve;
-        s.onerror = () => reject(new Error("EmailJS failed to load"));
-        document.head.appendChild(s);
-      });
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-      return emailjs;
-    }
+        // التاريخ والوقت
+        if (val("eventDate")) parts.push(`Date: ${val("eventDate")}`);
+        if (val("eventTime")) parts.push(`Time: ${val("eventTime")} ${TZ_LABEL}`);
 
-    // ===== إرسال النموذج عبر EmailJS =====
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      statusEl.textContent = "";
-      sendBtn.disabled = true;
-      sendBtn.classList.add("opacity-60", "cursor-not-allowed");
+        // الموقع والرسالة
+        const loc = [val("city"), val("country")].filter(Boolean).join(", ");
+        if (loc) parts.push(`Location: ${loc}`);
+        if (val("address1")) parts.push(`Address: ${val("address1")}`);
 
-      const params = {
-        name: val("name"),
-        email: val("email"),
-        phone: val("phone"),
-        product: val("product") || "",
-        message: val("message") || "",
-        country: val("country"),
-        city: val("city"),
-        address1: val("address1"),
-
-        // عاديين
-        cups: val("cups"),
-        bikes: val("bikes"),
-        beamSize: val("beamSize"),
-        eventDate: val("eventDate"),
-        eventTime: val("eventTime"),
-
-        // Branding فقط
-        brandingProject:  val("brandingProject"),
-        brandingBikes:    val("brandingBikes"),
-        brandingTargets:  val("brandingTargets"),
-        cupsQty:          val("cupsQty"),
-        brandingBeamSize: val("brandingBeamSize"),
-        beamColor1:       val("beamColor1"),
-        beamColor2:       val("beamColor2"),
-details_html: buildDetailsHTML(),
-year: new Date().getFullYear(),
+        const msg = val("message");
+        parts.push(`Message:\n${msg || "-"}`);
 
         // NEW: وقت التفاعل النشط
-        active_seconds: Math.round(activeMs / 1000),
-        active_pretty:  formatDuration(activeMs),
+        parts.push(`Active on site: ${formatDuration(activeMs)} (${Math.round(activeMs / 1000)}s)`);
 
-        page: location.href,
-        time: new Date().toLocaleString(undefined, { timeZone: TZ }),
-        subject: `Bike Land Request — ${val("name")} (${val("product") || "No product"})`,
-        summary: buildSummary(),
-      };
+        const now = new Date().toLocaleString(undefined, { timeZone: TZ });
+        parts.push(`Page: ${location.href}`);
+        parts.push(`Time: ${now}`);
 
-      try {
-        const ej = await ensureEmailJS();
-        await ej.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
-
-        statusEl.textContent = "Sent! We’ll contact you shortly.";
-        statusEl.className = "text-emerald-400 text-sm";
-
-        form.reset();
-        window.dispatchEvent(new CustomEvent("clear-product"));
-        updateWhatsAppLink();
-      } catch (err) {
-        console.error(err);
-        statusEl.textContent = "Failed to send. Try WhatsApp or later.";
-        statusEl.className = "text-red-400 text-sm";
-      } finally {
-        sendBtn.disabled = false;
-        sendBtn.classList.remove("opacity-60", "cursor-not-allowed");
+        return parts.filter(Boolean).join("\n");
       }
-    });
-  })();
-</script>
+
+      // ===== توحيد بناء رابط واتساب (برقم واحد دائم) =====
+      function updateWhatsAppLink() {
+        const text = `New Bike Land request:\n\n${buildSummary()}`;
+        waLink.href = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`;
+      }
+      form.addEventListener("input", updateWhatsAppLink);
+      form.addEventListener("click", (e) => {
+        if (
+          e.target.closest(".seg button") ||
+          e.target.closest(".listbox-item") ||
+          e.target.closest(".listbox-trigger")
+        ) {
+          setTimeout(updateWhatsAppLink, 0);
+        }
+      });
+      // NEW: نحدّث الرابط كل 15 ثانية ليعكس الوقت النشط المتزايد حتى بدون إدخال جديد
+      setInterval(updateWhatsAppLink, 15_000);
+      updateWhatsAppLink();
+
+      // ===== تحميل EmailJS بأمان (لو مش موجود) ثم init =====
+      async function ensureEmailJS() {
+        if (window.emailjs?.send) return emailjs;
+        await new Promise((resolve, reject) => {
+          const s = document.createElement("script");
+          s.src = "https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js";
+          s.defer = true;
+          s.onload = resolve;
+          s.onerror = () => reject(new Error("EmailJS failed to load"));
+          document.head.appendChild(s);
+        });
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+        return emailjs;
+      }
+
+      // ===== إرسال النموذج عبر EmailJS =====
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        statusEl.textContent = "";
+        sendBtn.disabled = true;
+        sendBtn.classList.add("opacity-60", "cursor-not-allowed");
+
+        const params = {
+          name: val("name"),
+          email: val("email"),
+          phone: val("phone"),
+          product: val("product") || "",
+          message: val("message") || "",
+          country: val("country"),
+          city: val("city"),
+          address1: val("address1"),
+
+          // عاديين
+          cups: val("cups"),
+          bikes: val("bikes"),
+          beamSize: val("beamSize"),
+          eventDate: val("eventDate"),
+          eventTime: val("eventTime"),
+
+          // Branding فقط
+          brandingProject: val("brandingProject"),
+          brandingBikes: val("brandingBikes"),
+          brandingTargets: val("brandingTargets"),
+          cupsQty: val("cupsQty"),
+          brandingBeamSize: val("brandingBeamSize"),
+          beamColor1: val("beamColor1"),
+          beamColor2: val("beamColor2"),
+          details_html: buildDetailsHTML(),
+          year: new Date().getFullYear(),
+
+          // NEW: وقت التفاعل النشط
+          active_seconds: Math.round(activeMs / 1000),
+          active_pretty: formatDuration(activeMs),
+
+          page: location.href,
+          time: new Date().toLocaleString(undefined, { timeZone: TZ }),
+          subject: `Bike Land Request — ${val("name")} (${val("product") || "No product"})`,
+          summary: buildSummary(),
+        };
+
+        try {
+          const ej = await ensureEmailJS();
+          await ej.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
+
+          statusEl.textContent = "Sent! We’ll contact you shortly.";
+          statusEl.className = "text-emerald-400 text-sm";
+
+          form.reset();
+          window.dispatchEvent(new CustomEvent("clear-product"));
+          updateWhatsAppLink();
+        } catch (err) {
+          console.error(err);
+          statusEl.textContent = "Failed to send. Try WhatsApp or later.";
+          statusEl.className = "text-red-400 text-sm";
+        } finally {
+          sendBtn.disabled = false;
+          sendBtn.classList.remove("opacity-60", "cursor-not-allowed");
+        }
+      });
+    })();
+  </script>
 
 
   <!-- =================== footer   =================== -->
@@ -3167,7 +2949,13 @@ year: new Date().getFullYear(),
     </script>
   </footer>
 
-  <script>
+ 
+
+
+  <!-- =================== Scripts   =================== -->
+
+
+ <script>
     (function initWhenReady() {
       function init() {
         const viewport = document.querySelector("#aboutViewport");
@@ -3297,20 +3085,6 @@ year: new Date().getFullYear(),
   </script>
 
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 900,
-      once: true,
-      easing: "ease-out-quart",
-      offset: 0,
-      anchorPlacement: "top-bottom",
-    });
-  </script>
-
-
-
-
   <style>
     /* ===== About slider — clean, centered, rounded ===== */
 
@@ -3420,13 +3194,18 @@ year: new Date().getFullYear(),
   </style>
 
 
-  <style>
-    @media (max-width: 768px) {
-      [class*="backdrop-blur"] {
-        backdrop-filter: none !important;
-      }
-    }
-  </style>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      once: true,
+      easing: "ease-out-quart",
+      offset: 0,
+      anchorPlacement: "top-bottom",
+    });
+  </script>
+
 
   <script>
     function setHeaderHeight() {
@@ -3440,6 +3219,14 @@ year: new Date().getFullYear(),
   </script>
 
 
+
+  <style>
+    @media (max-width: 768px) {
+      [class*="backdrop-blur"] {
+        backdrop-filter: none !important;
+      }
+    }
+  </style>
 
 
 </body>

@@ -1,0 +1,310 @@
+
+    /* ================== About Us – micro styles ================== */
+
+    .about-group {
+      margin-top: .95rem;
+      padding-top: 1.05rem;
+      border-top: 1px solid rgba(255, 255, 255, .09);
+    }
+
+    .about-lead {
+      line-height: 1.7;
+      letter-spacing: .1px;
+    }
+
+    /* كبسولات الجمهور */
+    .about-chip {
+      padding: .4rem .75rem;
+      border-radius: 999px;
+      font-size: .75rem;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .06);
+      backdrop-filter: saturate(130%);
+    }
+
+    /* بطاقات الميزات */
+    .about-item {
+      display: flex;
+      gap: .7rem;
+      align-items: flex-start;
+      padding: .65rem .75rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, .10);
+      background: rgba(255, 255, 255, .05);
+    }
+
+    .about-icn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      color: #0a0a0a;
+      background: linear-gradient(135deg, #34d399, #22d3ee);
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .18);
+    }
+
+    /* خطوات العمل */
+    .step {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .6rem .75rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, .10);
+      background: rgba(255, 255, 255, .05);
+    }
+
+    .step-icn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: .82rem;
+      color: #0a0a0a;
+      background: linear-gradient(135deg, #34d399, #22d3ee);
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .18);
+    }
+
+    .step-t {
+      font-size: .9rem;
+      color: #eaeaea;
+    }
+
+    /* بادجات الثقة */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .45rem .65rem;
+      border-radius: 999px;
+      font-size: .8rem;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .05);
+      color: #eaeaea;
+    }
+
+    .badge svg {
+      color: #34d399;
+    }
+
+    /* شريط المقاييس */
+    .metric {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .3rem;
+      padding: .85rem .8rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, .10);
+      background: rgba(255, 255, 255, .05);
+    }
+
+    .metric-icn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      color: #0a0a0a;
+      background: linear-gradient(135deg, #34d399, #22d3ee);
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .18);
+    }
+
+    .metric-num {
+      font-weight: 800;
+      font-size: 1.08rem;
+    }
+
+    .metric-cap {
+      font-size: .72rem;
+      color: rgba(255, 255, 255, .66);
+    }
+
+    /* أزرار السوشيال العامة */
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .52rem .95rem;
+      border-radius: 999px;
+      font-size: .85rem;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, .12);
+      transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+    }
+
+    .social-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    /* Instagram */
+    .btn-ig {
+      background: linear-gradient(135deg, #833AB4 0%, #E1306C 55%, #FCAF45 100%);
+    }
+
+    /* TikTok */
+    .btn-tt {
+      background: linear-gradient(135deg, #25F4EE 0%, #FE2C55 100%);
+    }
+
+    /* YouTube */
+    .btn-yt {
+      background: #FF0033;
+    }
+
+    /* Facebook */
+    .btn-fb {
+      background: #1877F2;
+    }
+
+    /* WhatsApp */
+    .btn-wa {
+      background: #25D366;
+    }
+
+    /* Email */
+    .btn-mail {
+      background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+    }
+
+    /* إطار الصورة (لو استخدمته): */
+    .team-card::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(52, 211, 153, .45), rgba(34, 211, 238, .45));
+
+      /* WebKit قديم */
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+
+      /* القياسي (يكتب بعد المسبوق) */
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+
+      pointer-events: none;
+    }
+
+    /* شارة الصورة */
+    .about-badge {
+      position: absolute;
+      left: .75rem;
+      bottom: .75rem;
+      padding: .35rem .7rem;
+      font-size: .7rem;
+      font-weight: 700;
+      color: #0a0a0a;
+      background: linear-gradient(90deg, #34d399, #22d3ee);
+      border-radius: 999px;
+    }
+
+    /* مصغرات إن وجدت */
+    .thumb {
+      display: block;
+      object-fit: cover;
+      border-radius: .6rem;
+      border: 1px solid rgba(255, 255, 255, .15);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    /* استرخاء أكبر على الواسع */
+    @media (min-width:1024px) {
+      .about-group {
+        margin-top: 1.1rem;
+        padding-top: 1.15rem;
+      }
+    }
+
+
+/* ===== About – spacing patch (scoped to #about) ===== */
+#about{
+  --gap-1: clamp(.55rem, .9vw, 1rem);   /* مسافات صغيرة لعناصر داخلية */
+  --gap-2: clamp(.9rem, 1.4vw, 1.35rem);/* مسافات متوسطة للشبكات */
+  --gap-3: clamp(1.1rem, 2vw, 2rem);    /* مسافات كبيرة بين الأقسام */
+}
+
+/* زيد حشوة الكارد الداخلي */
+#about article > .relative{
+  padding: clamp(1.25rem, 2.2vw, 2.6rem) clamp(1.25rem, 2.6vw, 3rem);
+}
+
+/* إيقاع عمودي بين العناصر المباشرة للعمود اليسار */
+#about [class*="col-span-7"] > * + *{
+  margin-top: var(--gap-3);
+}
+
+/* فجوات موحّدة لكل الشبكات داخل السكشن */
+#about .grid{
+  row-gap: var(--gap-2);
+  column-gap: var(--gap-2);
+}
+
+/* فجوات موحّدة لكل حاويات flex (chips/badges/social...) */
+#about .about-group .flex,
+#about .social-row{
+  gap: var(--gap-1);
+}
+
+/* حشوات أريَح للمكوّنات */
+#about .about-item,
+#about .step,
+#about .metric{
+  padding: 1rem 1.05rem;
+  gap: .85rem;
+}
+
+#about .badge{
+  padding: .55rem .9rem;
+}
+
+#about .social-btn{
+  padding: .58rem 1.05rem;
+}
+
+/* فواصل الأقسام (الخط العلوي موجود عندك—نزود المسافات فقط) */
+#about .about-group{
+  margin-top: var(--gap-3);
+  padding-top: var(--gap-2);
+}
+
+/* مساحة إضافيّة طفيفة أسفل الهيدر */
+#about header.space-y-3{
+  margin-bottom: var(--gap-2);
+}
+
+
+
+/* About header: add vertical breathing room between paragraph and chips */
+#about header.space-y-3 .about-lead{
+  margin-bottom: clamp(1rem, 2.2vw, 1.8rem);
+}
+/* ولو بدك شوية فراغ كمان تحت العنوان نفسه */
+#about header.space-y-3 h3{
+  margin-bottom: clamp(.5rem, 1vw, 1rem);
+}
+
+/* Chip row: مسافة بين الكبسولات */
+#about header.space-y-3 .flex.flex-wrap{
+  display: flex;            /* تأكيد */
+  flex-wrap: wrap;          /* تأكيد */
+  gap: clamp(.7rem, 1.6vw, 1.1rem) !important;
+}
+
+/* دعم متصفحات قديمة لا تدعم gap في flex */
+@supports not (gap: 1rem) {
+  #about header.space-y-3 .about-chip{
+    margin-right: .7rem;
+    margin-bottom: .7rem;
+  }
+  #about header.space-y-3 .about-chip:last-child{ margin-right: 0; }
+}
