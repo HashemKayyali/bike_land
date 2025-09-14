@@ -1,5 +1,3 @@
-# robots.txt for bike-jo.com
 User-agent: *
 Allow: /
-
 Sitemap: https://bike-jo.com/sitemap.xml
