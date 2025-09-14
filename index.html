@@ -2342,7 +2342,7 @@
       if(t==='branding'){
         if(this.brandingProject==='blender'){
           const hasTarget = this.brandingTargets.length>0;
-          const cupsOk = !this.brandingTargets.includes('Cups') || Number(this.cupsQty)>=100;
+          const cupsOk = !this.brandingTargets.includes('Cups') || Number(this.cupsQty)>=50;
           return hasTarget && cupsOk && this.brandingBikes>0;
         }
         if(this.brandingProject==='beam'){
