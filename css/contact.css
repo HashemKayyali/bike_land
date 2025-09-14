@@ -1,0 +1,328 @@
+/* ===================== Contact / Booking – Unified CSS (Flatpickr tuned) ===================== */
+
+/* -------- Vars -------- */
+:root{
+  --grad-a:#10b981;           /* emerald-500 */
+  --grad-b:#06b6d4;           /* cyan-400    */
+
+  --surface-rgb:23,23,23;     /* ~ neutral-900 */
+  --border:rgba(255,255,255,.08);
+  --border-strong:rgba(255,255,255,.12);
+  --text-dim:rgba(255,255,255,.65);
+  --ring:rgba(16,185,129,.45);
+
+  /* Dropdown palette */
+  --panel-bg:#0b1415;
+  --panel-text:rgba(255,255,255,.92);
+  --panel-hover-a:rgba(16,185,129,.22);
+  --panel-hover-b:rgba(6,182,212,.22);
+  --panel-selected:rgba(16,185,129,.26);
+  --panel-selected-text:#031713;
+}
+
+/* -------- Utilities -------- */
+[x-cloak]{ display:none!important; }
+
+/* أزرار السبين لنوع الرقم */
+#contact input[type="number"]::-webkit-outer-spin-button,
+#contact input[type="number"]::-webkit-inner-spin-button{
+  -webkit-appearance:none;
+  appearance:none;
+  margin:0;
+}
+#contact input[type="number"]{
+  -moz-appearance:textfield;
+  appearance:textfield;
+}
+
+/* Native date/time fallback (لو Flatpickr غير مفعّل) */
+#contact input[type="date"],
+#contact input[type="time"]{ color-scheme: dark; }
+#contact input[type="date"]::-webkit-calendar-picker-indicator{ filter: invert(1) opacity(.85); }
+
+/* -------- Card -------- */
+#contact .contact-card{
+  position:relative;
+  background:linear-gradient(180deg, rgba(var(--surface-rgb),.94), rgba(var(--surface-rgb),.88));
+  border:1px solid var(--border);
+  border-radius:18px;
+  box-shadow:0 18px 48px -12px rgba(0,0,0,.55), 0 8px 28px -10px rgba(0,0,0,.45);
+  backdrop-filter:blur(8px) saturate(140%);
+  -webkit-backdrop-filter:blur(8px) saturate(140%);
+}
+#contact .contact-card::before{
+  content:""; position:absolute; inset:-1px; border-radius:inherit; padding:1px;
+  background:linear-gradient(90deg, var(--grad-a), var(--grad-b));
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask:        linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor; 
+  mask-composite:exclude;
+  opacity:.55; transition:opacity .25s ease; pointer-events:none;
+}
+#contact .contact-card:hover::before{ opacity:.85; }
+
+/* -------- Title -------- */
+.grad-text{
+  background:linear-gradient(90deg, var(--grad-a), var(--grad-b));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  -webkit-text-fill-color:transparent; /* Safari */
+  filter:drop-shadow(0 0 8px rgba(6,182,212,.15));
+}
+#contact h2{ position:relative; }
+
+/* -------- Fieldset blocks -------- */
+#contact .fs{
+  position:relative; border:1px solid var(--border); border-radius:14px;
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+  padding:1.5rem;
+}
+@media (min-width:640px){ #contact .fs{ padding:1.75rem; } }
+#contact .fs::after{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.035);
+}
+#contact .fs-legend{
+  display:flex; align-items:center; gap:.75rem; margin-bottom:1.25rem;
+}
+
+/* -------- Step badges -------- */
+#contact .step-badge{
+  position:relative; width:36px; height:36px; border-radius:9999px;
+  display:inline-flex; align-items:center; justify-content:center; margin-right:.25rem;
+  background:rgba(255,255,255,.04);
+  box-shadow:inset 0 2px 8px rgba(0,0,0,.35), 0 8px 24px -12px rgba(0,0,0,.55);
+}
+#contact .step-badge::before{
+  content:""; position:absolute; inset:0; border-radius:inherit; padding:1px;
+  background:linear-gradient(90deg, var(--grad-a), var(--grad-b));
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask:        linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor; 
+  mask-composite:exclude;
+  opacity:.95;
+}
+#contact .step-badge::after{
+  content:attr(data-step); font-weight:800; font-size:.95rem; letter-spacing:.5px;
+  background:linear-gradient(90deg, var(--grad-a), var(--grad-b));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  -webkit-text-fill-color:transparent; /* Safari */
+  filter:drop-shadow(0 0 8px rgba(6,182,212,.18));
+}
+
+/* -------- Inputs -------- */
+#contact .lbl{ display:block; font-size:.875rem; color:var(--text-dim); margin-bottom:.4rem; }
+#contact .inp{
+  width:100%; min-height:3rem; border-radius:.75rem;
+  background:rgba(255,255,255,.05); border:1px solid var(--border); color:#fff;
+  padding:.75rem 1rem; font-size:15px; outline:none;
+  transition:box-shadow .25s ease, border-color .25s ease, background .25s ease;
+}
+#contact .textarea{ min-height:140px; padding-block:.9rem; resize:none; }
+#contact .inp:focus{
+  border-color:var(--border-strong);
+  background:rgba(255,255,255,.055);
+  box-shadow:0 0 0 2px var(--ring), 0 0 0 1px rgba(0,0,0,.2) inset;
+}
+#contact .help{ font-size:.8rem; color:rgba(255,255,255,.6); margin-top:.45rem; }
+
+/* -------- Listbox (dropdown) -------- */
+#contact .listbox-trigger{
+  position:relative; width:100%; height:3rem;
+  border-radius:.75rem; padding:0 2.5rem 0 1rem; text-align:left; color:#fff;
+  background:rgba(255,255,255,.05); border:1px solid var(--border);
+  transition:box-shadow .25s ease, border-color .25s ease, background .25s ease;
+}
+#contact .listbox-trigger:hover{ border-color:var(--border-strong); background:rgba(255,255,255,.06); }
+#contact .listbox-trigger:focus-visible{ box-shadow:0 0 0 2px var(--ring); }
+#contact .chev{
+  position:absolute; right:.7rem; top:50%; transform:translateY(-50%); width:20px; height:20px;
+  color:#9CA3AF; transition:transform .25s ease;
+}
+#contact [aria-expanded="true"] .chev{ transform:translateY(-50%) rotate(180deg); }
+
+#contact .listbox-panel{
+  position:absolute; z-index:10; margin-top:.5rem; width:100%;
+  background:var(--panel-bg); border:1px solid var(--border-strong); border-radius:.75rem;
+  box-shadow:0 18px 48px -18px rgba(0,0,0,.6), 0 8px 24px -12px rgba(0,0,0,.5);
+  max-height:16rem; overflow:auto;
+  scrollbar-width:thin; scrollbar-color:var(--grad-a) transparent;
+}
+#contact .listbox-panel::before{
+  content:""; position:absolute; left:0; right:0; top:0; height:2px;
+  background:linear-gradient(90deg, var(--grad-a), var(--grad-b));
+}
+#contact .listbox-panel::-webkit-scrollbar{ width:8px; }
+#contact .listbox-panel::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg, var(--grad-a), var(--grad-b)); border-radius:9999px;
+}
+#contact .listbox-item{
+  padding:.6rem 1rem; cursor:pointer; color:var(--panel-text);
+  transition:background .15s ease, color .15s ease;
+}
+#contact .listbox-item:hover{
+  background:linear-gradient(90deg, var(--panel-hover-a), var(--panel-hover-b)); color:#04110f;
+}
+#contact .listbox-item.bg-neutral-800{
+  background:var(--panel-selected) !important; color:var(--panel-selected-text) !important;
+}
+
+/* -------- Segmented buttons -------- */
+#contact .seg{
+  display:inline-flex; border:1px solid var(--border); border-radius:.75rem; overflow:hidden;
+  background:rgba(255,255,255,.04);
+}
+#contact .seg > button{
+  padding:.5rem 1rem; font-weight:600; outline:none;
+  transition:background .2s ease, color .2s ease, box-shadow .2s ease;
+  -webkit-appearance:none; appearance:none;
+}
+#contact .seg > button + button{ border-left:1px solid rgba(255,255,255,.1); }
+#contact .seg-idle{ background:rgba(255,255,255,.05); color:#fff; }
+#contact .seg-idle:hover{ background:rgba(255,255,255,.1); }
+#contact .seg-active{
+  background-image:linear-gradient(90deg, var(--grad-a), var(--grad-b)); color:#04110f;
+  box-shadow:0 0 0 2px rgba(6,182,212,.25) inset;
+}
+
+/* -------- Primary / Secondary buttons -------- */
+#contact .btn-grad{
+  display:inline-flex; align-items:center; gap:.5rem;
+  border-radius:.625rem; padding:.75rem 1.25rem; font-weight:700;
+  background-image:linear-gradient(90deg, var(--grad-a), var(--grad-b)); color:#02110e;
+  box-shadow:0 8px 24px -10px rgba(6,182,212,.45), 0 2px 10px -6px rgba(16,185,129,.45);
+  background-size:200% 200%;
+  transition:transform .12s ease, box-shadow .25s ease, background-position .8s ease;
+  -webkit-appearance:none; appearance:none;
+}
+#contact .btn-grad:hover{ transform:translateY(-1px); background-position:100% 0; }
+#contact .btn-grad:active{ transform:translateY(0); }
+
+#contact .btn-outline-grad{
+  display:inline-flex; align-items:center; gap:.5rem; padding:.75rem 1.25rem; font-weight:700;
+  border-radius:.625rem; border:1px solid transparent;
+  background:linear-gradient(#0000,#0000) padding-box, linear-gradient(90deg, var(--grad-a), var(--grad-b)) border-box;
+  -webkit-appearance:none; appearance:none;
+}
+#contact .btn-outline-grad:hover{ box-shadow:0 0 0 2px rgba(6,182,212,.25) inset; }
+
+/* -------- Secondary text tone -------- */
+#contact label, #contact p, #contact .text-white\/70{ color:var(--text-dim); }
+
+/* -------- Spacing -------- */
+#contact .stack > * + *{ margin-top:2rem; }
+@media (min-width:640px){ #contact .stack > * + *{ margin-top:2.5rem; } }
+@media (min-width:1024px){ #contact .stack > * + *{ margin-top:3rem; } }
+#contact .fs .grid{ row-gap:1.25rem; column-gap:1.5rem; }
+#contact .lbl{ margin-bottom:.4rem; }
+
+/* ===================== Flatpickr — Bike Land Theme ===================== */
+
+/* Calendar container */
+.flatpickr-calendar{
+  background: linear-gradient(180deg, rgba(23,23,23,.98), rgba(23,23,23,.92)) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 18px 48px -18px rgba(0,0,0,.6), 0 8px 24px -12px rgba(0,0,0,.5) !important;
+  border-radius: 14px !important;
+}
+.flatpickr-calendar::before{
+  content:""; position:absolute; left:0; right:0; top:0; height:2px;
+  background:linear-gradient(90deg, var(--grad-a), var(--grad-b));
+  border-top-left-radius:14px; border-top-right-radius:14px;
+}
+
+/* Header strip */
+.flatpickr-months{
+  background: linear-gradient(90deg, var(--grad-a), var(--grad-b)) !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-top-left-radius: 14px !important;
+  border-top-right-radius: 14px !important;
+}
+.flatpickr-months .flatpickr-month{ background:transparent !important; }
+
+/* Month dropdown + Year input */
+.flatpickr-current-month{ display:flex; align-items:center; gap:.5rem; }
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month .numInputWrapper{
+  background:transparent !important; border:none !important; box-shadow:none !important;
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months{
+  -webkit-appearance:none; -moz-appearance:none; appearance:none;
+  padding:.15rem .6rem; border-radius:.5rem; font-weight:800; color:#04110f !important;
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months option{
+  color:#04110f; background:#e6fffb;
+}
+.flatpickr-current-month .numInputWrapper{ width:auto !important; }
+.flatpickr-current-month .numInput.cur-year{
+  width:4.8ch !important; padding-right:0 !important;
+  color:#04110f !important; font-weight:800 !important;
+  background:transparent !important; border:none !important;
+}
+.flatpickr-current-month .numInputWrapper span.arrowUp,
+.flatpickr-current-month .numInputWrapper span.arrowDown{ display:none !important; }
+
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month{ color:#04110f !important; opacity:.9 !important; }
+.flatpickr-months .flatpickr-prev-month:hover,
+.flatpickr-months .flatpickr-next-month:hover{ filter: drop-shadow(0 0 6px rgba(6,182,212,.55)); }
+
+/* Weekday row (يتجاوز dark.css) */
+.flatpickr-calendar .flatpickr-weekdays,
+.flatpickr-calendar.dark .flatpickr-weekdays,
+.flatpickr-calendar .flatpickr-weekdays .flatpickr-weekdaycontainer,
+.flatpickr-calendar.dark .flatpickr-weekdays .flatpickr-weekdaycontainer{
+  background: rgba(255,255,255,.05) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.flatpickr-calendar .flatpickr-weekday,
+.flatpickr-calendar.dark .flatpickr-weekday{
+  background: transparent !important;
+  background-image: none !important;
+  color: rgba(224,255,248,.92) !important;
+  font-weight:700 !important;
+  letter-spacing:.03em;
+}
+/* Fri/Sat highlight — Sun-first */
+.flatpickr-calendar .flatpickr-weekdaycontainer > span:nth-child(6),
+.flatpickr-calendar .flatpickr-weekdaycontainer > span:nth-child(7){
+  color: rgba(6,182,212,.95) !important;
+}
+
+/* Days grid */
+.flatpickr-calendar .flatpickr-days{ border-top:1px solid var(--border) !important; background:transparent !important; }
+.flatpickr-calendar .flatpickr-days .dayContainer{ border:none !important; box-shadow:none !important; background:transparent !important; }
+.flatpickr-day{ color: rgba(255,255,255,.92) !important; border-radius:.65rem !important; }
+.flatpickr-calendar .flatpickr-day:not(.prevMonthDay):not(.nextMonthDay):not(.disabled)
+:not(.selected):not(.inRange):not(.startRange):not(.endRange):not(.today){ color: rgba(224,255,248,.95) !important; }
+.flatpickr-calendar .flatpickr-day:hover:not(.selected):not(.today):not(.disabled){
+  background:linear-gradient(90deg, rgba(16,185,129,.18), rgba(6,182,212,.18)) !important; color:#edfffb !important;
+}
+.flatpickr-calendar .flatpickr-day.today:not(.selected):not(.inRange):not(.startRange):not(.endRange){
+  background:rgba(255,255,255,.02) !important; border:2px solid var(--grad-b) !important; box-shadow:none !important; color:#e6fffb !important;
+}
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.today{
+  background:linear-gradient(90deg, var(--grad-a), var(--grad-b)) !important; color:#04110f !important;
+  border-color:transparent !important; box-shadow:0 0 0 2px rgba(6,182,212,.28) inset !important;
+}
+.flatpickr-day.prevMonthDay,.flatpickr-day.nextMonthDay{ color:rgba(255,255,255,.35) !important; }
+.flatpickr-day.disabled,.flatpickr-day.notAllowed{ color:rgba(255,255,255,.28) !important; }
+.flatpickr-calendar .flatpickr-day:focus,
+.flatpickr-calendar .flatpickr-day:active{
+  outline:none !important; box-shadow:0 0 0 2px rgba(6,182,212,.35) inset !important; background-image:none !important;
+}
+
+/* Time pane */
+.flatpickr-time{ border-top:1px solid var(--border) !important; }
+.flatpickr-time .numInput,
+.flatpickr-time input,
+.flatpickr-time .flatpickr-am-pm{ color:#fff !important; background:transparent !important; }
+.flatpickr-time .numInputWrapper span.arrowUp:after,
+.flatpickr-time .numInputWrapper span.arrowDown:after{
+  border-bottom-color:#e5e7eb !important; border-top-color:#e5e7eb !important;
+}
