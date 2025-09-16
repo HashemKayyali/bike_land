@@ -21,6 +21,11 @@
   <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png">
   <link rel="manifest" href="/images/favicon/site.webmanifest">
   <meta name="theme-color" content="#0ea5a4" />
+  <!-- CSS -->
+  
+
+<link rel="stylesheet" href="./src/libs/swiper/swiper-bundle.min.css" />
+<script src="./src/libs/swiper/swiper-bundle.min.js"></script>
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="Bike Land" />
@@ -900,148 +905,338 @@
     });
   </script>
 
-  <!-- =================== Events =================== -->
 
-  <section id="events" class="bl-section container mx-auto px-4">
 
-    <!-- العنوان -->
-    <div class="text-center max-w-2xl mx-auto mb-6">
-      <h2 class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight">
-        Events
-        <span
-          class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
-      </h2>
-      <p class="mt-3 text-white/70">
-        Interactive cycling that turns motion into a show—perfect for events,
-        malls, schools, and activations.
-      </p>
-    </div>
+<!-- ===================== EVENTS (9:16) — داخل كارد الثيم ===================== -->
+<section id="events" class="bl-section container mx-auto px-4 py-14 sm:py-20 scroll-mt-32" data-aos="fade-up"
+         style="content-visibility:auto; contain-intrinsic-size:1100px">
 
-    <!-- حدّ أقصى للعرض لتصغير البلوك بالكامل -->
-    <div class="mx-auto w-full max-w-6xl">
-      <article
-        class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2">
-        <!-- الحاوية الأساسية: isolate + relative لإنشاء Stacking Context واضح -->
-        <div
-          class="relative isolate overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur p-6 sm:p-8">
-          <!-- المحتوى -->
-          <div class="relative z-10 px-2 sm:px-4 pt-6 sm:pt-8 pb-20 sm:pb-24">
-            <!-- Embla -->
-            <div class="embla about-embla select-none">
-              <div id="aboutViewport" class="embla__viewport overflow-hidden">
-                <!-- مهم: flex + gap-6 (1.5rem) -->
-                <div class="embla__container flex items-stretch gap-6">
-                  <!-- كرّر هالبلوك 5 مرات مع فيديوهاتك -->
-                  <div
-                    class="embla__slide relative basis-full sm:basis-[calc((100%-1.5rem)/2)] md:basis-[calc((100%-1.5rem*2)/3)] lg:basis-[calc((100%-1.5rem*4)/5)]">
-                    <div
-                      class="about-vid h-[48vh] md:h-[54vh] lg:h-[60vh] w-full rounded-2xl overflow-hidden transition-transform duration-300">
-                      <video data-about preload="metadata" muted loop playsinline
-                        class="block w-full h-full object-cover">
-                        <source src="videos/about2.mp4" type="video/mp4" />
-                      </video>
-                    </div>
-                  </div>
+  <!-- Header -->
+  <div class="text-center max-w-4xl mx-auto mb-6">
+    <h2 class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight">
+      Events
+      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
+    </h2>
+    <p class="text-center text-white/70 max-w-2xl mx-auto mt-3 mb-8" data-aos="fade-up" data-aos-delay="80">
+      Every event tells a story — bikes, lights, and energy that spark unforgettable moments.
+      Explore highlights from our activations across malls, schools, and corporate stages.
+    </p>
+  </div>
 
-                  <div
-                    class="embla__slide relative basis-full sm:basis-[calc((100%-1.5rem)/2)] md:basis-[calc((100%-1.5rem*2)/3)] lg:basis-[calc((100%-1.5rem*4)/5)]">
-                    <div
-                      class="about-vid h-[48vh] md:h-[54vh] lg:h-[60vh] w-full rounded-2xl overflow-hidden transition-transform duration-300">
-                      <video data-about preload="metadata" muted loop playsinline
-                        class="block w-full h-full object-cover">
-                        <source src="videos/about3.mp4" type="video/mp4" />
-                      </video>
-                    </div>
-                  </div>
+  <!-- Card wrapper -->
+  <div class="mx-auto w-full max-w-6xl">
+    <article class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30">
+      <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur p-6 sm:p-8">
+        <!-- glow strip -->
+        <div class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[6px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 z-20 pointer-events-none"></div>
+        <div class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[16px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 blur-md opacity-25 z-10 pointer-events-none"></div>
 
-                  <div
-                    class="embla__slide relative basis-full sm:basis-[calc((100%-1.5rem)/2)] md:basis-[calc((100%-1.5rem*2)/3)] lg:basis-[calc((100%-1.5rem*4)/5)]">
-                    <div
-                      class="about-vid h-[48vh] md:h-[54vh] lg:h-[60vh] w-full rounded-2xl overflow-hidden transition-transform duration-300">
-                      <video data-about preload="metadata" muted loop playsinline
-                        class="block w-full h-full object-cover">
-                        <source src="videos/about4.mp4" type="video/mp4" />
-                      </video>
-                    </div>
-                  </div>
+        <!-- Swiper (Portrait 9:16) -->
+        <div class="swiper events-portrait-swiper" id="eventsPortraitRoot" aria-label="Events portrait carousel">
+          <div class="swiper-wrapper" id="eventsPortraitWrapper"></div>
 
-                  <div
-                    class="embla__slide relative basis-full sm:basis-[calc((100%-1.5rem)/2)] md:basis-[calc((100%-1.5rem*2)/3)] lg:basis-[calc((100%-1.5rem*4)/5)]">
-                    <div
-                      class="about-vid h-[48vh] md:h-[54vh] lg:h-[60vh] w-full rounded-2xl overflow-hidden transition-transform duration-300">
-                      <video data-about preload="metadata" muted loop playsinline
-                        class="block w-full h-full object-cover">
-                        <source src="videos/about5.mp4" type="video/mp4" />
-                      </video>
-                    </div>
-                  </div>
-
-                  <div
-                    class="embla__slide relative basis-full sm:basis-[calc((100%-1.5rem)/2)] md:basis-[calc((100%-1.5rem*2)/3)] lg:basis-[calc((100%-1.5rem*4)/5)]">
-                    <div
-                      class="about-vid h-[48vh] md:h-[54vh] lg:h-[60vh] w-full rounded-2xl overflow-hidden transition-transform duration-300">
-                      <video data-about preload="metadata" muted loop playsinline
-                        class="block w-full h-full object-cover">
-                        <source src="videos/about6.mp4" type="video/mp4" />
-                      </video>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- أزرار -->
-            <div class="controls mt-5 sm:mt-6 flex items-center justify-center gap-3 sm:gap-4">
-              <button id="aboutPrev" type="button"
-                class="inline-flex items-center justify-center h-9 w-9 rounded-full ring-1 ring-white/10 hover:bg-white/5">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button id="aboutNext" type="button"
-                class="inline-flex items-center justify-center h-9 w-9 rounded-full ring-1 ring-white/10 hover:bg-white/5">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-
-            <!-- وصف تحت -->
-            <div class="mt-6 text-center max-w-xl mx-auto">
-              <p class="text-white/70">
-                Head-to-head races, energy-powered smoothies, LED visuals, and
-                live stats—built for crowds and quick setups.
-              </p>
-              <div class="mt-5 flex flex-wrap justify-center gap-3">
-                <a href="#products"
-                  class="inline-flex items-center rounded-md px-4 py-2.5 text-sm font-semibold bg-emerald-500 hover:bg-emerald-400 text-neutral-900 shadow ring-1 ring-emerald-500/20 transition">Explore
-                  Products</a>
-                <a href="#contact"
-                  class="inline-flex items-center rounded-md px-4 py-2.5 text-sm font-semibold border border-white/20 hover:border-white/40 hover:bg-white/5 transition">Book
-                  an Activation</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- الخط السفلي (طبقة أعلى من كل شيء بفضل isolate + z-20) -->
-          <div
-            class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[6px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 z-20 pointer-events-none">
-          </div>
-          <!-- توهّج خفيف -->
-          <div
-            class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[16px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 blur-md opacity-25 z-10 pointer-events-none">
-          </div>
+          <!-- اختر أحد الستايلات: evp-nav--glass / evp-nav--outline / evp-nav--edge -->
+         <button class="evp-nav evp-nav--glass evp-prev" aria-label="Previous slide"></button>
+<button class="evp-nav evp-nav--glass evp-next" aria-label="Next slide"></button>
         </div>
-      </article>
-    </div>
-  </section>
+
+        <!-- CTA -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <a href="#products"  class="inline-flex sm:inline-flex items-center rounded-full px-5 py-2.5 font-semibold
+            bg-gradient-to-r from-emerald-400 to-cyan-400 text-neutral-900
+            hover:brightness-110 active:brightness-95 transition">Explore Products</a>
+
+          <a href="#customers" class="ev-cta ev-cta-ghost">Our Customers</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<style>
+.events-portrait-swiper{
+  /* تحكم سريع */
+  --evp-btn: 54px;      /* حجم الزر */
+  --evp-icon: 36%;      /* حجم الأيقونة نسبةً للزر */
+  --evp-offset: 14px;   /* بعد الأزرار عن الحافة */
+  --evp-color: #c8fff4; /* لون الأيقونة */
+  --evp-bg: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+  --evp-bg-hover: linear-gradient(180deg, rgba(16,185,129,.20), rgba(34,211,238,.18));
+
+  padding: 22px 8px 42px;
+  position: relative;
+  overflow: visible;
+}
+.events-portrait-swiper .swiper-wrapper{
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+/* Slide card */
+.events-portrait-swiper .swiper-slide{
+  width: clamp(210px, 22vw, 360px);
+  aspect-ratio: 9 / 16;
+  border-radius: 26px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 12px 36px rgba(0,0,0,.35);
+  transform: translate3d(0,0,0);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+  position: relative;
+}
+.events-portrait-swiper .evp-inner{
+  width: 100%; height: 100%;
+  transform: translateZ(0) scale(var(--z, .94));
+  filter: blur(var(--b, 0px)) saturate(var(--sat, 1));
+  transition: transform .55s cubic-bezier(.2,.8,.2,1), filter .45s ease, box-shadow .45s ease;
+  will-change: transform, filter;
+  border-radius: inherit;
+}
+.events-portrait-swiper .evp-media{
+  width: 100%; height: 100%;
+  object-fit: cover; display:block;
+  border-radius: inherit;
+}
+.events-portrait-swiper .swiper-slide::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(140% 120% at 50% 85%, rgba(0,0,0,.38) 0%, transparent 45%),
+    linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,0) 28%, rgba(0,0,0,.12) 100%);
+  opacity:.55; mix-blend-mode: soft-light;
+}
+.events-portrait-swiper .swiper-slide::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(60% 20% at 50% 0%, rgba(255,255,255,.25), transparent 70%);
+  opacity:.25;
+}
+.events-portrait-swiper .swiper-slide.is-center .evp-inner{
+  transform: translateZ(0) scale(1);
+  filter: none;
+  box-shadow: 0 26px 70px rgba(0,0,0,.6);
+}
+
+/* ================== NAV: ثلاثة ستايلات ================== */
+
+
+
+/* متغيرات تحكم بالحجم/المسافة (ممكن تكون عندك مسبقاً) */
+.events-portrait-swiper{
+  --evp-btn: 50px;     /* حجم الدائرة */
+  --evp-icon: 60%;     /* حجم السهم داخلها */
+  --evp-offset: 14px;  /* بعد عن الحافة */
+  --evp-color: #c8fff4;
+}
+
+/* زرّين */
+.evp-nav{
+  position:absolute; top:50%; transform:translateY(-50%);
+  z-index:10;
+  width:var(--evp-btn); height:var(--evp-btn);
+  border-radius:999px; display:grid; place-items:center;
+  color:var(--evp-color);
+  background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 10px 26px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.06);
+  backdrop-filter:blur(8px) saturate(140%);
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+ line-height: 0;       /* يمنع أي baseline غريب */
+  font-size: 0;         /* يتأكد ما في حرف/رمز يتعرض */
+  pointer-events: auto; /* يضمن التفاعل */
+
+}
+.evp-prev{ left: var(--evp-offset); }
+.evp-next{ right: var(--evp-offset); }
+
+.evp-nav::before{
+  content:"";
+  width:var(--evp-icon); aspect-ratio:1; display:block;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 4.75 8.75 12 15.5 19.25' fill='none' stroke='black' stroke-width='3.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 4.75 8.75 12 15.5 19.25' fill='none' stroke='black' stroke-width='3.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  opacity:.96;
+}
+.evp-next::before{ transform:scaleX(-1); }
+
+/* 1) دائرة زجاجية */
+.evp-nav--glass{
+  width: var(--evp-btn); height: var(--evp-btn); border-radius: 999px;
+  display:grid; place-items:center;
+  background: var(--evp-bg);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 10px 26px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.06);
+  backdrop-filter: blur(8px) saturate(140%);
+}
+.evp-nav--glass:hover{
+  transform:translateY(-50%) scale(1.06);
+  background: var(--evp-bg-hover);
+  border-color: rgba(34,211,238,.35);
+  box-shadow: 0 16px 36px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+/* 2) دائرة Outline خفيفة (Minimal) */
+.evp-nav--outline{
+  width: var(--evp-btn); height: var(--evp-btn); border-radius: 999px;
+  display:grid; place-items:center;
+  background: transparent;
+  border: 1.5px solid rgba(200,255,244,.55);
+  box-shadow: none;
+}
+.evp-nav--outline:hover{
+  transform:translateY(-50%) scale(1.08);
+  border-color: rgba(200,255,244,.85);
+  box-shadow: 0 0 0 6px rgba(34,211,238,.10);
+}
+
+/* 3) أسهم عند الحافة بدون دائرة */
+.evp-nav--edge{
+  width:auto; height:auto; padding:.4rem .55rem;
+  background: transparent; border:none; box-shadow:none;
+  opacity:.9;
+}
+.evp-nav--edge:hover{ opacity:1; transform:translateY(-50%) scale(1.06); }
+.evp-nav--edge::before{ width: 22px; }        /* حجم الأيقونة للستايل edge */
+@media (max-width:640px){
+  .evp-nav--edge::before{ width: 18px; }
+}
+
+/* لمس الموبايل */
+@media (max-width:640px){
+  .events-portrait-swiper{
+    --evp-btn: 50px;     /* حجم الدائرة */
+  --evp-icon: 60%;
+    --evp-offset: 1px;
+  }
+}
+
+/* CTA (بدون تغيير) */
+.ev-cta{
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.7rem 1.1rem; border-radius:999px; font-weight:600; letter-spacing:.2px;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+  border:1px solid rgba(255,255,255,.14);
+  backdrop-filter: saturate(130%) blur(6px);
+  color:#eafffe;
+}
+.ev-cta-primary{ background: linear-gradient(90deg, rgba(16,185,129,.18), rgba(34,211,238,.18)); }
+.ev-cta-ghost{   background: rgba(255,255,255,.06); }
+.ev-cta:hover{ transform: translateY(-1px); box-shadow: 0 10px 28px rgba(0,0,0,.35); }
+</style>
+
+<script>
+(() => {
+  if (window.__blEventsPortraitInit) return;
+  window.__blEventsPortraitInit = true;
+
+  const EV_MAX_ITEMS = 32;
+  const EV_EXT = 'jpg';
+  const EV_PATH = 'images/events';
+  const ROOT_SEL = '.events-portrait-swiper';
+  const WRAPPER_ID = 'eventsPortraitWrapper';
+
+  function createSlide(idx){
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `
+      <div class="evp-inner">
+        <img class="evp-media" src="${EV_PATH}/${idx}.${EV_EXT}" alt="Event ${idx}" loading="lazy" decoding="async"
+             onerror="this.closest('.swiper-slide')?.remove()">
+      </div>`;
+    return slide;
+  }
+
+  const wrapper = document.getElementById(WRAPPER_ID);
+  for (let i = 1; i <= EV_MAX_ITEMS; i++) wrapper.appendChild(createSlide(i));
+
+  const root = document.querySelector(ROOT_SEL);
+  const initSwiper = () => {
+    if (root.__inited) return;
+    root.__inited = true;
+
+    const sw = new Swiper(ROOT_SEL, {
+      centeredSlides: true,
+      loop: true,
+      speed: 820,
+      watchSlidesProgress: true,
+      preloadImages: false,
+      lazy: { loadPrevNext: true, loadPrevNextAmount: 2 },
+
+      autoplay: { delay: 2200, disableOnInteraction: false, pauseOnMouseEnter: true },
+
+      slidesPerView: 1.1,
+      spaceBetween: 14,
+      breakpoints: {
+        480:  { slidesPerView: 1.25, spaceBetween: 14 },
+        640:  { slidesPerView: 1.6,  spaceBetween: 16 },
+        768:  { slidesPerView: 2.05, spaceBetween: 18 },
+        1024: { slidesPerView: 2.6,  spaceBetween: 20 },
+        1280: { slidesPerView: 3.1,  spaceBetween: 22 },
+        1536: { slidesPerView: 3.4,  spaceBetween: 24 }
+      },
+
+      effect: 'creative',
+      creativeEffect: {
+        limitProgress: 2.2,
+        prev: { translate: ['-28%', 0, -220], rotate: [0, 0, -6], scale: 0.84, origin: 'right center', shadow: true },
+        next: { translate: ['28%',  0, -220], rotate: [0, 0,  6], scale: 0.90, origin: 'left center',  shadow: true }
+      },
+
+      navigation: { nextEl: '.evp-next', prevEl: '.evp-prev' },
+      keyboard:   { enabled: true },
+      mousewheel: { forceToAxis: true, sensitivity: 0.6 },
+
+      /* مهم مع content-visibility */
+      observer: true, observeParents: true, observeSlideChildren: true, resizeObserver: true,
+
+      on: {
+        afterInit(sw){
+          requestAnimationFrame(() => {
+            sw.updateSize(); sw.updateSlides(); sw.updateProgress();
+            sw.updateSlidesOffset(); sw.updateSlidesClasses();
+            sw.updateSlidesProgress(); sw.setTranslate();
+            sw.slideTo(sw.activeIndex, 0, false);
+          });
+          setTimeout(() => { sw.update(); sw.updateSlidesProgress(); sw.setTranslate(); }, 120);
+        },
+        setTranslate(sw){
+          sw.slides.forEach((s) => {
+            const p = Math.min(1, Math.abs(s.progress));
+            const inner = s.querySelector('.evp-inner'); if(!inner) return;
+            const scale = 1 - p * 0.08;
+            const blur  = p * 1.1;
+            const sat   = 1 - p * 0.07;
+            inner.style.setProperty('--z', scale);
+            inner.style.setProperty('--b', `${blur}px`);
+            inner.style.setProperty('--sat', sat);
+            if (p < 0.22) s.classList.add('is-center'); else s.classList.remove('is-center');
+          });
+        }
+      }
+    });
+
+    window.__evPortrait = sw;
+  };
+
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting){ initSwiper(); io.disconnect(); } });
+    }, { rootMargin: '200px 0px' });
+    io.observe(root);
+  } else {
+    initSwiper();
+  }
+})();
+</script>
 
   <!-- =================== Customers ( =================== -->
 
 
 
 
-  <section id="customers" class="bl-section container mx-auto px-4">
+
+<section id="customers" class="bl-section container mx-auto px-4">
     <div class="text-center max-w-2xl mx-auto mb-8">
       <h2 class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight">
         Our Customers
@@ -1072,236 +1267,296 @@
   </section>
 
 
-<style>
-  /* ===================== GRID ===================== */
-  #customers .stack-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* موبايل */
-    gap: 1rem;
-  }
-  @media (min-width:768px) {   /* md+: ثلاث أعمدة ثابتة */
+  <style>
+    /* ===================== GRID ===================== */
     #customers .stack-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      /* موبايل */
+      gap: 1rem;
     }
-  }
 
-  /* ===================== CARD ===================== */
-  #customers .stack-card {
-    --avatar: 72px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, .10);
-    background: linear-gradient(90deg, rgba(23, 23, 23, .88), rgba(15, 15, 15, .88));
-    backdrop-filter: blur(6px);
-    padding: 16px;
-    min-width: 0;
-    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    transform: translateY(14px); /* دخول ناعم */
-    opacity: 0;
-    will-change: transform, opacity;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, .45);
-    contain: content; /* تحسين أداء التخطيط */
-  }
-  #customers .stack-card:hover {
-    transform: translateY(-4px) scale(1.025);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, .55), 0 6px 14px rgba(0, 0, 0, .35);
-    border-color: rgba(255, 255, 255, .18);
-  }
-  #customers .stack-card.in {
-    transform: none;
-    opacity: 1;
-    transition: transform .6s cubic-bezier(.2, .9, .2, 1), opacity .6s cubic-bezier(.2, .9, .2, 1);
-  }
+    @media (min-width:768px) {
 
-  /* ===================== HEADER ===================== */
-  #customers .stack-row {
-    display: flex;
-    flex-direction: column;  /* اللوجو فوق العنوان */
-    align-items: center;     /* بالنص */
-    justify-content: center;
-    gap: .6rem;
-    min-height: auto;
-    text-align: center;
-  }
+      /* md+: ثلاث أعمدة ثابتة */
+      #customers .stack-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+      }
+    }
 
-  /* اللوجو */
-  #customers .stack-logo {
-    height: var(--avatar);
-    width: var(--avatar);
-    border-radius: 9999px;
-    padding: 3px;
-    background: linear-gradient(145deg, rgba(34, 211, 238, .7), rgba(52, 211, 153, .7));
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .35), 0 0 18px rgba(34, 211, 238, .35);
-    will-change: transform, filter;
-  }
-  #customers .stack-logo .inner {
-    height: calc(var(--avatar) - 8px);
-    width: calc(var(--avatar) - 8px);
-    border-radius: inherit;
-    background: rgba(255, 255, 255, .94);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  #customers .stack-logo img {
-    max-width: 86%;
-    max-height: 86%;
-    object-fit: contain;
-    display: block;
-  }
+    /* ===================== CARD ===================== */
+    #customers .stack-card {
+      --avatar: 72px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, .10);
+      background: linear-gradient(90deg, rgba(23, 23, 23, .88), rgba(15, 15, 15, .88));
+      backdrop-filter: blur(6px);
+      padding: 16px;
+      min-width: 0;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      transform: translateY(14px);
+      /* دخول ناعم */
+      opacity: 0;
+      will-change: transform, opacity;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .45);
+      contain: content;
+      /* تحسين أداء التخطيط */
+    }
 
-  /* نص العنوان */
-  #customers .stack-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;  /* وسط */
-    justify-content: center;
-    min-height: auto;
-  }
-  #customers .stack-title {
-    margin: 0;
-    color: #fff;
-    letter-spacing: .2px;
-    font-weight: 800;
-    font-size: 1.25rem;
-    line-height: 1.1;
-    text-align: center;  /* وسط */
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  @media (min-width:640px) {
-    #customers .stack-title { font-size: 1.3rem; }
-  }
+    #customers .stack-card:hover {
+      transform: translateY(-4px) scale(1.025);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, .55), 0 6px 14px rgba(0, 0, 0, .35);
+      border-color: rgba(255, 255, 255, .18);
+    }
 
-  /* ===================== THUMBS ===================== */
-  #customers .thumb-strip {
-    margin-top: 1rem;     /* تهوية تحت العنوان */
-    display: flex;
-    gap: .55rem;
-    overflow: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: .25rem;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
-            mask-image: linear-gradient(90deg, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
-    scrollbar-gutter: stable both-edges;
-  }
-  #customers .thumb-strip::-webkit-scrollbar { height: 8px; }
-  #customers .thumb-strip::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg, #10b981, #06b6d4);
-    border-radius: 999px;
-  }
+    #customers .stack-card.in {
+      transform: none;
+      opacity: 1;
+      transition: transform .6s cubic-bezier(.2, .9, .2, 1), opacity .6s cubic-bezier(.2, .9, .2, 1);
+    }
 
-  #customers .thumb {
-    flex: 0 0 auto;
-    width: 122px;
-    aspect-ratio: 4/3;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, .10);
-    scroll-snap-align: start;
-    transition: transform .16s ease, border-color .16s ease, opacity .2s ease;
-    transform: translateY(6px) scale(.98); /* Pop عند الظهور */
-    opacity: 0;
-    will-change: transform, opacity;
-    background: rgba(255,255,255,.04);
-  }
-  #customers .thumb:hover {
-    transform: translateY(-1px);
-    border-color: rgba(255, 255, 255, .16);
-  }
-  #customers .thumb.in {
-    transform: none;
-    opacity: 1;
-    transition: transform .35s cubic-bezier(.2, .9, .2, 1), opacity .35s cubic-bezier(.2, .9, .2, 1);
-  }
+    /* ===================== HEADER ===================== */
+    #customers .stack-row {
+      display: flex;
+      flex-direction: column;
+      /* اللوجو فوق العنوان */
+      align-items: center;
+      /* بالنص */
+      justify-content: center;
+      gap: .6rem;
+      min-height: auto;
+      text-align: center;
+    }
 
-  /* صورة داخل الـthumb: تبدأ مخفية وتظهر بعد التحميل */
-  #customers .thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    opacity: 0;                   /* ← سكلتون ظاهر */
-    transition: opacity .45s ease;
-  }
-  #customers .thumb img.loaded {
-    opacity: 1;                   /* ← الصورة ظهرت */
-  }
+    /* اللوجو */
+    #customers .stack-logo {
+      height: var(--avatar);
+      width: var(--avatar);
+      border-radius: 9999px;
+      padding: 3px;
+      background: linear-gradient(145deg, rgba(34, 211, 238, .7), rgba(52, 211, 153, .7));
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .35), 0 0 18px rgba(34, 211, 238, .35);
+      will-change: transform, filter;
+    }
 
-  /* ===== تأثيرات اللوجو ===== */
-  @keyframes bl-pulse {
-    0%   { box-shadow: 0 0 0 0 rgba(34, 211, 238, .30); }
-    100% { box-shadow: 0 0 0 16px rgba(34, 211, 238, 0); }
-  }
-  #customers .stack-card:hover .stack-logo { animation: bl-pulse 1.6s ease-out 1; }
-  #customers .stack-logo .inner { position: relative; }
-  #customers .stack-logo .inner::after {
-    content: "";
-    position: absolute; inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(120deg, transparent 35%, rgba(255, 255, 255, .22) 50%, transparent 65%);
-    transform: translateX(-160%);
-    pointer-events: none;
-  }
-  @keyframes bl-shine { to { transform: translateX(160%); } }
-  #customers .stack-card:hover .stack-logo .inner::after { animation: bl-shine 1s linear both; }
+    #customers .stack-logo .inner {
+      height: calc(var(--avatar) - 8px);
+      width: calc(var(--avatar) - 8px);
+      border-radius: inherit;
+      background: rgba(255, 255, 255, .94);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-  /* ===== Skeleton + Shimmer أثناء التحميل ===== */
-  #customers .thumb.is-loading {
-    position: relative;
-    overflow: hidden;
-    background: rgba(255,255,255,.06);
-  }
-  /* طبقة skeleton */
-  #customers .thumb.is-loading::before {
-    content: "";
-    position: absolute; inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
-  }
-  /* شيمر فوق السكلتون */
-  #customers .thumb.is-loading::after {
-    content: "";
-    position: absolute; inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
-    transform: translateX(-120%);
-    animation: bl-shimmer 1.2s linear infinite;
-  }
-  @keyframes bl-shimmer { to { transform: translateX(120%); } }
+    #customers .stack-logo img {
+      max-width: 86%;
+      max-height: 86%;
+      object-fit: contain;
+      display: block;
+    }
 
-  /* ===== احترام تفضيل تقليل الحركة ===== */
-  @media (prefers-reduced-motion: reduce) {
-    #customers .stack-card,
-    #customers .thumb,
-    #customers .stack-logo .inner::after,
+    /* نص العنوان */
+    #customers .stack-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* وسط */
+      justify-content: center;
+      min-height: auto;
+    }
+
+    #customers .stack-title {
+      margin: 0;
+      color: #fff;
+      letter-spacing: .2px;
+      font-weight: 800;
+      font-size: 1.25rem;
+      line-height: 1.1;
+      text-align: center;
+      /* وسط */
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    @media (min-width:640px) {
+      #customers .stack-title {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* ===================== THUMBS ===================== */
+    #customers .thumb-strip {
+      margin-top: 1rem;
+      /* تهوية تحت العنوان */
+      display: flex;
+      gap: .55rem;
+      overflow: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: .25rem;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
+      scrollbar-gutter: stable both-edges;
+    }
+
+    #customers .thumb-strip::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    #customers .thumb-strip::-webkit-scrollbar-thumb {
+      background: linear-gradient(90deg, #10b981, #06b6d4);
+      border-radius: 999px;
+    }
+
+    #customers .thumb {
+      flex: 0 0 auto;
+      width: 122px;
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .10);
+      scroll-snap-align: start;
+      transition: transform .16s ease, border-color .16s ease, opacity .2s ease;
+      transform: translateY(6px) scale(.98);
+      /* Pop عند الظهور */
+      opacity: 0;
+      will-change: transform, opacity;
+      background: rgba(255, 255, 255, .04);
+    }
+
+    #customers .thumb:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, .16);
+    }
+
+    #customers .thumb.in {
+      transform: none;
+      opacity: 1;
+      transition: transform .35s cubic-bezier(.2, .9, .2, 1), opacity .35s cubic-bezier(.2, .9, .2, 1);
+    }
+
+    /* صورة داخل الـthumb: تبدأ مخفية وتظهر بعد التحميل */
+    #customers .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0;
+      /* ← سكلتون ظاهر */
+      transition: opacity .45s ease;
+    }
+
+    #customers .thumb img.loaded {
+      opacity: 1;
+      /* ← الصورة ظهرت */
+    }
+
+    /* ===== تأثيرات اللوجو ===== */
+    @keyframes bl-pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(34, 211, 238, .30);
+      }
+
+      100% {
+        box-shadow: 0 0 0 16px rgba(34, 211, 238, 0);
+      }
+    }
+
+    #customers .stack-card:hover .stack-logo {
+      animation: bl-pulse 1.6s ease-out 1;
+    }
+
+    #customers .stack-logo .inner {
+      position: relative;
+    }
+
+    #customers .stack-logo .inner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(120deg, transparent 35%, rgba(255, 255, 255, .22) 50%, transparent 65%);
+      transform: translateX(-160%);
+      pointer-events: none;
+    }
+
+    @keyframes bl-shine {
+      to {
+        transform: translateX(160%);
+      }
+    }
+
+    #customers .stack-card:hover .stack-logo .inner::after {
+      animation: bl-shine 1s linear both;
+    }
+
+    /* ===== Skeleton + Shimmer أثناء التحميل ===== */
+    #customers .thumb.is-loading {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, .06);
+    }
+
+    /* طبقة skeleton */
+    #customers .thumb.is-loading::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
+    }
+
+    /* شيمر فوق السكلتون */
     #customers .thumb.is-loading::after {
-      transition: none !important;
-      animation: none !important;
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .08), transparent);
+      transform: translateX(-120%);
+      animation: bl-shimmer 1.2s linear infinite;
     }
-  }
-</style>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  /* ===== 0) بيانات العملاء ===== */
-  const FOLDERS = [
-    "AMAZON","AstraZeneca","ZAIN","Arab Bank","Rotana Hotel","Delmonte","PROTEINAK",
-    "PSUT","JU","Abdali Hospital","Umniah","Saray aqaba","RIA","SNA","TAJ MALL",
-    "Basketball","MR.BURRITOS","Birthdays","Amman Academy",
-  ];
-  const CUSTOMERS = FOLDERS.map(folder => ({
-    name: folder.replace(/[-_]/g," ").replace(/\b\w/g,c=>c.toUpperCase()),
-    slug: folder
-  }));
-  const stack = document.getElementById("customersStack");
+    @keyframes bl-shimmer {
+      to {
+        transform: translateX(120%);
+      }
+    }
 
-  /* ===== 1) بناء الكروت (logo.webp + 5 أماكن للثَمبنيلز) ===== */
-stack.innerHTML = CUSTOMERS.map(c => `
+    /* ===== احترام تفضيل تقليل الحركة ===== */
+    @media (prefers-reduced-motion: reduce) {
+
+      #customers .stack-card,
+      #customers .thumb,
+      #customers .stack-logo .inner::after,
+      #customers .thumb.is-loading::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      /* ===== 0) بيانات العملاء ===== */
+      const FOLDERS = [
+        "AMAZON", "AstraZeneca", "ZAIN", "Arab Bank", "Rotana Hotel", "Delmonte", "PROTEINAK",
+        "PSUT", "JU", "Abdali Hospital", "Umniah", "Saray aqaba", "RIA", "SNA", "TAJ MALL",
+        "Basketball", "MR.BURRITOS", "Birthdays", "Amman Academy",
+      ];
+      const CUSTOMERS = FOLDERS.map(folder => ({
+        name: folder.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase()),
+        slug: folder
+      }));
+      const stack = document.getElementById("customersStack");
+
+      /* ===== 1) بناء الكروت (logo.webp + 5 أماكن للثَمبنيلز) ===== */
+      stack.innerHTML = CUSTOMERS.map(c => `
   <div class="stack-card" data-company="${c.slug}">
     <div class="stack-row">
       <div class="stack-logo">
@@ -1316,9 +1571,9 @@ stack.innerHTML = CUSTOMERS.map(c => `
       </div>
     </div>
     <div class="thumb-strip" data-thumbs>
-      ${Array.from({length:5}).map((_,i)=>`
+      ${Array.from({ length: 5 }).map((_, i) => `
         <div class="thumb is-loading">
-          <img src="images/customers/${encodeURIComponent(c.slug)}/thumbs/${i+1}.webp"
+          <img src="images/customers/${encodeURIComponent(c.slug)}/thumbs/${i + 1}.webp"
                alt="${c.name}" loading="eager" decoding="async"
                width="320" height="240" style="aspect-ratio:4/3;object-fit:cover">
         </div>
@@ -1328,96 +1583,98 @@ stack.innerHTML = CUSTOMERS.map(c => `
 `).join("");
 
 
-  // إطلاق أنيميشن دخول الكروت
-  requestAnimationFrame(() => {
-    document.querySelectorAll("#customers .stack-card").forEach(c => c.classList.add("in"));
-  });
+      // إطلاق أنيميشن دخول الكروت
+      requestAnimationFrame(() => {
+        document.querySelectorAll("#customers .stack-card").forEach(c => c.classList.add("in"));
+      });
 
-  /* ===== 2) تجهيز قائمة التحميل المسبق لكل الصور ===== */
-  const MAX_THUMBS = 5; // فقط 1..5 داخل thumbs/
-  function buildThumbs(folder){
-    const enc = encodeURIComponent(folder);
-    const arr = [];
-    for (let i=1;i<=MAX_THUMBS;i++){
-      arr.push(`images/customers/${enc}/thumbs/${i}.webp`);
-    }
-    return arr;
-  }
-
-  // طابور التحميل مع سقف توازي
-  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-  const isSlow = !!(conn && (/2g|3g/i.test(conn?.effectiveType||"") || (conn.downlink|0)<1.2 || conn.saveData));
-  const MAX_INFLIGHT = isSlow ? 6 : 10;
-
-  let inflight = 0;
-  const queue = []; // عناصر: { url, el, first }
-
-  function markLoaded(imgEl){
-    imgEl.classList.add("loaded");
-    imgEl.parentElement?.classList.remove("is-loading");
-  }
-
-  function loadTask(task){
-    inflight++;
-    const img = new Image();
-    if (task.first) img.fetchPriority = "high";
-    img.decoding = "async";
-    img.onload = () => {
-      if (task.el) {
-        task.el.src = img.src;
-        markLoaded(task.el);
+      /* ===== 2) تجهيز قائمة التحميل المسبق لكل الصور ===== */
+      const MAX_THUMBS = 5; // فقط 1..5 داخل thumbs/
+      function buildThumbs(folder) {
+        const enc = encodeURIComponent(folder);
+        const arr = [];
+        for (let i = 1; i <= MAX_THUMBS; i++) {
+          arr.push(`images/customers/${enc}/thumbs/${i}.webp`);
+        }
+        return arr;
       }
-      inflight--; pump();
-    };
-    img.onerror = () => {
-      // ما في بدائل امتدادات – حذف الثمبنيل الفاشل
-      if (task.el?.parentElement) {
-        const parent = task.el.parentElement;
-        parent.parentElement?.removeChild(parent);
+
+      // طابور التحميل مع سقف توازي
+      const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      const isSlow = !!(conn && (/2g|3g/i.test(conn?.effectiveType || "") || (conn.downlink | 0) < 1.2 || conn.saveData));
+      const MAX_INFLIGHT = isSlow ? 6 : 10;
+
+      let inflight = 0;
+      const queue = []; // عناصر: { url, el, first }
+
+      function markLoaded(imgEl) {
+        imgEl.classList.add("loaded");
+        imgEl.parentElement?.classList.remove("is-loading");
       }
-      inflight--; pump();
-    };
-    img.src = task.url;
-  }
 
-  function pump(){
-    while (inflight < MAX_INFLIGHT && queue.length){
-      loadTask(queue.shift());
-    }
-  }
+      function loadTask(task) {
+        inflight++;
+        const img = new Image();
+        if (task.first) img.fetchPriority = "high";
+        img.decoding = "async";
+        img.onload = () => {
+          if (task.el) {
+            task.el.src = img.src;
+            markLoaded(task.el);
+          }
+          inflight--; pump();
+        };
+        img.onerror = () => {
+          // ما في بدائل امتدادات – حذف الثمبنيل الفاشل
+          if (task.el?.parentElement) {
+            const parent = task.el.parentElement;
+            parent.parentElement?.removeChild(parent);
+          }
+          inflight--; pump();
+        };
+        img.src = task.url;
+      }
 
-  /* ===== 3) ربط الـIMGs بالمسارات وإدخالها الطابور فورًا ===== */
-  CUSTOMERS.forEach((c) => {
-    const card = document.querySelector(`.stack-card[data-company="${c.slug}"]`);
-    const thumbsEl = card.querySelector("[data-thumbs]");
-    const imgs = Array.from(thumbsEl.querySelectorAll("img"));
-    const urls = buildThumbs(c.slug); // 1.webp..5.webp
+      function pump() {
+        while (inflight < MAX_INFLIGHT && queue.length) {
+          loadTask(queue.shift());
+        }
+      }
 
-    // جهّز العناصر الخمسة
-    for (let i=0;i<Math.min(imgs.length, urls.length); i++){
-      const el = imgs[i];
-      const url = urls[i];
-      el.setAttribute("loading","eager"); // نحملهم فورًا
-      queue.push({ url, el, first: i===0 }); // الأولى أولوية أعلى بسيطة
-    }
-  });
+      /* ===== 3) ربط الـIMGs بالمسارات وإدخالها الطابور فورًا ===== */
+      CUSTOMERS.forEach((c) => {
+        const card = document.querySelector(`.stack-card[data-company="${c.slug}"]`);
+        const thumbsEl = card.querySelector("[data-thumbs]");
+        const imgs = Array.from(thumbsEl.querySelectorAll("img"));
+        const urls = buildThumbs(c.slug); // 1.webp..5.webp
 
-  // لمسة الدخول للثَمبنيلز
-  document.querySelectorAll("#customers .thumb-strip").forEach(thumbsEl => {
-    const thumbs = thumbsEl.querySelectorAll(".thumb");
-    thumbs.forEach((el,i) => {
-      el.style.transitionDelay = `${i*25}ms`;
-      requestAnimationFrame(() => el.classList.add("in"));
+        // جهّز العناصر الخمسة
+        for (let i = 0; i < Math.min(imgs.length, urls.length); i++) {
+          const el = imgs[i];
+          const url = urls[i];
+          el.setAttribute("loading", "eager"); // نحملهم فورًا
+          queue.push({ url, el, first: i === 0 }); // الأولى أولوية أعلى بسيطة
+        }
+      });
+
+      // لمسة الدخول للثَمبنيلز
+      document.querySelectorAll("#customers .thumb-strip").forEach(thumbsEl => {
+        const thumbs = thumbsEl.querySelectorAll(".thumb");
+        thumbs.forEach((el, i) => {
+          el.style.transitionDelay = `${i * 25}ms`;
+          requestAnimationFrame(() => el.classList.add("in"));
+        });
+      });
+
+      // انطلق التحميل المسبق
+      pump();
+
+      // كمّل الضخ عند رجوع التبويب نشط
+      document.addEventListener("visibilitychange", () => { if (!document.hidden) pump(); });
     });
-  });
+  </script>
 
-  // انطلق التحميل المسبق
-  pump();
 
-  // كمّل الضخ عند رجوع التبويب نشط
-  document.addEventListener("visibilitychange", ()=>{ if(!document.hidden) pump(); });
-});
-</script>
 
 
   <!-- =================== About Us =================== -->
@@ -2625,6 +2882,31 @@ stack.innerHTML = CUSTOMERS.map(c => `
   </script>
 
 
+
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      once: true,
+      easing: "ease-out-quart",
+      offset: 0,
+      anchorPlacement: "top-bottom",
+    });
+  </script>
+
+
+  <script>
+    function setHeaderHeight() {
+      const header = document.querySelector('header');
+      const h = header ? header.offsetHeight : 0;
+      document.documentElement.style.setProperty('--header-h', h + 'px');
+    }
+    window.addEventListener('load', setHeaderHeight);
+    window.addEventListener('resize', setHeaderHeight);
+    // لو عندك منيو موبايل بتفتح/بتسكر وبتغير ارتفاع الهيدر، نادِها بعد الفتح/الإغلاق أيضاً.
+  </script>
+
   <style>
     /* ===== About slider — clean, centered, rounded ===== */
 
@@ -2742,31 +3024,6 @@ stack.innerHTML = CUSTOMERS.map(c => `
       }
     }
   </style>
-
-
-
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 900,
-      once: true,
-      easing: "ease-out-quart",
-      offset: 0,
-      anchorPlacement: "top-bottom",
-    });
-  </script>
-
-
-  <script>
-    function setHeaderHeight() {
-      const header = document.querySelector('header');
-      const h = header ? header.offsetHeight : 0;
-      document.documentElement.style.setProperty('--header-h', h + 'px');
-    }
-    window.addEventListener('load', setHeaderHeight);
-    window.addEventListener('resize', setHeaderHeight);
-    // لو عندك منيو موبايل بتفتح/بتسكر وبتغير ارتفاع الهيدر، نادِها بعد الفتح/الإغلاق أيضاً.
-  </script>
 
 
 

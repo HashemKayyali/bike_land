@@ -383,6 +383,7 @@
     "supports-color": "^2.0.0",
     "supports-preserve-symlinks-flag": "^1.0.0",
     "svgo": "^2.8.0",
+    "swiper": "^12.0.1",
     "tar-stream": "^1.6.2",
     "temp-dir": "^1.0.0",
     "tempfile": "^2.0.0",
