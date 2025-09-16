@@ -1214,6 +1214,22 @@
       transform: translateY(-1px);
       box-shadow: 0 10px 28px rgba(0, 0, 0, .35);
     }
+
+    /* ثبّت نسبة العرض وفعّل will-change لتحسين السلاسة */
+.events-portrait-swiper .swiper-slide {
+  aspect-ratio: 9 / 16;
+}
+.events-portrait-swiper .evp-inner {
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+.events-portrait-swiper img.evp-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
   </style>
 
 <script>
@@ -1221,207 +1237,149 @@
   if (window.__blEventsPortraitInit) return;
   window.__blEventsPortraitInit = true;
 
-  // ======= إعدادات عامة =======
-  const EV_MAX_ITEMS = 12;                  // عدّل لعدد صورك الفعلي (مثلاً 15 أو 32)
+  // ========= إعدادات عامة =========
+  const EV_MAX_ITEMS = 12;            // عدّل حسب عدد صورك
   const EV_PATH = "images/events";
-  const CAND_EXTS = ["webp","jpg","png"];   // أفضلية الصيغ
   const ROOT_SEL = ".events-portrait-swiper";
   const WRAPPER_ID = "eventsPortraitWrapper";
+  const USE_WEBP = true;              // نحاول webp تلقائياً عبر <picture>
+  const EXT_FALLBACK = "jpg";         // الامتداد الاحتياطي
 
   const root = document.querySelector(ROOT_SEL);
   const wrapper = document.getElementById(WRAPPER_ID);
   if (!root || !wrapper) return;
 
-  // ======= قياس اتصال المستخدم لتخفيف الحمل لو لازم =======
+  // مراعاة وضع توفير البيانات
   const conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
   const isSaver = conn?.saveData === true;
-  const slowNet = ["slow-2g","2g"].includes(conn?.effectiveType);
-  const HIGH_PRELOAD_BASE = (isSaver || slowNet) ? 4 : 8;
+  const MAX_PARALLEL = isSaver ? 2 : 4;   // توازي تحميل الصور
 
-  // ======= Queue بسيطة لتقليل الطلبات المتزامنة أثناء probe =======
-  function makeQueue(maxParallel = 6) {
-    let active = 0;
-    const q = [];
-    function pump() {
-      while (active < maxParallel && q.length) {
-        const { task, resolve } = q.shift();
-        active++;
-        task().finally(() => { active--; pump(); }).then(resolve);
-      }
-    }
-    return (task) => new Promise(res => { q.push({ task, resolve: res }); pump(); });
+  // ========= Helpers خفيفة =========
+  function buildUrls(n){
+    const jpg = `${EV_PATH}/${n}.${EXT_FALLBACK}`;
+    const webp = `${EV_PATH}/${n}.webp`;
+    return { jpg, webp };
   }
-  const enqueue = makeQueue(6); // ضبط التزامن
 
-  // ======= فاحص صورة (يتحقق من وجود الملف فقط) =======
-  function probe(url) {
-    return new Promise(res => {
+  // Preload بصورة هادئة (توازي محدود)
+  function preloadImage(url){
+    return new Promise((res) => {
       const img = new Image();
       img.decoding = "async";
       img.onload = () => res(true);
       img.onerror = () => res(false);
-      img.src = url; // لا نلغي الكاش هنا (ليست هناك حاجة لكسر الكاش)
+      img.src = url;
     });
   }
 
-  // ======= يختار أول صيغة موجودة لرقم i =======
-  async function pickUrlForIndex(i) {
-    for (const ext of CAND_EXTS) {
-      const u = `${EV_PATH}/${i}.${ext}`;
-      const ok = await probe(u);
-      if (ok) return u;
+  async function preloadAll(urls){
+    let i = 0, ok = new Array(urls.length).fill(false);
+    async function worker(){
+      while (i < urls.length){
+        const cur = i++;
+        ok[cur] = await preloadImage(urls[cur]);
+      }
     }
-    return null;
+    await Promise.all(Array.from({length: MAX_PARALLEL}, worker));
+    return ok;
   }
 
-  // ======= بناء سلايد مع معالجة onerror لإزالة السلايد المكسور فورياً =======
-  function buildSlide(url, idx, highPriorityIndex) {
-    const slide = document.createElement("div");
-    slide.className = "swiper-slide";
-    slide.innerHTML = `
+  function makeSlide(n){
+    const { jpg, webp } = buildUrls(n);
+    const wrap = document.createElement("div");
+    wrap.className = "swiper-slide";
+    wrap.innerHTML = `
       <div class="evp-inner">
-        <img class="evp-media"
-             src="${url}"
-             alt="Event ${idx+1}"
-             decoding="async"
-             loading="eager"
-             ${idx < highPriorityIndex ? 'fetchpriority="high"' : 'fetchpriority="low"'}
-        />
+        <picture>
+          ${USE_WEBP ? `<source type="image/webp" srcset="${webp}">` : ""}
+          <img class="evp-media" src="${jpg}" alt="Event ${n}" decoding="async" loading="eager">
+        </picture>
       </div>`;
-    // حدث إزالة آمنة لو كانت الصورة مكسورة (سيُحدَّث السلايدر إن وُجد)
-    const img = slide.querySelector('img');
-    img.addEventListener('error', function () {
-      try {
-        // إزالة السلايد من DOM وتحديث swiper لو مُهيأ
-        if (slide.parentNode) slide.parentNode.removeChild(slide);
-        if (window.__evPortrait && typeof window.__evPortrait.update === 'function') {
-          // تأخير بسيط حتى تتأكد DOM تغيّر
-          setTimeout(() => { try { window.__evPortrait.update(); } catch(e){} }, 20);
-        }
-      } catch (e) {}
-    });
-    return slide;
+    const img = wrap.querySelector("img");
+    img.addEventListener("error", () => {
+      // لو تعثّرت الصورة، احذف السلايد بهدوء
+      wrap.remove();
+      // تحديث خفيف للسوايبر إن كان مهيّأ
+      try { window.__evPortrait?.update?.(); } catch(_){}
+    }, { passive: true });
+    return wrap;
   }
 
-  // ======= التنفيذ الرئيسي: كشف الصيغ، preload، بناء سلايدات، تهيئة Swiper =======
   (async () => {
-    // 1) كشف الملفات لكن مع تقييد التزامن — نستخدم queue لتشغيل pickUrlForIndex
-    const pickTasks = Array.from({ length: EV_MAX_ITEMS }, (_, k) => {
-      const idx = k + 1;
-      return enqueue(() => pickUrlForIndex(idx));
-    });
+    // 1) جهّز قائمة الصور 1..EV_MAX_ITEMS
+    const nums = Array.from({length: EV_MAX_ITEMS}, (_,i)=>i+1);
+    const jpgList = nums.map(n => buildUrls(n).jpg);
 
-    const picks = await Promise.all(pickTasks);
-    const urls = picks.map((p, i) => ({ url: p, idx: i })).filter(x => x.url !== null);
-
-    if (urls.length === 0) return; // لا شيء للعرض
-
-    // تحديد عدد الصور عالية الأولوية بعد معرفة عدد الصور الحقيقية
-    const HIGH_PRELOAD = Math.min(HIGH_PRELOAD_BASE, urls.length);
-
-    // 2) إضافة روابط preload للأهم فقط
+    // 2) أضف preload لكل الصور (متصفحات حديثة تستفيد)
     const head = document.head || document.getElementsByTagName("head")[0];
-    urls.slice(0, HIGH_PRELOAD).forEach(item => {
+    jpgList.forEach(href => {
       const l = document.createElement("link");
       l.rel = "preload";
       l.as = "image";
-      l.href = item.url;
-      try { l.fetchPriority = "high"; } catch(e) {}
+      l.href = href;
       head.appendChild(l);
     });
 
-    // 3) "تسخين" decode لأول مجموعة ذات أولوية لتقليل الومضات
-    try {
-      await Promise.all(urls.slice(0, Math.min(urls.length, HIGH_PRELOAD)).map(item => {
-        const img = new Image();
-        img.decoding = "async";
-        img.src = item.url;
-        return img.decode?.().catch(() => {});
-      }));
-    } catch(e){ /* non-fatal */ }
+    // 3) Preload فعلي منظّم لكل الصور (من بداية الموقع)
+    const ok = await preloadAll(jpgList);
 
-    // 4) بناء السلايدات كلها دفعة واحدة (DOM fragment)
+    // 4) ابنِ السلايدات للصور اللي نجح تحميلها
     const frag = document.createDocumentFragment();
-    urls.forEach((item, i) => {
-      // item.idx هو index صفر-based
-      frag.appendChild(buildSlide(item.url, item.idx, HIGH_PRELOAD));
+    nums.forEach((n, idx) => {
+      if (!ok[idx]) return; // تجاهل الفاشلة
+      frag.appendChild(makeSlide(n));
     });
     wrapper.appendChild(frag);
 
-    // 5) تهيئة Swiper
-    const sw = new Swiper(ROOT_SEL, {
-      centeredSlides: true,
-      loop: true,
-      loopAdditionalSlides: 1,
-      loopedSlides: urls.length,    // يخلي التكرار يتناسب مع عدد السلايدات الفعلية
-      speed: 680,
-      preloadImages: false,
-      watchSlidesProgress: true,
-      autoplay: { delay: 2200, disableOnInteraction: false, pauseOnMouseEnter: true },
+    if (!wrapper.children.length) return;
 
-      slidesPerView: 1.1,
+    // 5) تهيئة Swiper بإعدادات أخف (نفس الطابع الإبداعي بدون حسابات إضافية)
+    const sw = new Swiper(ROOT_SEL, {
+      loop: true,
+      speed: 560,
+      autoplay: { delay: 2400, disableOnInteraction: false, pauseOnMouseEnter: true },
+
+      // خفّضنا الحسابات: ما في observers ولا watchSlidesProgress ولا setTranslate مخصص
+      preloadImages: false,          // لأننا عملنا preload يدوي
+      slidesPerView: 1.15,
       spaceBetween: 14,
+      centeredSlides: true,
+
       breakpoints: {
-        480:  { slidesPerView: 1.25, spaceBetween: 14 },
+        480:  { slidesPerView: 1.3,  spaceBetween: 14 },
         640:  { slidesPerView: 1.6,  spaceBetween: 16 },
-        768:  { slidesPerView: 2.05, spaceBetween: 18 },
+        768:  { slidesPerView: 2.0,  spaceBetween: 18 },
         1024: { slidesPerView: 2.4,  spaceBetween: 20 },
         1280: { slidesPerView: 3.0,  spaceBetween: 22 },
         1536: { slidesPerView: 3.2,  spaceBetween: 24 }
       },
 
+      // نحافظ على الإحساس: Creative Effect، لكن بدون ظلال ودورات زايدة (أخف على الـGPU)
       effect: "creative",
       creativeEffect: {
-        limitProgress: 2.0,
-        prev: { translate: ["-24%", 0, -180], rotate: [0, 0, -5], scale: 0.86, origin: "right center", shadow: true },
-        next: { translate: ["24%",  0, -180], rotate: [0, 0,  5], scale: 0.90, origin: "left center", shadow: true }
+        limitProgress: 1.6,
+        perspective: false,
+        shadowPerProgress: false,
+        prev: { translate: ["-22%", 0, -140], rotate: [0, 0, -4], scale: 0.9,  origin: "right center",  shadow: false },
+        next: { translate: ["22%",  0, -140], rotate: [0, 0,  4], scale: 0.94, origin: "left center",   shadow: false }
       },
 
       navigation: { nextEl: ".evp-next", prevEl: ".evp-prev" },
       keyboard: { enabled: true },
-      mousewheel: { forceToAxis: true, sensitivity: 0.6 },
-
-      observer: true, observeParents: true, observeSlideChildren: true, resizeObserver: true,
-
-      on: {
-        afterInit(sw) {
-          requestAnimationFrame(() => {
-            sw.updateSize(); sw.updateSlides(); sw.updateProgress();
-            sw.updateSlidesOffset(); sw.updateSlidesClasses();
-            sw.updateSlidesProgress(); sw.setTranslate();
-            sw.slideTo(sw.activeIndex, 0, false);
-          });
-          setTimeout(() => { sw.update(); sw.updateSlidesProgress(); sw.setTranslate(); }, 120);
-        },
-        setTranslate(sw) {
-          sw.slides.forEach((s) => {
-            const p = Math.min(1, Math.abs(s.progress));
-            const inner = s.querySelector(".evp-inner"); if (!inner) return;
-            const scale = 1 - p * 0.08;
-            const blur  = p * 1.0;
-            const sat   = 1 - p * 0.07;
-            inner.style.setProperty("--z",  scale);
-            inner.style.setProperty("--b",  `${blur}px`);
-            inner.style.setProperty("--sat", sat);
-            if (p < 0.22) s.classList.add("is-center"); else s.classList.remove("is-center");
-          });
-        }
-      }
+      // mousewheel: ممكن يسبب jank على لابتوبات التاتش؛ عطّلناه افتراضياً
+      // mousewheel: { forceToAxis: true, sensitivity: 0.6 },
     });
 
-    // حفظ المرجع عالمياً لو حابين نتحكّم بعدين
     window.__evPortrait = sw;
 
-    // إيقاف/تشغيل الـautoplay عند تغيّر رؤية التبويب لتوفير موارد
-    document.addEventListener('visibilitychange', () => {
-      if (!window.__evPortrait || !window.__evPortrait.autoplay) return;
-      if (document.hidden) window.__evPortrait.autoplay.stop();
-      else window.__evPortrait.autoplay.start();
-    });
-
+    // 6) توفير طاقة عند تبدّل الرؤية
+    document.addEventListener("visibilitychange", () => {
+      const ap = sw?.autoplay;
+      if (!ap) return;
+      if (document.hidden) ap.stop(); else ap.start();
+    }, { passive: true });
   })();
-
-})(); 
+})();
 </script>
 
   <!-- =================== Customers ( =================== -->
