@@ -1008,9 +1008,9 @@
       transition: transform .55s cubic-bezier(.2, .8, .2, 1), filter .45s ease, box-shadow .45s ease;
       will-change: transform, filter;
       border-radius: inherit;
-        transform: scale(var(--z, 1));
-  filter: saturate(var(--sat, 1)) blur(var(--b, 0));
-  will-change: transform, filter;
+      transform: scale(var(--z, 1));
+      filter: saturate(var(--sat, 1)) blur(var(--b, 0));
+      will-change: transform, filter;
     }
 
     .events-portrait-swiper .evp-media {
@@ -1216,171 +1216,213 @@
     }
 
     /* ثبّت نسبة العرض وفعّل will-change لتحسين السلاسة */
-.events-portrait-swiper .swiper-slide {
-  aspect-ratio: 9 / 16;
-}
-.events-portrait-swiper .evp-inner {
-  will-change: transform, filter;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-.events-portrait-swiper img.evp-media {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .events-portrait-swiper .swiper-slide {
+      aspect-ratio: 9 / 16;
+    }
 
+    .events-portrait-swiper .evp-inner {
+      will-change: transform, filter;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+
+    .events-portrait-swiper img.evp-media {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .events-portrait-swiper .swiper-slide {
+      aspect-ratio: 9 / 16;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .events-portrait-swiper .evp-inner {
+      will-change: transform, filter;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+
+    .events-portrait-swiper .swiper-slide {
+      border-radius: 22px;
+      /* أو الرقم اللي بدك ياه */
+      overflow: hidden;
+      /* قص الزيادة */
+      background: #000;
+      /* عشان ما يبين محتوى تحت */
+      will-change: transform;
+      /* طلب تسريع للـ GPU */
+      backface-visibility: hidden;
+      transform: translateZ(0);
+      /* يرغم التراصف بالـ GPU */
+      contain: paint;
+      /* يخلي القص ضمن حدود العنصر */
+    }
+
+    .events-portrait-swiper .evp-inner,
+    .events-portrait-swiper .evp-media {
+      border-radius: inherit;
+      /* يورّث النعومة */
+      overflow: hidden;
+    }
   </style>
 
-<script>
-(() => {
-  if (window.__blEventsPortraitInit) return;
-  window.__blEventsPortraitInit = true;
+  
+  <script>
+    (() => {
+      if (window.__blEventsPortraitInit) return;
+      window.__blEventsPortraitInit = true;
 
-  // ========= إعدادات عامة =========
-  const EV_MAX_ITEMS = 12;            // عدّل حسب عدد صورك
-  const EV_PATH = "images/events";
-  const ROOT_SEL = ".events-portrait-swiper";
-  const WRAPPER_ID = "eventsPortraitWrapper";
-  const USE_WEBP = true;              // نحاول webp تلقائياً عبر <picture>
-  const EXT_FALLBACK = "jpg";         // الامتداد الاحتياطي
+      const EV_MAX_ITEMS = 12;
+      const EV_PATH = "images/events";
+      const ROOT_SEL = ".events-portrait-swiper";
+      const WRAPPER_ID = "eventsPortraitWrapper";
+      const USE_WEBP = true;
+      const FALLBACK_EXT = "webp";
 
-  const root = document.querySelector(ROOT_SEL);
-  const wrapper = document.getElementById(WRAPPER_ID);
-  if (!root || !wrapper) return;
+      const root = document.querySelector(ROOT_SEL);
+      const wrapper = document.getElementById(WRAPPER_ID);
+      if (!root || !wrapper) return;
 
-  // مراعاة وضع توفير البيانات
-  const conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
-  const isSaver = conn?.saveData === true;
-  const MAX_PARALLEL = isSaver ? 2 : 4;   // توازي تحميل الصور
+      /* ====== Network-aware preload ====== */
+      const conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
+      const MAX_PARALLEL = (conn?.saveData || ["slow-2g", "2g"].includes(conn?.effectiveType)) ? 2 : 4;
 
-  // ========= Helpers خفيفة =========
-  function buildUrls(n){
-    const jpg = `${EV_PATH}/${n}.${EXT_FALLBACK}`;
-    const webp = `${EV_PATH}/${n}.webp`;
-    return { jpg, webp };
-  }
+      const urlPair = n => ({ webp: `${EV_PATH}/${n}.webp`, jpg: `${EV_PATH}/${n}.${FALLBACK_EXT}` });
 
-  // Preload بصورة هادئة (توازي محدود)
-  function preloadImage(url){
-    return new Promise((res) => {
-      const img = new Image();
-      img.decoding = "async";
-      img.onload = () => res(true);
-      img.onerror = () => res(false);
-      img.src = url;
-    });
-  }
-
-  async function preloadAll(urls){
-    let i = 0, ok = new Array(urls.length).fill(false);
-    async function worker(){
-      while (i < urls.length){
-        const cur = i++;
-        ok[cur] = await preloadImage(urls[cur]);
+      function preload(href) {
+        return new Promise(res => {
+          const img = new Image();
+          img.decoding = "async";
+          img.onload = () => res(true);
+          img.onerror = () => res(false);
+          img.src = href;
+        });
       }
-    }
-    await Promise.all(Array.from({length: MAX_PARALLEL}, worker));
-    return ok;
-  }
 
-  function makeSlide(n){
-    const { jpg, webp } = buildUrls(n);
-    const wrap = document.createElement("div");
-    wrap.className = "swiper-slide";
-    wrap.innerHTML = `
-      <div class="evp-inner">
-        <picture>
-          ${USE_WEBP ? `<source type="image/webp" srcset="${webp}">` : ""}
-          <img class="evp-media" src="${jpg}" alt="Event ${n}" decoding="async" loading="eager">
-        </picture>
-      </div>`;
-    const img = wrap.querySelector("img");
-    img.addEventListener("error", () => {
-      // لو تعثّرت الصورة، احذف السلايد بهدوء
-      wrap.remove();
-      // تحديث خفيف للسوايبر إن كان مهيّأ
-      try { window.__evPortrait?.update?.(); } catch(_){}
-    }, { passive: true });
-    return wrap;
-  }
+      async function preloadAll(urls) {
+        let i = 0, ok = new Array(urls.length).fill(false);
+        async function worker() {
+          while (i < urls.length) {
+            const cur = i++;
+            ok[cur] = await preload(urls[cur]);
+          }
+        }
+        await Promise.all(Array.from({ length: MAX_PARALLEL }, worker));
+        return ok;
+      }
 
-  (async () => {
-    // 1) جهّز قائمة الصور 1..EV_MAX_ITEMS
-    const nums = Array.from({length: EV_MAX_ITEMS}, (_,i)=>i+1);
-    const jpgList = nums.map(n => buildUrls(n).jpg);
+    function makeSlide(n){
+  const el = document.createElement("div");
+  el.className = "swiper-slide";
+  el.innerHTML = `
+    <div class="evp-inner">
+      <img class="evp-media" src="${EV_PATH}/${n}.webp" 
+           alt="Event ${n}" decoding="async" loading="lazy">
+    </div>`;
+  el.querySelector("img").addEventListener("error", () => {
+    el.remove();
+    window.__evPortrait?.update?.();
+  }, {passive:true});
+  return el;
+}
 
-    // 2) أضف preload لكل الصور (متصفحات حديثة تستفيد)
-    const head = document.head || document.getElementsByTagName("head")[0];
-    jpgList.forEach(href => {
-      const l = document.createElement("link");
-      l.rel = "preload";
-      l.as = "image";
-      l.href = href;
-      head.appendChild(l);
-    });
 
-    // 3) Preload فعلي منظّم لكل الصور (من بداية الموقع)
-    const ok = await preloadAll(jpgList);
+      (async () => {
+        const nums = Array.from({ length: EV_MAX_ITEMS }, (_, i) => i + 1);
+        const jpgs = nums.map(n => urlPair(n).jpg);
 
-    // 4) ابنِ السلايدات للصور اللي نجح تحميلها
-    const frag = document.createDocumentFragment();
-    nums.forEach((n, idx) => {
-      if (!ok[idx]) return; // تجاهل الفاشلة
-      frag.appendChild(makeSlide(n));
-    });
-    wrapper.appendChild(frag);
+        // Preload hints
+        const head = document.head || document.getElementsByTagName("head")[0];
+        jpgs.forEach(href => { const l = document.createElement("link"); l.rel = "preload"; l.as = "image"; l.href = href; head.appendChild(l); });
 
-    if (!wrapper.children.length) return;
+        // Preload images
+        const ok = await preloadAll(jpgs);
 
-    // 5) تهيئة Swiper بإعدادات أخف (نفس الطابع الإبداعي بدون حسابات إضافية)
-    const sw = new Swiper(ROOT_SEL, {
-      loop: true,
-      speed: 560,
-      autoplay: { delay: 2400, disableOnInteraction: false, pauseOnMouseEnter: true },
+        // Build slides
+        const frag = document.createDocumentFragment();
+        nums.forEach((n, i) => ok[i] && frag.appendChild(makeSlide(n)));
+        wrapper.appendChild(frag);
+        if (!wrapper.children.length) return;
 
-      // خفّضنا الحسابات: ما في observers ولا watchSlidesProgress ولا setTranslate مخصص
-      preloadImages: false,          // لأننا عملنا preload يدوي
-      slidesPerView: 1.15,
-      spaceBetween: 14,
-      centeredSlides: true,
+        // Swiper init
+        const sw = new Swiper(ROOT_SEL, {
+          loop: true,
+          loopedSlides: wrapper.children.length,
+          speed: 520,
+          autoplay: { delay: 2600, disableOnInteraction: false, pauseOnMouseEnter: true },
+          centeredSlides: true,
+          slidesPerView: 1.18,
+          spaceBetween: 14,
+          watchSlidesProgress: true,
+          grabCursor: true,
+          threshold: 6,
+          longSwipesRatio: 0.32,
+          resistanceRatio: 0.68,
 
-      breakpoints: {
-        480:  { slidesPerView: 1.3,  spaceBetween: 14 },
-        640:  { slidesPerView: 1.6,  spaceBetween: 16 },
-        768:  { slidesPerView: 2.0,  spaceBetween: 18 },
-        1024: { slidesPerView: 2.4,  spaceBetween: 20 },
-        1280: { slidesPerView: 3.0,  spaceBetween: 22 },
-        1536: { slidesPerView: 3.2,  spaceBetween: 24 }
-      },
+          breakpoints: {
+            360: { slidesPerView: 1.12, spaceBetween: 12 },
+            480: { slidesPerView: 1.22, spaceBetween: 14 },
+            640: { slidesPerView: 1.46, spaceBetween: 16 },
+            768: { slidesPerView: 1.9, spaceBetween: 18 },
+            1024: { slidesPerView: 2.35, spaceBetween: 20 },
+            1280: { slidesPerView: 2.9, spaceBetween: 22 },
+            1536: { slidesPerView: 3.1, spaceBetween: 24 }
+          },
 
-      // نحافظ على الإحساس: Creative Effect، لكن بدون ظلال ودورات زايدة (أخف على الـGPU)
-      effect: "creative",
-      creativeEffect: {
-        limitProgress: 1.6,
-        perspective: false,
-        shadowPerProgress: false,
-        prev: { translate: ["-22%", 0, -140], rotate: [0, 0, -4], scale: 0.9,  origin: "right center",  shadow: false },
-        next: { translate: ["22%",  0, -140], rotate: [0, 0,  4], scale: 0.94, origin: "left center",   shadow: false }
-      },
+          effect: "creative",
+          creativeEffect: {
+            limitProgress: 1.5,
+            perspective: false,
+            shadowPerProgress: false,
+            prev: { translate: ["-20%", 0, -110], rotate: [0, 0, -3], scale: 0.92, origin: "right center", shadow: false },
+            next: { translate: ["20%", 0, -110], rotate: [0, 0, 3], scale: 0.95, origin: "left center", shadow: false }
+          },
 
-      navigation: { nextEl: ".evp-next", prevEl: ".evp-prev" },
-      keyboard: { enabled: true },
-      // mousewheel: ممكن يسبب jank على لابتوبات التاتش؛ عطّلناه افتراضياً
-      // mousewheel: { forceToAxis: true, sensitivity: 0.6 },
-    });
+          navigation: { nextEl: ".evp-next", prevEl: ".evp-prev" },
+          keyboard: { enabled: true }
+        });
 
-    window.__evPortrait = sw;
+        // Progress-based styling (scale/blur/saturation)
+        const clamp01 = v => Math.max(0, Math.min(1, v));
+        const lerp = (a, b, t) => a + (b - a) * t;
 
-    // 6) توفير طاقة عند تبدّل الرؤية
-    document.addEventListener("visibilitychange", () => {
-      const ap = sw?.autoplay;
-      if (!ap) return;
-      if (document.hidden) ap.stop(); else ap.start();
-    }, { passive: true });
-  })();
-})();
-</script>
+        function restyleSlides() {
+          sw.slides.forEach(slide => {
+            const p = Math.min(1.5, Math.abs(slide.progress || 0)); // 0 = مركز
+            // كل ما اقترب من المركز p أصغر
+            const t = 1 - clamp01(p / 1.2);   // 0..1
+            const scale = lerp(0.90, 1.00, t);
+            const blur = lerp(2.8, 0.0, t);
+            const sat = lerp(0.88, 1.0, t);
+            slide.style.setProperty("--z", scale.toFixed(3));
+            slide.style.setProperty("--b", `${blur.toFixed(2)}px`);
+            slide.style.setProperty("--sat", sat.toFixed(2));
+            slide.classList.toggle("is-center", t > 0.78);
+          });
+        }
+
+        sw.on("setTranslate", restyleSlides);
+        sw.on("slideChangeTransitionStart", restyleSlides);
+        restyleSlides();
+
+        // تبويت الصفحة
+        document.addEventListener("visibilitychange", () => {
+          if (!sw?.autoplay) return;
+          document.hidden ? sw.autoplay.stop() : sw.autoplay.start();
+        }, { passive: true });
+
+        // تقليل الحركة
+        if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+          sw.params.autoplay = false;
+          sw.update();
+        }
+
+        window.__evPortrait = sw;
+      })();
+    })();
+  </script>
 
   <!-- =================== Customers ( =================== -->
 
