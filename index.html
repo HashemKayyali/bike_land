@@ -1222,9 +1222,9 @@
   window.__blEventsPortraitInit = true;
 
   // ======= إعدادات عامة =======
-  const EV_MAX_ITEMS = 15;
-  const EV_EXT  = "webp";
+  const EV_MAX_ITEMS = 15;                   // عدّلها لعدد صورك الفعلي (أو 32)
   const EV_PATH = "images/events";
+  const CAND_EXTS = ["webp","jpg","png"];    // جرّب بالترتيب
   const ROOT_SEL = ".events-portrait-swiper";
   const WRAPPER_ID = "eventsPortraitWrapper";
 
@@ -1232,105 +1232,145 @@
   const wrapper = document.getElementById(WRAPPER_ID);
   if (!root || !wrapper) return;
 
-  // كل الروابط 1..32
-  const urls = Array.from({ length: EV_MAX_ITEMS }, (_, i) => `${EV_PATH}/${i + 1}.${EV_EXT}`);
+  // شبكة/توفير بيانات: قلّل الضغط العالي لو الاتصال تعبان
+  const conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
+  const isSaver = navigator.connection?.saveData === true;
+  const slowNet = ["slow-2g","2g"].includes(conn?.effectiveType);
+  const HIGH_PRELOAD = isSaver || slowNet ? 4 : 8;    // كم صورة نعطيها أولوية عالية
 
-  // ======= Preload Links (يدفش المتصفّح يبدأ التحميل فوراً) =======
-  const head = document.head || document.getElementsByTagName("head")[0];
-  urls.forEach((href, i) => {
-    const l = document.createElement("link");
-    l.rel = "preload";
-    l.as  = "image";
-    l.href = href;
-    // أولوية أعلى لأول 6 صور
-    if (i < 6) l.fetchPriority = "high";
-    head.appendChild(l);
-  });
-
-  // ======= إنشاء السلايدات كلها وإضافتها دفعة واحدة =======
-  const frag = document.createDocumentFragment();
-
-  function buildSlide(url, i) {
-    const slide = document.createElement("div");
-    slide.className = "swiper-slide";
-    slide.innerHTML = `
-      <div class="evp-inner">
-        <img class="evp-media"
-             src="${url}"
-             alt="Event ${i+1}"
-             decoding="async"
-             loading="eager"
-             ${i < 6 ? 'fetchpriority="high"' : 'fetchpriority="low"'}
-        />
-      </div>`;
-    return slide;
+  // ======= فاحص صورة (وجود فقط) =======
+  function probe(url) {
+    return new Promise(res => {
+      const img = new Image();
+      img.decoding = "async";
+      img.onload = () => res(true);
+      img.onerror = () => res(false);
+      img.src = url + (url.includes("?") ? "&" : "?") + "v=" + Date.now(); // تفادي كاش قاسٍ أول مرة
+    });
   }
 
-  urls.forEach((u, i) => frag.appendChild(buildSlide(u, i)));
-  wrapper.appendChild(frag);
-
-  // ======= تهيئة Swiper مرّة واحدة بعد ما ضفنا كل السلايدات =======
-  const sw = new Swiper(ROOT_SEL, {
-    centeredSlides: true,
-    loop: true,
-    loopAdditionalSlides: 1,
-    speed: 680,
-    preloadImages: false,              // ما نحتاجه الآن لأننا استعملنا src مباشرة
-    watchSlidesProgress: true,
-    // lazy: غير مهم الآن، كل الصور تُحمّل مُسبقاً
-    autoplay: { delay: 2200, disableOnInteraction: false, pauseOnMouseEnter: true },
-
-    slidesPerView: 1.1,
-    spaceBetween: 14,
-    breakpoints: {
-      480:  { slidesPerView: 1.25, spaceBetween: 14 },
-      640:  { slidesPerView: 1.6,  spaceBetween: 16 },
-      768:  { slidesPerView: 2.05, spaceBetween: 18 },
-      1024: { slidesPerView: 2.4,  spaceBetween: 20 },
-      1280: { slidesPerView: 3.0,  spaceBetween: 22 },
-      1536: { slidesPerView: 3.2,  spaceBetween: 24 }
-    },
-
-    effect: "creative",
-    creativeEffect: {
-      limitProgress: 2.0,
-      prev: { translate: ["-24%", 0, -180], rotate: [0, 0, -5], scale: 0.86, origin: "right center", shadow: true },
-      next: { translate: ["24%",  0, -180], rotate: [0, 0,  5], scale: 0.90, origin: "left center", shadow: true }
-    },
-
-    navigation: { nextEl: ".evp-next", prevEl: ".evp-prev" },
-    keyboard: { enabled: true },
-    mousewheel: { forceToAxis: true, sensitivity: 0.6 },
-
-    observer: true, observeParents: true, observeSlideChildren: true, resizeObserver: true,
-
-    on: {
-      afterInit(sw) {
-        requestAnimationFrame(() => {
-          sw.updateSize(); sw.updateSlides(); sw.updateProgress();
-          sw.updateSlidesOffset(); sw.updateSlidesClasses();
-          sw.updateSlidesProgress(); sw.setTranslate();
-          sw.slideTo(sw.activeIndex, 0, false);
-        });
-        setTimeout(() => { sw.update(); sw.updateSlidesProgress(); sw.setTranslate(); }, 120);
-      },
-      setTranslate(sw) {
-        sw.slides.forEach((s) => {
-          const p = Math.min(1, Math.abs(s.progress));
-          const inner = s.querySelector(".evp-inner"); if (!inner) return;
-          const scale = 1 - p * 0.08;
-          const blur  = p * 1.0;
-          const sat   = 1 - p * 0.07;
-          inner.style.setProperty("--z",  scale);
-          inner.style.setProperty("--b",  `${blur}px`);
-          inner.style.setProperty("--sat", sat);
-          if (p < 0.22) s.classList.add("is-center"); else s.classList.remove("is-center");
-        });
-      }
+  // اختَر أول صيغة متاحة للاسم i (1..N)
+  async function pickUrl(i) {
+    for (const ext of CAND_EXTS) {
+      const u = `${EV_PATH}/${i}.${ext}`;
+      if (await probe(u)) return u;
     }
-  });
+    return null;
+  }
 
-  window.__evPortrait = sw;
+  // ======= جهّز القائمة الفعلية للصور =======
+  (async () => {
+    const picks = await Promise.all(
+      Array.from({length: EV_MAX_ITEMS}, (_, k) => pickUrl(k + 1))
+    );
+    const urls = picks.filter(Boolean);
+
+    if (urls.length === 0) return; // لا تهيئة لو ما في صور
+
+    // ======= Preload Links + أولوية =======
+    const head = document.head || document.getElementsByTagName("head")[0];
+    urls.forEach((href, i) => {
+      const l = document.createElement("link");
+      l.rel = "preload";
+      l.as = "image";
+      l.href = href;
+      if (i < HIGH_PRELOAD) l.fetchPriority = "high";
+      head.appendChild(l);
+    });
+
+    // ======= “تسخين” الـdecode (يعني لما نوصل للسلايد، يعرض فوراً) =======
+    // نفّذ التسخين فقط لأول 10–12 صورة حتى ما نضغط الذاكرة
+    const WARM_COUNT = Math.min(urls.length, isSaver || slowNet ? 6 : 12);
+    await Promise.all(urls.slice(0, WARM_COUNT).map(u => {
+      const img = new Image();
+      img.decoding = "async";
+      img.src = u;
+      return img.decode?.().catch(() => {});
+    }));
+
+    // ======= إنشاء السلايدات كلها دفعة واحدة =======
+    const frag = document.createDocumentFragment();
+    function buildSlide(url, i) {
+      const slide = document.createElement("div");
+      slide.className = "swiper-slide";
+      slide.innerHTML = `
+        <div class="evp-inner">
+          <img class="evp-media"
+               src="${url}"
+               alt="Event ${i+1}"
+               decoding="async"
+               loading="eager"
+               ${i < HIGH_PRELOAD ? 'fetchpriority="high"' : 'fetchpriority="low"'}
+          />
+        </div>`;
+      return slide;
+    }
+    urls.forEach((u, i) => frag.appendChild(buildSlide(u, i)));
+    wrapper.appendChild(frag);
+
+    // ======= تهيئة Swiper =======
+    const sw = new Swiper(ROOT_SEL, {
+      centeredSlides: true,
+      loop: true,
+      loopAdditionalSlides: 1,
+      loopedSlides: urls.length,          // يخلي التكرار يتناسب مع عددك الفعلي
+      speed: 680,
+      preloadImages: false,               // بنستعمل src مباشرة
+      watchSlidesProgress: true,
+      autoplay: { delay: 2200, disableOnInteraction: false, pauseOnMouseEnter: true },
+
+      slidesPerView: 1.1,
+      spaceBetween: 14,
+      breakpoints: {
+        480:  { slidesPerView: 1.25, spaceBetween: 14 },
+        640:  { slidesPerView: 1.6,  spaceBetween: 16 },
+        768:  { slidesPerView: 2.05, spaceBetween: 18 },
+        1024: { slidesPerView: 2.4,  spaceBetween: 20 },
+        1280: { slidesPerView: 3.0,  spaceBetween: 22 },
+        1536: { slidesPerView: 3.2,  spaceBetween: 24 }
+      },
+
+      effect: "creative",
+      creativeEffect: {
+        limitProgress: 2.0,
+        prev: { translate: ["-24%", 0, -180], rotate: [0, 0, -5], scale: 0.86, origin: "right center", shadow: true },
+        next: { translate: ["24%",  0, -180], rotate: [0, 0,  5], scale: 0.90, origin: "left center", shadow: true }
+      },
+
+      navigation: { nextEl: ".evp-next", prevEl: ".evp-prev" },
+      keyboard: { enabled: true },
+      mousewheel: { forceToAxis: true, sensitivity: 0.6 },
+
+      observer: true, observeParents: true, observeSlideChildren: true, resizeObserver: true,
+
+      on: {
+        afterInit(sw) {
+          requestAnimationFrame(() => {
+            sw.updateSize(); sw.updateSlides(); sw.updateProgress();
+            sw.updateSlidesOffset(); sw.updateSlidesClasses();
+            sw.updateSlidesProgress(); sw.setTranslate();
+            sw.slideTo(sw.activeIndex, 0, false);
+          });
+          setTimeout(() => { sw.update(); sw.updateSlidesProgress(); sw.setTranslate(); }, 120);
+        },
+        setTranslate(sw) {
+          sw.slides.forEach((s) => {
+            const p = Math.min(1, Math.abs(s.progress));
+            const inner = s.querySelector(".evp-inner"); if (!inner) return;
+            const scale = 1 - p * 0.08;
+            const blur  = p * 1.0;
+            const sat   = 1 - p * 0.07;
+            inner.style.setProperty("--z",  scale);
+            inner.style.setProperty("--b",  `${blur}px`);
+            inner.style.setProperty("--sat", sat);
+            if (p < 0.22) s.classList.add("is-center"); else s.classList.remove("is-center");
+          });
+        }
+      }
+    });
+
+    window.__evPortrait = sw;
+  })();
 })();
 </script>
 
