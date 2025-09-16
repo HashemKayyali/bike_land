@@ -1289,260 +1289,186 @@
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    /* ================== 0) بيانات العملاء ================== */
-    const FOLDERS = [
-      "AMAZON", "AstraZeneca", "ZAIN", "Arab Bank", "Rotana Hotel", "Delmonte", "PROTEINAK",
-      "PSUT", "JU", "Abdali Hospital", "Umniah", "Saray aqaba", "RIA", "SNA", "TAJ MALL",
-      "Basketball", "MR.BURRITOS", "Birthdays", "Amman Academy",
-    ];
-    const CUSTOMERS = FOLDERS.map(folder => ({
-      name: folder.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase()),
-      slug: folder
-    }));
-    const stack = document.getElementById("customersStack");
+document.addEventListener("DOMContentLoaded", () => {
+  // --------- بيانات العملاء ----------
+  const FOLDERS = [
+    "AMAZON","AstraZeneca","ZAIN","Arab Bank","Rotana Hotel","Delmonte","PROTEINAK",
+    "PSUT","JU","Abdali Hospital","Umniah","Saray aqaba","RIA","SNA","TAJ MALL",
+    "Basketball","MR.BURRITOS","Birthdays","Amman Academy",
+  ];
+  const CUSTOMERS = FOLDERS.map(folder => ({
+    name: folder.replace(/[-_]/g," ").replace(/\b\w/g,c=>c.toUpperCase()),
+    slug: folder
+  }));
 
-    /* ================== 1) Queue لتحديد التوازي ================== */
-    const MAX_PARALLEL = 6; // أهدى على الشبكة
-    let active = 0;
-    const pending = [];
-    function enqueue(taskFn) {
-      return new Promise(resolve => { pending.push({ taskFn, resolve }); pump(); });
-    }
-    function pump() {
-      while (active < MAX_PARALLEL && pending.length) {
-        const { taskFn, resolve } = pending.shift();
-        active++;
-        taskFn().then(resolve).finally(() => { active--; pump(); });
-      }
-    }
+  const stack = document.getElementById("customersStack");
 
-    /* ================== 2) أدوات مساعدة ================== */
-    async function headOk(url, timeout = 1200) {
-      const ctrl = new AbortController();
-      const id = setTimeout(() => ctrl.abort(), timeout);
-      try {
-        const res = await fetch(url, { method: "HEAD", signal: ctrl.signal, cache: "force-cache" });
-        return res.ok;
-      } catch { return false; }
-      finally { clearTimeout(id); }
-    }
-
-    async function readManifest(folder) {
-      const enc = encodeURIComponent(folder);
-      try {
-        const res = await fetch(`images/customers/${enc}/index.json`, { cache: "force-cache" });
-        if (!res.ok) throw 0;
-        const data = await res.json();
-        // نتوقع شكل: { "shots": [1,2,3,...] }
-        if (Array.isArray(data.shots) && data.shots.length) {
-          return data.shots.map(n => ({
-            thumb: `images/customers/${enc}/thumbs/${n}.webp`,
-            full:  `images/customers/${enc}/${n}.webp`
-          }));
-        }
-      } catch { }
-      return null;
-    }
-
-    /* ================== 3) جامع صور (WebP thumbs) ================== */
-    async function collectThumbs(folderName, {
-      need = 12,
-      max = 50,
-      batch = 5,
-      timeout = 160
-    } = {}) {
-      const enc = encodeURIComponent(folderName);
-
-      // 3.1 جرّب manifest أولًا
-      const fromManifest = await readManifest(folderName);
-      if (fromManifest) {
-        return fromManifest.slice(0, need).map(it => it.thumb);
-      }
-
-      // 3.2 fallback سريع: فحص thumbs بتسلسل
-      const out = [];
-      let i = 1;
-      while (out.length < need && i <= max) {
-        const idxs = Array.from({ length: batch }, (_, k) => i + k).filter(n => n <= max);
-        const hits = await Promise.all(idxs.map(async n => {
-          const t = `images/customers/${enc}/thumbs/${n}.webp`;
-          return (await headOk(t, timeout)) ? t : null;
-        }));
-        for (const h of hits) if (h) out.push(h);
-        i += batch;
-      }
-      return out.slice(0, need);
-    }
-
-    /* ================== 4) بناء الكروت ================== */
-    stack.innerHTML = CUSTOMERS.map(c => `
-      <div class="stack-card" data-company="${c.slug}">
-        <div class="stack-row">
-          <div class="stack-logo">
-            <div class="inner">
-              <img alt="${c.name}" loading="lazy" decoding="async"
-                   src="images/customers/${encodeURIComponent(c.slug)}/logo.webp"
-                   onerror="this.onerror=null; this.src=this.src.replace('.webp','.png');">
-            </div>
-          </div>
-          <div class="stack-info">
-            <div class="stack-title">${c.name}</div>
+  // --------- بناء الكروت (بدون ثَمبنيلز حالياً) ----------
+  stack.innerHTML = CUSTOMERS.map(c => `
+    <div class="stack-card" data-company="${c.slug}">
+      <div class="stack-row">
+        <div class="stack-logo">
+          <div class="inner">
+            <img alt="${c.name}" loading="lazy" decoding="async"
+                 src="images/customers/${encodeURIComponent(c.slug)}/logo.webp"
+                 onerror="this.onerror=null; this.src=this.src.replace('.webp','.png');">
           </div>
         </div>
-        <div class="thumb-strip" data-thumbs hidden></div>
+        <div class="stack-info">
+          <div class="stack-title">${c.name}</div>
+        </div>
       </div>
-    `).join("");
+      <div class="thumb-strip" data-thumbs></div>
+    </div>
+  `).join("");
 
-    /* ================== 5) Lazy-load للثَمبنيلز مع دفعة أولى صغيرة ================== */
-const idleCall = (fn) => setTimeout(fn, 0);
-    async function loadCard(card) {
-      const folder = card.getAttribute("data-company");
-      const thumbsEl = card.querySelector("[data-thumbs]");
-
-      return enqueue(async () => {
-        try {
-          const imgs = await collectThumbs(folder, { need: 12, max: 36, batch: 6, timeout: 160 });
-          if (!imgs.length) return;
-
-          // ابنِ العناصر لكن لا تحمّل src فعليًا (data-src فقط)
-          thumbsEl.innerHTML = imgs.map((u, i) => `
-            <div class="thumb is-loading">
-              <img 
-                data-src="${u}" 
-                alt="${folder}" 
-                loading="lazy" 
-                decoding="async" 
-                fetchpriority="low"
-                width="320" height="240" 
-                style="aspect-ratio:4/3;object-fit:cover">
-            </div>
-          `).join("");
-
-          // افكت الظهور
-          const thumbs = Array.from(thumbsEl.querySelectorAll(".thumb"));
-          thumbs.forEach((el, idx) => {
-            el.style.transitionDelay = `${idx * 25}ms`;
-            requestAnimationFrame(() => el.classList.add("in"));
-          });
-          thumbsEl.hidden = false;
-
-          const imgsEls = thumbs.map(t => t.querySelector("img"));
-
-          // نحدد الدفعة الأولى ديناميكياً حسب سرعة الشبكة/توفير البيانات
-          const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-          const isSaveData   = !!(conn && conn.saveData);
-          const isSlowType   = !!(conn && typeof conn.effectiveType === "string" && /(^|-)2g|3g$/i.test(conn.effectiveType));
-          const isLowDownlink= !!(conn && typeof conn.downlink === "number" && conn.downlink < 1.5);
-          let FIRST_BATCH = (isSaveData || isSlowType || isLowDownlink) ? 2 : 6;
-
-          // حمّل الدفعة الأولى
-          for (let i = 0; i < Math.min(FIRST_BATCH, imgsEls.length); i++) {
-            const img = imgsEls[i];
-            img.src = img.dataset.src;
-            img.setAttribute("fetchpriority", i === 0 ? "high" : "low");
-            img.addEventListener("load", () => {
-              img.classList.add("loaded");                 // ← fade-in
-              img.parentElement.classList.remove("is-loading"); // ← شيل السكلتون
-            }, { once: true });
-          }
-
-          // حمّل باقي الصور بخمول المعالج/الشبكة
-          function lazyFillRest() {
-            for (let i = FIRST_BATCH; i < imgsEls.length; i++) {
-              const img = imgsEls[i];
-              if (!img.src) {
-                img.src = img.dataset.src;
-                img.addEventListener("load", () => {
-                  img.classList.add("loaded");
-                  img.parentElement.classList.remove("is-loading");
-                }, { once: true });
-              }
-            }
-          }
-          idleCall(lazyFillRest);
-
-          // راقب العناصر داخل الشريط: حمل الصورة عندما تقترب من الظهور
-         const stripIO = new IntersectionObserver((entries) => {
-  for (const e of entries) {
-    if (!e.isIntersecting) continue;
-    const img = e.target;
-    if (img && !img.src) {
-      img.src = img.dataset.src;
-      img.addEventListener("load", () => {
-        img.classList.add("loaded");
-        img.parentElement.classList.remove("is-loading");
-      }, { once: true });
-      img.addEventListener("error", () => {
-        // إذا بدك تشيله عند الخطأ:
-        img.parentElement.remove();
-      }, { once: true });
-    }
-    stripIO.unobserve(img);
+  // --------- أدوات مساعدة ----------
+  function revealThumbs(thumbsEl){
+    const thumbs = Array.from(thumbsEl.querySelectorAll(".thumb"));
+    thumbs.forEach((el,i)=>{
+      el.style.transitionDelay = `${i*25}ms`;
+      requestAnimationFrame(() => el.classList.add("in"));
+    });
   }
-}, { root: null, rootMargin: "800px 0px", threshold: 0.01 });
 
-// بدلاً من stripIO.observe(thumb) خلّيها:
-for (let i = FIRST_BATCH; i < imgsEls.length; i++) stripIO.observe(imgsEls[i]);
-
-          // عند التمرير نعيد المراقبة
-          let scrollTimer;
-          thumbsEl.addEventListener("scroll", () => {
-            clearTimeout(scrollTimer);
-            scrollTimer = setTimeout(() => {
-              for (let i = FIRST_BATCH; i < thumbs.length; i++) stripIO.observe(thumbs[i]);
-            }, 120);
-          }, { passive: true });
-
-        } catch { /* تجاهل الأخطاء */ }
-      });
+  function buildThumbList(folder, max=18){ // أقل ← DOM أخف
+    const enc = encodeURIComponent(folder);
+    const list = [];
+    for (let i=1; i<=max; i++){
+      list.push(`images/customers/${enc}/thumbs/${i}.webp`);
     }
+    return list;
+  }
 
-    /* ================== 6) إدارة تحميل الكروت ================== */
-    const pendingCards = [];
-    let pumping = false;
+  // اكتشاف الاتصال لتحديد الدُفعة والسقف
+  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const slow = !!(conn && (/2g|3g/i.test(conn.effectiveType||"") || (conn.downlink|0)<1.2 || conn.saveData));
+  const FIRST_BATCH = slow ? 2 : 3;          // كان كبير → صغّرناه
+  let inflight = 0;
+  const MAX_INFLIGHT = slow ? 4 : 6;         // سقف توازي أهدى
+  const queue = [];
 
-    const io = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        io.unobserve(entry.target);
-        pendingCards.push(entry.target);
+  function scheduleLoad(img){
+    queue.push(img);
+    pump();
+  }
+  function pump(){
+    while(inflight < MAX_INFLIGHT && queue.length){
+      const img = queue.shift();
+      if(img.dataset.src && !img.src){
+        inflight++;
+        img.src = img.dataset.src;
+        if(img.dataset.first === "1"){ img.fetchPriority = "high"; }
+        img.addEventListener("load", onDone, {once:true});
+        img.addEventListener("error", onErr, {once:true});
       }
-      pumpCards();
-    }, { rootMargin: "0px 0px -12% 0px", threshold: .15 });
-
-    function pumpCards() {
-      if (pumping) return;
-      pumping = true;
-      (async function loop() {
-        const chunk = pendingCards.splice(0, 2); // كرتين فقط
-        await Promise.all(chunk.map(card => loadCard(card)));
-        pumping = false;
-        if (pendingCards.length) pumpCards();
-      })();
     }
+  }
+  function onDone(e){
+    const img = e.target;
+    img.classList.add("loaded");
+    img.parentElement?.classList.remove("is-loading");
+    inflight--; pump();
+  }
+  function onErr(e){
+    const img = e.target;
+    const tried = img.dataset.tried || "";
+    if(!tried.includes("jpg")){
+      img.dataset.tried = tried + " jpg";
+      img.src = img.dataset.src.replace(/\.webp$/i, ".jpg");
+      img.addEventListener("load", onDone, {once:true});
+      img.addEventListener("error", onErr, {once:true});
+      return;
+    }
+    if(!tried.includes("png")){
+      img.dataset.tried = tried + " png";
+      img.src = img.dataset.src.replace(/\.webp$/i, ".png");
+      img.addEventListener("load", onDone, {once:true});
+      img.addEventListener("error", onErr, {once:true});
+      return;
+    }
+    const parent = img.parentElement;
+    parent?.parentElement?.removeChild(parent);
+    inflight--; pump();
+  }
 
-    document.querySelectorAll("#customers .stack-card").forEach(el => io.observe(el));
+  // IO للصور نفسها (نطاق أقصر)
+  const supportsIO = "IntersectionObserver" in window;
+  const imgIO = supportsIO ? new IntersectionObserver((entries)=>{
+    for(const entry of entries){
+      if(!entry.isIntersecting) continue;
+      const img = entry.target;
+      scheduleLoad(img);
+      imgIO.unobserve(img);
+    }
+  }, { root:null, rootMargin:"300px 0px", threshold:0.01 }) : null;
 
-    /* ================== 7) Reveal للبطاقات ================== */
-    (function revealCards() {
-      const cards = Array.from(document.querySelectorAll("#customers .stack-card"));
-      const ioReveal = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (!e.isIntersecting) return;
-          const i = cards.indexOf(e.target);
-          const row = Math.floor(i / 3), col = i % 3;
-          const delay = row * 90 + col * 70;
-          e.target.style.transitionDelay = `${delay}ms`;
-          requestAnimationFrame(() => e.target.classList.add("in"));
-          ioReveal.unobserve(e.target);
-        });
-      }, { threshold: .08, rootMargin: "0px 0px -10% 0px" });
-      cards.forEach(c => ioReveal.observe(c));
-    })();
-  });
+  // --------- أهم تغيير: نبني ثَمبنيلز الكرت فقط عند ظهوره ----------
+  const cardIO = supportsIO ? new IntersectionObserver((entries)=>{
+    for(const entry of entries){
+      if(!entry.isIntersecting) continue;
+      const card = entry.target;
+      cardIO.unobserve(card);
+
+      const folder  = card.getAttribute("data-company");
+      const thumbsEl= card.querySelector("[data-thumbs]");
+
+      // نبني DOM خفيف فقط عند الحاجة
+      const list = buildThumbList(folder, 18);
+      thumbsEl.innerHTML = list.map((u,i)=>`
+        <div class="thumb is-loading">
+          <img data-src="${u}" alt="${folder}" loading="lazy" decoding="async"
+               width="320" height="240" style="aspect-ratio:4/3;object-fit:cover"
+               ${i===0 ? 'data-first="1"' : ''}>
+        </div>
+      `).join("");
+      revealThumbs(thumbsEl);
+
+      const imgs = Array.from(thumbsEl.querySelectorAll("img"));
+      // دفعة أولى صغيرة
+      for(let i=0; i<Math.min(FIRST_BATCH, imgs.length); i++){
+        scheduleLoad(imgs[i]);
+      }
+      // اربط الباقي بالمراقب أو حمّلهم تدريجيًا
+      if(imgIO){
+        for(let i=FIRST_BATCH; i<imgs.length; i++) imgIO.observe(imgs[i]);
+      }else{
+        for(let i=FIRST_BATCH; i<imgs.length; i++) scheduleLoad(imgs[i]);
+      }
+
+      // فعّل دخول البطاقة (أنيميشن)
+      requestAnimationFrame(()=> card.classList.add("in"));
+    }
+  }, { root:null, rootMargin:"200px 0px", threshold:0.12 }) : null;
+
+  // لو ما في IO (متصفّح قديم): بنبني أول 2 كروت فقط كبداية
+  const cards = Array.from(document.querySelectorAll("#customers .stack-card"));
+  if(cardIO){
+    cards.forEach(c => cardIO.observe(c));
+  }else{
+    cards.slice(0,2).forEach((card)=>{
+      const folder  = card.getAttribute("data-company");
+      const thumbsEl= card.querySelector("[data-thumbs]");
+      const list = buildThumbList(folder, 12);
+      thumbsEl.innerHTML = list.map((u,i)=>`
+        <div class="thumb is-loading">
+          <img data-src="${u}" alt="${folder}" loading="lazy" decoding="async"
+               width="320" height="240" style="aspect-ratio:4/3;object-fit:cover"
+               ${i===0 ? 'data-first="1"' : ''}>
+        </div>
+      `).join("");
+      revealThumbs(thumbsEl);
+      const imgs = Array.from(thumbsEl.querySelectorAll("img"));
+      for(let i=0;i<Math.min(FIRST_BATCH, imgs.length);i++) scheduleLoad(imgs[i]);
+      for(let i=FIRST_BATCH;i<imgs.length;i++) scheduleLoad(imgs[i]);
+      requestAnimationFrame(()=> card.classList.add("in"));
+    });
+  }
+
+  // لما يرجع التبويب نشط، كمّل ضخّ الطابور
+  document.addEventListener("visibilitychange", ()=>{ if(!document.hidden) pump(); });
+});
 </script>
-
 
 
   <!-- =================== About Us =================== -->
