@@ -290,10 +290,14 @@
                 <div class="rounded-xl ring-1 ring-white/10 p-4 bg-white/5 h-full flex flex-col">
                   <p class="text-sm font-semibold mb-1">Need custom?</p>
                   <p class="text-white/70 text-xs mb-3">Custom branding & sizes</p>
-                  <a href="#contact" class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold
-										bg-gradient-to-r from-emerald-400 to-cyan-400 text-neutral-900">
-                    Contact / Booking
-                  </a>
+                 <a id="contactBtn" href="#contact"
+   class="inline-flex items-center justify-center rounded-full
+          h-10 px-5 text-base font-semibold
+          bg-gradient-to-r from-emerald-400 to-cyan-400 text-neutral-900
+          hover:brightness-110 active:brightness-95 transition">
+  Contact / Booking
+</a>
+
                 </div>
               </div>
             </div>
@@ -332,14 +336,10 @@
     }
   }
 
-  /* Adjust button size for narrow screens */
-  @media (max-width: 422px) {
-    .ml-auto a {
-      padding-top: 0.25rem;
-      padding-bottom: 0.25rem;
-      font-size: 0.75rem;
-    }
-  }
+@media (max-width: 422px) {
+  #contactBtn { height: 2rem; padding: 0 0.75rem; font-size: 0.8rem; }
+}
+
 </style>
 
 <!-- Spacer -->
@@ -348,39 +348,36 @@
 <script src="https://unpkg.com/preline@2.5.0/dist/preline.js" defer></script>
 
 <script>
-  // Function to change the button text based on screen width
+  // تغيير نص زر الكونتاكت حسب العرض
   function updateButtonText() {
     const button = document.getElementById('contactBtn');
     if (button) {
-      if (window.innerWidth <= 422) {
-        button.textContent = 'Booking';
-      } else {
-        button.textContent = 'Contact / Booking';
-      }
+      button.textContent = window.innerWidth <= 422 ? 'Booking' : 'Contact / Booking';
     }
   }
-
-  // Run the function on page load and window resize
   window.addEventListener('load', updateButtonText);
   window.addEventListener('resize', updateButtonText);
 
-  // JavaScript to automatically close the mobile menu when a link is clicked.
-  const mobileLinks = document.querySelectorAll('#bl-nav-mobile a');
-  const mobileToggleBtn = document.querySelector('[data-hs-collapse="#bl-nav-mobile"]');
+  // إغلاق قائمة الموبايل عند الانتقال لأي سكشن (#...)
+  const toggleBtn = document.querySelector('[data-hs-collapse="#bl-nav-mobile"]');
+  const mobileMenu = document.getElementById('bl-nav-mobile');
 
-  if (mobileToggleBtn) { // Safety check to ensure the button exists.
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        // Use a slight delay to ensure the scroll transition starts before the menu closes.
-        setTimeout(() => {
-          if (mobileToggleBtn.classList.contains('hs-collapse-open')) {
-            mobileToggleBtn.click();
-          }
-        }, 300); // 300ms delay. Adjust as needed.
-      });
-    });
+  function closeMobileMenu() {
+    // القائمة مفتوحة إذا ما عليها hidden
+    if (toggleBtn && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+      toggleBtn.click();
+    }
   }
+
+  // استخدم تفويض أحداث: أي ضغط على <a href="#..."> سكّر بعدها بقليل
+  document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+  closeMobileMenu(); // بدون setTimeout
+});
+
 </script>
+
 
 
   <!-- =================== Hero =================== -->
