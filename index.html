@@ -49,45 +49,68 @@
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://bike-jo.com/#org",
-        "name": "Bike Land",
-        "alternateName": ["Bike Land JO", "Bike Land Jordan"],
-        "url": "https://bike-jo.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://bike-jo.com/images/favicon/android-chrome-512x512.png",
-          "width": 512,
-          "height": 512
-        },
-        "image": "https://bike-jo.com/images/2.png",
-        "contactPoint": [{
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "telephone": "+962788611234",
-          "areaServed": "JO",
-          "availableLanguage": ["en","ar"]
-        }],
-        "sameAs": [
-          "https://www.instagram.com/bike_blender/",
-          "https://www.facebook.com/people/BikeBlender/100083147321182/"
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://bike-jo.com/#org",
+      "name": "Bike Land",
+      "alternateName": ["Bike Land JO", "Bike Land Jordan"],
+      "url": "https://bike-jo.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bike-jo.com/images/favicon/android-chrome-512x512.png",
+        "width": 512,
+        "height": 512
       },
-      {
-        "@type": "WebSite",
-        "@id": "https://bike-jo.com/#website",
-        "name": "Bike Land",
-        "alternateName": ["Bike Land JO", "Bike Land Jordan"],
-        "url": "https://bike-jo.com/",
-        "publisher": { "@id": "https://bike-jo.com/#org" },
-        "inLanguage": "en"
+      "image": "https://bike-jo.com/images/2.png",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "telephone": "+962788611234",
+        "areaServed": "JO",
+        "availableLanguage": ["en","ar"]
+      }],
+      "sameAs": [
+        "https://www.instagram.com/bike_blender/",
+        "https://www.facebook.com/people/BikeBlender/100083147321182/"
+      ],
+      "provides": {
+         "@type": "Service",
+         "@id": "https://bike-jo.com/#bikeblender-service"
       }
-    ]
-  }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://bike-jo.com/#website",
+      "name": "Bike Land",
+      "url": "https://bike-jo.com/",
+      "publisher": { "@id": "https://bike-jo.com/#org" },
+      "inLanguage": "en",
+      "keywords": "Bike Land, Bike Blender, interactive events, cycling entertainment, event services, Jordan, Amman, فعاليات الأردن"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://bike-jo.com/#bikeblender-service",
+      "name": "Bike Blender Event Service",
+      "description": "An interactive and healthy entertainment service where participants make their own fresh smoothies by pedaling on a stationary bike.",
+      "provider": {
+        "@id": "https://bike-jo.com/#org"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Jordan"
+      },
+      "serviceType": "Event Entertainment",
+      "keywords": "Bike Blender, smoothie bike, event entertainment, corporate wellness, healthy activities, team building, Jordan"
+    }
+  ]
+}
+
+
+
+
   </script>
   <!-- ============== END: SEO & Social ============== -->
 
@@ -438,540 +461,540 @@
   <!-- =================== Products =================== -->
 
 
-<!DOCTYPE html>
+  <!DOCTYPE html>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-
- <section id="products" style="content-visibility:auto; contain-intrinsic-size:1000px"
-   class="bl-section container mx-auto px-4">
-
-   <div class="text-center max-w-2xl mx-auto mb-12">
-     <h2 class="relative inline-block text-4xl font-extrabold tracking-tight text-white" data-aos="fade-up"
-       data-aos-duration="800">
-       Products
-       <span
-         class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
-     </h2>
-   </div>
-
-   <!-- We use Grid + justify-self to align cards left/right -->
-   <div class="grid gap-y-12">
-     <!-- ================== Card 1: Bike Blender (Left) ================== -->
-     <article id="BikeBlender" data-aos="fade-in"
-       class="anchor-target group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2 w-full md:w-[95%] md:justify-self-start">
-       <div
-         class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur">
-         <!-- Side Bar -->
-         <div class="absolute left-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"></div>
-
-         <div class="flex flex-col md:flex-row items-stretch md:min-h-[280px]">
-           <!-- Text first on mobile, second on desktop -->
-           <div class="order-1 md:order-2 md:w-5/12 p-6 sm:p-8 flex flex-col justify-center">
-             <div class="flex items-center gap-3">
-               <span
-                 class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold">01</span>
-               <h3 class="text-2xl font-extrabold group-hover:text-emerald-400 transition">
-                 Bike Blender
-               </h3>
-               <span
-                 class="ml-auto text-xs px-2 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Most
-                 Popular</span>
-             </div>
-
-             <p class="mt-3 text-white/80 leading-relaxed">
-               Turn movement into energy and freshness! An innovative experience that combines cycling with making
-               fresh natural smoothies. Every spin on the bike means more fun and a cup full of vitality. Perfect for
-               companies, malls, and events looking to attract crowds in a fun and healthy way.
-             </p>
-
-             <!-- Quick Options -->
-             <div class="mt-5">
-               <h4 class="text-sm font-semibold text-white/80 mb-2">
-                 Event Options
-               </h4>
-               <div class="flex flex-wrap gap-3">
-                 <!-- Cups -->
-                 <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                   <div class="text-xs text-white/60 mb-1">Cups</div>
-                   <div class="flex gap-1">
-                     <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15"> Min
-                       100</label>
-                   </div>
-                 </div>
-                 <!-- Bikes -->
-                 <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                   <div class="text-xs text-white/60 mb-1">Bikes</div>
-                   <div class="flex gap-1">
-                     <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15">Up To
-                       4</label>
-                   </div>
-                 </div>
-                 <!-- Booth -->
-                 <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                   <div class="text-xs text-white/60 mb-1">Booth Size </div>
-                   <div class="flex gap-1">
-                     <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15">
-                       Small</label>
-                     <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15">
-                       Large</label>
-                   </div>
-                 </div>
-               </div>
-               <p class="mt-2 text-xs text-white/50">
-                 Note: We provide cups, lids, and straws. Power outlet not
-                 required.
-               </p>
-             </div>
-
-             <!-- What's included -->
-             <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-white/80">
-               <li class="flex items-start gap-2">
-                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                 Customizable smoothie menu for events
-               </li>
-               <li class="flex items-start gap-2">
-                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                 Professional staff included
-               </li>
-               <li class="flex items-start gap-2">
-                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                 Extra staff for large crowds
-               </li>
-               <li class="flex items-start gap-2">
-                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                 Transport available within Jordan
-               </li>
-             </ul>
-
-             <!-- Desktop button -->
-             <div class="hidden md:flex mt-6 flex-wrap items-center gap-3">
-               <a href="#contact"
-                 class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book
-                 Now</a>
-             </div>
-           </div>
-
-           <!-- Image + Thumbs -->
-           <div class="order-2 md:order-1 md:w-7/12 flex flex-col items-center justify-center p-6 gap-3">
-             <div
-               class="product-frame aspect-video w-full max-w-[720px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg relative">
-               <img id="blenderMain" src="./images/products/bikeblender.png?v=3.1" alt="Bike Blender"
-                 class="prod-main w-full h-full object-cover rounded-lg" />
-             </div>
-
-             <!-- Thumbs under the image -->
-             <div id="blenderThumbs"
-               class="w-full max-w-[720px] flex items-center justify-center gap-2 overflow-x-auto px-1 mt-4 hide-scrollbar">
-               <a href="images/products/bikeblender.png" data-large="images/products/bikeblender.png"
-                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                 <img src="images/products/bikeblender.png?v=3.1" loading="lazy" decoding="async"
-                   class="h-16 w-24 object-cover" alt="Main Blender" />
-               </a>
-
-               <a href="images/bikeblender/1.png" data-large="images/bikeblender/1.png"
-                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                 <img src="images/bikeblender/1.png?v=3.1" loading="lazy" decoding="async"
-                   class="h-16 w-24 object-cover" alt="Blender 1" />
-               </a>
-
-               <a href="images/bikeblender/2.png" data-large="images/bikeblender/2.png"
-                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                 <img src="images/bikeblender/2.png?v=3.1" loading="lazy" decoding="async"
-                   class="h-16 w-24 object-cover" alt="Blender 2" />
-               </a>
-               <a href="images/bikeblender/3.png" data-large="images/bikeblender/3.png"
-                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                 <img src="images/bikeblender/3.png?v=3.1" class="h-16 w-24 object-cover" loading="lazy"
-                   decoding="async" alt="Blender 3" />
-               </a>
-             </div>
-
-             <!-- Mobile button -->
-             <div class="block md:hidden w-full mt-4">
-               <a href="#contact"
-                 class="mx-auto block w-max text-center rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">
-                 Book Now
-               </a>
-             </div>
-           </div>
-         </div>
-       </div>
-     </article>
-
-     <!-- ================== Card 2: Bike Beam (Right) ================== -->
-     <article data-aos="fade-in" id="BikeBeam"
-       class="anchor-target group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2 w-full md:w-[95%] md:justify-self-end">
-       <div
-         class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur">
-         <div class="absolute right-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"></div>
-
-         <div class="flex flex-col md:flex-row-reverse items-stretch md:min-h-[280px]">
-           <!-- Text -->
-           <div class="order-1 md:order-2 md:w-5/12 p-6 sm:p-8 flex flex-col justify-center">
-             <div class="flex items-center gap-3">
-               <span
-                 class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold">02</span>
-               <h3 class="text-2xl font-extrabold group-hover:text-emerald-400 transition">
-                 Bike Beam
-               </h3>
-               <span
-                 class="ml-auto text-xs px-2 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">Competitive</span>
-             </div>
-
-             <p class="mt-3 text-white/80 leading-relaxed">
-               A thrilling two–player race of speed and endurance! Each rider powers up their LED beam, climbing higher
-               with every push. The challenge is set over a fixed distance — the first to reach the top wins. With
-               three difficulty levels (Easy – Medium – Hard), it’s designed to match every participant and maximize
-               excitement. Perfect for events, exhibitions, and activations that want strong competition and
-               crowd-engaging fun.
-             </p>
-
-             <!-- Quick Options -->
-             <div class="mt-5">
-               <h4 class="text-sm font-semibold text-white/80 mb-2">
-                 Quick Options
-               </h4>
-               <div class="flex flex-wrap gap-3">
-                 <!-- Players -->
-                 <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                   <div class="text-xs text-white/60 mb-1">Bikes</div>
-                   <div class="flex gap-1">
-                     <span class="rounded-md px-2 py-1 text-sm bg-white/10">2</span>
-                   </div>
-                 </div>
-                 <!-- Beam Size -->
-                 <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                   <div class="text-xs text-white/60 mb-1">Beam Size</div>
-                   <div class="flex gap-1">
-                     <span class="rounded-md px-2 py-1 text-sm bg-white/10">Medium</span>
-                     <span class="rounded-md px-2 py-1 text-sm bg-white/10">Large Soon</span>
-                   </div>
-                 </div>
-                 <!-- Difficulty -->
-                 <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                   <div class="text-xs text-white/60 mb-1">Modes</div>
-                   <div class="flex gap-1">
-                     <span class="rounded-md px-2 py-1 text-sm bg-white/10">Easy</span>
-                     <span class="rounded-md px-2 py-1 text-sm bg-white/10">Normal</span>
-                     <span class="rounded-md px-2 py-1 text-sm bg-white/10">Hard</span>
-                   </div>
-                 </div>
-               </div>
-               <p class="mt-2 text-xs text-white/50">
-                 Note: Works in bright venues. Requires 1× power outlet.
-               </p>
-             </div>
-
-             <!-- Features -->
-             <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-white/80">
-               <li class="flex items-start gap-2">
-                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
-                 Fast setup, runs with just one power outlet
-               </li>
-               <li class="flex items-start gap-2">
-                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
-                 Head-to-head competition format
-               </li>
-               <li class="flex items-start gap-2">
-                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
-                 Custom-branded LED columns & finish line
-               </li>
-               <li class="flex items-start gap-2">
-                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
-                 High-impact attraction for events & expos
-               </li>
-             </ul>
-
-             <!-- Desktop button -->
-             <div class="hidden md:flex mt-6 flex-wrap items-center gap-3">
-               <a href="#contact"
-                 class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book
-                 Now</a>
-             </div>
-           </div>
-
-           <!-- Image + Thumbs -->
-           <div class="order-2 md:order-1 md:w-7/12 flex flex-col items-center justify-center p-6 gap-3">
-             <div
-               class="product-frame aspect-video w-full max-w-[680px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg relative">
-               <img id="beamMain" src="./images/products/bikebeam.png?v=3.1" alt="Bike Beam"
-                 class="prod-main w-full h-full object-cover rounded-lg" />
-             </div>
-
-             <!-- Thumbs -->
-             <div id="beamThumbs"
-               class="w-full max-w-[680px] flex items-center justify-center gap-2 overflow-x-auto px-1 mt-4 hide-scrollbar">
-               <a href="images/products/bikebeam.png" data-large="images/products/bikebeam.png"
-                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                 <img src="images/products/bikebeam.png?v=3.1" loading="lazy" decoding="async"
-                   class="h-16 w-24 object-cover" alt="Beam Main" />
-               </a>
-               <a href="images/bikebeam/1.png" data-large="images/bikebeam/1.png"
-                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                 <img src="images/bikebeam/1.png?v=3.1" loading="lazy" decoding="async" class="h-16 w-24 object-cover"
-                   alt="Beam 1" />
-               </a>
-
-             </div>
-
-             <!-- Mobile button -->
-             <div class="block md:hidden w-full mt-4">
-               <a href="#contact"
-                 class="mx-auto block w-max text-center rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">
-                 Book Now
-               </a>
-             </div>
-           </div>
-         </div>
-       </div>
-     </article>
-
-     <!-- ================== Card 3: Bike Branding (Left) ================== -->
-     <article data-aos="fade-in" id="BikeBranding"
-       class="anchor-target group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2 w-full md:w-[95%] md:justify-self-start">
-       <div
-         class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur">
-         <div class="absolute left-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"></div>
-
-         <div class="flex flex-col md:flex-row items-stretch md:min-h-[280px]">
-           <!-- Text -->
-           <div class="order-1 md:order-2 md:w-5/12 p-6 sm:p-8 flex flex-col justify-center">
-             <div class="flex items-center gap-3">
-               <span
-                 class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold">03</span>
-               <h3 class="text-2xl font-extrabold group-hover:text-emerald-400 transition">
-                 Bike Branding
-               </h3>
-               <span
-                 class="ml-auto text-xs px-2 py-1 rounded-full bg-white/10 text-white border border-white/20">Custom</span>
-             </div>
-
-             <p class="mt-3 text-white/80 leading-relaxed">
-               Turn any Bike Land experience into a complete branding space. From wheels to cups, from roll-ups to
-               backdrops — every detail transforms into your colors and logo. Perfect for companies seeking standout
-               activations that boost brand presence, and ideal for major events to ensure strong and eye-catching
-               visibility.
-             </p>
-
-             <!-- Customization -->
-             <div class="mt-5">
-               <h4 class="text-sm font-semibold text-white/80 mb-2">
-                 Customization
-               </h4>
-               <div class="flex flex-wrap gap-3">
-                 <span class="rounded-md px-2 py-1 text-sm bg-white/10">Custom-printed cups</span>
-                 <span class="rounded-md px-2 py-1 text-sm bg-white/10">Roll-up banners & branded backdrop</span>
-                 <span class="rounded-md px-2 py-1 text-sm bg-white/10">Themed lighting</span>
-               </div>
-               <p class="mt-2 text-xs text-white/50">
-                 Note: Provide vector logo (SVG/AI/PDF). 5–7 days for
-                 fabrication.
-               </p>
-             </div>
-
-             <!-- Features -->
-             <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-white/80">
-               <li class="flex items-start gap-2">
-                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                 Full brand integration on bikes, cups, and event setup
-               </li>
-               <li class="flex items-start gap-2">
-                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                 Custom signage, roll-ups, and branded backdrops
-               </li>
-               <li class="flex items-start gap-2">
-                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                 Social-ready photo spot for maximum exposure
-               </li>
-               <li class="flex items-start gap-2">
-                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                 Strong brand presence at major events & exhibitions
-               </li>
-             </ul>
-
-             <!-- Desktop button -->
-             <div class="hidden md:flex mt-6 flex-wrap items-center gap-3">
-               <a href="#contact"
-                 class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book
-                 Now</a>
-             </div>
-           </div>
-
-           <!-- Image + Thumbs -->
-           <div class="order-2 md:order-1 md:w-7/12 flex flex-col items-center justify-center p-6 gap-3">
-             <div
-               class="product-frame aspect-video w-full max-w-[680px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg relative">
-               <img id="brandingMain" src="./images/products/bikebranding.png?v=3.1" alt="Bike Branding"
-                 class="prod-main w-full h-full object-cover rounded-lg" />
-             </div>
-
-             <!-- Thumbs -->
-             <div id="brandingThumbs"
-               class="w-full max-w-[680px] flex items-center justify-center gap-2 overflow-x-auto px-1 mt-4 hide-scrollbar">
-               <a href="images/products/bikebranding.png" data-large="images/products/bikebranding.png"
-                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                 <img src="images/products/bikebranding.png?v=3.1" loading="lazy" decoding="async"
-                   class="h-16 w-24 object-cover" alt="Branding Main" />
-               </a>
-               <a href="images/bikebranding/1.png" data-large="images/bikebranding/1.png"
-                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                 <img src="images/bikebranding/1.png?v=3.1" loading="lazy" decoding="async"
-                   class="h-16 w-24 object-cover" alt="bikebranding 1" />
-               </a>
-               <a href="images/bikebranding/2.png" data-large="images/bikebranding/2.png"
-                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                 <img src="images/bikebranding/2.png?v=3.1" loading="lazy" decoding="async"
-                   class="h-16 w-24 object-cover" alt="bikebranding 2" />
-               </a>
-
-             </div>
-
-             <!-- Mobile button -->
-             <div class="block md:hidden w-full mt-4">
-               <a href="#contact"
-                 class="mx-auto block w-max text-center rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">
-                 Book Now
-               </a>
-             </div>
-           </div>
-         </div>
-       </div>
-     </article>
-   </div>
- </section>
-
- <style>
-   .hide-scrollbar {
-     -ms-overflow-style: none;
-     scrollbar-width: none;
-   }
-
-   .hide-scrollbar::-webkit-scrollbar {
-     display: none;
-   }
-
-   /* Image frame allows stacking of cross-fade images */
-   .product-frame {
-     position: relative;
-     border-radius: 0.75rem;
-     overflow: hidden;
-     isolation: isolate;
-   }
-
-   /* Main display image + cross-fade */
-   .product-frame img {
-     display: block;
-   }
-
-   /* Base styles for all transition images */
-   .prod-main,
-   .xfade-img {
-     border-radius: inherit;
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
-     position: absolute;
-     top: 0;
-     left: 0;
-     will-change: opacity;
-     backface-visibility: hidden;
-     transform: translateZ(0);
-   }
-
-   .xfade-img {
-     pointer-events: none;
-   }
+  <script src="https://cdn.tailwindcss.com"></script>
 
 
-   /* Highlight active thumbnail */
-   #blenderThumbs .thumb,
-   #beamThumbs .thumb,
-   #brandingThumbs .thumb {
-     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-   }
+  <section id="products" style="content-visibility:auto; contain-intrinsic-size:1000px"
+    class="bl-section container mx-auto px-4">
 
-   #blenderThumbs .thumb.is-active,
-   #beamThumbs .thumb.is-active,
-   #brandingThumbs .thumb.is-active {
-     box-shadow: 0 0 0 2px rgba(16, 185, 129, .5), 0 10px 20px rgba(0, 0, 0, .35);
-     border-color: rgba(16, 185, 129, .45);
-     transform: translateY(-2px);
-   }
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="relative inline-block text-4xl font-extrabold tracking-tight text-white" data-aos="fade-up"
+        data-aos-duration="800">
+        Products
+        <span
+          class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
+      </h2>
+    </div>
 
-   #blenderThumbs .thumb:hover,
-   #beamThumbs .thumb:hover,
-   #brandingThumbs .thumb:hover {
-     transform: translateY(-1px);
-   }
- </style>
+    <!-- We use Grid + justify-self to align cards left/right -->
+    <div class="grid gap-y-12">
+      <!-- ================== Card 1: Bike Blender (Left) ================== -->
+      <article id="BikeBlender" data-aos="fade-in"
+        class="anchor-target group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2 w-full md:w-[95%] md:justify-self-start">
+        <div
+          class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur">
+          <!-- Side Bar -->
+          <div class="absolute left-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"></div>
 
- <script>
-   document.addEventListener("DOMContentLoaded", () => {
+          <div class="flex flex-col md:flex-row items-stretch md:min-h-[280px]">
+            <!-- Text first on mobile, second on desktop -->
+            <div class="order-1 md:order-2 md:w-5/12 p-6 sm:p-8 flex flex-col justify-center">
+              <div class="flex items-center gap-3">
+                <span
+                  class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold">01</span>
+                <h3 class="text-2xl font-extrabold group-hover:text-emerald-400 transition">
+                  Bike Blender
+                </h3>
+                <span
+                  class="ml-auto text-xs px-2 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Most
+                  Popular</span>
+              </div>
 
-     // --- TRANSITION: Simple Cross-fade ---
-     function crossfadeSwap(mainImg, newURL) {
-       if (!mainImg || !newURL || mainImg.src.endsWith(newURL.replace('./', ''))) return;
-       const frame = mainImg.closest(".product-frame");
-       if (!frame) { mainImg.src = newURL; return; }
+              <p class="mt-3 text-white/80 leading-relaxed">
+                Turn movement into energy and freshness! An innovative experience that combines cycling with making
+                fresh natural smoothies. Every spin on the bike means more fun and a cup full of vitality. Perfect for
+                companies, malls, and events looking to attract crowds in a fun and healthy way.
+              </p>
 
-       const overlay = document.createElement("img");
-       overlay.src = mainImg.src;
-       overlay.className = "xfade-img";
-       frame.appendChild(overlay);
+              <!-- Quick Options -->
+              <div class="mt-5">
+                <h4 class="text-sm font-semibold text-white/80 mb-2">
+                  Event Options
+                </h4>
+                <div class="flex flex-wrap gap-3">
+                  <!-- Cups -->
+                  <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                    <div class="text-xs text-white/60 mb-1">Cups</div>
+                    <div class="flex gap-1">
+                      <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15"> Min
+                        100</label>
+                    </div>
+                  </div>
+                  <!-- Bikes -->
+                  <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                    <div class="text-xs text-white/60 mb-1">Bikes</div>
+                    <div class="flex gap-1">
+                      <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15">Up To
+                        4</label>
+                    </div>
+                  </div>
+                  <!-- Booth -->
+                  <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                    <div class="text-xs text-white/60 mb-1">Booth Size </div>
+                    <div class="flex gap-1">
+                      <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15">
+                        Small</label>
+                      <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15">
+                        Large</label>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-2 text-xs text-white/50">
+                  Note: We provide cups, lids, and straws. Power outlet not
+                  required.
+                </p>
+              </div>
 
-       mainImg.style.opacity = '0';
-       mainImg.src = newURL;
-       
-       mainImg.onload = () => {
-         mainImg.style.transition = 'opacity 0.4s ease-in-out';
-         overlay.style.transition = 'opacity 0.4s ease-in-out';
-         mainImg.style.opacity = '1';
-         overlay.style.opacity = '0';
-         overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
-         mainImg.onload = null;
-       };
-     }
-     
-     // --- Initializer Function ---
-     function initSwitcher(mainSel, thumbsSel) {
-       const main = document.querySelector(mainSel);
-       const holder = document.querySelector(thumbsSel);
-       if (!main || !holder) return;
-       const thumbs = holder.querySelectorAll("a.thumb");
-       if (!thumbs.length) return;
+              <!-- What's included -->
+              <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-white/80">
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  Customizable smoothie menu for events
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  Professional staff included
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  Extra staff for large crowds
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  Transport available within Jordan
+                </li>
+              </ul>
 
-       const activate = (a) => {
-         thumbs.forEach((t) => {
-           t.classList.remove("is-active");
-           t.setAttribute("aria-selected", "false");
-         });
-         a.classList.add("is-active");
-         a.setAttribute("aria-selected", "true");
-       };
+              <!-- Desktop button -->
+              <div class="hidden md:flex mt-6 flex-wrap items-center gap-3">
+                <a href="#contact"
+                  class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book
+                  Now</a>
+              </div>
+            </div>
 
-       holder.addEventListener("click", (e) => {
-         const a = e.target.closest("a.thumb");
-         if (!a) return;
-         e.preventDefault();
-         const big = a.getAttribute("data-large") || a.getAttribute("href");
-         crossfadeSwap(main, big); // Use crossfade for all
-         activate(a);
-       });
+            <!-- Image + Thumbs -->
+            <div class="order-2 md:order-1 md:w-7/12 flex flex-col items-center justify-center p-6 gap-3">
+              <div
+                class="product-frame aspect-video w-full max-w-[720px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg relative">
+                <img id="blenderMain" src="./images/products/bikeblender.png?v=3.1" alt="Bike Blender"
+                  class="prod-main w-full h-full object-cover rounded-lg" />
+              </div>
 
-       // Activate the first thumbnail by default
+              <!-- Thumbs under the image -->
+              <div id="blenderThumbs"
+                class="w-full max-w-[720px] flex items-center justify-center gap-2 overflow-x-auto px-1 mt-4 hide-scrollbar">
+                <a href="images/products/bikeblender.png" data-large="images/products/bikeblender.png"
+                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                  <img src="images/products/bikeblender.png?v=3.1" loading="lazy" decoding="async"
+                    class="h-16 w-24 object-cover" alt="Main Blender" />
+                </a>
+
+                <a href="images/bikeblender/1.png" data-large="images/bikeblender/1.png"
+                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                  <img src="images/bikeblender/1.png?v=3.1" loading="lazy" decoding="async"
+                    class="h-16 w-24 object-cover" alt="Blender 1" />
+                </a>
+
+                <a href="images/bikeblender/2.png" data-large="images/bikeblender/2.png"
+                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                  <img src="images/bikeblender/2.png?v=3.1" loading="lazy" decoding="async"
+                    class="h-16 w-24 object-cover" alt="Blender 2" />
+                </a>
+                <a href="images/bikeblender/3.png" data-large="images/bikeblender/3.png"
+                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                  <img src="images/bikeblender/3.png?v=3.1" class="h-16 w-24 object-cover" loading="lazy"
+                    decoding="async" alt="Blender 3" />
+                </a>
+              </div>
+
+              <!-- Mobile button -->
+              <div class="block md:hidden w-full mt-4">
+                <a href="#contact"
+                  class="mx-auto block w-max text-center rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">
+                  Book Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ================== Card 2: Bike Beam (Right) ================== -->
+      <article data-aos="fade-in" id="BikeBeam"
+        class="anchor-target group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2 w-full md:w-[95%] md:justify-self-end">
+        <div
+          class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur">
+          <div class="absolute right-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"></div>
+
+          <div class="flex flex-col md:flex-row-reverse items-stretch md:min-h-[280px]">
+            <!-- Text -->
+            <div class="order-1 md:order-2 md:w-5/12 p-6 sm:p-8 flex flex-col justify-center">
+              <div class="flex items-center gap-3">
+                <span
+                  class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold">02</span>
+                <h3 class="text-2xl font-extrabold group-hover:text-emerald-400 transition">
+                  Bike Beam
+                </h3>
+                <span
+                  class="ml-auto text-xs px-2 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">Competitive</span>
+              </div>
+
+              <p class="mt-3 text-white/80 leading-relaxed">
+                A thrilling two–player race of speed and endurance! Each rider powers up their LED beam, climbing higher
+                with every push. The challenge is set over a fixed distance — the first to reach the top wins. With
+                three difficulty levels (Easy – Medium – Hard), it’s designed to match every participant and maximize
+                excitement. Perfect for events, exhibitions, and activations that want strong competition and
+                crowd-engaging fun.
+              </p>
+
+              <!-- Quick Options -->
+              <div class="mt-5">
+                <h4 class="text-sm font-semibold text-white/80 mb-2">
+                  Quick Options
+                </h4>
+                <div class="flex flex-wrap gap-3">
+                  <!-- Players -->
+                  <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                    <div class="text-xs text-white/60 mb-1">Bikes</div>
+                    <div class="flex gap-1">
+                      <span class="rounded-md px-2 py-1 text-sm bg-white/10">2</span>
+                    </div>
+                  </div>
+                  <!-- Beam Size -->
+                  <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                    <div class="text-xs text-white/60 mb-1">Beam Size</div>
+                    <div class="flex gap-1">
+                      <span class="rounded-md px-2 py-1 text-sm bg-white/10">Medium</span>
+                      <span class="rounded-md px-2 py-1 text-sm bg-white/10">Large Soon</span>
+                    </div>
+                  </div>
+                  <!-- Difficulty -->
+                  <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                    <div class="text-xs text-white/60 mb-1">Modes</div>
+                    <div class="flex gap-1">
+                      <span class="rounded-md px-2 py-1 text-sm bg-white/10">Easy</span>
+                      <span class="rounded-md px-2 py-1 text-sm bg-white/10">Normal</span>
+                      <span class="rounded-md px-2 py-1 text-sm bg-white/10">Hard</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-2 text-xs text-white/50">
+                  Note: Works in bright venues. Requires 1× power outlet.
+                </p>
+              </div>
+
+              <!-- Features -->
+              <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-white/80">
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                  Fast setup, runs with just one power outlet
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                  Head-to-head competition format
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                  Custom-branded LED columns & finish line
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                  High-impact attraction for events & expos
+                </li>
+              </ul>
+
+              <!-- Desktop button -->
+              <div class="hidden md:flex mt-6 flex-wrap items-center gap-3">
+                <a href="#contact"
+                  class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book
+                  Now</a>
+              </div>
+            </div>
+
+            <!-- Image + Thumbs -->
+            <div class="order-2 md:order-1 md:w-7/12 flex flex-col items-center justify-center p-6 gap-3">
+              <div
+                class="product-frame aspect-video w-full max-w-[680px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg relative">
+                <img id="beamMain" src="./images/products/bikebeam.png?v=3.1" alt="Bike Beam"
+                  class="prod-main w-full h-full object-cover rounded-lg" />
+              </div>
+
+              <!-- Thumbs -->
+              <div id="beamThumbs"
+                class="w-full max-w-[680px] flex items-center justify-center gap-2 overflow-x-auto px-1 mt-4 hide-scrollbar">
+                <a href="images/products/bikebeam.png" data-large="images/products/bikebeam.png"
+                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                  <img src="images/products/bikebeam.png?v=3.1" loading="lazy" decoding="async"
+                    class="h-16 w-24 object-cover" alt="Beam Main" />
+                </a>
+                <a href="images/bikebeam/1.png" data-large="images/bikebeam/1.png"
+                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                  <img src="images/bikebeam/1.png?v=3.1" loading="lazy" decoding="async" class="h-16 w-24 object-cover"
+                    alt="Beam 1" />
+                </a>
+
+              </div>
+
+              <!-- Mobile button -->
+              <div class="block md:hidden w-full mt-4">
+                <a href="#contact"
+                  class="mx-auto block w-max text-center rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">
+                  Book Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ================== Card 3: Bike Branding (Left) ================== -->
+      <article data-aos="fade-in" id="BikeBranding"
+        class="anchor-target group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2 w-full md:w-[95%] md:justify-self-start">
+        <div
+          class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur">
+          <div class="absolute left-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"></div>
+
+          <div class="flex flex-col md:flex-row items-stretch md:min-h-[280px]">
+            <!-- Text -->
+            <div class="order-1 md:order-2 md:w-5/12 p-6 sm:p-8 flex flex-col justify-center">
+              <div class="flex items-center gap-3">
+                <span
+                  class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold">03</span>
+                <h3 class="text-2xl font-extrabold group-hover:text-emerald-400 transition">
+                  Bike Branding
+                </h3>
+                <span
+                  class="ml-auto text-xs px-2 py-1 rounded-full bg-white/10 text-white border border-white/20">Custom</span>
+              </div>
+
+              <p class="mt-3 text-white/80 leading-relaxed">
+                Turn any Bike Land experience into a complete branding space. From wheels to cups, from roll-ups to
+                backdrops — every detail transforms into your colors and logo. Perfect for companies seeking standout
+                activations that boost brand presence, and ideal for major events to ensure strong and eye-catching
+                visibility.
+              </p>
+
+              <!-- Customization -->
+              <div class="mt-5">
+                <h4 class="text-sm font-semibold text-white/80 mb-2">
+                  Customization
+                </h4>
+                <div class="flex flex-wrap gap-3">
+                  <span class="rounded-md px-2 py-1 text-sm bg-white/10">Custom-printed cups</span>
+                  <span class="rounded-md px-2 py-1 text-sm bg-white/10">Roll-up banners & branded backdrop</span>
+                  <span class="rounded-md px-2 py-1 text-sm bg-white/10">Themed lighting</span>
+                </div>
+                <p class="mt-2 text-xs text-white/50">
+                  Note: Provide vector logo (SVG/AI/PDF). 5–7 days for
+                  fabrication.
+                </p>
+              </div>
+
+              <!-- Features -->
+              <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-white/80">
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  Full brand integration on bikes, cups, and event setup
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  Custom signage, roll-ups, and branded backdrops
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  Social-ready photo spot for maximum exposure
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  Strong brand presence at major events & exhibitions
+                </li>
+              </ul>
+
+              <!-- Desktop button -->
+              <div class="hidden md:flex mt-6 flex-wrap items-center gap-3">
+                <a href="#contact"
+                  class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book
+                  Now</a>
+              </div>
+            </div>
+
+            <!-- Image + Thumbs -->
+            <div class="order-2 md:order-1 md:w-7/12 flex flex-col items-center justify-center p-6 gap-3">
+              <div
+                class="product-frame aspect-video w-full max-w-[680px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg relative">
+                <img id="brandingMain" src="./images/products/bikebranding.png?v=3.1" alt="Bike Branding"
+                  class="prod-main w-full h-full object-cover rounded-lg" />
+              </div>
+
+              <!-- Thumbs -->
+              <div id="brandingThumbs"
+                class="w-full max-w-[680px] flex items-center justify-center gap-2 overflow-x-auto px-1 mt-4 hide-scrollbar">
+                <a href="images/products/bikebranding.png" data-large="images/products/bikebranding.png"
+                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                  <img src="images/products/bikebranding.png?v=3.1" loading="lazy" decoding="async"
+                    class="h-16 w-24 object-cover" alt="Branding Main" />
+                </a>
+                <a href="images/bikebranding/1.png" data-large="images/bikebranding/1.png"
+                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                  <img src="images/bikebranding/1.png?v=3.1" loading="lazy" decoding="async"
+                    class="h-16 w-24 object-cover" alt="bikebranding 1" />
+                </a>
+                <a href="images/bikebranding/2.png" data-large="images/bikebranding/2.png"
+                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                  <img src="images/bikebranding/2.png?v=3.1" loading="lazy" decoding="async"
+                    class="h-16 w-24 object-cover" alt="bikebranding 2" />
+                </a>
+
+              </div>
+
+              <!-- Mobile button -->
+              <div class="block md:hidden w-full mt-4">
+                <a href="#contact"
+                  class="mx-auto block w-max text-center rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">
+                  Book Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <style>
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Image frame allows stacking of cross-fade images */
+    .product-frame {
+      position: relative;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    /* Main display image + cross-fade */
+    .product-frame img {
+      display: block;
+    }
+
+    /* Base styles for all transition images */
+    .prod-main,
+    .xfade-img {
+      border-radius: inherit;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      will-change: opacity;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+
+    .xfade-img {
+      pointer-events: none;
+    }
+
+
+    /* Highlight active thumbnail */
+    #blenderThumbs .thumb,
+    #beamThumbs .thumb,
+    #brandingThumbs .thumb {
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    #blenderThumbs .thumb.is-active,
+    #beamThumbs .thumb.is-active,
+    #brandingThumbs .thumb.is-active {
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, .5), 0 10px 20px rgba(0, 0, 0, .35);
+      border-color: rgba(16, 185, 129, .45);
+      transform: translateY(-2px);
+    }
+
+    #blenderThumbs .thumb:hover,
+    #beamThumbs .thumb:hover,
+    #brandingThumbs .thumb:hover {
+      transform: translateY(-1px);
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      // --- TRANSITION: Simple Cross-fade ---
+      function crossfadeSwap(mainImg, newURL) {
+        if (!mainImg || !newURL || mainImg.src.endsWith(newURL.replace('./', ''))) return;
+        const frame = mainImg.closest(".product-frame");
+        if (!frame) { mainImg.src = newURL; return; }
+
+        const overlay = document.createElement("img");
+        overlay.src = mainImg.src;
+        overlay.className = "xfade-img";
+        frame.appendChild(overlay);
+
+        mainImg.style.opacity = '0';
+        mainImg.src = newURL;
+
+        mainImg.onload = () => {
+          mainImg.style.transition = 'opacity 0.4s ease-in-out';
+          overlay.style.transition = 'opacity 0.4s ease-in-out';
+          mainImg.style.opacity = '1';
+          overlay.style.opacity = '0';
+          overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
+          mainImg.onload = null;
+        };
+      }
+
+      // --- Initializer Function ---
+      function initSwitcher(mainSel, thumbsSel) {
+        const main = document.querySelector(mainSel);
+        const holder = document.querySelector(thumbsSel);
+        if (!main || !holder) return;
+        const thumbs = holder.querySelectorAll("a.thumb");
+        if (!thumbs.length) return;
+
+        const activate = (a) => {
+          thumbs.forEach((t) => {
+            t.classList.remove("is-active");
+            t.setAttribute("aria-selected", "false");
+          });
+          a.classList.add("is-active");
+          a.setAttribute("aria-selected", "true");
+        };
+
+        holder.addEventListener("click", (e) => {
+          const a = e.target.closest("a.thumb");
+          if (!a) return;
+          e.preventDefault();
+          const big = a.getAttribute("data-large") || a.getAttribute("href");
+          crossfadeSwap(main, big); // Use crossfade for all
+          activate(a);
+        });
+
+        // Activate the first thumbnail by default
         if (thumbs[0]) {
-            activate(thumbs[0]);
+          activate(thumbs[0]);
         }
-     }
+      }
 
-     // Initialize all three cards with the same transition function
-     initSwitcher("#blenderMain", "#blenderThumbs");
-     initSwitcher("#beamMain", "#beamThumbs");
-     initSwitcher("#brandingMain", "#brandingThumbs");
-   });
+      // Initialize all three cards with the same transition function
+      initSwitcher("#blenderMain", "#blenderThumbs");
+      initSwitcher("#beamMain", "#beamThumbs");
+      initSwitcher("#brandingMain", "#brandingThumbs");
+    });
 
- </script>
+  </script>
 
 
 
