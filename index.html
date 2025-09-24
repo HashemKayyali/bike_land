@@ -232,8 +232,7 @@
 
         <!-- CTA + Burger -->
         <div class="ml-auto flex items-center gap-2">
-          <a href="#contact" class="inline-flex items-center rounded-full px-3 py-2 text-sm font-semibold
-							bg-gradient-to-r from-emerald-400 to-cyan-400 text-neutral-900
+<a id="contactBtn" href="#contact" class="inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold							bg-gradient-to-r from-emerald-400 to-cyan-400 text-neutral-900
 							hover:brightness-110 active:brightness-95 transition">
             Contact / Booking
           </a>
@@ -315,6 +314,7 @@
     </div>
   </nav>
 </header>
+
 <style>
   /* Desktop mega menu: always 4 columns */
   #BLnav .mega-grid {
@@ -331,6 +331,15 @@
       display: block;
     }
   }
+
+  /* Adjust button size for narrow screens */
+  @media (max-width: 422px) {
+    .ml-auto a {
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      font-size: 0.75rem;
+    }
+  }
 </style>
 
 <!-- Spacer -->
@@ -338,7 +347,40 @@
 
 <script src="https://unpkg.com/preline@2.5.0/dist/preline.js" defer></script>
 
+<script>
+  // Function to change the button text based on screen width
+  function updateButtonText() {
+    const button = document.getElementById('contactBtn');
+    if (button) {
+      if (window.innerWidth <= 422) {
+        button.textContent = 'Booking';
+      } else {
+        button.textContent = 'Contact / Booking';
+      }
+    }
+  }
 
+  // Run the function on page load and window resize
+  window.addEventListener('load', updateButtonText);
+  window.addEventListener('resize', updateButtonText);
+
+  // JavaScript to automatically close the mobile menu when a link is clicked.
+  const mobileLinks = document.querySelectorAll('#bl-nav-mobile a');
+  const mobileToggleBtn = document.querySelector('[data-hs-collapse="#bl-nav-mobile"]');
+
+  if (mobileToggleBtn) { // Safety check to ensure the button exists.
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        // Use a slight delay to ensure the scroll transition starts before the menu closes.
+        setTimeout(() => {
+          if (mobileToggleBtn.classList.contains('hs-collapse-open')) {
+            mobileToggleBtn.click();
+          }
+        }, 300); // 300ms delay. Adjust as needed.
+      });
+    });
+  }
+</script>
 
 
   <!-- =================== Hero =================== -->
@@ -1263,7 +1305,13 @@
         --evp-offset: 1px;
       }
     }
-
+@media (max-width: 422px) {
+    .ml-auto a {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        font-size: 0.75rem;
+    }
+}
     /* CTA (بدون تغيير) */
     .ev-cta {
       display: inline-flex;
