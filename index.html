@@ -130,253 +130,255 @@
 
 
 
-<header class="fixed inset-x-0 top-0 z-50 w-full pt-safe">
-  <nav id="BLnav" class="relative isolate w-full overflow-visible rounded-b-3xl transition-all duration-300
+  <header class="fixed inset-x-0 top-0 z-50 w-full pt-safe">
+    <nav id="BLnav" class="relative isolate w-full overflow-visible rounded-b-3xl transition-all duration-300
 			bg-gradient-to-b from-neutral-950/95 via-neutral-950/90 to-neutral-900/95
 			backdrop-blur-2xl backdrop-saturate-150
 			border-b border-white/10 ring-1 ring-white/10
 			shadow-[0_18px_48px_-12px_rgba(0,0,0,.92),0_8px_28px_-10px_rgba(0,0,0,.78)]">
 
-    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-emerald-400 to-cyan-400"></div>
-    <!-- Floating aura -->
-    <div aria-hidden="true"
-      class="pointer-events-none absolute inset-x-4 -bottom-8 h-12 rounded-full bg-black/75 blur-2xl opacity-90">
-    </div>
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-emerald-400 to-cyan-400"></div>
+      <!-- Floating aura -->
+      <div aria-hidden="true"
+        class="pointer-events-none absolute inset-x-4 -bottom-8 h-12 rounded-full bg-black/75 blur-2xl opacity-90">
+      </div>
 
-    <div id="BLinner" class="max-w-screen-xl mx-auto px-4 py-3 text-white transition-all duration-300">
-      <!-- One row: Logo | Links | CTA + Burger -->
-      <div class="flex items-center gap-4">
-        <!-- Logo -->
-        <a href="#home" class="flex items-center gap-3 shrink-0">
-          <img src="images/banner-img.png?v=3" class="h-10" alt="Bike Land interactive cycling show in Jordan" />
-          <span class="text-2xl font-extrabold tracking-wide drop-shadow">
-            BIKE <span class="text-emerald-300">LAND</span>
-          </span>
-        </a>
+      <div id="BLinner" class="max-w-screen-xl mx-auto px-4 py-3 text-white transition-all duration-300">
+        <!-- One row: Logo | Links | CTA + Burger -->
+        <div class="flex items-center gap-4">
+          <!-- Logo -->
+          <a href="#home" class="flex items-center gap-3 shrink-0">
+            <img src="images/banner-img.png?v=3" class="h-10" alt="Bike Land interactive cycling show in Jordan" />
+            <span class="text-2xl font-extrabold tracking-wide drop-shadow">
+              BIKE <span class="text-emerald-300">LAND</span>
+            </span>
+          </a>
 
-        <!-- Links (Desktop) -->
-        <div class="hidden lg:flex flex-1 justify-center">
-          <ul class="flex items-center gap-x-8 font-semibold text-[0.95rem]">
-            <li><a href="#home" data-section="home" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
+          <!-- Links (Desktop) -->
+          <div class="hidden lg:flex flex-1 justify-center">
+            <ul class="flex items-center gap-x-8 font-semibold text-[0.95rem]">
+              <li><a href="#home" data-section="home" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
 								focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60 rounded
 								after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
 								after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
 								after:transition-all after:duration-300 hover:after:w-full
 								data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">HOME</a></li>
 
-            <!-- Mega Menu (Desktop) -->
-            <li class="hs-dropdown [--strategy:absolute] [--adaptive:none]">
-              <button type="button" class="hs-dropdown-toggle navLnk relative inline-flex items-center gap-1 py-2 px-3 transition-colors duration-200 hover:text-emerald-300
+              <!-- Mega Menu (Desktop) -->
+              <li class="hs-dropdown [--strategy:absolute] [--adaptive:none]">
+                <button type="button" class="hs-dropdown-toggle navLnk relative inline-flex items-center gap-1 py-2 px-3 transition-colors duration-200 hover:text-emerald-300
 									after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
 									after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
 									after:transition-all after:duration-300 hover:after:w-full" data-section="products">
-                PRODUCTS
-                <svg class="size-4 hs-dropdown-open:-rotate-180 duration-300" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor">
-                  <path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </button>
-              <div class="hs-dropdown-menu hidden z-10 top-full start-1/2 -translate-x-1/2 min-w-[56rem] max-w-[95vw]
+                  PRODUCTS
+                  <svg class="size-4 hs-dropdown-open:-rotate-180 duration-300" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor">
+                    <path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+                <div class="hs-dropdown-menu hidden z-10 top-full start-1/2 -translate-x-1/2 min-w-[56rem] max-w-[95vw]
 								bg-neutral-900/95 backdrop-blur-2xl ring-1 ring-white/10 rounded-2xl p-6 shadow-xl">
 
-                <div class="mega-grid">
-                  <div>
-                    <p class="text-white text-xs mb-2">Bike Blender</p>
-                    <a href="#BikeBlender"
-                      class="text-white/70 block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
-                  </div>
-                  <div>
-                    <p class="text-white text-xs mb-2">Bike Beam</p>
-                    <a href="#BikeBeam"
-                      class="text-white/70 block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
-                  </div>
-                  <div>
-                    <p class="text-white text-xs mb-2">Bike Branding</p>
-                    <a href="#BikeBranding"
-                      class="text-white/70 block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
-                  </div>
-                  <div class="rounded-xl ring-1 ring-white/10 p-4 bg-white/5 h-full flex flex-col">
-                    <p class="text-sm font-semibold mb-1">Need custom?</p>
-                    <p class="text-white/70 text-xs mb-3">Custom branding & sizes</p>
-                    <a href="#contact" class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold
+                  <div class="mega-grid">
+                    <div>
+                      <p class="text-white text-xs mb-2">Bike Blender</p>
+                      <a href="#BikeBlender"
+                        class="text-white/70 block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
+                    </div>
+                    <div>
+                      <p class="text-white text-xs mb-2">Bike Beam</p>
+                      <a href="#BikeBeam"
+                        class="text-white/70 block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
+                    </div>
+                    <div>
+                      <p class="text-white text-xs mb-2">Bike Branding</p>
+                      <a href="#BikeBranding"
+                        class="text-white/70 block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
+                    </div>
+                    <div class="rounded-xl ring-1 ring-white/10 p-4 bg-white/5 h-full flex flex-col">
+                      <p class="text-sm font-semibold mb-1">Need custom?</p>
+                      <p class="text-white/70 text-xs mb-3">Custom branding & sizes</p>
+                      <a href="#contact" class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold
 											bg-gradient-to-r from-emerald-400 to-cyan-400 text-neutral-900">
-                      Contact
-                    </a>
+                        Contact
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </li>
+              </li>
 
-            <li><a href="#events" data-section="events" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
+              <li><a href="#events" data-section="events" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
 								focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60 rounded
 								after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
 								after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
 								after:transition-all after:duration-300 hover:after:w-full
 								data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">EVENTS</a></li>
 
-            <li><a href="#customers" data-section="customers" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
+              <li><a href="#customers" data-section="customers" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
 								focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60 rounded
 								after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
 								after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
 								after:transition-all after:duration-300 hover:after:w-full
 								data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">OUR CUSTOMERS</a></li>
 
-            <li><a href="#about" data-section="about" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
+              <li><a href="#about" data-section="about" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
 								focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/60 rounded
 								after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
 								after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
 								after:transition-all after:duration-300 hover:after:w-full
 								data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">ABOUT</a></li>
-          </ul>
-        </div>
+            </ul>
+          </div>
 
-        <!-- CTA + Burger -->
-        <div class="ml-auto flex items-center gap-2">
-<a id="contactBtn" href="#contact" class="inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold							bg-gradient-to-r from-emerald-400 to-cyan-400 text-neutral-900
+          <!-- CTA + Burger -->
+          <div class="ml-auto flex items-center gap-2">
+            <a id="contactBtn" href="#contact" class="inline-flex items-center rounded-full px-4 py-3 text-sm font-semibold							bg-gradient-to-r from-emerald-400 to-cyan-400 text-neutral-900
 							hover:brightness-110 active:brightness-95 transition">
-            Contact / Booking
-          </a>
+              Contact / Booking
+            </a>
 
-          <!-- Mobile button (separate list for mobile only) -->
-          <button type="button" class="hs-collapse-toggle navLnk relative inline-flex items-center justify-center size-10 rounded-lg
+            <!-- Mobile button (separate list for mobile only) -->
+            <button type="button" class="hs-collapse-toggle navLnk relative inline-flex items-center justify-center size-10 rounded-lg
 							text-white hover:bg-white/10 focus:outline-none lg:hidden" aria-controls="bl-nav-mobile"
-            data-hs-collapse="#bl-nav-mobile">
-            <svg class="hs-collapse-open:hidden size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <svg class="hs-collapse-open:block hidden size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+              data-hs-collapse="#bl-nav-mobile">
+              <svg class="hs-collapse-open:hidden size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg class="hs-collapse-open:block hidden size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <!-- Mobile list (vertical) -->
-      <div id="bl-nav-mobile" class="hs-collapse lg:hidden hidden overflow-hidden transition-all duration-300 mt-3">
-        <ul class="flex flex-col font-semibold text-[0.95rem]">
-          <li><a href="#home" data-section="home" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
+        <!-- Mobile list (vertical) -->
+        <div id="bl-nav-mobile" class="hs-collapse lg:hidden hidden overflow-hidden transition-all duration-300 mt-3">
+          <ul class="flex flex-col font-semibold text-[0.95rem]">
+            <li><a href="#home" data-section="home" class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300
 							after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
 							after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
 							after:transition-all after:duration-300 hover:after:w-full
 							data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">HOME</a></li>
-          <li class="hs-dropdown [--strategy:static] [--adaptive:none] [--is-collapse:true]">
-            <button type="button" class="hs-dropdown-toggle relative inline-flex items-center gap-1 py-2 px-3 hover:text-emerald-300
+            <li class="hs-dropdown [--strategy:static] [--adaptive:none] [--is-collapse:true]">
+              <button type="button" class="hs-dropdown-toggle relative inline-flex items-center gap-1 py-2 px-3 hover:text-emerald-300
 							after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0
 							after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400
 							after:transition-all after:duration-300 hover:after:w-full" data-section="products">
-              PRODUCTS
-              <svg class="size-4 hs-dropdown-open:-rotate-180 duration-300" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor">
-                <path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </button>
+                PRODUCTS
+                <svg class="size-4 hs-dropdown-open:-rotate-180 duration-300" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor">
+                  <path d="m6 9 6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </button>
 
-            <!-- Same elements as desktop, but vertical -->
-            <div class="hs-dropdown-menu hidden z-10 w-full bg-neutral-900/95 backdrop-blur-2xl
+              <!-- Same elements as desktop, but vertical -->
+              <div class="hs-dropdown-menu hidden z-10 w-full bg-neutral-900/95 backdrop-blur-2xl
 						ring-1 ring-white/10 rounded-2xl p-4 mt-2">
-              <div class="grid grid-cols-1 gap-4">
-                <div>
-                  <p class="text-white/70 text-xs mb-2">Bike Blender</p>
-                  <a href="#BikeBlender" class="text-white block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
-                </div>
+                <div class="grid grid-cols-1 gap-4">
+                  <div>
+                    <p class="text-white/70 text-xs mb-2">Bike Blender</p>
+                    <a href="#BikeBlender" class="text-white block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
+                  </div>
 
-                <div>
-                  <p class="text-white/70 text-xs mb-2">Bike Beam</p>
-                  <a href="#BikeBeam" class="text-white block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
-                </div>
-                <div>
-                  <p class="text-white text-xs mb-2">Bike Branding</p>
-                </div>
-                <div class="rounded-xl ring-1 ring-white/10 p-4 bg-white/5 h-full flex flex-col">
-                  <p class="text-sm font-semibold mb-1">Need custom?</p>
-                  <p class="text-white/70 text-xs mb-3">Custom branding & sizes</p>
-                 <a id="contactBtn" href="#contact"
-   class="inline-flex items-center justify-center rounded-full
+                  <div>
+                    <p class="text-white/70 text-xs mb-2">Bike Beam</p>
+                    <a href="#BikeBeam" class="text-white block py-2 px-3 rounded-lg hover:bg-white/10">Overview</a>
+                  </div>
+                  <div>
+                    <p class="text-white text-xs mb-2">Bike Branding</p>
+                  </div>
+                  <div class="rounded-xl ring-1 ring-white/10 p-4 bg-white/5 h-full flex flex-col">
+                    <p class="text-sm font-semibold mb-1">Need custom?</p>
+                    <p class="text-white/70 text-xs mb-3">Custom branding & sizes</p>
+                    <a id="contactBtn" href="#contact" class="inline-flex items-center justify-center rounded-full
           h-10 px-5 text-base font-semibold
           bg-gradient-to-r from-emerald-400 to-cyan-400 text-neutral-900
           hover:brightness-110 active:brightness-95 transition">
-  Contact / Booking
-</a>
+                      Contact / Booking
+                    </a>
 
+                  </div>
                 </div>
               </div>
-            </div>
-          </li>
+            </li>
 
-          <li><a href="#events" data-section="events"
-              class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">EVENTS</a>
-          </li>
-          <li><a href="#customers" data-section="customers"
-              class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">OUR
-              CUSTOMERS</a></li>
-          <li><a href="#about" data-section="about"
-              class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">ABOUT</a>
-          </li>
+            <li><a href="#events" data-section="events"
+                class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">EVENTS</a>
+            </li>
+            <li><a href="#customers" data-section="customers"
+                class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">OUR
+                CUSTOMERS</a></li>
+            <li><a href="#about" data-section="about"
+                class="navLnk relative inline-block py-2 px-3 transition-colors duration-200 hover:text-emerald-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:rounded-full after:bg-gradient-to-r after:from-emerald-400 after:to-cyan-400 after:transition-all after:duration-300 hover:after:w-full data-[active=true]:text-emerald-300 data-[active=true]:after:w-full">ABOUT</a>
+            </li>
 
-        </ul>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
+  </header>
 
-<style>
-  /* Desktop mega menu: always 4 columns */
-  #BLnav .mega-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1.5rem;
-    /* = gap-6 */
-    align-items: start;
-  }
-
-  /* Make mobile lists vertical as usual */
-  @media (max-width: 1023.98px) {
+  <style>
+    /* Desktop mega menu: always 4 columns */
     #BLnav .mega-grid {
-      display: block;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.5rem;
+      /* = gap-6 */
+      align-items: start;
     }
-  }
 
-@media (max-width: 422px) {
-  #contactBtn { height: 2rem; padding: 0 0.75rem; font-size: 0.8rem; }
-}
-
-</style>
-
-<!-- Spacer -->
-<div class="h-20" aria-hidden="true"></div>
-
-<script src="https://unpkg.com/preline@2.5.0/dist/preline.js" defer></script>
-
-<script>
-  // تغيير نص زر الكونتاكت حسب العرض
-  function updateButtonText() {
-    const button = document.getElementById('contactBtn');
-    if (button) {
-      button.textContent = window.innerWidth <= 422 ? 'Booking' : 'Contact / Booking';
+    /* Make mobile lists vertical as usual */
+    @media (max-width: 1023.98px) {
+      #BLnav .mega-grid {
+        display: block;
+      }
     }
-  }
-  window.addEventListener('load', updateButtonText);
-  window.addEventListener('resize', updateButtonText);
 
-  // إغلاق قائمة الموبايل عند الانتقال لأي سكشن (#...)
-  const toggleBtn = document.querySelector('[data-hs-collapse="#bl-nav-mobile"]');
-  const mobileMenu = document.getElementById('bl-nav-mobile');
-
-  function closeMobileMenu() {
-    // القائمة مفتوحة إذا ما عليها hidden
-    if (toggleBtn && mobileMenu && !mobileMenu.classList.contains('hidden')) {
-      toggleBtn.click();
+    @media (max-width: 422px) {
+      #contactBtn {
+        height: 2rem;
+        padding: 0 0.75rem;
+        font-size: 0.8rem;
+      }
     }
-  }
+  </style>
 
-  // استخدم تفويض أحداث: أي ضغط على <a href="#..."> سكّر بعدها بقليل
-  document.addEventListener('click', (e) => {
-  const link = e.target.closest('a[href^="#"]');
-  if (!link) return;
-  closeMobileMenu(); // بدون setTimeout
-});
+  <!-- Spacer -->
+  <div class="h-20" aria-hidden="true"></div>
 
-</script>
+  <script src="https://unpkg.com/preline@2.5.0/dist/preline.js" defer></script>
+
+  <script>
+    // تغيير نص زر الكونتاكت حسب العرض
+    function updateButtonText() {
+      const button = document.getElementById('contactBtn');
+      if (button) {
+        button.textContent = window.innerWidth <= 422 ? 'Booking' : 'Contact / Booking';
+      }
+    }
+    window.addEventListener('load', updateButtonText);
+    window.addEventListener('resize', updateButtonText);
+
+    // إغلاق قائمة الموبايل عند الانتقال لأي سكشن (#...)
+    const toggleBtn = document.querySelector('[data-hs-collapse="#bl-nav-mobile"]');
+    const mobileMenu = document.getElementById('bl-nav-mobile');
+
+    function closeMobileMenu() {
+      // القائمة مفتوحة إذا ما عليها hidden
+      if (toggleBtn && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        toggleBtn.click();
+      }
+    }
+
+    // استخدم تفويض أحداث: أي ضغط على <a href="#..."> سكّر بعدها بقليل
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      closeMobileMenu(); // بدون setTimeout
+    });
+
+  </script>
 
 
 
@@ -1302,13 +1304,15 @@
         --evp-offset: 1px;
       }
     }
-@media (max-width: 422px) {
-    .ml-auto a {
+
+    @media (max-width: 422px) {
+      .ml-auto a {
         padding-top: 0.25rem;
         padding-bottom: 0.25rem;
         font-size: 0.75rem;
+      }
     }
-}
+
     /* CTA (بدون تغيير) */
     .ev-cta {
       display: inline-flex;
@@ -1556,233 +1560,157 @@
 
 
 
-<section id="customers" class="bl-section container mx-auto px-4">
+<section id="customers" class="reveal bl-section container mx-auto px-4">
   <div class="text-center max-w-2xl mx-auto mb-8">
     <h2 class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight">
       Our Customers
-      <span
-        class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
+      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
     </h2>
   </div>
 
-  <div class="mx-auto w-full max-w-screen-xl">
-    <article
-      class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30">
-      <div
-        class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur p-6 sm:p-8">
+  <div class="mx-auto w-full max-w-screen-2xl">
+    <article class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30">
+      <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur p-6 sm:p-8">
 
-        <!-- GRID: 3 columns from md and up -->
+        <!-- GRID -->
         <div id="customersStack" class="stack-grid"></div>
 
         <!-- Bottom decorations -->
-        <div
-          class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[6px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 z-20 pointer-events-none">
-        </div>
-        <div
-          class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[16px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 blur-md opacity-25 z-10 pointer-events-none">
-        </div>
+        <div class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[6px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 z-20 pointer-events-none"></div>
+        <div class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[16px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 blur-md opacity-25 z-10 pointer-events-none"></div>
       </div>
     </article>
   </div>
 </section>
 
-
 <style>
   /* ===================== GRID ===================== */
-  #customers .stack-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    /* mobile: four columns */
-    gap: 0.5rem;
+  #customers .stack-grid{
+    display:grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* موبايل: 3 أعمدة */
+    gap:.5rem;
   }
-
-  @media (min-width:768px) {
-
-    /* md+: five fixed columns */
-    #customers .stack-grid {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 1.5rem;
+  @media (min-width:768px){
+    #customers .stack-grid{
+      grid-template-columns: repeat(5, minmax(0, 1fr)); /* md+: 5 أعمدة */
+      gap:1.5rem;
     }
   }
 
   /* ===================== CARD ===================== */
-  #customers .stack-card {
-    --avatar: 64px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, .10);
-    background: linear-gradient(90deg, rgba(23, 23, 23, .88), rgba(15, 15, 15, .88));
-    backdrop-filter: blur(6px);
-    padding: 16px;
-    min-width: 0;
-    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    transform: translateY(14px);
-    /* soft entry */
-    opacity: 0;
+  #customers .stack-card{
+    --avatar:64px;
+    display:flex; flex-direction:column;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.10);
+    background:linear-gradient(90deg, rgba(23,23,23,.88), rgba(15,15,15,.88));
+    backdrop-filter:blur(6px);
+    padding:16px; min-width:0; contain:content;
+
+    /* حالة البداية للأنيميشن */
+    opacity:0; transform: translateY(14px);
     will-change: transform, opacity;
-    /* Updated box-shadow for a better look */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .4), 0 0 10px rgba(0, 0, 0, .2) inset;
-    contain: content;
-    /* improve layout performance */
-  }
 
-  #customers .stack-card:hover {
+    /* تأثيرات عامة */
+    box-shadow:0 4px 12px rgba(0,0,0,.4), 0 0 10px rgba(0,0,0,.2) inset;
+
+    /* انتقالات الدخول */
+    transition: transform .6s cubic-bezier(.2,.9,.2,1),
+                opacity .6s cubic-bezier(.2,.9,.2,1);
+  }
+  #customers .stack-card:hover{
     transform: translateY(-4px) scale(1.025);
-    /* Updated box-shadow for a better hover effect */
-    box-shadow: 0 14px 32px rgba(0, 0, 0, .55), 0 0 24px rgba(34, 211, 238, .35), 0 0 14px rgba(52, 211, 153, .35);
-    border-color: rgba(255, 255, 255, .18);
+    box-shadow:0 14px 32px rgba(0,0,0,.55), 0 0 24px rgba(34,211,238,.35), 0 0 14px rgba(52,211,153,.35);
+    border-color:rgba(255,255,255,.18);
   }
-
-  #customers .stack-card.in {
-    transform: none;
-    opacity: 1;
-    transition: transform .6s cubic-bezier(.2, .9, .2, 1), opacity .6s cubic-bezier(.2, .9, .2, 1);
+  #customers .stack-card.in{
+    opacity:1; transform:none;
   }
 
   /* ===================== HEADER ===================== */
-  #customers .stack-row {
-    display: flex;
-    flex-direction: column;
-    /* logo above the title */
-    align-items: center;
-    /* centered */
-    justify-content: center;
-    gap: 0.8rem;
-    min-height: auto;
-    text-align: center;
+  #customers .stack-row{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:.8rem; min-height:auto; text-align:center;
   }
+  #customers .stack-logo{
+    height:var(--avatar); width:var(--avatar);
+    border-radius:9999px; padding:3px;
+    background:linear-gradient(145deg, rgba(34,211,238,.7), rgba(52,211,153,.7));
+    box-shadow:0 4px 12px rgba(0,0,0,.35), 0 0 18px rgba(34,211,238,.35);
+    will-change:transform, filter;
+  }
+  #customers .stack-logo .inner{
+    height:calc(var(--avatar) - 8px);
+    width:calc(var(--avatar) - 8px);
+    border-radius:inherit; background:rgba(255,255,255,.94);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+    position:relative;
+  }
+  #customers .stack-logo img{
+    max-width:86%; max-height:86%;
+    object-fit:contain; display:block; transition:transform .25s ease;
+  }
+  #customers .stack-card:hover .stack-logo img{ transform:scale(1.1); }
 
-  /* logo */
-  #customers .stack-logo {
-    height: var(--avatar);
-    width: var(--avatar);
-    border-radius: 9999px;
-    padding: 3px;
-    background: linear-gradient(145deg, rgba(34, 211, 238, .7), rgba(52, 211, 153, .7));
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .35), 0 0 18px rgba(34, 211, 238, .35);
-    will-change: transform, filter;
+  /* ===================== TITLE ===================== */
+  #customers .stack-info{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    min-height:auto; margin-top:.8rem;
   }
-
-  #customers .stack-logo .inner {
-    height: calc(var(--avatar) - 8px);
-    width: calc(var(--avatar) - 8px);
-    border-radius: inherit;
-    background: rgba(255, 255, 255, .94);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  #customers .stack-title{
+    margin:0; color:#fff; letter-spacing:.2px; font-weight:800;
+    font-size:.9rem; line-height:1.15; text-align:center;
+    overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
+    word-break:break-word;
   }
-
-  #customers .stack-logo img {
-    max-width: 86%;
-    max-height: 86%;
-    object-fit: contain;
-    display: block;
-    transition: transform .25s ease;
-  }
-  
-  #customers .stack-card:hover .stack-logo img {
-    transform: scale(1.1);
-  }
-
-  /* title text */
-  #customers .stack-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* centered */
-    justify-content: center;
-    min-height: auto;
-    margin-top: 0.8rem;
-  }
-
-  #customers .stack-title {
-    margin: 0;
-    color: #fff;
-    letter-spacing: .2px;
-    font-weight: 800;
-    font-size: 0.75rem;
-    line-height: 1.1;
-    text-align: center;
-    /* Removed truncation CSS to allow for full names */
-  }
-
-  @media (min-width:640px) {
-    #customers .stack-title {
-      font-size: 1.3rem;
-    }
+  @media (min-width:640px){
+    #customers .stack-title{ font-size:1rem; }
   }
 
   /* ===== Logo effects ===== */
-  @keyframes bl-pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(34, 211, 238, .30);
-    }
-
-    100% {
-      box-shadow: 0 0 0 16px rgba(34, 211, 238, 0);
-    }
+  @keyframes bl-pulse{ 0%{ box-shadow:0 0 0 0 rgba(34,211,238,.30);} 100%{ box-shadow:0 0 0 16px rgba(34,211,238,0);} }
+  #customers .stack-card:hover .stack-logo{ animation:bl-pulse 1.6s ease-out 1; }
+  #customers .stack-logo .inner::after{
+    content:""; position:absolute; inset:0; border-radius:inherit;
+    background:linear-gradient(120deg, transparent 35%, rgba(255,255,255,.22) 50%, transparent 65%);
+    transform:translateX(-160%); pointer-events:none;
   }
+  @keyframes bl-shine{ to{ transform:translateX(160%);} }
+  #customers .stack-card:hover .stack-logo .inner::after{ animation:bl-shine 1s linear both; }
 
-  #customers .stack-card:hover .stack-logo {
-    animation: bl-pulse 1.6s ease-out 1;
+  /* ===== Reveal للسيكشن ===== */
+  .reveal{
+    opacity:0; transform: translateY(18px);
+    transition: opacity .6s cubic-bezier(.2,.9,.2,1),
+                transform .6s cubic-bezier(.2,.9,.2,1);
+    will-change: opacity, transform;
   }
+  .reveal.in{ opacity:1; transform:none; }
 
-  #customers .stack-logo .inner {
-    position: relative;
-  }
-
-  #customers .stack-logo .inner::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(120deg, transparent 35%, rgba(255, 255, 255, .22) 50%, transparent 65%);
-    transform: translateX(-160%);
-    pointer-events: none;
-  }
-
-  @keyframes bl-shine {
-    to {
-      transform: translateX(160%);
-    }
-  }
-
-  #customers .stack-card:hover .stack-logo .inner::after {
-    animation: bl-shine 1s linear both;
-  }
-
-  /* ===== Respect reduced motion preference ===== */
-  @media (prefers-reduced-motion: reduce) {
-
-    #customers .stack-card,
-    #customers .stack-logo .inner::after {
-      transition: none !important;
-      animation: none !important;
-    }
+  /* ===== Respect reduced motion ===== */
+  @media (prefers-reduced-motion: reduce){
+    .reveal, #customers .stack-card{ transition:none !important; animation:none !important; }
   }
 </style>
+
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    /* ===== 0) Customer data ===== */
-    const FOLDERS = [
-      "AMAZON", "AstraZeneca", "ZAIN", "Arab Bank", "Rotana Hotel", "Delmonte", "PROTEINAK",
-      "PSUT", "JU", "Abdali Hospital", "Umniah", "Saray aqaba", "RIA", "SNA", "TAJ MALL",
-      "Basketball", "MR.BURRITOS", "Birthdays", "TRAX", "Amman Academy",
-    ];
-    const CUSTOMERS = FOLDERS.map(folder => ({
-      name: folder.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase()),
-      slug: folder
-    }));
-    const stack = document.getElementById("customersStack");
+document.addEventListener("DOMContentLoaded", () => {
+  /* 0) Customer data */
+  const FOLDERS = [
+    "AMAZON","AstraZeneca","ZAIN","Arab Bank","Rotana Hotel","Delmonte","PROTEINAK",
+    "PSUT","JU","Abdali Hospital","Umniah","Saray aqaba","RIA","SNA","TAJ MALL",
+    "Basketball","MR.BURRITOS","Birthdays","TRAX","Amman Academy",
+  ];
+  const CUSTOMERS = FOLDERS.map(folder => ({
+    name: folder.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase()),
+    slug: folder
+  }));
+  const stack = document.getElementById("customersStack");
+  const section = document.getElementById("customers");
+  const CACHE_BUST = 2;
 
-    // >>> Cache value: make it a version number (e.g. 1,2,3...) or Date.now()
-    const CACHE_BUST = 2;
-
-    /* ===== 1) Build the cards (logo.webp only) ===== */
-    stack.innerHTML = CUSTOMERS.map(c => `
+  /* 1) Build cards */
+  stack.innerHTML = CUSTOMERS.map(c => `
     <div class="stack-card" data-company="${c.slug}">
       <div class="stack-row">
         <div class="stack-logo">
@@ -1799,13 +1727,47 @@
     </div>
   `).join("");
 
-    // Start card entry animation
-    requestAnimationFrame(() => {
-      document.querySelectorAll("#customers .stack-card").forEach(c => c.classList.add("in"));
-    });
-  });
-</script>
+  /* 2) سيكشن fade-in */
+  if (section){
+    const sectionIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        sectionIO.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+    sectionIO.observe(section);
+  }
 
+  /* 3) كروت: ظهور كرت كرت (queue) */
+  const queue = [];
+  let playing = false;
+
+  function playQueue(){
+    if (playing) return;
+    playing = true;
+    (function step(){
+      const el = queue.shift();
+      if (!el){ playing = false; return; }
+      el.classList.add('in');
+      setTimeout(step, 80); // كل 80ms كرت جديد
+    })();
+  }
+
+  const cardIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      // ادخِل الكرت في الطابور ثم أوقف مراقبته
+      queue.push(e.target);
+      cardIO.unobserve(e.target);
+    });
+    // شغّل الطابور
+    if (queue.length) playQueue();
+  }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' });
+
+  document.querySelectorAll('#customers .stack-card').forEach(card => cardIO.observe(card));
+});
+</script>
 
 
 
@@ -2133,82 +2095,82 @@
 
 
 
-<section id="contact" class="bl-section container mx-auto px-4 py-14 sm:py-18 scroll-mt-32">
+  <section id="contact" class="bl-section container mx-auto px-4 py-14 sm:py-18 scroll-mt-32">
 
-  <!-- Header -->
-  <div class="text-center max-w-4xl mx-auto mb-4 sm:mb-6" data-aos="fade-up">
-    <h2 class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight pb-5">
-      Contact / Booking
-      <span
-        class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
-    </h2>
-  </div>
+    <!-- Header -->
+    <div class="text-center max-w-4xl mx-auto mb-4 sm:mb-6" data-aos="fade-up">
+      <h2 class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight pb-5">
+        Contact / Booking
+        <span
+          class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
+      </h2>
+    </div>
 
-  <p class="text-center text-white/70 max-w-2xl mx-auto mt-2 sm:mt-3 mb-6 sm:mb-8" data-aos="fade-up"
-    data-aos-delay="80">
-    Tell us what you need and we’ll contact you shortly.
-  </p>
+    <p class="text-center text-white/70 max-w-2xl mx-auto mt-2 sm:mt-3 mb-6 sm:mb-8" data-aos="fade-up"
+      data-aos-delay="80">
+      Tell us what you need and we’ll contact you shortly.
+    </p>
 
-  <!-- Card + Form -->
-  <div class="max-w-3xl mx-auto contact-card p-6 sm:p-8 relative" data-aos="fade-up" data-aos-delay="120">
-    <form id="bookingForm" autocomplete="on" class="stack space-y-8 sm:space-y-10">
+    <!-- Card + Form -->
+    <div class="max-w-3xl mx-auto contact-card p-6 sm:p-8 relative" data-aos="fade-up" data-aos-delay="120">
+      <form id="bookingForm" autocomplete="on" class="stack space-y-8 sm:space-y-10">
 
-      <!-- ============= 1) Personal Information ============= -->
-      <fieldset class="fs">
-        <legend class="fs-legend mb-3 sm:mb-4">
-          <span class="step-badge" data-step="01"></span>
-          <h3 class="text-lg font-semibold">Personal Information</h3>
-        </legend>
+        <!-- ============= 1) Personal Information ============= -->
+        <fieldset class="fs">
+          <legend class="fs-legend mb-3 sm:mb-4">
+            <span class="step-badge" data-step="01"></span>
+            <h3 class="text-lg font-semibold">Personal Information</h3>
+          </legend>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
-          <div>
-            <label for="fullName" class="lbl">Full Name</label>
-            <input id="fullName" name="name" type="text" autocomplete="name" required class="inp"
-              placeholder="Your name" />
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
+            <div>
+              <label for="fullName" class="lbl">Full Name</label>
+              <input id="fullName" name="name" type="text" autocomplete="name" required class="inp"
+                placeholder="Your name" />
+            </div>
+
+            <div>
+              <label for="email" class="lbl">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required class="inp"
+                placeholder="name@example.com" />
+            </div>
+
+            <div>
+              <label for="phone" class="lbl">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required class="inp"
+                placeholder="+962 7x xxx xxxx" />
+            </div>
           </div>
-
-          <div>
-            <label for="email" class="lbl">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required class="inp"
-              placeholder="name@example.com" />
-          </div>
-
-          <div>
-            <label for="phone" class="lbl">Phone</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required class="inp"
-              placeholder="+962 7x xxx xxxx" />
-          </div>
-        </div>
-      </fieldset>
+        </fieldset>
 
 
-      <style>
-        /* Vertical rhythm for the booking form */
-        #bookingForm .lbl {
-          display: block;
-          margin-bottom: .5rem;
-        }
+        <style>
+          /* Vertical rhythm for the booking form */
+          #bookingForm .lbl {
+            display: block;
+            margin-bottom: .5rem;
+          }
 
-        #bookingForm .seg {
-          margin-top: .4rem;
-        }
+          #bookingForm .seg {
+            margin-top: .4rem;
+          }
 
-        #bookingForm .help {
-          margin-top: .35rem;
-        }
+          #bookingForm .help {
+            margin-top: .35rem;
+          }
 
-        #bookingForm .textarea {
-          min-height: 9rem;
-        }
-      </style>
+          #bookingForm .textarea {
+            min-height: 9rem;
+          }
+        </style>
 
 
 
 
 
 
-      <!-- ============= 2) Product & Customization ============= -->
-      <fieldset class="fs" x-cloak x-data="{
+        <!-- ============= 2) Product & Customization ============= -->
+        <fieldset class="fs" x-cloak x-data="{
     open:false,
     selected:null,
     items:['🚴 Bike Blender','💡 Bike Beam','🎨 Bike Branding','🛠️ Custom Bike'],
@@ -2325,176 +2287,176 @@
     });
   })()">
 
-        <legend class="fs-legend">
-          <span class="step-badge" data-step="02"></span>
-          <h3 class="text-lg font-semibold">Product &amp; Customization</h3>
-        </legend>
+          <legend class="fs-legend">
+            <span class="step-badge" data-step="02"></span>
+            <h3 class="text-lg font-semibold">Product &amp; Customization</h3>
+          </legend>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
-          <!-- Product -->
-          <div>
-            <label class="lbl">Product</label>
-            <div class="relative" @keydown.escape.window="open=false">
-              <input type="hidden" name="product" x-ref="hidden" />
-              <button type="button" @click="open=!open" :aria-expanded="open" class="listbox-trigger">
-                <span x-text="selected ?? placeholder" :class="selected ? '' : 'text-white/50'"></span>
-                <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <ul x-show="open" x-transition.origin.top @click.outside="open=false" class="listbox-panel">
-                <template x-for="(item,i) in items" :key="i">
-                  <li @click="pick(item)" class="listbox-item" :class="{'bg-neutral-800': selected===item}"
-                    x-text="item"></li>
-                </template>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Blender options (unchanged) -->
-          <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6" x-show="type()==='blender'"
-            x-transition.opacity>
-            <div>
-              <label class="lbl">Cups</label>
-              <input type="number" name="cups" x-model="cups" min="50" step="10" :required="type()==='blender'"
-                class="inp" placeholder="Minimum Cups  : 50" />
-              <p class="help">We provide cups, lids, and straws.</p>
-            </div>
-            <div>
-              <label class="lbl">Bikes</label>
-              <div class="seg">
-                <template x-for="n in [1,2,3,4]" :key="n">
-                  <button type="button" @click="bikes=n" :class="bikes===n ? 'seg-active' : 'seg-idle'"><span
-                      x-text="n"></span></button>
-                </template>
-              </div>
-              <input type="hidden" name="bikes" :value="bikes">
-            </div>
-          </div>
-
-          <!-- Beam options (unchanged) -->
-          <div class="sm:col-span-2" x-show="type()==='beam'" x-transition.opacity>
-            <label class="lbl">Beam Size</label>
-            <div class="seg">
-              <button type="button" @click="beamSize='Medium'"
-                :class="beamSize==='Medium' ? 'seg-active' : 'seg-idle'">Medium</button>
-              <button type="button" @click="beamSize='Large'"
-                :class="beamSize==='Large'  ? 'seg-active' : 'seg-idle'">Large</button>
-            </div>
-            <input type="hidden" name="beamSize" :value="beamSize" :required="type()==='beam'">
-          </div>
-
-          <!-- ===================== BRANDING (ONLY) ===================== -->
-          <div class="sm:col-span-2 space-y-7 sm:space-y-8" x-show="type()==='branding'" x-transition.opacity>
-            <!-- 1) Branding for -->
-            <div>
-              <label class="lbl">Branding for</label>
-              <div class="seg flex flex-wrap gap-2">
-                <button type="button"
-                  @click="brandingProject='blender'; brandingTargets=[]; cupsQty=''; brandingBeamSize=''; beamColor1=''; beamColor2='';"
-                  :class="brandingProject==='blender' ? 'seg-active' : 'seg-idle'">Bike Blender</button>
-                <button type="button" @click="brandingProject='beam'; brandingTargets=[]; cupsQty='';"
-                  :class="brandingProject==='beam' ? 'seg-active' : 'seg-idle'">Bike Beam</button>
-              </div>
-              <input type="hidden" name="brandingProject" :value="brandingProject">
-            </div>
-
-            <!-- ===== Branding → Blender ===== -->
-            <template x-if="brandingProject==='blender'">
-              <div class="space-y-6">
-                <!-- 2) How many bikes -->
-                <div class="mt-5 sm:mt-6">
-                  <label class="lbl">How many bikes?</label>
-                  <div class="seg">
-                    <template x-for="n in [1,2,3,4]" :key="n">
-                      <button type="button" @click="brandingBikes=n"
-                        :class="brandingBikes===n ? 'seg-active' : 'seg-idle'"><span x-text="n"></span></button>
-                    </template>
-                  </div>
-                  <input type="hidden" name="brandingBikes" :value="brandingBikes">
-                </div>
-
-                <!-- 3) Where do you want branding? -->
-                <div class="mt-5 sm:mt-6">
-                  <label class="lbl">Where do you want branding?</label>
-                  <div class="seg flex flex-wrap gap-2">
-                    <template x-for="t in ['Wheels','Cups','Roll-up banners']" :key="t">
-                      <button type="button" @click="toggleBrandingTarget(t)"
-                        :class="brandingTargets.includes(t) ? 'seg-active' : 'seg-idle'">
-                        <span x-text="t"></span>
-                      </button>
-                    </template>
-                  </div>
-                  <input type="hidden" name="brandingTargets" :value="brandingTargets.join(', ')">
-                </div>
-
-                <!-- 4) Cups quantity (only if Cups chosen) -->
-                <div x-show="mt-6 sm:mt-8 brandingTargets.includes('Cups')" x-transition.opacity>
-                  <label class="lbl mt-5 sm:mt-6">Cups quantity</label>
-                  <input type="number" class="inp" name="cupsQty" x-model="cupsQty" min="50" step="50"
-                    placeholder="Minimum Cups  : 50">
-                  <p class="help">Note: We provide cups, lids, and straws.</p>
-                </div>
-              </div>
-            </template>
-
-            <!-- ===== Branding → Beam ===== -->
-            <template x-if="brandingProject==='beam'">
-              <div class="space-y-6">
-                <!-- 2) Beam Size -->
-                <div class="mt-5 sm:mt-6">
-                  <label class="lbl">Beam Size</label>
-                  <div class="seg">
-                    <button type="button" @click="brandingBeamSize='Medium'"
-                      :class="brandingBeamSize==='Medium' ? 'seg-active' : 'seg-idle'">Medium</button>
-                    <button type="button" @click="brandingBeamSize='Large'"
-                      :class="brandingBeamSize==='Large'  ? 'seg-active' : 'seg-idle'">Large</button>
-                  </div>
-                  <input type="hidden" name="brandingBeamSize" :value="brandingBeamSize">
-                </div>
-
-                <!-- 3) Pick two colors -->
-                <div class="mt-6 sm:mt-8">
-                  <label class="lbl">Pick two colors</label>
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-6 sm:gap-y-7">
-                    <div class="flex items-center gap-3">
-                      <input type="color" class="inp !p-0 !h-10 !w-14" x-model="beamColor1">
-                      <input type="text" class="inp w-28 text-center" x-model="beamColor1" readonly>
-                    </div>
-                    <div class="flex items-center gap-3">
-                      <input type="color" class="inp !p-0 !h-10 !w-14" x-model="beamColor2">
-                      <input type="text" class="inp w-28 text-center" x-model="beamColor2" readonly>
-                    </div>
-                  </div>
-                  <input type="hidden" name="beamColor1" :value="beamColor1">
-                  <input type="hidden" name="beamColor2" :value="beamColor2">
-                </div>
-              </div>
-            </template>
-
-          </div>
-        </div>
-
-        <!-- Schedule -->
-        <div class="sm:col-span-2 mt-8 sm:mt-10 pt-6 sm:pt-7 border-t border-white/10 space-y-4"
-          x-show="isConfigured()" x-transition.opacity>
-          <h4 class="text-base font-semibold mb-3">Schedule</h4>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
+            <!-- Product -->
             <div>
-              <label class="lbl">Event Date</label>
-              <input type="text" name="eventDate" class="inp" x-ref="dateInput" placeholder="Select date"
-                autocomplete="off">
+              <label class="lbl">Product</label>
+              <div class="relative" @keydown.escape.window="open=false">
+                <input type="hidden" name="product" x-ref="hidden" />
+                <button type="button" @click="open=!open" :aria-expanded="open" class="listbox-trigger">
+                  <span x-text="selected ?? placeholder" :class="selected ? '' : 'text-white/50'"></span>
+                  <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <ul x-show="open" x-transition.origin.top @click.outside="open=false" class="listbox-panel">
+                  <template x-for="(item,i) in items" :key="i">
+                    <li @click="pick(item)" class="listbox-item" :class="{'bg-neutral-800': selected===item}"
+                      x-text="item"></li>
+                  </template>
+                </ul>
+              </div>
             </div>
-            <div>
-              <label class="lbl">Preferred Time (optional)</label>
-              <input type="text" name="eventTime" class="inp" x-ref="timeInput" placeholder="Select time"
-                autocomplete="off">
-              <p class="help">Timezone: Asia/Amman (UTC+03:00)</p>
+
+            <!-- Blender options (unchanged) -->
+            <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6" x-show="type()==='blender'"
+              x-transition.opacity>
+              <div>
+                <label class="lbl">Cups</label>
+                <input type="number" name="cups" x-model="cups" min="50" step="10" :required="type()==='blender'"
+                  class="inp" placeholder="Minimum Cups  : 50" />
+                <p class="help">We provide cups, lids, and straws.</p>
+              </div>
+              <div>
+                <label class="lbl">Bikes</label>
+                <div class="seg">
+                  <template x-for="n in [1,2,3,4]" :key="n">
+                    <button type="button" @click="bikes=n" :class="bikes===n ? 'seg-active' : 'seg-idle'"><span
+                        x-text="n"></span></button>
+                  </template>
+                </div>
+                <input type="hidden" name="bikes" :value="bikes">
+              </div>
+            </div>
+
+            <!-- Beam options (unchanged) -->
+            <div class="sm:col-span-2" x-show="type()==='beam'" x-transition.opacity>
+              <label class="lbl">Beam Size</label>
+              <div class="seg">
+                <button type="button" @click="beamSize='Medium'"
+                  :class="beamSize==='Medium' ? 'seg-active' : 'seg-idle'">Medium</button>
+                <button type="button" @click="beamSize='Large'"
+                  :class="beamSize==='Large'  ? 'seg-active' : 'seg-idle'">Large</button>
+              </div>
+              <input type="hidden" name="beamSize" :value="beamSize" :required="type()==='beam'">
+            </div>
+
+            <!-- ===================== BRANDING (ONLY) ===================== -->
+            <div class="sm:col-span-2 space-y-7 sm:space-y-8" x-show="type()==='branding'" x-transition.opacity>
+              <!-- 1) Branding for -->
+              <div>
+                <label class="lbl">Branding for</label>
+                <div class="seg flex flex-wrap gap-2">
+                  <button type="button"
+                    @click="brandingProject='blender'; brandingTargets=[]; cupsQty=''; brandingBeamSize=''; beamColor1=''; beamColor2='';"
+                    :class="brandingProject==='blender' ? 'seg-active' : 'seg-idle'">Bike Blender</button>
+                  <button type="button" @click="brandingProject='beam'; brandingTargets=[]; cupsQty='';"
+                    :class="brandingProject==='beam' ? 'seg-active' : 'seg-idle'">Bike Beam</button>
+                </div>
+                <input type="hidden" name="brandingProject" :value="brandingProject">
+              </div>
+
+              <!-- ===== Branding → Blender ===== -->
+              <template x-if="brandingProject==='blender'">
+                <div class="space-y-6">
+                  <!-- 2) How many bikes -->
+                  <div class="mt-5 sm:mt-6">
+                    <label class="lbl">How many bikes?</label>
+                    <div class="seg">
+                      <template x-for="n in [1,2,3,4]" :key="n">
+                        <button type="button" @click="brandingBikes=n"
+                          :class="brandingBikes===n ? 'seg-active' : 'seg-idle'"><span x-text="n"></span></button>
+                      </template>
+                    </div>
+                    <input type="hidden" name="brandingBikes" :value="brandingBikes">
+                  </div>
+
+                  <!-- 3) Where do you want branding? -->
+                  <div class="mt-5 sm:mt-6">
+                    <label class="lbl">Where do you want branding?</label>
+                    <div class="seg flex flex-wrap gap-2">
+                      <template x-for="t in ['Wheels','Cups','Roll-up banners']" :key="t">
+                        <button type="button" @click="toggleBrandingTarget(t)"
+                          :class="brandingTargets.includes(t) ? 'seg-active' : 'seg-idle'">
+                          <span x-text="t"></span>
+                        </button>
+                      </template>
+                    </div>
+                    <input type="hidden" name="brandingTargets" :value="brandingTargets.join(', ')">
+                  </div>
+
+                  <!-- 4) Cups quantity (only if Cups chosen) -->
+                  <div x-show="mt-6 sm:mt-8 brandingTargets.includes('Cups')" x-transition.opacity>
+                    <label class="lbl mt-5 sm:mt-6">Cups quantity</label>
+                    <input type="number" class="inp" name="cupsQty" x-model="cupsQty" min="50" step="50"
+                      placeholder="Minimum Cups  : 50">
+                    <p class="help">Note: We provide cups, lids, and straws.</p>
+                  </div>
+                </div>
+              </template>
+
+              <!-- ===== Branding → Beam ===== -->
+              <template x-if="brandingProject==='beam'">
+                <div class="space-y-6">
+                  <!-- 2) Beam Size -->
+                  <div class="mt-5 sm:mt-6">
+                    <label class="lbl">Beam Size</label>
+                    <div class="seg">
+                      <button type="button" @click="brandingBeamSize='Medium'"
+                        :class="brandingBeamSize==='Medium' ? 'seg-active' : 'seg-idle'">Medium</button>
+                      <button type="button" @click="brandingBeamSize='Large'"
+                        :class="brandingBeamSize==='Large'  ? 'seg-active' : 'seg-idle'">Large</button>
+                    </div>
+                    <input type="hidden" name="brandingBeamSize" :value="brandingBeamSize">
+                  </div>
+
+                  <!-- 3) Pick two colors -->
+                  <div class="mt-6 sm:mt-8">
+                    <label class="lbl">Pick two colors</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-6 sm:gap-y-7">
+                      <div class="flex items-center gap-3">
+                        <input type="color" class="inp !p-0 !h-10 !w-14" x-model="beamColor1">
+                        <input type="text" class="inp w-28 text-center" x-model="beamColor1" readonly>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <input type="color" class="inp !p-0 !h-10 !w-14" x-model="beamColor2">
+                        <input type="text" class="inp w-28 text-center" x-model="beamColor2" readonly>
+                      </div>
+                    </div>
+                    <input type="hidden" name="beamColor1" :value="beamColor1">
+                    <input type="hidden" name="beamColor2" :value="beamColor2">
+                  </div>
+                </div>
+              </template>
+
             </div>
           </div>
-          <p class="help mt-3" x-text="scheduleSummary()"></p>
-        </div>
-      </fieldset>
+
+          <!-- Schedule -->
+          <div class="sm:col-span-2 mt-8 sm:mt-10 pt-6 sm:pt-7 border-t border-white/10 space-y-4"
+            x-show="isConfigured()" x-transition.opacity>
+            <h4 class="text-base font-semibold mb-3">Schedule</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
+              <div>
+                <label class="lbl">Event Date</label>
+                <input type="text" name="eventDate" class="inp" x-ref="dateInput" placeholder="Select date"
+                  autocomplete="off">
+              </div>
+              <div>
+                <label class="lbl">Preferred Time (optional)</label>
+                <input type="text" name="eventTime" class="inp" x-ref="timeInput" placeholder="Select time"
+                  autocomplete="off">
+                <p class="help">Timezone: Asia/Amman (UTC+03:00)</p>
+              </div>
+            </div>
+            <p class="help mt-3" x-text="scheduleSummary()"></p>
+          </div>
+        </fieldset>
 
 
 
@@ -2502,14 +2464,14 @@
 
 
 
-      <!-- ============= 3) Address Details ============= -->
-      <fieldset class="fs">
-        <legend class="fs-legend">
-          <span class="step-badge" data-step="03"></span>
-          <h3 class="text-lg font-semibold">Address Details</h3>
-        </legend>
+        <!-- ============= 3) Address Details ============= -->
+        <fieldset class="fs">
+          <legend class="fs-legend">
+            <span class="step-badge" data-step="03"></span>
+            <h3 class="text-lg font-semibold">Address Details</h3>
+          </legend>
 
-        <div x-data="{
+          <div x-data="{
             open:false, selected:null, cityOpen:false, citySelected:null,
             countries:['Jordan', 'Saudi Arabia', 'United Arab Emirates', 'Qatar', 'Kuwait', 'Bahrain', 'Oman', 'Iraq', 'Egypt', 'Lebanon', 'Palestine', 'Turkey', 'Syria', 'Yemen', 'Iran', 'Libya', 'Sudan', 'United Kingdom', 'United States'],
             cities: {
@@ -2547,370 +2509,370 @@
               this.cityOpen = false;
             }
           }" class="relative">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
-            <!-- Country Dropdown -->
-            <div>
-              <label class="lbl">Country</label>
-              <input type="hidden" name="country" x-ref="hiddenCountry" />
-              <div class="relative" @keydown.escape.window="open=false">
-                <button type="button" @click="open=!open" :aria-expanded="open" class="listbox-trigger">
-                  <span x-text="selected ?? 'Select a country'" :class="selected ? '' : 'text-white/50'"></span>
-                  <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <ul x-show="open" x-transition.origin.top @click.outside="open=false"
-                  class="listbox-panel country-scroll">
-                  <template x-for="(item,i) in countries" :key="i">
-                    <li @click="pickCountry(item)" class="listbox-item" :class="{'bg-neutral-800': selected===item}"
-                      x-text="item"></li>
-                  </template>
-                </ul>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 sm:gap-x-6 gap-y-7 sm:gap-y-8">
+              <!-- Country Dropdown -->
+              <div>
+                <label class="lbl">Country</label>
+                <input type="hidden" name="country" x-ref="hiddenCountry" />
+                <div class="relative" @keydown.escape.window="open=false">
+                  <button type="button" @click="open=!open" :aria-expanded="open" class="listbox-trigger">
+                    <span x-text="selected ?? 'Select a country'" :class="selected ? '' : 'text-white/50'"></span>
+                    <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <ul x-show="open" x-transition.origin.top @click.outside="open=false"
+                    class="listbox-panel country-scroll">
+                    <template x-for="(item,i) in countries" :key="i">
+                      <li @click="pickCountry(item)" class="listbox-item" :class="{'bg-neutral-800': selected===item}"
+                        x-text="item"></li>
+                    </template>
+                  </ul>
+                </div>
               </div>
-            </div>
 
-            <!-- City Field (Conditionally shown) -->
-            <div x-show="selected" x-transition.opacity>
-              <label class="lbl">City</label>
-              <input type="hidden" name="city" x-ref="hiddenCity" />
-              <!-- City Dropdown (for supported countries) -->
-              <div x-show="currentCities.length > 0" class="relative" @keydown.escape.window="cityOpen=false">
-                <button type="button" @click="cityOpen=!cityOpen" :aria-expanded="cityOpen" class="listbox-trigger">
-                  <span x-text="citySelected ?? 'Select a city'" :class="citySelected ? '' : 'text-white/50'"></span>
-                  <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <ul x-show="cityOpen" x-transition.origin.top @click.outside="cityOpen=false"
-                  class="listbox-panel country-scroll">
-                  <template x-for="(city,i) in currentCities" :key="i">
-                    <li @click="pickCity(city)" class="listbox-item"
-                      :class="{'bg-neutral-800': citySelected===city}" x-text="city"></li>
-                  </template>
-                </ul>
+              <!-- City Field (Conditionally shown) -->
+              <div x-show="selected" x-transition.opacity>
+                <label class="lbl">City</label>
+                <input type="hidden" name="city" x-ref="hiddenCity" />
+                <!-- City Dropdown (for supported countries) -->
+                <div x-show="currentCities.length > 0" class="relative" @keydown.escape.window="cityOpen=false">
+                  <button type="button" @click="cityOpen=!cityOpen" :aria-expanded="cityOpen" class="listbox-trigger">
+                    <span x-text="citySelected ?? 'Select a city'" :class="citySelected ? '' : 'text-white/50'"></span>
+                    <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <ul x-show="cityOpen" x-transition.origin.top @click.outside="cityOpen=false"
+                    class="listbox-panel country-scroll">
+                    <template x-for="(city,i) in currentCities" :key="i">
+                      <li @click="pickCity(city)" class="listbox-item" :class="{'bg-neutral-800': citySelected===city}"
+                        x-text="city"></li>
+                    </template>
+                  </ul>
+                </div>
+                <!-- City Input (for other countries) -->
+                <div x-show="currentCities.length === 0">
+                  <input id="city" name="city" type="text" autocomplete="address-level2" required class="inp"
+                    placeholder="Enter a city" :value="citySelected" />
+                </div>
               </div>
-              <!-- City Input (for other countries) -->
-              <div x-show="currentCities.length === 0">
-                <input id="city" name="city" type="text" autocomplete="address-level2" required class="inp"
-                  placeholder="Enter a city" :value="citySelected" />
+
+              <div class="sm:col-span-2">
+                <label for="address1" class="lbl">Address</label>
+                <input id="address1" name="address1" type="text" autocomplete="address-line1" required class="inp"
+                  placeholder="Street, building, number" />
               </div>
-            </div>
 
-            <div class="sm:col-span-2">
-              <label for="address1" class="lbl">Address</label>
-              <input id="address1" name="address1" type="text" autocomplete="address-line1" required class="inp"
-                placeholder="Street, building, number" />
-            </div>
-
-            <div class="sm:col-span-2">
-              <label for="message" class="lbl">Message</label>
-              <textarea id="message" name="message" class="inp textarea"
-                placeholder="Tell us about your event or question..."></textarea>
+              <div class="sm:col-span-2">
+                <label for="message" class="lbl">Message</label>
+                <textarea id="message" name="message" class="inp textarea"
+                  placeholder="Tell us about your event or question..."></textarea>
+              </div>
             </div>
           </div>
+        </fieldset>
+
+        <!-- Actions -->
+        <div class="flex flex-wrap items-center gap-4">
+          <button id="sendBtn" type="submit" class="btn-grad">
+            Send Email
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+          <a id="waLink" rel="noopener noreferrer" target="_blank" class="btn-outline-grad">
+            Send WhatsApp
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <span id="formStatus" class="text-sm"></span>
         </div>
-      </fieldset>
+      </form>
 
-      <!-- Actions -->
-      <div class="flex flex-wrap items-center gap-4">
-        <button id="sendBtn" type="submit" class="btn-grad">
-          Send Email
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </button>
-        <a id="waLink" rel="noopener noreferrer" target="_blank" class="btn-outline-grad">
-          Send WhatsApp
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
-        <span id="formStatus" class="text-sm"></span>
+      <!-- ✨ شريطي التوهّج أسفل الكارد -->
+      <div
+        class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[6px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 z-20 pointer-events-none">
       </div>
-    </form>
-
-    <!-- ✨ شريطي التوهّج أسفل الكارد -->
-    <div
-      class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[6px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 z-20 pointer-events-none">
+      <div
+        class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[16px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 blur-md opacity-25 z-10 pointer-events-none">
+      </div>
     </div>
-    <div
-      class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[16px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 blur-md opacity-25 z-10 pointer-events-none">
-    </div>
-  </div>
-</section>
+  </section>
 
-<script>
-  (function () {
-    // ===== EmailJS Keys + General Settings =====
-    const EMAILJS_PUBLIC_KEY = "_ecATDJabzum4O0qM";
-    const EMAILJS_SERVICE_ID = "service_mg6d3i9";
-    const EMAILJS_TEMPLATE_ID = "template_wcyodge";
-    const WA_PHONE = "962788611234"; 
-    const TZ = "Asia/Amman";
-    const TZ_LABEL = "(UTC+03:00)";
+  <script>
+    (function () {
+      // ===== EmailJS Keys + General Settings =====
+      const EMAILJS_PUBLIC_KEY = "_ecATDJabzum4O0qM";
+      const EMAILJS_SERVICE_ID = "service_mg6d3i9";
+      const EMAILJS_TEMPLATE_ID = "template_wcyodge";
+      const WA_PHONE = "962788611234";
+      const TZ = "Asia/Amman";
+      const TZ_LABEL = "(UTC+03:00)";
 
-    // ===== Page Elements =====
-    const form = document.getElementById("bookingForm");
-    const waLink = document.getElementById("waLink");
-    const sendBtn = document.getElementById("sendBtn");
-    const statusEl = document.getElementById("formStatus");
-    if (!form || !waLink) return;
+      // ===== Page Elements =====
+      const form = document.getElementById("bookingForm");
+      const waLink = document.getElementById("waLink");
+      const sendBtn = document.getElementById("sendBtn");
+      const statusEl = document.getElementById("formStatus");
+      if (!form || !waLink) return;
 
-    // ===== Helper to read form field values =====
-    const val = (name) => {
-      const el = form.querySelector(`[name="${name}"]`);
-      return el ? (el.value || "").trim() : "";
-    };
+      // ===== Helper to read form field values =====
+      const val = (name) => {
+        const el = form.querySelector(`[name="${name}"]`);
+        return el ? (el.value || "").trim() : "";
+      };
 
-    // ===== NEW: Track Active Time on Page =====
-    // A user is "active" if there's interaction within the last 30 seconds and the tab is visible
-    const ACTIVE_WINDOW = 30_000; // Change if you want different sensitivity
-    let lastActivity = Date.now();
-    let activeMs = 0;
+      // ===== NEW: Track Active Time on Page =====
+      // A user is "active" if there's interaction within the last 30 seconds and the tab is visible
+      const ACTIVE_WINDOW = 30_000; // Change if you want different sensitivity
+      let lastActivity = Date.now();
+      let activeMs = 0;
 
-    const bump = () => { lastActivity = Date.now(); };
-    ["pointermove", "mousemove", "keydown", "wheel", "click", "touchstart", "scroll"].forEach(ev =>
-      window.addEventListener(ev, bump, { passive: true })
-    );
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "visible") bump();
-    });
+      const bump = () => { lastActivity = Date.now(); };
+      ["pointermove", "mousemove", "keydown", "wheel", "click", "touchstart", "scroll"].forEach(ev =>
+        window.addEventListener(ev, bump, { passive: true })
+      );
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") bump();
+      });
 
-    // Add one second only when active and the tab is visible
-    setInterval(() => {
-      const recent = Date.now() - lastActivity < ACTIVE_WINDOW;
-      if (document.visibilityState === "visible" && recent) {
-        activeMs += 1000;
+      // Add one second only when active and the tab is visible
+      setInterval(() => {
+        const recent = Date.now() - lastActivity < ACTIVE_WINDOW;
+        if (document.visibilityState === "visible" && recent) {
+          activeMs += 1000;
+        }
+      }, 1000);
+
+      function formatDuration(ms) {
+        let s = Math.floor(ms / 1000);
+        const h = Math.floor(s / 3600);
+        s %= 3600;
+        const m = Math.floor(s / 60);
+        s %= 60;
+        const pad = (n) => String(n).padStart(2, "0");
+        return h > 0 ? `${h}:${pad(m)}:${pad(s)}` : `${m}:${pad(s)}`;
       }
-    }, 1000);
-
-    function formatDuration(ms) {
-      let s = Math.floor(ms / 1000);
-      const h = Math.floor(s / 3600);
-      s %= 3600;
-      const m = Math.floor(s / 60);
-      s %= 60;
-      const pad = (n) => String(n).padStart(2, "0");
-      return h > 0 ? `${h}:${pad(m)}:${pad(s)}` : `${m}:${pad(s)}`;
-    }
 
 
-    // HTML row: Appears only if it has a value
-    function row(label, value) {
-      if (!value) return "";
-      const kStyle = "padding:10px 12px;font-weight:600;color:#111827;background:#F9FAFB;border:1px solid #E5E7EB;width:38%;";
-      const vStyle = "padding:10px 12px;color:#111827;border:1px solid #E5E7EB;";
-      return `<tr>
+      // HTML row: Appears only if it has a value
+      function row(label, value) {
+        if (!value) return "";
+        const kStyle = "padding:10px 12px;font-weight:600;color:#111827;background:#F9FAFB;border:1px solid #E5E7EB;width:38%;";
+        const vStyle = "padding:10px 12px;color:#111827;border:1px solid #E5E7EB;";
+        return `<tr>
     <td style="${kStyle}">${label}</td>
     <td style="${vStyle}">${String(value).replace(/\n/g, "<br>")}</td>
   </tr>`;
-    }
-
-    function buildDetailsHTML() {
-      const prod = (val("product") || "").toLowerCase();
-      const rows = [];
-
-      if (!prod) return ""; // No product selected
-
-      // === Bike Blender (normal) ===
-      if (prod.includes("blender") && !prod.includes("branding")) {
-        rows.push(row("Cups", val("cups")));
-        rows.push(row("Bikes", val("bikes")));
       }
 
-      // === Bike Beam (normal) ===
-      if (prod.includes("beam") && !prod.includes("branding")) {
-        rows.push(row("Beam Size", val("beamSize")));
-      }
+      function buildDetailsHTML() {
+        const prod = (val("product") || "").toLowerCase();
+        const rows = [];
 
-      // === Bike Branding ===
-      if (prod.includes("branding")) {
-        const proj = val("brandingProject"); // 'blender' | 'beam'
-        rows.push(row("Branding for", proj === "blender" ? "Bike Blender" : proj === "beam" ? "Bike Beam" : proj));
+        if (!prod) return ""; // No product selected
 
-        if (proj === "blender") {
-          rows.push(row("Branded Bikes", val("brandingBikes")));
-          const targets = val("brandingTargets");
-          rows.push(row("Targets", targets));
-          if (targets?.includes("Cups")) rows.push(row("Cups", val("cupsQty")));
-        } else if (proj === "beam") {
-          rows.push(row("Beam Size", val("brandingBeamSize")));
-          const c1 = val("beamColor1"), c2 = val("beamColor2");
-          if (c1 || c2) rows.push(row("Theme", [c1, c2].filter(Boolean).join(" → ")));
+        // === Bike Blender (normal) ===
+        if (prod.includes("blender") && !prod.includes("branding")) {
+          rows.push(row("Cups", val("cups")));
+          rows.push(row("Bikes", val("bikes")));
         }
-      }
 
-
-      return rows.filter(Boolean).join("");
-    }
-
-
-
-    // ===== Message Summary (updated to include Active Time) =====
-    function buildSummary() {
-      const parts = [
-        `Name: ${val("name")}`,
-        `Email: ${val("email")}`,
-        `Phone: ${val("phone")}`,
-        `Product: ${val("product") || "(not selected)"}`,
-      ];
-
-      const prod = (val("product") || "").toLowerCase();
-
-      // Bike Blender (Normal)
-      if (prod.includes("blender") && !prod.includes("branding")) {
-        if (val("cups")) parts.push(`Cups: ${val("cups")}`);
-        if (val("bikes")) parts.push(`Bikes: ${val("bikes")}`);
-      }
-
-      // Bike Beam (Normal)
-      if (prod.includes("beam") && !prod.includes("branding")) {
-        if (val("beamSize")) parts.push(`Beam Size: ${val("beamSize")}`);
-      }
-
-      // Bike Branding
-      if (prod.includes("branding")) {
-        const proj = val("brandingProject"); // 'blender' | 'beam'
-        if (proj) {
-          parts.push(`Branding for: ${proj === "blender" ? "Bike Blender" : "Bike Beam"}`);
+        // === Bike Beam (normal) ===
+        if (prod.includes("beam") && !prod.includes("branding")) {
+          rows.push(row("Beam Size", val("beamSize")));
         }
-        if (proj === "blender") {
-          if (val("brandingBikes")) parts.push(`Branded Bikes: ${val("brandingBikes")}`);
-          const targets = val("brandingTargets");
-          if (targets) parts.push(`Targets: ${targets}`);
-          const q = val("cupsQty");
-          if (targets?.includes("Cups") && q) parts.push(`Cups: ${q}`);
-        } else if (proj === "beam") {
-          if (val("brandingBeamSize")) parts.push(`Beam Size: ${val("brandingBeamSize")}`);
-          const c1 = val("beamColor1"), c2 = val("beamColor2");
-          if (c1 || c2) parts.push(`Theme: ${[c1, c2].filter(Boolean).join(" → ")}`);
+
+        // === Bike Branding ===
+        if (prod.includes("branding")) {
+          const proj = val("brandingProject"); // 'blender' | 'beam'
+          rows.push(row("Branding for", proj === "blender" ? "Bike Blender" : proj === "beam" ? "Bike Beam" : proj));
+
+          if (proj === "blender") {
+            rows.push(row("Branded Bikes", val("brandingBikes")));
+            const targets = val("brandingTargets");
+            rows.push(row("Targets", targets));
+            if (targets?.includes("Cups")) rows.push(row("Cups", val("cupsQty")));
+          } else if (proj === "beam") {
+            rows.push(row("Beam Size", val("brandingBeamSize")));
+            const c1 = val("beamColor1"), c2 = val("beamColor2");
+            if (c1 || c2) rows.push(row("Theme", [c1, c2].filter(Boolean).join(" → ")));
+          }
         }
+
+
+        return rows.filter(Boolean).join("");
       }
 
-      // Date and time
-      if (val("eventDate")) parts.push(`Date: ${val("eventDate")}`);
-      if (val("eventTime")) parts.push(`Time: ${val("eventTime")} ${TZ_LABEL}`);
 
-      // Location and message
-      const loc = [val("city"), val("country")].filter(Boolean).join(", ");
-      if (loc) parts.push(`Location: ${loc}`);
-      if (val("address1")) parts.push(`Address: ${val("address1")}`);
 
-      const msg = val("message");
-      parts.push(`Message:\n${msg || "-"}`);
+      // ===== Message Summary (updated to include Active Time) =====
+      function buildSummary() {
+        const parts = [
+          `Name: ${val("name")}`,
+          `Email: ${val("email")}`,
+          `Phone: ${val("phone")}`,
+          `Product: ${val("product") || "(not selected)"}`,
+        ];
 
-      // NEW: Active Time
-      parts.push(`Active on site: ${formatDuration(activeMs)} (${Math.round(activeMs / 1000)}s)`);
+        const prod = (val("product") || "").toLowerCase();
 
-      const now = new Date().toLocaleString(undefined, { timeZone: TZ });
-      parts.push(`Page: ${location.href}`);
-      parts.push(`Time: ${now}`);
+        // Bike Blender (Normal)
+        if (prod.includes("blender") && !prod.includes("branding")) {
+          if (val("cups")) parts.push(`Cups: ${val("cups")}`);
+          if (val("bikes")) parts.push(`Bikes: ${val("bikes")}`);
+        }
 
-      return parts.filter(Boolean).join("\n");
-    }
+        // Bike Beam (Normal)
+        if (prod.includes("beam") && !prod.includes("branding")) {
+          if (val("beamSize")) parts.push(`Beam Size: ${val("beamSize")}`);
+        }
 
-    // ===== Unify WhatsApp link building (with a single, permanent number) =====
-    function updateWhatsAppLink() {
-      const text = `New Bike Land request:\n\n${buildSummary()}`;
-      waLink.href = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`;
-    }
-    form.addEventListener("input", updateWhatsAppLink);
-    form.addEventListener("click", (e) => {
-      if (
-        e.target.closest(".seg button") ||
-        e.target.closest(".listbox-item") ||
-        e.target.closest(".listbox-trigger")
-      ) {
-        setTimeout(updateWhatsAppLink, 0);
-      }
-    });
-    // NEW: Update the link every 15 seconds to reflect increasing active time even without new input
-    setInterval(updateWhatsAppLink, 15_000);
-    updateWhatsAppLink();
+        // Bike Branding
+        if (prod.includes("branding")) {
+          const proj = val("brandingProject"); // 'blender' | 'beam'
+          if (proj) {
+            parts.push(`Branding for: ${proj === "blender" ? "Bike Blender" : "Bike Beam"}`);
+          }
+          if (proj === "blender") {
+            if (val("brandingBikes")) parts.push(`Branded Bikes: ${val("brandingBikes")}`);
+            const targets = val("brandingTargets");
+            if (targets) parts.push(`Targets: ${targets}`);
+            const q = val("cupsQty");
+            if (targets?.includes("Cups") && q) parts.push(`Cups: ${q}`);
+          } else if (proj === "beam") {
+            if (val("brandingBeamSize")) parts.push(`Beam Size: ${val("brandingBeamSize")}`);
+            const c1 = val("beamColor1"), c2 = val("beamColor2");
+            if (c1 || c2) parts.push(`Theme: ${[c1, c2].filter(Boolean).join(" → ")}`);
+          }
+        }
 
-    // ===== Securely load EmailJS (if not already present) then init =====
-    async function ensureEmailJS() {
-      if (window.emailjs?.send) return emailjs;
-      await new Promise((resolve, reject) => {
-        const s = document.createElement("script");
-        s.src = "https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js";
-        s.defer = true;
-        s.onload = resolve;
-        s.onerror = () => reject(new Error("EmailJS failed to load"));
-        document.head.appendChild(s);
-      });
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-      return emailjs;
-    }
+        // Date and time
+        if (val("eventDate")) parts.push(`Date: ${val("eventDate")}`);
+        if (val("eventTime")) parts.push(`Time: ${val("eventTime")} ${TZ_LABEL}`);
 
-    // ===== Send form via EmailJS =====
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      statusEl.textContent = "";
-      sendBtn.disabled = true;
-      sendBtn.classList.add("opacity-60", "cursor-not-allowed");
+        // Location and message
+        const loc = [val("city"), val("country")].filter(Boolean).join(", ");
+        if (loc) parts.push(`Location: ${loc}`);
+        if (val("address1")) parts.push(`Address: ${val("address1")}`);
 
-      const params = {
-        name: val("name"),
-        email: val("email"),
-        phone: val("phone"),
-        product: val("product") || "",
-        message: val("message") || "",
-        country: val("country"),
-        city: val("city"),
-        address1: val("address1"),
-
-        // Normal
-        cups: val("cups"),
-        bikes: val("bikes"),
-        beamSize: val("beamSize"),
-        eventDate: val("eventDate"),
-        eventTime: val("eventTime"),
-
-        // Branding only
-        brandingProject: val("brandingProject"),
-        brandingBikes: val("brandingBikes"),
-        brandingTargets: val("brandingTargets"),
-        cupsQty: val("cupsQty"),
-        brandingBeamSize: val("brandingBeamSize"),
-        beamColor1: val("beamColor1"),
-        beamColor2: val("beamColor2"),
-        details_html: buildDetailsHTML(),
-        year: new Date().getFullYear(),
+        const msg = val("message");
+        parts.push(`Message:\n${msg || "-"}`);
 
         // NEW: Active Time
-        active_seconds: Math.round(activeMs / 1000),
-        active_pretty: formatDuration(activeMs),
+        parts.push(`Active on site: ${formatDuration(activeMs)} (${Math.round(activeMs / 1000)}s)`);
 
-        page: location.href,
-        time: new Date().toLocaleString(undefined, { timeZone: TZ }),
-        subject: `Bike Land Request — ${val("name")} (${val("product") || "No product"})`,
-        summary: buildSummary(),
-      };
+        const now = new Date().toLocaleString(undefined, { timeZone: TZ });
+        parts.push(`Page: ${location.href}`);
+        parts.push(`Time: ${now}`);
 
-      try {
-        const ej = await ensureEmailJS();
-        await ej.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
-
-        statusEl.textContent = "Sent! We’ll contact you shortly.";
-        statusEl.className = "text-emerald-400 text-sm";
-
-        form.reset();
-        window.dispatchEvent(new CustomEvent("clear-product"));
-        updateWhatsAppLink();
-      } catch (err) {
-        console.error(err);
-        statusEl.textContent = "Failed to send. Try WhatsApp or later.";
-        statusEl.className = "text-red-400 text-sm";
-      } finally {
-        sendBtn.disabled = false;
-        sendBtn.classList.remove("opacity-60", "cursor-not-allowed");
+        return parts.filter(Boolean).join("\n");
       }
-    });
-  })();
-</script>
+
+      // ===== Unify WhatsApp link building (with a single, permanent number) =====
+      function updateWhatsAppLink() {
+        const text = `New Bike Land request:\n\n${buildSummary()}`;
+        waLink.href = `https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`;
+      }
+      form.addEventListener("input", updateWhatsAppLink);
+      form.addEventListener("click", (e) => {
+        if (
+          e.target.closest(".seg button") ||
+          e.target.closest(".listbox-item") ||
+          e.target.closest(".listbox-trigger")
+        ) {
+          setTimeout(updateWhatsAppLink, 0);
+        }
+      });
+      // NEW: Update the link every 15 seconds to reflect increasing active time even without new input
+      setInterval(updateWhatsAppLink, 15_000);
+      updateWhatsAppLink();
+
+      // ===== Securely load EmailJS (if not already present) then init =====
+      async function ensureEmailJS() {
+        if (window.emailjs?.send) return emailjs;
+        await new Promise((resolve, reject) => {
+          const s = document.createElement("script");
+          s.src = "https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js";
+          s.defer = true;
+          s.onload = resolve;
+          s.onerror = () => reject(new Error("EmailJS failed to load"));
+          document.head.appendChild(s);
+        });
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+        return emailjs;
+      }
+
+      // ===== Send form via EmailJS =====
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        statusEl.textContent = "";
+        sendBtn.disabled = true;
+        sendBtn.classList.add("opacity-60", "cursor-not-allowed");
+
+        const params = {
+          name: val("name"),
+          email: val("email"),
+          phone: val("phone"),
+          product: val("product") || "",
+          message: val("message") || "",
+          country: val("country"),
+          city: val("city"),
+          address1: val("address1"),
+
+          // Normal
+          cups: val("cups"),
+          bikes: val("bikes"),
+          beamSize: val("beamSize"),
+          eventDate: val("eventDate"),
+          eventTime: val("eventTime"),
+
+          // Branding only
+          brandingProject: val("brandingProject"),
+          brandingBikes: val("brandingBikes"),
+          brandingTargets: val("brandingTargets"),
+          cupsQty: val("cupsQty"),
+          brandingBeamSize: val("brandingBeamSize"),
+          beamColor1: val("beamColor1"),
+          beamColor2: val("beamColor2"),
+          details_html: buildDetailsHTML(),
+          year: new Date().getFullYear(),
+
+          // NEW: Active Time
+          active_seconds: Math.round(activeMs / 1000),
+          active_pretty: formatDuration(activeMs),
+
+          page: location.href,
+          time: new Date().toLocaleString(undefined, { timeZone: TZ }),
+          subject: `Bike Land Request — ${val("name")} (${val("product") || "No product"})`,
+          summary: buildSummary(),
+        };
+
+        try {
+          const ej = await ensureEmailJS();
+          await ej.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
+
+          statusEl.textContent = "Sent! We’ll contact you shortly.";
+          statusEl.className = "text-emerald-400 text-sm";
+
+          form.reset();
+          window.dispatchEvent(new CustomEvent("clear-product"));
+          updateWhatsAppLink();
+        } catch (err) {
+          console.error(err);
+          statusEl.textContent = "Failed to send. Try WhatsApp or later.";
+          statusEl.className = "text-red-400 text-sm";
+        } finally {
+          sendBtn.disabled = false;
+          sendBtn.classList.remove("opacity-60", "cursor-not-allowed");
+        }
+      });
+    })();
+  </script>
 
 
 
@@ -2925,11 +2887,12 @@
   <footer id="site-footer" class="border-t border-white/10" data-aos="fade-up">
     <div class="container mx-auto px-4 py-10">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-white/60 text-sm">
-          © <span id="y"></span> Bike Land
-          <span class="mx-2">·</span>
-          <a href="/what-is-bike-land.html" class="hover:text-white">What is Bike Land?</a>
-        </p>
+       <p class="text-white/60 text-sm">
+  © 2023 Bike Land
+  <span class="mx-2">·</span>
+  <a href="/what-is-bike-land.html" class="hover:text-white">What is Bike Land?</a>
+</p>
+
 
         <a href="mailto:bikeblender@hotmail.com" class="text-emerald-400 hover:text-emerald-300 font-semibold">
           bikeblender@hotmail.com
@@ -2951,7 +2914,7 @@
 
 
 
-  
+
 
   <script>
     (function initWhenReady() {
