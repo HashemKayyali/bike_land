@@ -47,3 +47,23 @@ module.exports = {
     require('preline/plugin') // ضروري عشان تشتغل مكونات Preline
   ]
 };
+// tailwind.config.js
+module.exports = {
+  content: [
+    './index.html',
+    './**/*.{html,js}',          // يشمل سكربتاتك الداخلية
+    './src/**/*.{html,js}',      // لو عندك ملفات إضافية
+  ],
+  theme: { extend: {} },
+  plugins: [],
+  safelist: [
+    // arbitrary utilities + variants اللي عندك
+    'w-[80%]','h-[3px]','size-4',
+    'md:w-[95%]','md:justify-self-start','md:justify-self-end',
+    'backdrop-blur','backdrop-blur-sm','backdrop-blur-2xl',
+    'aspect-video',
+    'ring-1','ring-white/10','ring-emerald-500/30',
+    'data-[active=true]:text-emerald-300',
+    'data-[active=true]:after:w-full'
+  ]
+}
