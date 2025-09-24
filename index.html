@@ -440,568 +440,565 @@
 
 
 
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <section id="products" style="content-visibility:auto; contain-intrinsic-size:1000px"
-    class="bl-section container mx-auto px-4">
+ <section id="products" style="content-visibility:auto; contain-intrinsic-size:1000px"
+   class="bl-section container mx-auto px-4">
 
-    <div class="text-center max-w-2xl mx-auto mb-8">
-      <h2 class="relative inline-block text-4xl font-extrabold tracking-tight" data-aos="fade-up"
-        data-aos-duration="800">
-        Products
-        <span
-          class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
-      </h2>
-    </div>
+   <div class="text-center max-w-2xl mx-auto mb-12">
+     <h2 class="relative inline-block text-4xl font-extrabold tracking-tight text-white" data-aos="fade-up"
+       data-aos-duration="800">
+       Products
+       <span
+         class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
+     </h2>
+   </div>
 
-    <!-- نستخدم Grid + justify-self لتمديد الكروت يمين/يسار -->
-    <div class="grid gap-y-12">
-      <!-- ================== Card 1: Bike Blender (يسار) ================== -->
-      <article id="BikeBlender" data-aos="fade-in"
-        class="anchor-target group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2 w-full md:w-[95%] md:justify-self-start">
-        <div
-          class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur">
-          <!-- شريط جانبي -->
-          <div class="absolute left-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"></div>
+   <!-- We use Grid + justify-self to align cards left/right -->
+   <div class="grid gap-y-12">
+     <!-- ================== Card 1: Bike Blender (Left) ================== -->
+     <article id="BikeBlender" data-aos="fade-in"
+       class="anchor-target group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2 w-full md:w-[95%] md:justify-self-start">
+       <div
+         class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur">
+         <!-- Side Bar -->
+         <div class="absolute left-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"></div>
 
-          <div class="flex flex-col md:flex-row items-stretch md:min_h-[280px] md:min-h-[280px]">
-            <!-- النص أولًا على الموبايل، ثانيًا على الديسكتوب -->
-            <div class="order-1 md:order-2 md:w-1/2 p-6 sm:p-8 flex flex-col justify-center">
-              <div class="flex items-center gap-3">
-                <span
-                  class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold">01</span>
-                <h3 class="text-2xl font-extrabold group-hover:text-emerald-400 transition">
-                  Bike Blender
-                </h3>
-                <span
-                  class="ml-auto text-xs px-2 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Most
-                  Popular</span>
-              </div>
+         <div class="flex flex-col md:flex-row items-stretch md:min-h-[280px]">
+           <!-- Text first on mobile, second on desktop -->
+           <div class="order-1 md:order-2 md:w-5/12 p-6 sm:p-8 flex flex-col justify-center">
+             <div class="flex items-center gap-3">
+               <span
+                 class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold">01</span>
+               <h3 class="text-2xl font-extrabold group-hover:text-emerald-400 transition">
+                 Bike Blender
+               </h3>
+               <span
+                 class="ml-auto text-xs px-2 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Most
+                 Popular</span>
+             </div>
 
-              <p class="mt-3 text-white/80 leading-relaxed">
-                Turn movement into energy and freshness! An innovative experience that combines cycling with making
-                fresh natural smoothies. Every spin on the bike means more fun and a cup full of vitality. Perfect for
-                companies, malls, and events looking to attract crowds in a fun and healthy way.
-              </p>
+             <p class="mt-3 text-white/80 leading-relaxed">
+               Turn movement into energy and freshness! An innovative experience that combines cycling with making
+               fresh natural smoothies. Every spin on the bike means more fun and a cup full of vitality. Perfect for
+               companies, malls, and events looking to attract crowds in a fun and healthy way.
+             </p>
 
-              <!-- خيارات سريعة -->
-              <div class="mt-5">
-                <h4 class="text-sm font-semibold text-white/80 mb-2">
-                  Event Options
-                </h4>
-                <div class="flex flex-wrap gap-3">
-                  <!-- Cups -->
-                  <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                    <div class="text-xs text-white/60 mb-1">Cups</div>
-                    <div class="flex gap-1">
-                      <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15"> Min
-                        100</label>
-                    </div>
-                  </div>
-                  <!-- Bikes -->
-                  <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                    <div class="text-xs text-white/60 mb-1">Bikes</div>
-                    <div class="flex gap-1">
-                      <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15">Up To
-                        4</label>
-                    </div>
-                  </div>
-                  <!-- Booth -->
-                  <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                    <div class="text-xs text-white/60 mb-1">Booth Size </div>
-                    <div class="flex gap-1">
-                      <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15">
-                        Small</label>
-                      <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15">
-                        Large</label>
-                    </div>
-                  </div>
-                </div>
-                <p class="mt-2 text-xs text-white/50">
-                  Note: We provide cups, lids, and straws. Power outlet not
-                  required.
-                </p>
-              </div>
+             <!-- Quick Options -->
+             <div class="mt-5">
+               <h4 class="text-sm font-semibold text-white/80 mb-2">
+                 Event Options
+               </h4>
+               <div class="flex flex-wrap gap-3">
+                 <!-- Cups -->
+                 <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                   <div class="text-xs text-white/60 mb-1">Cups</div>
+                   <div class="flex gap-1">
+                     <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15"> Min
+                       100</label>
+                   </div>
+                 </div>
+                 <!-- Bikes -->
+                 <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                   <div class="text-xs text-white/60 mb-1">Bikes</div>
+                   <div class="flex gap-1">
+                     <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15">Up To
+                       4</label>
+                   </div>
+                 </div>
+                 <!-- Booth -->
+                 <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                   <div class="text-xs text-white/60 mb-1">Booth Size </div>
+                   <div class="flex gap-1">
+                     <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15">
+                       Small</label>
+                     <label class="cursor-pointer rounded-md px-2 py-1 text-sm bg-white/10 hover:bg-white/15">
+                       Large</label>
+                   </div>
+                 </div>
+               </div>
+               <p class="mt-2 text-xs text-white/50">
+                 Note: We provide cups, lids, and straws. Power outlet not
+                 required.
+               </p>
+             </div>
 
-              <!-- What's included -->
-              <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-white/80">
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  Customizable smoothie menu for events
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  Professional staff included
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  Extra staff for large crowds
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  Transport available within Jordan
-                </li>
-              </ul>
+             <!-- What's included -->
+             <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-white/80">
+               <li class="flex items-start gap-2">
+                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                 Customizable smoothie menu for events
+               </li>
+               <li class="flex items-start gap-2">
+                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                 Professional staff included
+               </li>
+               <li class="flex items-start gap-2">
+                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                 Extra staff for large crowds
+               </li>
+               <li class="flex items-start gap-2">
+                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                 Transport available within Jordan
+               </li>
+             </ul>
 
-              <!-- زر الديسكتوب فقط -->
-              <div class="hidden md:flex mt-6 flex-wrap items-center gap-3">
-                <a href="#contact"
-                  class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book
-                  Now</a>
-              </div>
+             <!-- Desktop button -->
+             <div class="hidden md:flex mt-6 flex-wrap items-center gap-3">
+               <a href="#contact"
+                 class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book
+                 Now</a>
+             </div>
+           </div>
 
-              <!-- عناصر مخفية للمعرض (سيتم تعبئتها بالـJS) -->
-              <div id="blenderHiddenGallery" class="hidden"></div>
-            </div>
+           <!-- Image + Thumbs -->
+           <div class="order-2 md:order-1 md:w-7/12 flex flex-col items-center justify-center p-6 gap-3">
+             <div
+               class="product-frame aspect-video w-full max-w-[720px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg relative">
+               <img id="blenderMain" src="./images/products/bikeblender.png?v=3.1" alt="Bike Blender"
+                 class="prod-main w-full h-full object-cover rounded-lg" />
+             </div>
 
-            <!-- الصورة الكبيرة + الثمبز تحتها -->
-            <div class="order-2 md:order-1 md:w-7/12 lg:w-3/5 flex flex-col items-center justify-center p-6 gap-3">
-              <div
-                class="product-frame  aspect-video w-full max-w-[720px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg relative">
-                <img id="blenderMain" src="./images/products/bikeblender.png?v=3.1" alt="Bike Blender"
-                  class="prod-main w-full h-full object-contain rounded-lg" />
-              </div>
+             <!-- Thumbs under the image -->
+             <div id="blenderThumbs"
+               class="w-full max-w-[720px] flex items-center justify-center gap-2 overflow-x-auto px-1 mt-4 hide-scrollbar">
+               <a href="images/products/bikeblender.png" data-large="images/products/bikeblender.png"
+                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                 <img src="images/products/bikeblender.png?v=3.1" loading="lazy" decoding="async"
+                   class="h-16 w-24 object-cover" alt="Main Blender" />
+               </a>
 
-              <!-- الثمبز تحت الصورة -->
-              <div id="blenderThumbs"
-                class="w-full max-w-[720px] flex items-center justify-center gap-2 overflow-x-auto px-1 mt-4 hide-scrollbar">
-                <a href="images/products/bikeblender.png" data-large="images/products/bikeblender.png"
-                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                  <img src="images/products/bikeblender.png?v=3.1" loading="lazy" decoding="async"
-                    class="h-16 w-24 object-cover" alt="Main Blender" />
-                </a>
+               <a href="images/bikeblender/1.png" data-large="images/bikeblender/1.png"
+                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                 <img src="images/bikeblender/1.png?v=3.1" loading="lazy" decoding="async"
+                   class="h-16 w-24 object-cover" alt="Blender 1" />
+               </a>
 
-                <a href="images/bikeblender/1.png" data-large="images/bikeblender/1.png"
-                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                  <img src="images/bikeblender/1.png?v=3.1" loading="lazy" decoding="async" class="h-16 w-24 object-cover"
-                    alt="Blender 1" />
-                </a>
+               <a href="images/bikeblender/2.png" data-large="images/bikeblender/2.png"
+                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                 <img src="images/bikeblender/2.png?v=3.1" loading="lazy" decoding="async"
+                   class="h-16 w-24 object-cover" alt="Blender 2" />
+               </a>
+               <a href="images/bikeblender/3.png" data-large="images/bikeblender/3.png"
+                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                 <img src="images/bikeblender/3.png?v=3.1" class="h-16 w-24 object-cover" loading="lazy"
+                   decoding="async" alt="Blender 3" />
+               </a>
+             </div>
 
-                <a href="images/bikeblender/2.png" data-large="images/bikeblender/2.png"
-                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                  <img src="images/bikeblender/2.png?v=3.1" loading="lazy" decoding="async" class="h-16 w-24 object-cover"
-                    alt="Blender 2" />
-                </a>
-                <a href="images/bikeblender/3.png" data-large="images/bikeblender/3.png"
-                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                  <img src="images/bikeblender/3.png?v=3.1" class="h-16 w-24 object-cover" loading="lazy" decoding="async"
-                    alt="Blender 3" />
-                </a>
-              </div>
+             <!-- Mobile button -->
+             <div class="block md:hidden w-full mt-4">
+               <a href="#contact"
+                 class="mx-auto block w-max text-center rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">
+                 Book Now
+               </a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </article>
 
-              <!-- زر الموبايل فقط -->
-              <div class="block md:hidden w-full mt-4">
-                <a href="#contact"
-                  class="mx-auto block w-max text-center rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">
-                  Book Now
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
+     <!-- ================== Card 2: Bike Beam (Right) ================== -->
+     <article data-aos="fade-in" id="BikeBeam"
+       class="anchor-target group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2 w-full md:w-[95%] md:justify-self-end">
+       <div
+         class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur">
+         <div class="absolute right-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"></div>
 
-      <!-- ================== Card 2: Bike Beam (يمين) ================== -->
-      <article data-aos="fade-in" id="BikeBeam"
-        class="anchor-target group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2 w-full md:w-[95%] md:justify-self-end">
-        <div
-          class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur">
-          <div class="absolute right-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"></div>
+         <div class="flex flex-col md:flex-row-reverse items-stretch md:min-h-[280px]">
+           <!-- Text -->
+           <div class="order-1 md:order-2 md:w-5/12 p-6 sm:p-8 flex flex-col justify-center">
+             <div class="flex items-center gap-3">
+               <span
+                 class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold">02</span>
+               <h3 class="text-2xl font-extrabold group-hover:text-emerald-400 transition">
+                 Bike Beam
+               </h3>
+               <span
+                 class="ml-auto text-xs px-2 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">Competitive</span>
+             </div>
 
-          <div class="flex flex-col md:flex-row-reverse items-stretch md:min-h-[280px]">
-            <!-- النص -->
-            <div class="order-1 md:order-2 md:w-1/2 p-6 sm:p-8 flex flex-col justify-center">
-              <div class="flex items-center gap-3">
-                <span
-                  class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold">02</span>
-                <h3 class="text-2xl font-extrabold group-hover:text-emerald-400 transition">
-                  Bike Beam
-                </h3>
-                <span
-                  class="ml-auto text-xs px-2 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">Competitive</span>
-              </div>
+             <p class="mt-3 text-white/80 leading-relaxed">
+               A thrilling two–player race of speed and endurance! Each rider powers up their LED beam, climbing higher
+               with every push. The challenge is set over a fixed distance — the first to reach the top wins. With
+               three difficulty levels (Easy – Medium – Hard), it’s designed to match every participant and maximize
+               excitement. Perfect for events, exhibitions, and activations that want strong competition and
+               crowd-engaging fun.
+             </p>
 
-              <p class="mt-3 text-white/80 leading-relaxed">
-                A thrilling two–player race of speed and endurance! Each rider powers up their LED beam, climbing higher
-                with every push. The challenge is set over a fixed distance — the first to reach the top wins. With
-                three difficulty levels (Easy – Medium – Hard), it’s designed to match every participant and maximize
-                excitement. Perfect for events, exhibitions, and activations that want strong competition and
-                crowd-engaging fun.
-              </p>
+             <!-- Quick Options -->
+             <div class="mt-5">
+               <h4 class="text-sm font-semibold text-white/80 mb-2">
+                 Quick Options
+               </h4>
+               <div class="flex flex-wrap gap-3">
+                 <!-- Players -->
+                 <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                   <div class="text-xs text-white/60 mb-1">Bikes</div>
+                   <div class="flex gap-1">
+                     <span class="rounded-md px-2 py-1 text-sm bg-white/10">2</span>
+                   </div>
+                 </div>
+                 <!-- Beam Size -->
+                 <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                   <div class="text-xs text-white/60 mb-1">Beam Size</div>
+                   <div class="flex gap-1">
+                     <span class="rounded-md px-2 py-1 text-sm bg-white/10">Medium</span>
+                     <span class="rounded-md px-2 py-1 text-sm bg-white/10">Large Soon</span>
+                   </div>
+                 </div>
+                 <!-- Difficulty -->
+                 <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                   <div class="text-xs text-white/60 mb-1">Modes</div>
+                   <div class="flex gap-1">
+                     <span class="rounded-md px-2 py-1 text-sm bg-white/10">Easy</span>
+                     <span class="rounded-md px-2 py-1 text-sm bg-white/10">Normal</span>
+                     <span class="rounded-md px-2 py-1 text-sm bg-white/10">Hard</span>
+                   </div>
+                 </div>
+               </div>
+               <p class="mt-2 text-xs text-white/50">
+                 Note: Works in bright venues. Requires 1× power outlet.
+               </p>
+             </div>
 
-              <!-- خيارات سريعة -->
-              <div class="mt-5">
-                <h4 class="text-sm font-semibold text-white/80 mb-2">
-                  Quick Options
-                </h4>
-                <div class="flex flex-wrap gap-3">
-                  <!-- Players -->
-                  <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                    <div class="text-xs text-white/60 mb-1">Bikes</div>
-                    <div class="flex gap-1">
-                      <span class="rounded-md px-2 py-1 text-sm bg-white/10">2</span>
-                    </div>
-                  </div>
-                  <!-- Beam Size -->
-                  <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                    <div class="text-xs text-white/60 mb-1">Beam Size</div>
-                    <div class="flex gap-1">
-                      <span class="rounded-md px-2 py-1 text-sm bg-white/10">Medium</span>
-                      <span class="rounded-md px-2 py-1 text-sm bg-white/10">Large Soon</span>
-                    </div>
-                  </div>
-                  <!-- Difficulty -->
-                  <div class="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                    <div class="text-xs text-white/60 mb-1">Modes</div>
-                    <div class="flex gap-1">
-                      <span class="rounded-md px-2 py-1 text-sm bg-white/10">Easy</span>
-                      <span class="rounded-md px-2 py-1 text-sm bg-white/10">Normal</span>
-                      <span class="rounded-md px-2 py-1 text-sm bg-white/10">Hard</span>
-                    </div>
-                  </div>
-                </div>
-                <p class="mt-2 text-xs text-white/50">
-                  Note: Works in bright venues. Requires 1× power outlet.
-                </p>
-              </div>
+             <!-- Features -->
+             <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-white/80">
+               <li class="flex items-start gap-2">
+                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                 Fast setup, runs with just one power outlet
+               </li>
+               <li class="flex items-start gap-2">
+                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                 Head-to-head competition format
+               </li>
+               <li class="flex items-start gap-2">
+                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                 Custom-branded LED columns & finish line
+               </li>
+               <li class="flex items-start gap-2">
+                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+                 High-impact attraction for events & expos
+               </li>
+             </ul>
 
-              <!-- Features -->
-              <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-white/80">
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
-                  Fast setup, runs with just one power outlet
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
-                  Head-to-head competition format
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
-                  Custom-branded LED columns & finish line
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
-                  High-impact attraction for events & expos
-                </li>
-              </ul>
+             <!-- Desktop button -->
+             <div class="hidden md:flex mt-6 flex-wrap items-center gap-3">
+               <a href="#contact"
+                 class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book
+                 Now</a>
+             </div>
+           </div>
 
-              <!-- زر الديسكتوب فقط -->
-              <div class="hidden md:flex mt-6 flex-wrap items-center gap-3">
-                <a href="#contact"
-                  class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book
-                  Now</a>
-              </div>
-            </div>
+           <!-- Image + Thumbs -->
+           <div class="order-2 md:order-1 md:w-7/12 flex flex-col items-center justify-center p-6 gap-3">
+             <div
+               class="product-frame aspect-video w-full max-w-[680px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg relative">
+               <img id="beamMain" src="./images/products/bikebeam.png?v=3.1" alt="Bike Beam"
+                 class="prod-main w-full h-full object-cover rounded-lg" />
+             </div>
 
-            <!-- الصورة الكبيرة + الثمبز -->
-            <div class="order-2 md:order-1 md:w-7/12 lg:w-3/5 flex flex-col items-center justify-center p-6 gap-3">
-              <div
-                class="product-frame aspect-video w-full max-w-[680px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg relative">
-                <img id="beamMain" src="./images/products/bikebeam.png?v=3.1" alt="Bike Beam"
-                  class="prod-main w-full h-full object-contain rounded-lg" />
-              </div>
+             <!-- Thumbs -->
+             <div id="beamThumbs"
+               class="w-full max-w-[680px] flex items-center justify-center gap-2 overflow-x-auto px-1 mt-4 hide-scrollbar">
+               <a href="images/products/bikebeam.png" data-large="images/products/bikebeam.png"
+                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                 <img src="images/products/bikebeam.png?v=3.1" loading="lazy" decoding="async"
+                   class="h-16 w-24 object-cover" alt="Beam Main" />
+               </a>
+               <a href="images/bikebeam/1.png" data-large="images/bikebeam/1.png"
+                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                 <img src="images/bikebeam/1.png?v=3.1" loading="lazy" decoding="async" class="h-16 w-24 object-cover"
+                   alt="Beam 1" />
+               </a>
 
-              <!-- الثمبز -->
-              <div id="beamThumbs"
-                class="w-full max-w-[680px] flex items-center justify-center gap-2 overflow-x-auto px-1 mt-4 hide-scrollbar">
-                <a href="images/products/bikebeam.png" data-large="images/products/bikebeam.png"
-                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                  <img src="images/products/bikebeam.png?v=3.1" loading="lazy" decoding="async"
-                    class="h-16 w-24 object-cover" alt="Beam Main" />
-                </a>
-                <a href="images/bikebeam/1.png" data-large="images/bikebeam/1.png"
-                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                  <img src="images/bikebeam/1.png?v=3.1" loading="lazy" decoding="async" class="h-16 w-24 object-cover"
-                    alt="Beam 1" />
-                </a>
-              
-              </div>
+             </div>
 
-              <!-- زر الموبايل -->
-              <div class="block md:hidden w-full mt-4">
-                <a href="#contact"
-                  class="mx-auto block w-max text-center rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">
-                  Book Now
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
+             <!-- Mobile button -->
+             <div class="block md:hidden w-full mt-4">
+               <a href="#contact"
+                 class="mx-auto block w-max text-center rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">
+                 Book Now
+               </a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </article>
 
-      <!-- ================== Card 3: Bike Branding (يسار) ================== -->
-      <article data-aos="fade-in" id="BikeBranding"
-        class="anchor-target group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2 w-full md:w-[95%] md:justify-self-start">
-        <div
-          class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur">
-          <div class="absolute left-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"></div>
+     <!-- ================== Card 3: Bike Branding (Left) ================== -->
+     <article data-aos="fade-in" id="BikeBranding"
+       class="anchor-target group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30 transition-transform hover:-translate-y-2 w-full md:w-[95%] md:justify-self-start">
+       <div
+         class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur">
+         <div class="absolute left-0 top-0 h-full w-[6px] bg-gradient-to-b from-emerald-500 to-cyan-400"></div>
 
-          <div class="flex flex-col md:flex-row items-stretch md:min-h-[280px]">
-            <!-- النص -->
-            <div class="order-1 md:order-2 md:w-1/2 p-6 sm:p-8 flex flex-col justify-center">
-              <div class="flex items-center gap-3">
-                <span
-                  class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold">03</span>
-                <h3 class="text-2xl font-extrabold group-hover:text-emerald-400 transition">
-                  Bike Branding
-                </h3>
-                <span
-                  class="ml-auto text-xs px-2 py-1 rounded-full bg-white/10 text-white border border-white/20">Custom</span>
-              </div>
+         <div class="flex flex-col md:flex-row items-stretch md:min-h-[280px]">
+           <!-- Text -->
+           <div class="order-1 md:order-2 md:w-5/12 p-6 sm:p-8 flex flex-col justify-center">
+             <div class="flex items-center gap-3">
+               <span
+                 class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400 font-bold">03</span>
+               <h3 class="text-2xl font-extrabold group-hover:text-emerald-400 transition">
+                 Bike Branding
+               </h3>
+               <span
+                 class="ml-auto text-xs px-2 py-1 rounded-full bg-white/10 text-white border border-white/20">Custom</span>
+             </div>
 
-              <p class="mt-3 text-white/80 leading-relaxed">
-                Turn any Bike Land experience into a complete branding space. From wheels to cups, from roll-ups to
-                backdrops — every detail transforms into your colors and logo. Perfect for companies seeking standout
-                activations that boost brand presence, and ideal for major events to ensure strong and eye-catching
-                visibility.
-              </p>
+             <p class="mt-3 text-white/80 leading-relaxed">
+               Turn any Bike Land experience into a complete branding space. From wheels to cups, from roll-ups to
+               backdrops — every detail transforms into your colors and logo. Perfect for companies seeking standout
+               activations that boost brand presence, and ideal for major events to ensure strong and eye-catching
+               visibility.
+             </p>
 
-              <!-- خيارات سريعة -->
-              <div class="mt-5">
-                <h4 class="text-sm font-semibold text-white/80 mb-2">
-                  Customization
-                </h4>
-                <div class="flex flex-wrap gap-3">
-                  <span class="rounded-md px-2 py-1 text-sm bg-white/10">Custom-printed cups</span>
-                  <span class="rounded-md px-2 py-1 text-sm bg-white/10">Roll-up banners & branded backdrop</span>
-                  <span class="rounded-md px-2 py-1 text-sm bg-white/10">Themed lighting</span>
-                </div>
-                <p class="mt-2 text-xs text-white/50">
-                  Note: Provide vector logo (SVG/AI/PDF). 5–7 days for
-                  fabrication.
-                </p>
-              </div>
+             <!-- Customization -->
+             <div class="mt-5">
+               <h4 class="text-sm font-semibold text-white/80 mb-2">
+                 Customization
+               </h4>
+               <div class="flex flex-wrap gap-3">
+                 <span class="rounded-md px-2 py-1 text-sm bg-white/10">Custom-printed cups</span>
+                 <span class="rounded-md px-2 py-1 text-sm bg-white/10">Roll-up banners & branded backdrop</span>
+                 <span class="rounded-md px-2 py-1 text-sm bg-white/10">Themed lighting</span>
+               </div>
+               <p class="mt-2 text-xs text-white/50">
+                 Note: Provide vector logo (SVG/AI/PDF). 5–7 days for
+                 fabrication.
+               </p>
+             </div>
 
-              <!-- Features -->
-              <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-white/80">
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  Full brand integration on bikes, cups, and event setup
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  Custom signage, roll-ups, and branded backdrops
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  Social-ready photo spot for maximum exposure
-                </li>
-                <li class="flex items-start gap-2">
-                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                  Strong brand presence at major events & exhibitions
-                </li>
-              </ul>
+             <!-- Features -->
+             <ul class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-white/80">
+               <li class="flex items-start gap-2">
+                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                 Full brand integration on bikes, cups, and event setup
+               </li>
+               <li class="flex items-start gap-2">
+                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                 Custom signage, roll-ups, and branded backdrops
+               </li>
+               <li class="flex items-start gap-2">
+                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                 Social-ready photo spot for maximum exposure
+               </li>
+               <li class="flex items-start gap-2">
+                 <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                 Strong brand presence at major events & exhibitions
+               </li>
+             </ul>
 
-              <!-- زر الديسكتوب فقط -->
-              <div class="hidden md:flex mt-6 flex-wrap items-center gap-3">
-                <a href="#contact"
-                  class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book
-                  Now</a>
-              </div>
-            </div>
+             <!-- Desktop button -->
+             <div class="hidden md:flex mt-6 flex-wrap items-center gap-3">
+               <a href="#contact"
+                 class="inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">Book
+                 Now</a>
+             </div>
+           </div>
 
-            <!-- الصورة الكبيرة + الثمبز -->
-            <div class="order-2 md:order-1 md:w-7/12 lg:w-3/5 flex flex-col items-center justify-center p-6 gap-3">
-              <div
-                class="product-frame aspect-video w-full max-w-[680px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg relative">
-                <img id="brandingMain" src="./images/products/bikebranding.png?v=3.1" alt="Bike Branding"
-                  class="prod-main w-full h-full object-contain rounded-lg" />
-              </div>
+           <!-- Image + Thumbs -->
+           <div class="order-2 md:order-1 md:w-7/12 flex flex-col items-center justify-center p-6 gap-3">
+             <div
+               class="product-frame aspect-video w-full max-w-[680px] rounded-xl border border-white/15 bg-white/5 backdrop-blur-sm p-3 shadow-lg relative">
+               <img id="brandingMain" src="./images/products/bikebranding.png?v=3.1" alt="Bike Branding"
+                 class="prod-main w-full h-full object-cover rounded-lg" />
+             </div>
 
-              <!-- الثمبز -->
-              <div id="brandingThumbs"
-                class="w-full max-w-[680px] flex items-center justify-center gap-2 overflow-x-auto px-1 mt-4 hide-scrollbar">
-                <a href="images/products/bikebranding.png" data-large="images/products/bikebranding.png"
-                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                  <img src="images/products/bikebranding.png?v=3.1" loading="lazy" decoding="async"
-                    class="h-16 w-24 object-cover" alt="Branding Main" />
-                </a>
-                <a href="images/bikebranding/1.png" data-large="images/bikebranding/1.png"
-                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                  <img src="images/bikebranding/1.png?v=3.1" loading="lazy" decoding="async"
-                    class="h-16 w-24 object-cover" alt="bikebranding 1" />
-                </a>
-                <a href="images/bikebranding/2.png" data-large="images/bikebranding/2.png"
-                  class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
-                  <img src="images/bikebranding/2.png?v=3.1" loading="lazy" decoding="async"
-                    class="h-16 w-24 object-cover" alt="bikebranding 2" />
-                </a>
+             <!-- Thumbs -->
+             <div id="brandingThumbs"
+               class="w-full max-w-[680px] flex items-center justify-center gap-2 overflow-x-auto px-1 mt-4 hide-scrollbar">
+               <a href="images/products/bikebranding.png" data-large="images/products/bikebranding.png"
+                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                 <img src="images/products/bikebranding.png?v=3.1" loading="lazy" decoding="async"
+                   class="h-16 w-24 object-cover" alt="Branding Main" />
+               </a>
+               <a href="images/bikebranding/1.png" data-large="images/bikebranding/1.png"
+                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                 <img src="images/bikebranding/1.png?v=3.1" loading="lazy" decoding="async"
+                   class="h-16 w-24 object-cover" alt="bikebranding 1" />
+               </a>
+               <a href="images/bikebranding/2.png" data-large="images/bikebranding/2.png"
+                 class="thumb block rounded-md border border-white/10 overflow-hidden shrink-0">
+                 <img src="images/bikebranding/2.png?v=3.1" loading="lazy" decoding="async"
+                   class="h-16 w-24 object-cover" alt="bikebranding 2" />
+               </a>
 
-              </div>
+             </div>
 
-              <!-- زر الموبايل -->
-              <div class="block md:hidden w-full mt-4">
-                <a href="#contact"
-                  class="mx-auto block w-max text-center rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">
-                  Book Now
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
+             <!-- Mobile button -->
+             <div class="block md:hidden w-full mt-4">
+               <a href="#contact"
+                 class="mx-auto block w-max text-center rounded-md px-5 py-2.5 font-semibold bg-emerald-500/90 text-neutral-900 ring-1 ring-emerald-500/30 hover:bg-gradient-to-r hover:from-emerald-400 hover:to-cyan-400 transition-all">
+                 Book Now
+               </a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </article>
+   </div>
+ </section>
 
-  <style>
-    .hide-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
+ <style>
+   .hide-scrollbar {
+     -ms-overflow-style: none;
+     scrollbar-width: none;
+   }
 
-    .hide-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
+   .hide-scrollbar::-webkit-scrollbar {
+     display: none;
+   }
 
-    /* إطار الصورة يسمح بتكديس صور الكروس-فيد */
-    .product-frame {
-      position: relative;
-      border-radius: 0.75rem;
-      /* = rounded-xl */
-      overflow: hidden;
-      /* مهم */
-      /* يقلل وميض الحواف على بعض المتصفحات */
-      isolation: isolate;
-    }
+   /* Image frame allows stacking of cross-fade images */
+   .product-frame {
+     position: relative;
+     border-radius: 0.75rem;
+     /* = rounded-xl */
+     overflow: hidden;
+     /* Important */
+     /* Reduces edge flicker on some browsers */
+     isolation: isolate;
+   }
 
-    /* صورة العرض الرئيسية + الكروس-فيد */
-    .product-frame img {
-      display: block;
-    }
+   /* Main display image + cross-fade */
+   .product-frame img {
+     display: block;
+   }
 
-    /* الصور أثناء الكروس-فيد */
-    .prod-main,
-    .xfade-img {
-      border-radius: inherit;
-      /* توريث تقويس الإطار */
-      transition: opacity .26s ease;
-      opacity: 1;
-      will-change: opacity;
-      backface-visibility: hidden;
-      /* تقليل aliasing */
-      transform: translateZ(0);
-      /* إجبار طبقة GPU */
-    }
+   /* Images during cross-fade */
+   .prod-main,
+   .xfade-img {
+     border-radius: inherit;
+     /* Inherit frame's border-radius */
+     transition: opacity .26s ease;
+     opacity: 1;
+     will-change: opacity;
+     backface-visibility: hidden;
+     /* Reduce aliasing */
+     transform: translateZ(0);
+     /* Force GPU layer */
+   }
 
-    .xfade-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      pointer-events: none;
-    }
+   .xfade-img {
+     position: absolute;
+     inset: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover; /* MODIFIED: Ensures the cross-fade image also covers the area */
+     pointer-events: none;
+   }
 
-    .is-fading-out {
-      opacity: 0;
-    }
+   .is-fading-out {
+     opacity: 0;
+   }
 
-    /* تمييز الثمبنيل النشط */
-    #blenderThumbs .thumb,
-    #beamThumbs .thumb,
-    #brandingThumbs .thumb {
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    }
+   /* Highlight active thumbnail */
+   #blenderThumbs .thumb,
+   #beamThumbs .thumb,
+   #brandingThumbs .thumb {
+     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+   }
 
-    #blenderThumbs .thumb.is-active,
-    #beamThumbs .thumb.is-active,
-    #brandingThumbs .thumb.is-active {
-      box-shadow: 0 0 0 2px rgba(16, 185, 129, .5), 0 10px 20px rgba(0, 0, 0, .35);
-      border-color: rgba(16, 185, 129, .45);
-      transform: translateY(-2px);
-    }
+   #blenderThumbs .thumb.is-active,
+   #beamThumbs .thumb.is-active,
+   #brandingThumbs .thumb.is-active {
+     box-shadow: 0 0 0 2px rgba(16, 185, 129, .5), 0 10px 20px rgba(0, 0, 0, .35);
+     border-color: rgba(16, 185, 129, .45);
+     transform: translateY(-2px);
+   }
 
-    #blenderThumbs .thumb:hover,
-    #beamThumbs .thumb:hover,
-    #brandingThumbs .thumb:hover {
-      transform: translateY(-1px);
-    }
-  </style>
+   #blenderThumbs .thumb:hover,
+   #beamThumbs .thumb:hover,
+   #brandingThumbs .thumb:hover {
+     transform: translateY(-1px);
+   }
+ </style>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      /**
-       * Crossfade ناعم:
-       * - ينسخ الصورة الحالية كطبقة أعلى (xfade-img)
-       * - يغيّر src للصورة الأساسية
-       * - عند load: يخفّي الطبقة العليا ويزيلها
-       */
-      function crossfadeSwap(mainImg, newURL) {
-        if (!mainImg || !newURL) return;
-        if (mainImg.getAttribute("src") === newURL) return;
+ <script>
+   document.addEventListener("DOMContentLoaded", () => {
+     /**
+      * Smooth Crossfade:
+      * - Clones the current image as a top layer (xfade-img)
+      * - Changes the src of the base image
+      * - On load: fades out the top layer and removes it
+      */
+     function crossfadeSwap(mainImg, newURL) {
+       if (!mainImg || !newURL) return;
+       if (mainImg.getAttribute("src") === newURL) return;
 
-        const frame = mainImg.closest(".product-frame");
-        if (!frame) { mainImg.src = newURL; return; }
+       const frame = mainImg.closest(".product-frame");
+       if (!frame) { mainImg.src = newURL; return; }
 
-        // أنشئ طبقة كروس-فيد من الصورة الحالية
-        const overlay = document.createElement("img");
-        overlay.className = "xfade-img";
-        overlay.alt = "";
-        overlay.src = mainImg.currentSrc || mainImg.src;
+       // Create a cross-fade layer from the current image
+       const overlay = document.createElement("img");
+       overlay.className = "xfade-img";
+       overlay.alt = "";
+       overlay.src = mainImg.currentSrc || mainImg.src;
+       
+       // Inherit border-radius from the frame (double safety)
+       const r = getComputedStyle(frame).borderRadius;
+       overlay.style.borderRadius = r;
+       mainImg.style.borderRadius = r;
 
-        // 👇 توريث نصف القطر من الإطار لحظيًا (double safety)
-        const r = getComputedStyle(frame).borderRadius;
-        overlay.style.borderRadius = r;
-        mainImg.style.borderRadius = r;
+       // Place it above the base image
+       frame.appendChild(overlay);
 
-        // ضعها فوق الأساسية
-        frame.appendChild(overlay);
+       // Prepare the new image for fade-in
+       mainImg.style.opacity = "0";
+       const onLoad = () => {
+         mainImg.style.opacity = "1";
+         overlay.classList.add("is-fading-out");
+         overlay.addEventListener("transitionend", () => overlay.remove(), { once: true });
+         mainImg.removeEventListener("load", onLoad);
+       };
+       mainImg.addEventListener("load", onLoad, { once: true });
 
-        // حضّر الفيد-إن للصورة الجديدة
-        mainImg.style.opacity = "0";
-        const onLoad = () => {
-          mainImg.style.opacity = "1";
-          overlay.classList.add("is-fading-out");
-          overlay.addEventListener("transitionend", () => overlay.remove(), { once: true });
-          mainImg.removeEventListener("load", onLoad);
-        };
-        mainImg.addEventListener("load", onLoad, { once: true });
-
-        // بدّل المصدر (سيطلق onload)
-        mainImg.src = newURL;
-      }
+       // Swap the source (this will trigger the onload event)
+       mainImg.src = newURL;
+     }
 
 
-      function initSwitcher(mainSel, thumbsSel) {
-        const main = document.querySelector(mainSel);
-        const holder = document.querySelector(thumbsSel);
-        if (!main || !holder) return;
-        const thumbs = holder.querySelectorAll("a.thumb");
-        if (!thumbs.length) return;
+     function initSwitcher(mainSel, thumbsSel) {
+       const main = document.querySelector(mainSel);
+       const holder = document.querySelector(thumbsSel);
+       if (!main || !holder) return;
+       const thumbs = holder.querySelectorAll("a.thumb");
+       if (!thumbs.length) return;
 
-        const activate = (a) => {
-          thumbs.forEach((t) => {
-            t.classList.remove("is-active");
-            t.setAttribute("aria-selected", "false");
-          });
-          a.classList.add("is-active");
-          a.setAttribute("aria-selected", "true");
-        };
+       const activate = (a) => {
+         thumbs.forEach((t) => {
+           t.classList.remove("is-active");
+           t.setAttribute("aria-selected", "false");
+         });
+         a.classList.add("is-active");
+         a.setAttribute("aria-selected", "true");
+       };
 
-        holder.addEventListener("click", (e) => {
-          const a = e.target.closest("a.thumb");
-          if (!a) return;
-          e.preventDefault();
-          const big = a.getAttribute("data-large") || a.getAttribute("href");
-          crossfadeSwap(main, big);
-          activate(a);
-        });
+       holder.addEventListener("click", (e) => {
+         const a = e.target.closest("a.thumb");
+         if (!a) return;
+         e.preventDefault();
+         const big = a.getAttribute("data-large") || a.getAttribute("href");
+         crossfadeSwap(main, big);
+         activate(a);
+       });
 
-        // فعّل أول ثُمبنيل افتراضيًا
-        activate(thumbs[0]);
-      }
+       // Activate the first thumbnail by default
+        if (thumbs[0]) {
+            activate(thumbs[0]);
+        }
+     }
 
-      // فعّل للثلاث كروت
-      initSwitcher("#blenderMain", "#blenderThumbs");
-      initSwitcher("#beamMain", "#beamThumbs");
-      initSwitcher("#brandingMain", "#brandingThumbs");
-    });
+     // Initialize all three cards
+     initSwitcher("#blenderMain", "#blenderThumbs");
+     initSwitcher("#beamMain", "#beamThumbs");
+     initSwitcher("#brandingMain", "#brandingThumbs");
+   });
+
+ </script>
 
 
-    // ورّث نفس نصف القطر من الصورة أو الإطار (double safety)
-    overlay.style.borderRadius = getComputedStyle(mainImg).borderRadius ||
-      getComputedStyle(mainImg.closest(".product-frame")).borderRadius;
-
-  </script>
 
 
 
@@ -1546,157 +1543,244 @@
 
 
 
-<section id="customers" class="reveal bl-section container mx-auto px-4">
-  <div class="text-center max-w-2xl mx-auto mb-8">
-    <h2 class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight">
-      Our Customers
-      <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
-    </h2>
-  </div>
+  <section id="customers" class="reveal bl-section container mx-auto px-4">
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <h2 class="relative inline-block text-3xl sm:text-4xl font-extrabold tracking-tight">
+        Our Customers
+        <span
+          class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[3px] w-[80%] rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
+      </h2>
+    </div>
 
-  <div class="mx-auto w-full max-w-screen-2xl">
-    <article class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30">
-      <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur p-6 sm:p-8">
+    <div class="mx-auto w-full max-w-screen-2xl">
+      <article
+        class="group relative rounded-2xl p-[1px] bg-gradient-to-br from-emerald-400/30 via-white/10 to-cyan-400/30">
+        <div
+          class="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-neutral-800/80 to-neutral-900/80 backdrop-blur p-6 sm:p-8">
 
-        <!-- GRID -->
-        <div id="customersStack" class="stack-grid"></div>
+          <!-- GRID -->
+          <div id="customersStack" class="stack-grid"></div>
 
-        <!-- Bottom decorations -->
-        <div class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[6px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 z-20 pointer-events-none"></div>
-        <div class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[16px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 blur-md opacity-25 z-10 pointer-events-none"></div>
-      </div>
-    </article>
-  </div>
-</section>
+          <!-- Bottom decorations -->
+          <div
+            class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[6px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 z-20 pointer-events-none">
+          </div>
+          <div
+            class="absolute bottom-0 inset-x-6 sm:inset-x-8 h-[16px] rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400 blur-md opacity-25 z-10 pointer-events-none">
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 
-<style>
-  /* ===================== GRID ===================== */
-  #customers .stack-grid{
-    display:grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* موبايل: 3 أعمدة */
-    gap:.5rem;
-  }
-  @media (min-width:768px){
-    #customers .stack-grid{
-      grid-template-columns: repeat(5, minmax(0, 1fr)); /* md+: 5 أعمدة */
-      gap:1.5rem;
+  <style>
+    /* ===================== GRID ===================== */
+    #customers .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      /* موبايل: 3 أعمدة */
+      gap: .5rem;
     }
-  }
 
-  /* ===================== CARD ===================== */
-  #customers .stack-card{
-    --avatar:64px;
-    display:flex; flex-direction:column;
-    border-radius:16px;
-    border:1px solid rgba(255,255,255,.10);
-    background:linear-gradient(90deg, rgba(23,23,23,.88), rgba(15,15,15,.88));
-    backdrop-filter:blur(6px);
-    padding:16px; min-width:0; contain:content;
+    @media (min-width:768px) {
+      #customers .stack-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        /* md+: 5 أعمدة */
+        gap: 1.5rem;
+      }
+    }
 
-    /* حالة البداية للأنيميشن */
-    opacity:0; transform: translateY(14px);
-    will-change: transform, opacity;
+    /* ===================== CARD ===================== */
+    #customers .stack-card {
+      --avatar: 64px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, .10);
+      background: linear-gradient(90deg, rgba(23, 23, 23, .88), rgba(15, 15, 15, .88));
+      backdrop-filter: blur(6px);
+      padding: 16px;
+      min-width: 0;
+      contain: content;
 
-    /* تأثيرات عامة */
-    box-shadow:0 4px 12px rgba(0,0,0,.4), 0 0 10px rgba(0,0,0,.2) inset;
+      /* حالة البداية للأنيميشن */
+      opacity: 0;
+      transform: translateY(14px);
+      will-change: transform, opacity;
 
-    /* انتقالات الدخول */
-    transition: transform .6s cubic-bezier(.2,.9,.2,1),
-                opacity .6s cubic-bezier(.2,.9,.2,1);
-  }
-  #customers .stack-card:hover{
-    transform: translateY(-4px) scale(1.025);
-    box-shadow:0 14px 32px rgba(0,0,0,.55), 0 0 24px rgba(34,211,238,.35), 0 0 14px rgba(52,211,153,.35);
-    border-color:rgba(255,255,255,.18);
-  }
-  #customers .stack-card.in{
-    opacity:1; transform:none;
-  }
+      /* تأثيرات عامة */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .4), 0 0 10px rgba(0, 0, 0, .2) inset;
 
-  /* ===================== HEADER ===================== */
-  #customers .stack-row{
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:.8rem; min-height:auto; text-align:center;
-  }
-  #customers .stack-logo{
-    height:var(--avatar); width:var(--avatar);
-    border-radius:9999px; padding:3px;
-    background:linear-gradient(145deg, rgba(34,211,238,.7), rgba(52,211,153,.7));
-    box-shadow:0 4px 12px rgba(0,0,0,.35), 0 0 18px rgba(34,211,238,.35);
-    will-change:transform, filter;
-  }
-  #customers .stack-logo .inner{
-    height:calc(var(--avatar) - 8px);
-    width:calc(var(--avatar) - 8px);
-    border-radius:inherit; background:rgba(255,255,255,.94);
-    display:flex; align-items:center; justify-content:center; overflow:hidden;
-    position:relative;
-  }
-  #customers .stack-logo img{
-    max-width:86%; max-height:86%;
-    object-fit:contain; display:block; transition:transform .25s ease;
-  }
-  #customers .stack-card:hover .stack-logo img{ transform:scale(1.1); }
+      /* انتقالات الدخول */
+      transition: transform .6s cubic-bezier(.2, .9, .2, 1),
+        opacity .6s cubic-bezier(.2, .9, .2, 1);
+    }
 
-  /* ===================== TITLE ===================== */
-  #customers .stack-info{
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    min-height:auto; margin-top:.8rem;
-  }
-  #customers .stack-title{
-    margin:0; color:#fff; letter-spacing:.2px; font-weight:800;
-    font-size:.9rem; line-height:1.15; text-align:center;
-    overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;
-    word-break:break-word;
-  }
-  @media (min-width:640px){
-    #customers .stack-title{ font-size:1rem; }
-  }
+    #customers .stack-card:hover {
+      transform: translateY(-4px) scale(1.025);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, .55), 0 0 24px rgba(34, 211, 238, .35), 0 0 14px rgba(52, 211, 153, .35);
+      border-color: rgba(255, 255, 255, .18);
+    }
 
-  /* ===== Logo effects ===== */
-  @keyframes bl-pulse{ 0%{ box-shadow:0 0 0 0 rgba(34,211,238,.30);} 100%{ box-shadow:0 0 0 16px rgba(34,211,238,0);} }
-  #customers .stack-card:hover .stack-logo{ animation:bl-pulse 1.6s ease-out 1; }
-  #customers .stack-logo .inner::after{
-    content:""; position:absolute; inset:0; border-radius:inherit;
-    background:linear-gradient(120deg, transparent 35%, rgba(255,255,255,.22) 50%, transparent 65%);
-    transform:translateX(-160%); pointer-events:none;
-  }
-  @keyframes bl-shine{ to{ transform:translateX(160%);} }
-  #customers .stack-card:hover .stack-logo .inner::after{ animation:bl-shine 1s linear both; }
+    #customers .stack-card.in {
+      opacity: 1;
+      transform: none;
+    }
 
-  /* ===== Reveal للسيكشن ===== */
-  .reveal{
-    opacity:0; transform: translateY(18px);
-    transition: opacity .6s cubic-bezier(.2,.9,.2,1),
-                transform .6s cubic-bezier(.2,.9,.2,1);
-    will-change: opacity, transform;
-  }
-  .reveal.in{ opacity:1; transform:none; }
+    /* ===================== HEADER ===================== */
+    #customers .stack-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .8rem;
+      min-height: auto;
+      text-align: center;
+    }
 
-  /* ===== Respect reduced motion ===== */
-  @media (prefers-reduced-motion: reduce){
-    .reveal, #customers .stack-card{ transition:none !important; animation:none !important; }
-  }
-</style>
+    #customers .stack-logo {
+      height: var(--avatar);
+      width: var(--avatar);
+      border-radius: 9999px;
+      padding: 3px;
+      background: linear-gradient(145deg, rgba(34, 211, 238, .7), rgba(52, 211, 153, .7));
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .35), 0 0 18px rgba(34, 211, 238, .35);
+      will-change: transform, filter;
+    }
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  /* 0) Customer data */
-  const FOLDERS = [
-    "AMAZON","AstraZeneca","ZAIN","Arab Bank","Rotana Hotel","Delmonte","PROTEINAK",
-    "PSUT","JU","Abdali Hospital","Umniah","Saray aqaba","RIA","SNA","TAJ MALL",
-    "Basketball","MR.BURRITOS","Birthdays","TRAX","Amman Academy",
-  ];
-  const CUSTOMERS = FOLDERS.map(folder => ({
-    name: folder.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase()),
-    slug: folder
-  }));
-  const stack = document.getElementById("customersStack");
-  const section = document.getElementById("customers");
-  const CACHE_BUST = 2;
+    #customers .stack-logo .inner {
+      height: calc(var(--avatar) - 8px);
+      width: calc(var(--avatar) - 8px);
+      border-radius: inherit;
+      background: rgba(255, 255, 255, .94);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
 
-  /* 1) Build cards */
-  stack.innerHTML = CUSTOMERS.map(c => `
+    #customers .stack-logo img {
+      max-width: 86%;
+      max-height: 86%;
+      object-fit: contain;
+      display: block;
+      transition: transform .25s ease;
+    }
+
+    #customers .stack-card:hover .stack-logo img {
+      transform: scale(1.1);
+    }
+
+    /* ===================== TITLE ===================== */
+    #customers .stack-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: auto;
+      margin-top: .8rem;
+    }
+
+    #customers .stack-title {
+      margin: 0;
+      color: #fff;
+      letter-spacing: .2px;
+      font-weight: 800;
+      font-size: .9rem;
+      line-height: 1.15;
+      text-align: center;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      word-break: break-word;
+    }
+
+    @media (min-width:640px) {
+      #customers .stack-title {
+        font-size: 1rem;
+      }
+    }
+
+    /* ===== Logo effects ===== */
+    @keyframes bl-pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(34, 211, 238, .30);
+      }
+
+      100% {
+        box-shadow: 0 0 0 16px rgba(34, 211, 238, 0);
+      }
+    }
+
+    #customers .stack-card:hover .stack-logo {
+      animation: bl-pulse 1.6s ease-out 1;
+    }
+
+    #customers .stack-logo .inner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(120deg, transparent 35%, rgba(255, 255, 255, .22) 50%, transparent 65%);
+      transform: translateX(-160%);
+      pointer-events: none;
+    }
+
+    @keyframes bl-shine {
+      to {
+        transform: translateX(160%);
+      }
+    }
+
+    #customers .stack-card:hover .stack-logo .inner::after {
+      animation: bl-shine 1s linear both;
+    }
+
+    /* ===== Reveal للسيكشن ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .6s cubic-bezier(.2, .9, .2, 1),
+        transform .6s cubic-bezier(.2, .9, .2, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ===== Respect reduced motion ===== */
+    @media (prefers-reduced-motion: reduce) {
+
+      .reveal,
+      #customers .stack-card {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      /* 0) Customer data */
+      const FOLDERS = [
+        "AMAZON", "AstraZeneca", "ZAIN", "Arab Bank", "Rotana Hotel", "Delmonte", "PROTEINAK",
+        "PSUT", "JU", "Abdali Hospital", "Umniah", "Saray aqaba", "RIA", "SNA", "TAJ MALL",
+        "Basketball", "MR.BURRITOS", "Birthdays", "TRAX", "Amman Academy",
+      ];
+      const CUSTOMERS = FOLDERS.map(folder => ({
+        name: folder.replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase()),
+        slug: folder
+      }));
+      const stack = document.getElementById("customersStack");
+      const section = document.getElementById("customers");
+      const CACHE_BUST = 2;
+
+      /* 1) Build cards */
+      stack.innerHTML = CUSTOMERS.map(c => `
     <div class="stack-card" data-company="${c.slug}">
       <div class="stack-row">
         <div class="stack-logo">
@@ -1713,47 +1797,47 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `).join("");
 
-  /* 2) سيكشن fade-in */
-  if (section){
-    const sectionIO = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('in');
-        sectionIO.unobserve(e.target);
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
-    sectionIO.observe(section);
-  }
+      /* 2) سيكشن fade-in */
+      if (section) {
+        const sectionIO = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            e.target.classList.add('in');
+            sectionIO.unobserve(e.target);
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+        sectionIO.observe(section);
+      }
 
-  /* 3) كروت: ظهور كرت كرت (queue) */
-  const queue = [];
-  let playing = false;
+      /* 3) كروت: ظهور كرت كرت (queue) */
+      const queue = [];
+      let playing = false;
 
-  function playQueue(){
-    if (playing) return;
-    playing = true;
-    (function step(){
-      const el = queue.shift();
-      if (!el){ playing = false; return; }
-      el.classList.add('in');
-      setTimeout(step, 80); // كل 80ms كرت جديد
-    })();
-  }
+      function playQueue() {
+        if (playing) return;
+        playing = true;
+        (function step() {
+          const el = queue.shift();
+          if (!el) { playing = false; return; }
+          el.classList.add('in');
+          setTimeout(step, 80); // كل 80ms كرت جديد
+        })();
+      }
 
-  const cardIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      // ادخِل الكرت في الطابور ثم أوقف مراقبته
-      queue.push(e.target);
-      cardIO.unobserve(e.target);
+      const cardIO = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          // ادخِل الكرت في الطابور ثم أوقف مراقبته
+          queue.push(e.target);
+          cardIO.unobserve(e.target);
+        });
+        // شغّل الطابور
+        if (queue.length) playQueue();
+      }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' });
+
+      document.querySelectorAll('#customers .stack-card').forEach(card => cardIO.observe(card));
     });
-    // شغّل الطابور
-    if (queue.length) playQueue();
-  }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' });
-
-  document.querySelectorAll('#customers .stack-card').forEach(card => cardIO.observe(card));
-});
-</script>
+  </script>
 
 
 
@@ -2873,11 +2957,11 @@ document.addEventListener("DOMContentLoaded", () => {
   <footer id="site-footer" class="border-t border-white/10" data-aos="fade-up">
     <div class="container mx-auto px-4 py-10">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-       <p class="text-white/60 text-sm">
-  © 2023 Bike Land
-  <span class="mx-2">·</span>
-  <a href="/what-is-bike-land.html" class="hover:text-white">What is Bike Land?</a>
-</p>
+        <p class="text-white/60 text-sm">
+          © 2023 Bike Land
+          <span class="mx-2">·</span>
+          <a href="/what-is-bike-land.html" class="hover:text-white">What is Bike Land?</a>
+        </p>
 
 
         <a href="mailto:bikeblender@hotmail.com" class="text-emerald-400 hover:text-emerald-300 font-semibold">
