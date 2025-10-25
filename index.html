@@ -5,25 +5,30 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <!-- ============= BEGIN: SEO & Social ============= -->
   <title>Bike Land | Interactive Bike Shows & Bike Blender in Jordan</title>
   <link rel="canonical" href="https://bike-jo.com/" />
   <meta name="robots" content="index, follow" />
   <meta name="description"
-    content="Bike Land turns cycling into a show—bike blender smoothies, interactive bike-based games, and racing activations across Jordan. Book us for malls, schools, and events." />
+        content="Bike Land turns cycling into a show—bike blender smoothies, interactive bike-based games, and racing activations across Jordan. Book us for malls, schools, and events." />
+  <!-- Keywords -->
+  <meta name="keywords" content="Bike Land, Bike Beam, Bike Blender, bike blend, interactive cycling shows, racing activations, events in Jordan, Amman" />
+
+  <!-- Site Name (system & iOS) -->
+  <meta name="application-name" content="Bike Land" />
+  <meta name="apple-mobile-web-app-title" content="Bike Land" />
 
   <!-- Favicons -->
-  <link rel="icon" href="/images/favicon/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-  <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png">
-  <link rel="manifest" href="/images/favicon/site.webmanifest">
+  <link rel="icon" href="/images/favicon/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/images/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/images/favicon/site.webmanifest" />
   <meta name="theme-color" content="#0ea5a4" />
-  <!-- CSS -->
 
-
+  <!-- CSS (libs) -->
   <link rel="stylesheet" href="./src/libs/swiper/swiper-bundle.min.css" />
   <script src="./src/libs/swiper/swiper-bundle.min.js"></script>
 
@@ -34,107 +39,99 @@
   <meta property="og:url" content="https://bike-jo.com/" />
   <meta property="og:title" content="Bike Land — Interactive Cycling Shows & Events in Jordan" />
   <meta property="og:description"
-    content="From bike blender smoothies to racing challenges—unique cycling activations for events across Jordan." />
+        content="From bike blender smoothies to racing challenges—unique cycling activations for events across Jordan." />
   <meta property="og:image" content="https://bike-jo.com/images/2.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Bike Land interactive cycling shows and Bike Blender in Jordan" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:domain" content="bike-jo.com" />
   <meta name="twitter:title" content="Bike Land — Interactive Cycling Shows & Events in Jordan" />
   <meta name="twitter:description"
-    content="Bike Land brings bike blender smoothies and cycling games to events across Jordan." />
+        content="Bike Land brings bike blender smoothies and cycling games to events across Jordan." />
   <meta name="twitter:image" content="https://bike-jo.com/images/2.png" />
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://bike-jo.com/#org",
-      "name": "Bike Land",
-      "alternateName": ["Bike Land JO", "Bike Land Jordan"],
-      "url": "https://bike-jo.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://bike-jo.com/images/favicon/android-chrome-512x512.png",
-        "width": 512,
-        "height": 512
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://bike-jo.com/#org",
+        "name": "Bike Land",
+        "alternateName": ["Bike Land JO", "Bike Land Jordan"],
+        "url": "https://bike-jo.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bike-jo.com/images/favicon/android-chrome-512x512.png",
+          "width": 512,
+          "height": 512
+        },
+        "image": "https://bike-jo.com/images/2.png",
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "telephone": "+962788611234",
+          "areaServed": "JO",
+          "availableLanguage": ["en","ar"]
+        }],
+        "sameAs": [
+          "https://www.instagram.com/bike_blender/",
+          "https://www.facebook.com/people/BikeBlender/100083147321182/"
+        ],
+        "provides": {
+          "@type": "Service",
+          "@id": "https://bike-jo.com/#bikeblender-service"
+        }
       },
-      "image": "https://bike-jo.com/images/2.png",
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "telephone": "+962788611234",
-        "areaServed": "JO",
-        "availableLanguage": ["en","ar"]
-      }],
-      "sameAs": [
-        "https://www.instagram.com/bike_blender/",
-        "https://www.facebook.com/people/BikeBlender/100083147321182/"
-      ],
-      "provides": {
-         "@type": "Service",
-         "@id": "https://bike-jo.com/#bikeblender-service"
+      {
+        "@type": "WebSite",
+        "@id": "https://bike-jo.com/#website",
+        "name": "Bike Land",
+        "alternateName": ["Bike Land JO", "Bike Land Jordan"],
+        "url": "https://bike-jo.com/",
+        "publisher": { "@id": "https://bike-jo.com/#org" },
+        "inLanguage": "en",
+        "keywords": "Bike Land, Bike Beam, Bike Blender, bike blend, interactive events, cycling entertainment, event services, Jordan, Amman, فعاليات الأردن"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://bike-jo.com/#bikeblender-service",
+        "name": "Bike Blender Event Service",
+        "description": "An interactive and healthy entertainment service where participants make their own fresh smoothies by pedaling on a stationary bike.",
+        "provider": { "@id": "https://bike-jo.com/#org" },
+        "areaServed": { "@type": "Country", "name": "Jordan" },
+        "serviceType": "Event Entertainment",
+        "keywords": "Bike Blender, smoothie bike, event entertainment, corporate wellness, healthy activities, team building, Jordan"
       }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://bike-jo.com/#website",
-      "name": "Bike Land",
-      "url": "https://bike-jo.com/",
-      "publisher": { "@id": "https://bike-jo.com/#org" },
-      "inLanguage": "en",
-      "keywords": "Bike Land, Bike Blender, interactive events, cycling entertainment, event services, Jordan, Amman, فعاليات الأردن"
-    },
-    {
-      "@type": "Service",
-      "@id": "https://bike-jo.com/#bikeblender-service",
-      "name": "Bike Blender Event Service",
-      "description": "An interactive and healthy entertainment service where participants make their own fresh smoothies by pedaling on a stationary bike.",
-      "provider": {
-        "@id": "https://bike-jo.com/#org"
-      },
-      "areaServed": {
-        "@type": "Country",
-        "name": "Jordan"
-      },
-      "serviceType": "Event Entertainment",
-      "keywords": "Bike Blender, smoothie bike, event entertainment, corporate wellness, healthy activities, team building, Jordan"
-    }
-  ]
-}
-
-
-
-
+    ]
+  }
   </script>
   <!-- ============== END: SEO & Social ============== -->
 
   <!-- Preload Hero Banner -->
   <link rel="preload" as="image" href="/images/banner-bg.png" fetchpriority="high" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
   <!-- CSS & Fonts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/about.css?v=3.1">
-  <link rel="stylesheet" href="/css/contact.css?v=3.1.0">
-  <link href="/dist/output.css?v=3.1" rel="stylesheet">
+  <link rel="stylesheet" href="/css/about.css?v=3.1" />
+  <link rel="stylesheet" href="/css/contact.css?v=3.1.0" />
+  <link href="/dist/output.css?v=3.1" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Scripts -->
   <script defer src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script defer src="https://unpkg.com/embla-carousel@8.0.0/embla-carousel.umd.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer
-    onload="emailjs.init('_ecATDJabzum4O0qM')"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer onload="emailjs.init('_ecATDJabzum4O0qM')"></script>
 </head>
+
 
 <!-- =================== body =================== -->
 
